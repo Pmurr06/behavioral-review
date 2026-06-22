@@ -11,8 +11,15 @@
     <nav class="navbar">
         <div class="container navbar-content">
             <div class="logo">
-                <h1>The Behavioral Review</h1>
-                <p class="tagline">Editor-Reviewed Undergraduate Publication</p>
+                <svg class="logo-icon" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M 40 60 Q 40 45 55 45 Q 70 45 70 60 L 70 110 Q 70 125 55 125 Q 40 125 40 110 Z" fill="#0F2438" />
+                    <rect x="55" y="120" width="7" height="10" fill="#0F2438" />
+                    <text x="85" y="95" font-family="Georgia, serif" font-size="32" font-weight="bold" fill="#000000">TBR</text>
+                </svg>
+                <div class="logo-text">
+                    <h1>The Behavioral Review</h1>
+                    <p class="tagline">Editor-Reviewed Undergraduate Publication</p>
+                </div>
             </div>
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
@@ -148,36 +155,42 @@
                 <div class="process-box">
                     <div class="process-item">
                         <div class="process-num">1</div>
-                        <h4>Managing Editor Receives Submission</h4>
+                        <h4>Submission Received by Managing Editor</h4>
                         <p>Your manuscript is received, logged, and reviewed for completeness and scope fit.</p>
                     </div>
 
                     <div class="process-item">
                         <div class="process-num">2</div>
-                        <h4>Anonymization</h4>
-                        <p>The Managing Editor removes all author identifying information for blind peer review.</p>
+                        <h4>Manuscript Logged and Anonymized</h4>
+                        <p>The Managing Editor logs your submission and removes all author identifying information for blind peer review.</p>
                     </div>
 
                     <div class="process-item">
                         <div class="process-num">3</div>
                         <h4>Section Editor Review</h4>
-                        <p>The anonymized paper is sent to the appropriate Section Editor (Criminology, Behavioral Analysis, etc.) who provides detailed editorial feedback and recommendations.</p>
+                        <p>The anonymized paper is sent to the appropriate Section Editor who provides detailed editorial feedback.</p>
                     </div>
 
                     <div class="process-item">
                         <div class="process-num">4</div>
-                        <h4>Copy & Layout Review</h4>
-                        <p>Our Copy & Layout Editor reviews formatting, grammar, clarity, and citation consistency to ensure professional standards.</p>
+                        <h4>Editorial Feedback and Revision</h4>
+                        <p>You receive feedback and have the opportunity to revise and resubmit your manuscript.</p>
                     </div>
 
                     <div class="process-item">
                         <div class="process-num">5</div>
+                        <h4>Copy & Layout Editor Review</h4>
+                        <p>Our Copy & Layout Editor reviews formatting, grammar, clarity, citation consistency, AI-assisted content screening, and publication readiness.</p>
+                    </div>
+
+                    <div class="process-item">
+                        <div class="process-num">6</div>
                         <h4>Managing Editor Final Approval</h4>
                         <p>The Managing Editor makes the final approval decision and determines publication readiness.</p>
                     </div>
 
                     <div class="process-item">
-                        <div class="process-num">6</div>
+                        <div class="process-num">7</div>
                         <h4>Publication</h4>
                         <p>Your article is published online, added to our archive, and featured in Recent Articles.</p>
                     </div>
@@ -256,6 +269,10 @@
     <footer class="footer">
         <div class="container footer-content">
             <div class="footer-section">
+                <svg class="logo-icon-footer" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M 40 60 Q 40 45 55 45 Q 70 45 70 60 L 70 110 Q 70 125 55 125 Q 40 125 40 110 Z" fill="#ffffff" opacity="0.8" />
+                    <rect x="55" y="120" width="7" height="10" fill="#ffffff" opacity="0.8" />
+                </svg>
                 <h4>The Behavioral Review</h4>
                 <p>Editor-reviewed undergraduate publication for behavioral and criminal sciences.</p>
             </div>
@@ -274,209 +291,8 @@
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2024 The Behavioral Review. All rights reserved.</p>
+            <p>&copy; 2026 The Behavioral Review. All rights reserved.</p>
         </div>
     </footer>
-
-    <style>
-        .page-header {
-            background: linear-gradient(135deg, var(--light-blue) 0%, rgba(232, 240, 248, 0.5) 100%);
-            border-bottom: 1px solid var(--border-color);
-            padding: 3rem 20px;
-        }
-
-        .page-header h2 {
-            font-size: 2.5rem;
-            color: var(--navy);
-        }
-
-        .page-content {
-            padding: 3rem 20px;
-        }
-
-        .content-section {
-            margin-bottom: 3rem;
-        }
-
-        .content-section h2 {
-            border-bottom: 2px solid var(--navy);
-            padding-bottom: 0.75rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .categories-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.5rem;
-            margin-top: 1.5rem;
-        }
-
-        .category-item {
-            background-color: var(--light-blue);
-            padding: 1.5rem;
-            border-radius: 4px;
-            border-left: 4px solid var(--navy);
-        }
-
-        .category-item h4 {
-            color: var(--navy);
-            margin-bottom: 0.5rem;
-            font-size: 1rem;
-        }
-
-        .category-item p {
-            color: var(--text-dark);
-            font-size: 0.9rem;
-        }
-
-        .guideline-box {
-            background-color: var(--light-blue);
-            padding: 1.5rem;
-            border-radius: 4px;
-            border-left: 4px solid var(--navy);
-            margin-bottom: 1.5rem;
-        }
-
-        .guideline-box h3 {
-            color: var(--navy);
-            margin-bottom: 0.75rem;
-            font-size: 1.1rem;
-        }
-
-        .guideline-box p {
-            color: var(--text-dark);
-            font-size: 0.95rem;
-        }
-
-        .checklist {
-            list-style-position: inside;
-            margin: 1.5rem 0;
-        }
-
-        .checklist li {
-            margin-bottom: 0.5rem;
-            color: var(--text-dark);
-            font-size: 0.95rem;
-        }
-
-        .process-box {
-            background-color: var(--light-blue);
-            padding: 2rem;
-            border-radius: 4px;
-            border-left: 4px solid var(--navy);
-        }
-
-        .process-item {
-            margin-bottom: 2rem;
-        }
-
-        .process-item:last-child {
-            margin-bottom: 0;
-        }
-
-        .process-num {
-            display: inline-block;
-            width: 40px;
-            height: 40px;
-            line-height: 40px;
-            background-color: var(--navy);
-            color: var(--primary-white);
-            border-radius: 50%;
-            font-weight: 700;
-            font-size: 1.2rem;
-            margin-right: 1rem;
-            vertical-align: middle;
-        }
-
-        .process-item h4 {
-            display: inline-block;
-            color: var(--navy);
-            margin-bottom: 0.5rem;
-            font-size: 1.05rem;
-        }
-
-        .process-item p {
-            color: var(--text-dark);
-            font-size: 0.95rem;
-            margin-left: 3.5rem;
-            line-height: 1.6;
-        }
-
-        .look-for-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 1.5rem;
-            margin-top: 1.5rem;
-        }
-
-        .look-card {
-            background-color: var(--light-blue);
-            padding: 1.5rem;
-            border-radius: 4px;
-            text-align: center;
-            border-left: 4px solid var(--navy);
-        }
-
-        .look-card h4 {
-            color: var(--navy);
-            margin-bottom: 0.5rem;
-            font-size: 1rem;
-        }
-
-        .look-card p {
-            color: var(--text-dark);
-            font-size: 0.9rem;
-            margin: 0;
-        }
-
-        .faq-section {
-            background-color: var(--primary-white);
-        }
-
-        .faq-item {
-            background-color: var(--light-blue);
-            padding: 1.5rem;
-            border-radius: 4px;
-            border-left: 4px solid var(--navy);
-            margin-bottom: 1rem;
-        }
-
-        .faq-item h4 {
-            color: var(--navy);
-            margin-bottom: 0.75rem;
-            font-size: 1rem;
-        }
-
-        .faq-item p {
-            color: var(--text-dark);
-            font-size: 0.95rem;
-            margin: 0;
-        }
-
-        .faq-item a {
-            color: var(--navy);
-            font-weight: 600;
-        }
-
-        @media (max-width: 768px) {
-            .page-header h2 {
-                font-size: 1.8rem;
-            }
-
-            .categories-grid,
-            .look-for-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .process-item p {
-                margin-left: 0;
-            }
-
-            .process-num {
-                display: block;
-                margin-bottom: 0.5rem;
-            }
-        }
-    </style>
 </body>
 </html>

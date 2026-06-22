@@ -11,8 +11,15 @@
     <nav class="navbar">
         <div class="container navbar-content">
             <div class="logo">
-                <h1>The Behavioral Review</h1>
-                <p class="tagline">Editor-Reviewed Undergraduate Publication</p>
+                <svg class="logo-icon" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M 40 60 Q 40 45 55 45 Q 70 45 70 60 L 70 110 Q 70 125 55 125 Q 40 125 40 110 Z" fill="#0F2438" />
+                    <rect x="55" y="120" width="7" height="10" fill="#0F2438" />
+                    <text x="85" y="95" font-family="Georgia, serif" font-size="32" font-weight="bold" fill="#000000">TBR</text>
+                </svg>
+                <div class="logo-text">
+                    <h1>The Behavioral Review</h1>
+                    <p class="tagline">Editor-Reviewed Undergraduate Publication</p>
+                </div>
             </div>
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
@@ -36,14 +43,32 @@
     <!-- Main Content -->
     <main class="page-content">
         <div class="container">
-            <!-- Managing Editor Section -->
-            <section class="team-section">
-                <h3>Managing Editor</h3>
-                <div class="team-member-featured">
-                    <div class="member-info">
-                        <h4>Paulo Murray</h4>
-                        <p class="title">Founder & Managing Editor</p>
-                        <p class="bio">Paulo Murray is the founder of The Behavioral Review. As Managing Editor, he oversees all editorial decisions, manages the review process, and works directly with student authors to support their publication journey.</p>
+            <!-- Featured Editors Section -->
+            <section class="featured-editors">
+                <h2>Our Editors</h2>
+                <div class="editors-grid">
+                    <!-- Paulo Murray Card -->
+                    <div class="editor-card">
+                        <div class="editor-headshot">
+                            <img src="images/paulo-murray.jpg" alt="Paulo Murray">
+                        </div>
+                        <div class="editor-info">
+                            <h3>Paulo Murray</h3>
+                            <p class="editor-title">Founder & Managing Editor</p>
+                            <p class="editor-bio">Paulo Murray is the founder and Managing Editor of The Behavioral Review. He is an active-duty U.S. Marine and psychology student pursuing a bachelor's degree. He founded The Behavioral Review to provide undergraduate students with opportunities to publish behavioral analysis, criminal case commentary, and scholarly work while building professional portfolios.</p>
+                        </div>
+                    </div>
+
+                    <!-- Nathan Isbell Card -->
+                    <div class="editor-card">
+                        <div class="editor-headshot">
+                            <img src="images/nathan-isbell.jpg" alt="Nathan Isbell">
+                        </div>
+                        <div class="editor-info">
+                            <h3>Nathan Isbell</h3>
+                            <p class="editor-title">Copy & Layout Editor</p>
+                            <p class="editor-bio">Nathan Isbell is the Copy & Layout Editor for The Behavioral Review. He is an active-duty U.S. Marine, Intelligence Specialist, and writing student pursuing a bachelor's degree. He oversees article formatting, publication layout, citation consistency, editorial presentation, plagiarism screening, AI-assisted content detection, and publication readiness.</p>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -57,48 +82,18 @@
                     <div class="team-member-card">
                         <div class="member-header">
                             <h5>Criminology Editor</h5>
-                            <p class="role">Section Editor</p>
+                            <p class="role">Section Editor - Recruiting</p>
                         </div>
-                        <p class="member-description">
-                            Oversees submissions in criminology, criminal case analysis, investigative commentary, and criminological research. Evaluates rigor, originality, and contribution to the field.
-                        </p>
+                        <p class="member-description">Oversees submissions in criminology, criminal case analysis, investigative commentary, and criminological research. Evaluates rigor, originality, and contribution to the field.</p>
                     </div>
 
                     <div class="team-member-card">
                         <div class="member-header">
                             <h5>Behavioral Analysis Editor</h5>
-                            <p class="role">Section Editor</p>
+                            <p class="role">Section Editor - Recruiting</p>
                         </div>
-                        <p class="member-description">
-                            Manages submissions related to behavioral analysis, investigative psychology, decision-making patterns, and applied behavioral science research.
-                        </p>
+                        <p class="member-description">Manages submissions related to behavioral analysis, investigative psychology, decision-making patterns, and applied behavioral science research.</p>
                     </div>
-                </div>
-            </section>
-
-            <!-- Production Team -->
-            <section class="team-section">
-                <h3>Production Team</h3>
-                <p class="section-intro">Our production team ensures that accepted manuscripts are professionally edited, properly formatted, and published to academic standards.</p>
-
-                <div class="team-grid">
-                    <div class="team-member-card">
-                        <div class="member-header">
-                            <h5>Copy & Layout Editor</h5>
-                            <p class="role">Production Editor</p>
-                        </div>
-                        <p class="member-description">
-                            Responsible for copyediting, style consistency, formatting, citation accuracy, and page layout. Ensures all published work meets professional publishing standards.
-                        </p>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Professor Endorsement Section -->
-            <section class="team-section">
-                <h3>Professor Endorsement</h3>
-                <div class="endorsement-content">
-                    <p>Professor endorsement information will be added as the program develops.</p>
                 </div>
             </section>
 
@@ -112,7 +107,7 @@
                     </div>
                     <div class="value-card">
                         <h5>Student Support</h5>
-                        <p>We provide constructive feedback and mentorship to help emerging scholars develop as researchers and writers.</p>
+                        <p>We provide constructive feedback and mentorship to help emerging scholars develop.</p>
                     </div>
                     <div class="value-card">
                         <h5>Professional Standards</h5>
@@ -124,6 +119,14 @@
                     </div>
                 </div>
             </section>
+
+            <!-- Professor Endorsement Section -->
+            <section class="team-section">
+                <h3>Professor Endorsement</h3>
+                <div class="endorsement-content">
+                    <p>Professor endorsement information will be added as the program develops.</p>
+                </div>
+            </section>
         </div>
     </main>
 
@@ -131,6 +134,10 @@
     <footer class="footer">
         <div class="container footer-content">
             <div class="footer-section">
+                <svg class="logo-icon-footer" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M 40 60 Q 40 45 55 45 Q 70 45 70 60 L 70 110 Q 70 125 55 125 Q 40 125 40 110 Z" fill="#ffffff" opacity="0.8" />
+                    <rect x="55" y="120" width="7" height="10" fill="#ffffff" opacity="0.8" />
+                </svg>
                 <h4>The Behavioral Review</h4>
                 <p>Editor-reviewed undergraduate publication for behavioral and criminal sciences.</p>
             </div>
@@ -149,136 +156,8 @@
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2024 The Behavioral Review. All rights reserved.</p>
+            <p>&copy; 2026 The Behavioral Review. All rights reserved.</p>
         </div>
     </footer>
-
-    <style>
-        .team-section {
-            margin-bottom: 3rem;
-        }
-
-        .team-section h3 {
-            border-bottom: 2px solid var(--navy);
-            padding-bottom: 0.75rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .section-intro {
-            color: var(--text-light);
-            margin-bottom: 1.5rem;
-        }
-
-        .team-member-featured {
-            background-color: var(--light-blue);
-            padding: 2rem;
-            border-radius: 4px;
-            border-left: 4px solid var(--navy);
-        }
-
-        .member-info h4 {
-            font-size: 1.3rem;
-            color: var(--navy);
-            margin-bottom: 0.5rem;
-        }
-
-        .member-info .title {
-            font-size: 0.9rem;
-            color: var(--text-light);
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            margin-bottom: 1rem;
-        }
-
-        .member-info .bio {
-            color: var(--text-dark);
-            line-height: 1.6;
-            font-size: 0.95rem;
-        }
-
-        .team-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .team-member-card {
-            background-color: var(--light-blue);
-            padding: 1.5rem;
-            border-radius: 4px;
-            border-left: 4px solid var(--navy);
-        }
-
-        .member-header h5 {
-            font-size: 1.1rem;
-            color: var(--navy);
-            margin-bottom: 0.25rem;
-        }
-
-        .member-header .role {
-            font-size: 0.8rem;
-            color: var(--text-light);
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
-
-        .member-description {
-            color: var(--text-dark);
-            font-size: 0.95rem;
-            line-height: 1.6;
-            margin-top: 1rem;
-        }
-
-        .endorsement-content {
-            background-color: var(--light-blue);
-            padding: 2rem;
-            border-radius: 4px;
-            border-left: 4px solid var(--navy);
-        }
-
-        .endorsement-content p {
-            color: var(--text-dark);
-            font-size: 0.95rem;
-        }
-
-        .values-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
-            margin-top: 1.5rem;
-        }
-
-        .value-card {
-            background-color: var(--light-blue);
-            padding: 1.5rem;
-            border-radius: 4px;
-            border-left: 4px solid var(--navy);
-            text-align: center;
-        }
-
-        .value-card h5 {
-            color: var(--navy);
-            margin-bottom: 0.75rem;
-            font-size: 1rem;
-        }
-
-        .value-card p {
-            color: var(--text-dark);
-            font-size: 0.9rem;
-            line-height: 1.6;
-        }
-
-        @media (max-width: 768px) {
-            .team-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .values-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
 </body>
 </html>
