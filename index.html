@@ -7,243 +7,253 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Navigation -->
+    <!-- Navigation/Masthead -->
     <nav class="navbar">
-        <div class="container">
-            <div class="navbar-content">
-                <div class="logo">
+        <div class="container navbar-content">
+            <div class="navbar-left">
+                <svg class="logo-icon" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M 40 60 Q 40 45 55 45 Q 70 45 70 60 L 70 110 Q 70 125 55 125 Q 40 125 40 110 Z" fill="#0F2438" />
+                    <rect x="55" y="120" width="7" height="10" fill="#0F2438" />
+                    <text x="85" y="95" font-family="Georgia, serif" font-size="32" font-weight="bold" fill="#000000">TBR</text>
+                </svg>
+                <div class="masthead-text">
                     <h1>The Behavioral Review</h1>
-                    <p class="tagline">Undergraduate Publication for Criminology, Psychology, and Behavioral Analysis</p>
+                    <p class="masthead-tagline">Editor-Reviewed Undergraduate Publication</p>
                 </div>
-                <ul class="nav-links">
-                    <li><a href="index.html" class="active">Home</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="editorial-team.html">Editorial Team</a></li>
-                    <li><a href="for-authors.html">For Authors</a></li>
-                    <li><a href="archive.html">Archive</a></li>
-                    <li><a href="recent-articles.html">Recent Articles</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                </ul>
             </div>
+            <ul class="nav-links">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="editorial-team.html">Editorial Team</a></li>
+                <li><a href="for-authors.html">For Authors</a></li>
+                <li><a href="archive.html">Archive</a></li>
+                <li><a href="recent-articles.html">Recent Articles</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
         </div>
     </nav>
 
-    <!-- Masthead -->
-    <header class="masthead">
-        <div class="container">
-            <div class="masthead-content">
-                <h2>The Behavioral Review</h2>
-                <p class="masthead-subtitle">An Editor-Reviewed Undergraduate Publication</p>
-                <p class="masthead-description">Exploring Criminology, Psychology, Behavioral Science, Criminal Justice, and Criminal Case Analysis</p>
+    <!-- Hero Section (Two Column Layout) -->
+    <header class="hero-section">
+        <div class="container hero-container">
+            <!-- Left Column: Title & Mission -->
+            <div class="hero-left">
+                <h1>The Behavioral Review</h1>
+                <p class="hero-subtitle">Editor-Reviewed Undergraduate Publication</p>
+                <p class="hero-mission">A professional platform for undergraduate scholarship in criminology, psychology, behavioral analysis, and criminal justice.</p>
+                <a href="for-authors.html" class="btn btn-primary">Submit Your Work</a>
+            </div>
+
+            <!-- Right Column: Journal at a Glance -->
+            <div class="hero-right">
+                <div class="glance-box">
+                    <h3>Journal at a Glance</h3>
+                    <div class="glance-item">
+                        <span class="glance-label">Founded:</span>
+                        <span class="glance-value">2026</span>
+                    </div>
+                    <div class="glance-item">
+                        <span class="glance-label">Status:</span>
+                        <span class="glance-value">Accepting Submissions</span>
+                    </div>
+                    <div class="glance-item">
+                        <span class="glance-label">Publication Type:</span>
+                        <span class="glance-value">Editor-Reviewed Undergraduate</span>
+                    </div>
+                    <div class="glance-item">
+                        <span class="glance-label">Fields:</span>
+                        <span class="glance-value">Criminology, Psychology, Behavioral Analysis, Criminal Justice</span>
+                    </div>
+                </div>
             </div>
         </div>
     </header>
 
-    <!-- Call for Submissions Section -->
-    <section class="call-for-submissions">
+    <!-- Featured Topics Section -->
+    <section class="featured-topics">
         <div class="container">
-            <h3>Now Accepting Submissions</h3>
-            <p>
-                The Behavioral Review is actively seeking original research, case analyses, investigative commentary, and evidence-based scholarship from undergraduate students. We welcome your contributions to this platform for student scholarship.
-            </p>
-            <a href="for-authors.html" class="btn btn-primary">Submit Your Manuscript</a>
+            <h2>Featured Topics</h2>
+            <div class="topics-grid">
+                <div class="topic-card">
+                    <h3>Criminal Case Analysis</h3>
+                    <p>In-depth analysis of criminal cases, investigative approaches, and evidence evaluation.</p>
+                </div>
+                <div class="topic-card">
+                    <h3>Behavioral Analysis</h3>
+                    <p>Analysis of human behavior patterns, decision-making, and behavioral research.</p>
+                </div>
+                <div class="topic-card">
+                    <h3>Missing Persons Analysis</h3>
+                    <p>Research and analysis related to missing persons cases and investigative approaches.</p>
+                </div>
+                <div class="topic-card">
+                    <h3>Investigative Commentary</h3>
+                    <p>Evidence-based commentary on criminal investigation and forensic practices.</p>
+                </div>
+                <div class="topic-card">
+                    <h3>Research & Scholarship</h3>
+                    <p>Case analyses, behavioral analyses, investigative commentary, literature reviews, editorials, and undergraduate scholarship.</p>
+                </div>
+            </div>
         </div>
     </section>
 
-    <!-- Featured Articles Section -->
+    <!-- Editorial Board Section -->
+    <section class="editorial-board">
+        <div class="container">
+            <h2>Editorial Board</h2>
+            <div class="board-grid">
+                <div class="board-member">
+                    <div class="member-name">Paulo Murray</div>
+                    <div class="member-role">Founder & Managing Editor</div>
+                </div>
+                <div class="board-member">
+                    <div class="member-name">Nathan Isbell</div>
+                    <div class="member-role">Copy & Layout Editor</div>
+                </div>
+                <div class="board-member">
+                    <div class="member-name">Criminology Editor</div>
+                    <div class="member-role">Recruiting</div>
+                </div>
+                <div class="board-member">
+                    <div class="member-name">Behavioral Analysis Editor</div>
+                    <div class="member-role">Recruiting</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Article Cards Section -->
     <section class="featured-articles">
         <div class="container">
-            <h3>Sample Article Types</h3>
-            <p class="section-subtitle">The Behavioral Review publishes the following types of undergraduate scholarship:</p>
+            <h2>What We Publish</h2>
             <div class="articles-grid">
                 <article class="article-card">
-                    <div class="article-meta">
-                        <span class="category">Criminal Justice</span>
-                        <span class="status">Example</span>
-                    </div>
-                    <h4>Empirical Research & Case Studies</h4>
-                    <p class="article-description">Original quantitative or qualitative research examining criminal justice topics, behavioral patterns, rehabilitation, recidivism, or criminal justice policy and practice.</p>
-                    <a href="for-authors.html" class="read-more">Article Guidelines →</a>
+                    <div class="card-badge criminology">Criminal Case Analysis</div>
+                    <h3>Criminal Case Analysis</h3>
+                    <p>In-depth analysis of criminal cases, investigative approaches, and evidence evaluation.</p>
+                    <a href="for-authors.html" class="card-link">Learn More →</a>
                 </article>
 
                 <article class="article-card">
-                    <div class="article-meta">
-                        <span class="category">Behavioral Analysis</span>
-                        <span class="status">Example</span>
-                    </div>
-                    <h4>Evidence-Based Analysis</h4>
-                    <p class="article-description">Analysis of behavioral science research, cognitive factors in criminal behavior, decision-making patterns, investigative approaches, or threat assessment methodologies.</p>
-                    <a href="for-authors.html" class="read-more">Article Guidelines →</a>
+                    <div class="card-badge psychology">Behavioral Analysis</div>
+                    <h3>Behavioral Analysis</h3>
+                    <p>Analysis of human behavior patterns, decision-making, and behavioral research in criminal contexts.</p>
+                    <a href="for-authors.html" class="card-link">Learn More →</a>
                 </article>
 
                 <article class="article-card">
-                    <div class="article-meta">
-                        <span class="category">Criminology</span>
-                        <span class="status">Example</span>
-                    </div>
-                    <h4>Literature Reviews & Analysis</h4>
-                    <p class="article-description">Comprehensive examination of criminological theory, crime patterns, policy analysis, or investigative commentary on criminal justice topics and current issues.</p>
-                    <a href="for-authors.html" class="read-more">Article Guidelines →</a>
+                    <div class="card-badge criminal-justice">Investigative Commentary</div>
+                    <h3>Investigative Commentary</h3>
+                    <p>Evidence-based commentary on criminal investigation, forensic practices, and investigative methods.</p>
+                    <a href="for-authors.html" class="card-link">Learn More →</a>
+                </article>
+
+                <article class="article-card">
+                    <div class="card-badge criminology">Research Papers</div>
+                    <h3>Research Papers</h3>
+                    <p>Original empirical research and studies in criminology, psychology, or behavioral science.</p>
+                    <a href="for-authors.html" class="card-link">Learn More →</a>
+                </article>
+
+                <article class="article-card">
+                    <div class="card-badge psychology">Literature Reviews</div>
+                    <h3>Literature Reviews</h3>
+                    <p>Comprehensive reviews of existing research on specific topics in behavioral and criminal sciences.</p>
+                    <a href="for-authors.html" class="card-link">Learn More →</a>
+                </article>
+
+                <article class="article-card">
+                    <div class="card-badge criminal-justice">Editorials</div>
+                    <h3>Criminology & Psychology Editorials</h3>
+                    <p>Student-authored editorials on topics, trends, and current issues in your field.</p>
+                    <a href="for-authors.html" class="card-link">Learn More →</a>
                 </article>
             </div>
         </div>
     </section>
 
-    <!-- Editorial Review Process Overview -->
+    <!-- Editorial Review Process -->
     <section class="review-process">
         <div class="container">
-            <h3>Our Editorial Review Process</h3>
-            <div class="process-flow">
+            <h2>Our Editorial Review Process</h2>
+            <div class="process-steps">
                 <div class="process-step">
                     <div class="step-number">1</div>
-                    <h4>Student Submission</h4>
-                    <p>Authors submit manuscripts through our online portal with supporting materials and author information.</p>
+                    <h4>Submission Received by Managing Editor</h4>
+                    <p>Your manuscript is received, logged, and reviewed for completeness.</p>
                 </div>
-                <div class="process-arrow">→</div>
                 <div class="process-step">
                     <div class="step-number">2</div>
-                    <h4>Initial Editorial Review</h4>
-                    <p>Managing Editor assesses scope, originality, and compliance with submission guidelines.</p>
+                    <h4>Manuscript Logged and Anonymized</h4>
+                    <p>The Managing Editor logs your submission and removes all author identifying information.</p>
                 </div>
-                <div class="process-arrow">→</div>
                 <div class="process-step">
                     <div class="step-number">3</div>
                     <h4>Section Editor Review</h4>
-                    <p>Subject-matter editor provides detailed editorial feedback and recommendations.</p>
+                    <p>The anonymized paper is sent to the appropriate Section Editor for detailed editorial feedback.</p>
                 </div>
-            </div>
-            <div class="process-flow" style="margin-top: 2rem;">
                 <div class="process-step">
                     <div class="step-number">4</div>
-                    <h4>Revision (if needed)</h4>
-                    <p>Authors address feedback and resubmit revised manuscript for further evaluation.</p>
+                    <h4>Editorial Feedback and Revision</h4>
+                    <p>You receive feedback and have the opportunity to revise and resubmit your manuscript.</p>
                 </div>
-                <div class="process-arrow">→</div>
                 <div class="process-step">
                     <div class="step-number">5</div>
-                    <h4>Managing Editor Approval</h4>
-                    <p>Final editorial decision and acceptance determination made by Managing Editor.</p>
+                    <h4>Copy & Layout Editor Review</h4>
+                    <p>Our Copy & Layout Editor reviews formatting, grammar, citation consistency, AI-assisted content screening, and publication readiness.</p>
                 </div>
-                <div class="process-arrow">→</div>
                 <div class="process-step">
                     <div class="step-number">6</div>
+                    <h4>Managing Editor Final Approval</h4>
+                    <p>The Managing Editor makes the final approval decision and determines publication readiness.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">7</div>
                     <h4>Publication</h4>
-                    <p>Accepted articles are copyedited, formatted, and published in the archive.</p>
+                    <p>Your article is published online, added to our archive, and featured in Recent Articles.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Mission Section -->
-    <section class="mission-section">
+    <!-- Call to Action -->
+    <section class="cta-final">
         <div class="container">
-            <h3>Our Mission</h3>
-            <p>
-                The Behavioral Review was founded to help undergraduate students transform classroom knowledge into published scholarship while building a professional portfolio for graduate school, law school, internships, and future careers. We provide a professional editor-reviewed platform where student researchers can publish rigorous work in behavioral science, criminology, psychology, and criminal justice.
-            </p>
-            <a href="about.html" class="btn btn-secondary">Learn More About Us</a>
-        </div>
-    </section>
-
-    <!-- Submission Call-to-Action -->
-    <section class="cta-section">
-        <div class="container">
-            <div class="cta-content">
-                <h3>Ready to Publish Your Research?</h3>
-                <p>We invite undergraduate scholars to submit original research, case analyses, and evidence-based commentary on behavioral science, criminology, psychology, and criminal justice.</p>
-                <a href="for-authors.html" class="btn btn-primary">Submit Your Manuscript</a>
-                <a href="editorial-team.html" class="btn btn-secondary">Meet Our Editorial Team</a>
-            </div>
+            <h2>Ready to Publish With Us?</h2>
+            <p>We're actively accepting submissions from undergraduate students across all universities.</p>
+            <a href="for-authors.html" class="btn btn-primary">View Submission Guidelines</a>
         </div>
     </section>
 
     <!-- Footer -->
     <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h5>The Behavioral Review</h5>
-                    <p>An editor-reviewed undergraduate publication for criminology, psychology, behavioral analysis, and criminal justice research and commentary.</p>
-                </div>
-                <div class="footer-section">
-                    <h5>Quick Links</h5>
-                    <ul>
-                        <li><a href="about.html">About</a></li>
-                        <li><a href="for-authors.html">For Authors</a></li>
-                        <li><a href="archive.html">Archive</a></li>
-                        <li><a href="contact.html">Contact</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h5>Contact</h5>
-                    <p>For submission inquiries, visit our Contact page</p>
-                    <p>Managing Editor: Paulo Murray</p>
-                </div>
+        <div class="container footer-content">
+            <div class="footer-section">
+                <svg class="logo-icon-footer" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M 40 60 Q 40 45 55 45 Q 70 45 70 60 L 70 110 Q 70 125 55 125 Q 40 125 40 110 Z" fill="#ffffff" opacity="0.8" />
+                    <rect x="55" y="120" width="7" height="10" fill="#ffffff" opacity="0.8" />
+                </svg>
+                <h4>The Behavioral Review</h4>
+                <p>Editor-reviewed undergraduate publication for behavioral and criminal sciences.</p>
             </div>
-            <div class="footer-bottom">
-                <p>&copy; 2024 The Behavioral Review. All rights reserved.</p>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="editorial-team.html">Editorial Team</a></li>
+                    <li><a href="for-authors.html">For Authors</a></li>
+                    <li><a href="archive.html">Archive</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Get in Touch</h4>
+                <p><a href="contact.html">Contact us</a> with questions about submissions.</p>
             </div>
         </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 The Behavioral Review. All rights reserved.</p>
+        </div>
     </footer>
-
-    <style>
-        .call-for-submissions {
-            background: linear-gradient(135deg, var(--accent-blue) 0%, var(--white) 100%);
-            border-bottom: 2px solid var(--navy);
-            padding: 3rem 0;
-            text-align: center;
-        }
-
-        .call-for-submissions h3 {
-            color: var(--navy);
-            margin-bottom: 1rem;
-        }
-
-        .call-for-submissions p {
-            max-width: 600px;
-            margin: 1rem auto;
-            font-size: 1rem;
-        }
-
-        .section-subtitle {
-            color: var(--gray-light);
-            font-style: italic;
-            margin-bottom: 2rem;
-        }
-
-        .article-card .article-description {
-            font-size: 0.95rem;
-            color: var(--gray-text);
-            margin-bottom: 1.5rem;
-            line-height: 1.6;
-        }
-
-        .article-card .status {
-            background-color: var(--blue-accent);
-            color: var(--navy);
-            border: 1px solid var(--navy);
-        }
-
-        .mission-section {
-            padding: 4rem 0;
-            background-color: var(--light-blue);
-            text-align: center;
-            border-top: 2px solid var(--navy);
-            border-bottom: 2px solid var(--navy);
-        }
-
-        .mission-section h3 {
-            color: var(--navy);
-            margin-bottom: 1.5rem;
-            border: none;
-        }
-
-        .mission-section p {
-            max-width: 700px;
-            margin: 1rem auto 2rem;
-            font-size: 1rem;
-            line-height: 1.7;
-        }
-    </style>
 </body>
 </html>
