@@ -635,7 +635,7 @@ img {
 
 .editor-headshot {
     width: 100%;
-    max-width: 300px;
+    max-width: 260px;
     aspect-ratio: 3 / 4;
     overflow: hidden;
     background-color: var(--border-color);
