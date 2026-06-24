@@ -272,6 +272,109 @@ img {
     max-width: 55%;
 }
 
+.recruitment-banner {
+    margin-top: 1rem;
+    padding: 0.85rem 1rem;
+    max-width: 540px;
+    background-color: var(--primary-white);
+    border-left: 4px solid var(--navy);
+    border-top: 1px solid var(--border-color);
+    border-right: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
+    border-radius: 4px;
+    color: var(--text-dark);
+    font-size: 0.9rem;
+    line-height: 1.6;
+    box-shadow: 0 4px 10px rgba(26, 58, 82, 0.08);
+}
+
+/* ============================================
+   Homepage Submission Sections
+   ============================================ */
+
+.publish-benefits,
+.submit-disciplines {
+    padding: 2.5rem 20px;
+}
+
+.publish-benefits {
+    background-color: var(--primary-white);
+}
+
+.submit-disciplines {
+    background-color: var(--light-blue);
+}
+
+.publish-benefits h2,
+.submit-disciplines h2 {
+    text-align: center;
+    border-bottom: 2px solid var(--navy);
+    padding-bottom: 1rem;
+    margin-bottom: 2rem;
+}
+
+.publish-benefits-content {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.publish-benefits-list {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.publish-benefits-list li,
+.submission-field {
+    background-color: var(--light-blue);
+    border-left: 4px solid var(--navy);
+    border-radius: 4px;
+    padding: 1rem 1.25rem;
+    color: var(--text-dark);
+}
+
+.publish-benefits-list li {
+    position: relative;
+    padding-left: 3rem;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.publish-benefits-list li::before {
+    content: '✓';
+    position: absolute;
+    left: 1.2rem;
+    top: 1rem;
+    color: var(--success-color);
+    font-weight: 700;
+}
+
+.publish-benefits-note,
+.submit-disciplines-intro {
+    max-width: 840px;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 1rem;
+    line-height: 1.7;
+}
+
+.submission-fields-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.submission-field {
+    background-color: var(--primary-white);
+    text-align: center;
+    font-weight: 600;
+    min-height: 100%;
+}
+
 /* ============================================
    Featured Topics Section
    ============================================ */
@@ -1050,6 +1153,11 @@ img {
         font-size: 1rem;
     }
 
+    .publish-benefits-list,
+    .submission-fields-grid {
+        grid-template-columns: 1fr;
+    }
+
     .articles-grid,
     .categories-grid,
     .look-for-grid,
@@ -1082,7 +1190,9 @@ img {
     .featured-topics,
     .review-process,
     .cta-final,
-    .editorial-board {
+    .editorial-board,
+    .publish-benefits,
+    .submit-disciplines {
         padding: 2rem 20px;
     }
 }
@@ -1161,7 +1271,9 @@ img {
     .review-process,
     .cta-final,
     .page-content,
-    .editorial-board {
+    .editorial-board,
+    .publish-benefits,
+    .submit-disciplines {
         padding: 1.5rem 20px;
     }
 
