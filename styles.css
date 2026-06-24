@@ -1087,6 +1087,31 @@ img {
     }
 }
 
+@media (max-width: 767px) {
+    .featured-editors h2 {
+        margin-bottom: 1.25rem;
+    }
+
+    .editors-grid {
+        gap: 1.5rem;
+    }
+
+    .editor-headshot {
+        max-width: 190px;
+        margin: 1rem auto 0;
+        align-self: center;
+    }
+
+    .editor-info {
+        padding: 1.25rem 1.25rem 1.5rem;
+    }
+
+    .editor-title,
+    .editor-credentials {
+        margin-bottom: 0.75rem;
+    }
+}
+
 @media (max-width: 480px) {
     .navbar {
         padding: 0.4rem 20px;
