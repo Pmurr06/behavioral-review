@@ -624,7 +624,6 @@ img {
 .editor-headshot {
     width: 100%;
     aspect-ratio: 3 / 4;
-    max-height: 420px;
     overflow: hidden;
     background-color: var(--border-color);
     display: flex;
