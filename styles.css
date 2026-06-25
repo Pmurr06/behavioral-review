@@ -1480,6 +1480,33 @@ img {
 }
 
 /* ============================================
+   Hamburger Nav Toggle
+   ============================================ */
+
+.nav-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 28px;
+    height: 22px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    flex-shrink: 0;
+    margin-left: 0.75rem;
+}
+
+.nav-toggle span {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: var(--navy);
+    border-radius: 1px;
+    transition: background-color 0.2s ease;
+}
+
+/* ============================================
    Responsive Design
    ============================================ */
 
@@ -1504,38 +1531,91 @@ img {
 }
 
 @media (max-width: 768px) {
+    /* Navigation: hamburger menu */
     .navbar {
-        padding: 0.5rem 20px;
+        padding: 0.5rem 16px;
+        position: relative;
     }
 
     .navbar-content {
-        gap: 1.5rem;
-        flex-wrap: wrap;
+        flex-wrap: nowrap;
+        gap: 0;
+        align-items: center;
     }
 
     .navbar-left {
-        order: 1;
-        width: 100%;
+        flex: 1;
+        min-width: 0;
+        order: unset;
+        width: auto;
+        gap: 0.5rem;
+    }
+
+    .nav-toggle {
+        display: flex;
     }
 
     .nav-links {
-        order: 2;
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
         width: 100%;
-        gap: 0.75rem;
-        justify-content: center;
-        font-size: 0.75rem;
+        flex-direction: column;
+        background-color: var(--off-white);
+        border-bottom: 2px solid var(--navy);
+        box-shadow: 0 4px 8px rgba(26, 58, 82, 0.12);
+        gap: 0;
+        padding: 0;
+        margin: 0;
+        z-index: 99;
+        justify-content: flex-start;
+    }
+
+    .nav-links.nav-open {
+        display: flex;
+    }
+
+    .nav-links li {
+        width: 100%;
+        border-bottom: 1px solid var(--border-color);
+    }
+
+    .nav-links li:last-child {
+        border-bottom: none;
+    }
+
+    .nav-links a {
+        display: block;
+        padding: 0.75rem 1.25rem;
+        font-size: 0.95rem;
+        font-weight: 600;
+    }
+
+    .nav-links a.active {
+        border-left: 3px solid var(--navy-light);
+        padding-left: 1rem;
+        background-color: var(--light-blue);
+        color: var(--navy);
+    }
+
+    .nav-links a::after {
+        display: none;
     }
 
     .masthead-text h1 {
-        font-size: 1.1rem;
+        font-size: 1.05rem;
     }
 
     .masthead-tagline {
-        font-size: 0.65rem;
+        font-size: 0.62rem;
     }
 
+    /* Hero */
     .hero-container {
         grid-template-columns: 1fr;
+        gap: 1.5rem;
     }
 
     .hero-left h1 {
@@ -1546,29 +1626,7 @@ img {
         font-size: 1rem;
     }
 
-    .publish-benefits-list,
-    .submission-fields-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .articles-grid,
-    .categories-grid,
-    .look-for-grid,
-    .values-grid,
-    .team-grid,
-    .topics-grid,
-    .board-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .page-header h2 {
-        font-size: 1.8rem;
-    }
-
-    .process-steps {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
+    /* Typography */
     h1 {
         font-size: 1.8rem;
     }
@@ -1577,6 +1635,59 @@ img {
         font-size: 1.5rem;
     }
 
+    .page-header h2 {
+        font-size: 1.8rem;
+    }
+
+    .page-header h1 {
+        font-size: 1.8rem;
+    }
+
+    /* 2-column grids for small cards — prevent long single-column stacks */
+    .articles-grid,
+    .values-grid,
+    .topics-grid,
+    .what-coming-grid,
+    .help-grid,
+    .standards-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.75rem;
+    }
+
+    .board-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.75rem;
+    }
+
+    .publish-benefits-list {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.75rem 1rem;
+    }
+
+    .submission-fields-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 0.5rem;
+    }
+
+    .process-steps {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.75rem;
+    }
+
+    .categories-display {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.75rem;
+    }
+
+    /* Single column for content-heavy cards */
+    .categories-grid,
+    .look-for-grid,
+    .team-grid,
+    .steps-container {
+        grid-template-columns: 1fr;
+    }
+
+    /* Section spacing — more compact */
     .page-content,
     .main-content,
     .featured-articles,
@@ -1586,22 +1697,38 @@ img {
     .editorial-board,
     .publish-benefits,
     .submit-disciplines {
-        padding: 2rem 20px;
+        padding: 1.5rem 16px;
     }
 
-    .page-header h1 {
-        font-size: 1.8rem;
+    .page-header {
+        padding: 1.75rem 16px;
     }
 
-    .what-coming-grid,
-    .help-grid,
-    .steps-container,
-    .standards-grid {
-        grid-template-columns: 1fr;
+    .publish-benefits h2,
+    .submit-disciplines h2,
+    .featured-articles h2,
+    .editorial-board h2 {
+        margin-bottom: 1.25rem;
+        padding-bottom: 0.75rem;
     }
 
-    .categories-display {
-        grid-template-columns: repeat(2, 1fr);
+    /* Cards — reduce padding for compact layout */
+    .article-card {
+        padding: 1.25rem;
+    }
+
+    .article-card p {
+        margin-bottom: 1rem;
+    }
+
+    .value-card,
+    .topic-card,
+    .board-member,
+    .team-member-card,
+    .what-card,
+    .help-card,
+    .standard-card {
+        padding: 1rem;
     }
 }
 
@@ -1643,34 +1770,29 @@ img {
 
 @media (max-width: 480px) {
     .navbar {
-        padding: 0.4rem 20px;
+        padding: 0.4rem 12px;
     }
 
     .navbar-left {
-        gap: 0.5rem;
+        gap: 0.4rem;
     }
 
     .site-logo {
-        width: 40px;
-        height: 40px;
-        min-width: 40px;
+        width: 34px;
+        height: 34px;
+        min-width: 34px;
     }
 
     .masthead-text h1 {
-        font-size: 0.95rem;
+        font-size: 0.92rem;
     }
 
     .masthead-tagline {
-        font-size: 0.6rem;
-    }
-
-    .nav-links {
-        gap: 0.5rem;
-        font-size: 0.7rem;
+        display: none;
     }
 
     .hero-section {
-        padding: 1.5rem 20px;
+        padding: 1.25rem 12px;
     }
 
     .hero-left h1 {
@@ -1694,7 +1816,37 @@ img {
     .editorial-board,
     .publish-benefits,
     .submit-disciplines {
-        padding: 1.5rem 20px;
+        padding: 1.25rem 12px;
+    }
+
+    .page-header {
+        padding: 1.25rem 12px;
+    }
+
+    /* Keep 2-column grids at 480px for compact layout */
+    .articles-grid,
+    .values-grid,
+    .topics-grid,
+    .what-coming-grid,
+    .help-grid,
+    .standards-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.6rem;
+    }
+
+    .submission-fields-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.4rem;
+    }
+
+    .categories-display {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.5rem;
+    }
+
+    .process-steps {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.6rem;
     }
 
     .coming-soon-box,
@@ -1702,25 +1854,17 @@ img {
     .callout-box,
     .cta-section,
     .timeline-box {
-        padding: 1.5rem;
-    }
-
-    .categories-display {
-        grid-template-columns: 1fr;
-    }
-
-    .process-steps {
-        grid-template-columns: 1fr;
+        padding: 1.25rem;
     }
 
     .step-number {
-        width: 45px;
-        height: 45px;
+        width: 42px;
+        height: 42px;
         font-size: 1.2rem;
     }
 
     .process-step {
-        padding: 1.2rem;
+        padding: 1rem;
     }
 
     .process-step h4 {
@@ -1736,7 +1880,7 @@ img {
     }
 
     .editor-headshot {
-        max-width: 120px;
+        max-width: 110px;
         margin: 0.75rem auto 0;
     }
 
@@ -1760,11 +1904,11 @@ img {
     }
 
     .article-card {
-        padding: 1.25rem;
+        padding: 1rem;
     }
 
     .topic-card {
-        padding: 1.25rem;
+        padding: 1rem;
     }
 
     .glance-item {
