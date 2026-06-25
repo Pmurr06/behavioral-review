@@ -1432,6 +1432,11 @@ img {
     align-items: start;
 }
 
+.process-item h4,
+.process-item p {
+    grid-column: 2;
+}
+
 .process-num {
     display: inline-flex;
     align-items: center;
@@ -1531,6 +1536,10 @@ img {
 }
 
 @media (max-width: 768px) {
+    body {
+        overflow-x: hidden;
+    }
+
     /* Navigation: hamburger menu */
     .navbar {
         padding: 0.5rem 16px;
@@ -1643,48 +1652,50 @@ img {
         font-size: 1.8rem;
     }
 
-    /* 2-column grids for small cards — prevent long single-column stacks */
+    /* Full-width cards for readable mobile layout */
     .articles-grid,
     .values-grid,
     .topics-grid,
     .what-coming-grid,
     .help-grid,
-    .standards-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 0.75rem;
-    }
-
-    .board-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 0.75rem;
-    }
-
-    .publish-benefits-list {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 0.75rem 1rem;
-    }
-
-    .submission-fields-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 0.5rem;
-    }
-
-    .process-steps {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 0.75rem;
-    }
-
-    .categories-display {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 0.75rem;
-    }
-
-    /* Single column for content-heavy cards */
+    .standards-grid,
+    .board-grid,
+    .publish-benefits-list,
+    .submission-fields-grid,
+    .process-steps,
+    .categories-display,
     .categories-grid,
     .look-for-grid,
     .team-grid,
     .steps-container {
         grid-template-columns: 1fr;
+        gap: 0.75rem;
+    }
+
+    .articles-grid,
+    .article-card,
+    .category-item,
+    .look-card,
+    .value-card,
+    .topic-card,
+    .board-member,
+    .team-member-card,
+    .what-card,
+    .help-card,
+    .standard-card,
+    .process-step,
+    .process-item,
+    .guideline-box,
+    .search-box,
+    .timeline-box,
+    .callout-box,
+    .cta-section,
+    .contact-box,
+    .coming-soon-box,
+    .faq-item {
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
     }
 
     /* Section spacing — more compact */
@@ -1727,8 +1738,30 @@ img {
     .team-member-card,
     .what-card,
     .help-card,
-    .standard-card {
+    .standard-card,
+    .category-item,
+    .look-card,
+    .process-item,
+    .guideline-box,
+    .faq-item {
         padding: 1rem;
+    }
+
+    .process-item {
+        grid-template-columns: 1fr;
+        gap: 0.5rem;
+    }
+
+    .process-item h4,
+    .process-item p {
+        grid-column: 1;
+        text-align: left;
+    }
+
+    .process-num {
+        width: 2.25rem;
+        height: 2.25rem;
+        margin-bottom: 0.15rem;
     }
 }
 
@@ -1823,29 +1856,17 @@ img {
         padding: 1.25rem 12px;
     }
 
-    /* Keep 2-column grids at 480px for compact layout */
+    /* Keep cards full-width on small phones */
     .articles-grid,
     .values-grid,
     .topics-grid,
     .what-coming-grid,
     .help-grid,
-    .standards-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 0.6rem;
-    }
-
-    .submission-fields-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 0.4rem;
-    }
-
-    .categories-display {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 0.5rem;
-    }
-
+    .standards-grid,
+    .submission-fields-grid,
+    .categories-display,
     .process-steps {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: 1fr;
         gap: 0.6rem;
     }
 
