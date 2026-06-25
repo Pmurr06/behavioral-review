@@ -1684,6 +1684,16 @@ img {
     margin-bottom: 0.75rem;
 }
 
+.publication-card-title-link {
+    color: inherit;
+    text-decoration: none;
+}
+
+.publication-card-title-link:hover,
+.publication-card-title-link:focus {
+    text-decoration: underline;
+}
+
 .publication-card-meta {
     display: flex;
     flex-wrap: wrap;

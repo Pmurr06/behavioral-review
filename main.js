@@ -27,7 +27,11 @@ function buildArticleCard(article) {
     pill.textContent = article.category;
 
     var heading = document.createElement('h3');
-    heading.textContent = article.title;
+    var titleLink = document.createElement('a');
+    titleLink.href = article.link;
+    titleLink.className = 'publication-card-title-link';
+    titleLink.textContent = article.title;
+    heading.appendChild(titleLink);
 
     var meta = document.createElement('div');
     meta.className = 'publication-card-meta';
