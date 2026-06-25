@@ -1,10 +1,10 @@
 document.addEventListener('DOMContentLoaded', function () {
-    var toggle = document.getElementById('navToggle');
-    var navLinks = document.querySelector('.nav-links');
+    const toggle = document.getElementById('navToggle');
+    const navLinks = document.querySelector('.nav-links');
     if (!toggle || !navLinks) return;
 
     toggle.addEventListener('click', function () {
-        var expanded = toggle.getAttribute('aria-expanded') === 'true';
+        const expanded = toggle.getAttribute('aria-expanded') === 'true';
         toggle.setAttribute('aria-expanded', String(!expanded));
         navLinks.classList.toggle('nav-open');
     });
