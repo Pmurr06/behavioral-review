@@ -343,7 +343,7 @@ img {
 }
 
 .publish-benefits-list li::before {
-    content: '✓';
+    content: '-';
     position: absolute;
     left: 1.2rem;
     top: 1rem;
@@ -989,10 +989,10 @@ img {
    ============================================ */
 
 .btn {
-    padding: 0.75rem 1.5rem;
+    padding: 0.6rem 1.25rem;
     border-radius: 4px;
     font-weight: 600;
-    font-size: 0.95rem;
+    font-size: 0.88rem;
     transition: all 0.3s ease;
     display: inline-block;
     text-transform: uppercase;
@@ -1707,6 +1707,67 @@ img {
 }
 
 /* ============================================
+   Archive filter buttons
+   ============================================ */
+
+.archive-filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.filter-btn {
+    padding: 0.4rem 0.9rem;
+    border: 2px solid var(--navy);
+    border-radius: 3px;
+    background-color: var(--primary-white);
+    color: var(--navy);
+    font-family: 'Georgia', serif;
+    font-size: 0.82rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease, color 0.2s ease;
+    letter-spacing: 0.02em;
+    white-space: nowrap;
+}
+
+.filter-btn:hover {
+    background-color: var(--light-blue);
+}
+
+.filter-btn--active {
+    background-color: var(--navy);
+    color: var(--primary-white);
+}
+
+.archive-empty {
+    color: var(--text-light);
+    font-style: italic;
+    margin-top: 1rem;
+}
+
+/* Slightly smaller publication cards */
+.publication-card {
+    background-color: var(--primary-white);
+    padding: 1.1rem 1.4rem;
+}
+
+.publication-card h3 {
+    font-size: 1.3rem;
+    margin-bottom: 0.6rem;
+}
+
+.publication-card-meta {
+    gap: 0.35rem 0.65rem;
+    margin-bottom: 0.75rem;
+}
+
+.publication-card p {
+    margin-bottom: 1rem;
+}
+
+/* ============================================
    Hamburger Nav Toggle
    ============================================ */
 
@@ -1882,6 +1943,16 @@ img {
         font-size: 1.8rem;
     }
 
+    /* Archive filters — wrap compactly on mobile */
+    .archive-filters {
+        gap: 0.4rem;
+    }
+
+    .filter-btn {
+        font-size: 0.78rem;
+        padding: 0.35rem 0.7rem;
+    }
+
     /* Full-width cards for readable mobile layout */
     .articles-grid,
     .values-grid,
@@ -1922,7 +1993,8 @@ img {
     .cta-section,
     .contact-box,
     .coming-soon-box,
-    .faq-item {
+    .faq-item,
+    .publication-card {
         width: 100%;
         max-width: 100%;
         box-sizing: border-box;
