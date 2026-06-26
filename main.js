@@ -5,6 +5,16 @@
    ============================================ */
 var ARTICLES = [
     {
+        title: 'NCAA v. Alston: The Supreme Court Decision That Changed College Athletics',
+        author: 'David Morgan',
+        institution: 'Business Administration & Management Student, Washington State University',
+        category: 'Law & Society',
+        date: 'June 2026',
+        readingTime: '10 min read',
+        preview: 'For decades, college athletics operated under a model unlike almost any other industry in the United States. NCAA v. Alston (2021) examined whether NCAA rules restricting education-related benefits to student-athletes violated federal antitrust law, ultimately reshaping the legal relationship between universities, athletic organizations, and the athletes who drive collegiate sports.',
+        link: 'articles/ncaa-v-alston.html'
+    },
+    {
         title: 'Beyond the Straw: Consumer Behavior, Environmental Policy, and the Future of Single-Use Plastics',
         author: 'Miller Smith',
         institution: 'University of Washington Foster School of Business',
