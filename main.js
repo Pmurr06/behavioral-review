@@ -5,6 +5,16 @@
    ============================================ */
 var ARTICLES = [
     {
+        title: 'Profit, Power, and the Climate Crisis: Does Capitalism Prevent Environmental Progress?',
+        author: 'Miller Smith',
+        institution: 'University of Washington Foster School of Business',
+        category: 'Behavioral Economics',
+        date: 'June 2026',
+        readingTime: '12 min read',
+        preview: 'Miller Smith examines how capitalist incentives, corporate influence, and policy design shape climate action, environmental responsibility, and the future of sustainable economic growth.',
+        link: 'articles/profit-power-and-the-climate-crisis.html'
+    },
+    {
         title: 'NCAA v. Alston: The Supreme Court Decision That Changed College Athletics',
         author: 'David Morgan',
         institution: 'Business Administration & Management Student, Washington State University',
