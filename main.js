@@ -5,6 +5,16 @@
    ============================================ */
 var ARTICLES = [
     {
+        title: 'Beyond the Straw: Consumer Behavior, Environmental Policy, and the Future of Single-Use Plastics',
+        author: 'Miller Smith',
+        institution: 'University of Washington Foster School of Business',
+        category: 'Law & Society',
+        date: 'July 2026',
+        readingTime: '9–10 min read',
+        preview: 'The debate over plastic and paper drinking straws has become a public symbol of the broader challenge of reducing single-use plastics. This editorial examines consumer behavior, environmental policy, corporate responsibility, and why incremental changes can still matter in long-term sustainability efforts.',
+        link: 'articles/beyond-the-straw.html'
+    },
+    {
         title: 'Forex Exchange Markets: The Euro-Dollar Relationship in the Post-COVID Era',
         author: 'Miller Smith',
         institution: 'University of Washington Foster School of Business',
