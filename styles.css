@@ -1668,3 +1668,48 @@ img {
         padding-top: 2rem;
     }
 }
+
+@media (max-width: 767px) {
+  * {
+    hyphens: none !important;
+    -webkit-hyphens: none !important;
+    -ms-hyphens: none !important;
+    word-break: normal !important;
+  }
+
+  h1, h2, h3, h4, h5, h6,
+  p, a, li, span,
+  .article-title,
+  .publication-card h3,
+  .article-card h3,
+  .content-section h2,
+  .hero-left h1,
+  .page-header h1,
+  .page-header h2 {
+    hyphens: none !important;
+    -webkit-hyphens: none !important;
+    -ms-hyphens: none !important;
+    word-break: normal !important;
+    overflow-wrap: normal !important;
+  }
+
+  body {
+    font-size: 15px;
+  }
+
+  h1, .hero-left h1, .article-title {
+    font-size: 1.75rem;
+  }
+
+  h2, .page-header h2, .content-section h2 {
+    font-size: 1.45rem;
+  }
+
+  h3, .article-card h3, .publication-card h3 {
+    font-size: 1.1rem;
+  }
+
+  h4 {
+    font-size: 1rem;
+  }
+}
