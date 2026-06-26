@@ -27,6 +27,11 @@
     box-sizing: border-box;
 }
 
+html,
+body {
+    overflow-x: hidden;
+}
+
 body {
     font-family: 'Georgia', 'Garamond', serif;
     background-color: var(--primary-white);
@@ -115,7 +120,8 @@ img {
     display: flex;
     align-items: center;
     gap: 0.75rem;
-    flex-shrink: 0;
+    flex: 1 1 auto;
+    min-width: 0;
     background: none;
     border: none;
     box-shadow: none;
@@ -139,6 +145,7 @@ img {
     display: flex;
     flex-direction: column;
     gap: 0.1rem;
+    min-width: 0;
 }
 
 .masthead-text h1 {
@@ -188,6 +195,26 @@ img {
 .nav-links a:hover::after,
 .nav-links a.active::after {
     width: 100%;
+}
+
+.nav-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0.25rem;
+    flex-shrink: 0;
+}
+
+.nav-toggle span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background-color: var(--navy);
 }
 
 /* ============================================
@@ -958,33 +985,6 @@ img {
 }
 
 /* ============================================
-   FAQ Section
-   ============================================ */
-
-.faq-item,
-.faq-section {
-    background-color: var(--light-blue);
-    padding: 1.5rem;
-    border-radius: 4px;
-    border-left: 4px solid var(--navy);
-    margin-bottom: 1rem;
-}
-
-.faq-item h4 {
-    color: var(--navy);
-    margin-bottom: 0.75rem;
-    font-size: 1rem;
-    border: none;
-    padding: 0;
-}
-
-.faq-item p {
-    color: var(--text-dark);
-    font-size: 0.95rem;
-    margin: 0;
-}
-
-/* ============================================
    Buttons
    ============================================ */
 
@@ -1277,24 +1277,6 @@ img {
     font-size: 0.88rem;
 }
 
-.nav-toggle {
-    display: none;
-    flex-direction: column;
-    justify-content: center;
-    gap: 5px;
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    padding: 0.25rem;
-}
-
-.nav-toggle span {
-    display: block;
-    width: 24px;
-    height: 2px;
-    background-color: var(--navy);
-}
-
 @media (max-width: 900px) {
     .hero-container,
     .footer-content,
@@ -1308,19 +1290,19 @@ img {
         grid-template-columns: 1fr;
     }
 
-    .navbar-content {
-        gap: 1rem;
-    }
-
     .nav-toggle {
         display: inline-flex;
         margin-left: auto;
     }
 
     .nav-links {
-        position: absolute;
-        right: 20px;
-        top: calc(100% + 8px);
+        position: fixed;
+        top: calc(64px + env(safe-area-inset-top, 0px));
+        left: 50%;
+        transform: translateX(-50%);
+        width: calc(100vw - 28px);
+        max-width: 360px;
+        min-width: 0;
         flex-direction: column;
         align-items: flex-start;
         gap: 0.85rem;
@@ -1328,10 +1310,10 @@ img {
         border: 1px solid var(--border-color);
         border-radius: 6px;
         padding: 1rem;
-        min-width: 220px;
         box-shadow: 0 10px 24px rgba(26, 58, 82, 0.12);
         display: none;
         z-index: 200;
+        margin: 0;
     }
 
     .nav-links.nav-open {
@@ -1339,7 +1321,7 @@ img {
     }
 }
 
-@media (max-width: 640px) {
+@media (max-width: 767px) {
     .container {
         padding: 0 14px;
     }
@@ -1360,47 +1342,174 @@ img {
         padding-right: 14px;
     }
 
-    .publication-feed {
+    .navbar {
+        padding-top: 0.65rem;
+        padding-bottom: 0.65rem;
+    }
+
+    .navbar-content {
+        gap: 0.75rem;
+    }
+
+    .navbar-left {
+        gap: 0.6rem;
+    }
+
+    .site-logo {
+        width: 42px;
+        height: 42px;
+        min-width: 42px;
+    }
+
+    .masthead-text h1 {
+        font-size: 1.02rem;
+        line-height: 1.15;
+    }
+
+    .masthead-tagline {
+        font-size: 0.62rem;
+        line-height: 1.25;
+    }
+
+    .nav-toggle {
+        padding: 0.3rem 0;
+        margin-right: 0;
+        align-self: center;
+    }
+
+    .nav-links {
+        top: calc(62px + env(safe-area-inset-top, 0px));
+        width: calc(100vw - 28px);
+        max-width: 360px;
+        padding: 0.95rem 1rem;
+    }
+
+    .hero-section {
+        padding-top: 2rem;
+        padding-bottom: 1.75rem;
+    }
+
+    .page-header {
+        padding-top: 2rem;
+        padding-bottom: 1.75rem;
+    }
+
+    .main-content,
+    .page-content {
+        padding-top: 1.9rem;
+        padding-bottom: 2.3rem;
+    }
+
+    .publish-benefits,
+    .submit-disciplines,
+    .editorial-board,
+    .review-process,
+    .cta-final {
+        padding-top: 1.75rem;
+        padding-bottom: 1.75rem;
+    }
+
+    .content-section {
+        margin-bottom: 1.9rem;
+    }
+
+    .publish-benefits h2,
+    .submit-disciplines h2,
+    .featured-articles h2,
+    .editorial-board h2,
+    .review-process h2,
+    .content-section h2 {
+        margin-bottom: 1.2rem;
+    }
+
+    .publish-benefits-list {
+        gap: 0.75rem;
+        margin-bottom: 1rem;
+    }
+
+    .publish-benefits-list li {
+        padding-top: 0.85rem;
+        padding-bottom: 0.85rem;
+    }
+
+    .publish-benefits-note,
+    .submit-disciplines-intro {
+        font-size: 0.95rem;
+        line-height: 1.55;
+    }
+
+    .submit-disciplines {
+        padding-top: 1.35rem;
+        padding-bottom: 1.35rem;
+    }
+
+    .submit-disciplines h2 {
+        margin-bottom: 0.9rem;
+        padding-bottom: 0.55rem;
+    }
+
+    .submit-disciplines-intro {
+        margin-bottom: 0.8rem;
+    }
+
+    .submission-fields-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 0.55rem;
+    }
+
+    .submission-field {
+        padding: 0.65rem 0.7rem;
+        font-size: 0.85rem;
+        line-height: 1.3;
+    }
+
+    .featured-articles {
+        display: none;
+    }
+
+    .board-grid,
+    .process-steps,
+    .publication-feed,
+    .what-coming-grid,
+    .team-grid,
+    .values-grid,
+    .categories-grid,
+    .look-for-grid {
         gap: 1rem;
     }
 
-    .publication-card,
     .article-card,
-    .team-member-card,
+    .publication-card,
     .category-item,
     .look-card,
     .what-card,
     .coming-soon-box,
     .guideline-box,
     .endorsement-content,
-    .faq-item,
-    .faq-section,
-    .process-step,
-    .board-member,
-    .value-card,
-    .editor-card {
-        width: 100%;
-        max-width: 100%;
-    }
-
-    .publication-card,
-    .article-card,
-    .coming-soon-box,
-    .what-card,
-    .guideline-box,
-    .endorsement-content,
-    .faq-item,
-    .faq-section,
-    .process-step,
-    .board-member,
-    .value-card,
-    .category-item,
-    .look-card,
     .team-member-card,
-    .editor-info,
-    .scholarly-article {
+    .board-member,
+    .value-card,
+    .process-step,
+    .scholarly-article,
+    .editor-info {
         padding-left: 1rem;
         padding-right: 1rem;
+    }
+
+    .article-card,
+    .publication-card,
+    .coming-soon-box,
+    .what-card,
+    .guideline-box,
+    .endorsement-content,
+    .team-member-card,
+    .board-member,
+    .value-card,
+    .category-item,
+    .look-card,
+    .process-step {
+        padding-top: 1rem;
+        padding-bottom: 1rem;
     }
 
     .publication-card h3,
@@ -1422,15 +1531,9 @@ img {
     .what-card p,
     .article-body p,
     .guideline-box p,
-    .faq-item p,
     .member-description,
     .editor-bio {
         max-width: none;
-    }
-
-    .scholarly-article {
-        padding-top: 1.5rem;
-        padding-bottom: 1.5rem;
     }
 
     .article-meta,
@@ -1438,9 +1541,12 @@ img {
         gap: 0.5rem 0.75rem;
     }
 
-    .nav-links {
-        right: 14px;
-        left: 14px;
-        min-width: 0;
+    .scholarly-article {
+        padding-top: 1.5rem;
+        padding-bottom: 1.5rem;
+    }
+
+    .footer {
+        padding-top: 2rem;
     }
 }
