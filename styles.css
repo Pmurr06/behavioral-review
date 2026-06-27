@@ -1074,6 +1074,100 @@ img {
     line-height: 1.7;
 }
 
+
+.publication-card-meta a,
+.article-byline a,
+.author-profile-card__name a {
+    font-weight: 700;
+}
+
+.author-profile-link {
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.16em;
+}
+
+.author-profile-page {
+    background-color: var(--off-white);
+}
+
+.author-profile-eyebrow {
+    margin-bottom: 0.35rem;
+    color: var(--text-light);
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.author-profile-subtitle {
+    max-width: 760px;
+    color: var(--text-light);
+    font-size: 1rem;
+    margin-bottom: 0;
+}
+
+.author-profile-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.5rem;
+    background-color: var(--light-blue);
+    border-left: 4px solid var(--navy);
+    border-radius: 4px;
+    padding: 1.5rem;
+}
+
+.author-note-card .author-profile-card {
+    background: transparent;
+    border: 0;
+    border-radius: 0;
+    padding: 0;
+}
+
+.author-profile-card--compact {
+    gap: 1rem;
+}
+
+.author-profile-card__avatar {
+    flex: 0 0 132px;
+    max-width: 132px;
+    border-radius: 4px;
+    overflow: hidden;
+    background-color: var(--border-color);
+}
+
+.author-profile-card--compact .author-profile-card__avatar {
+    flex-basis: 110px;
+    max-width: 110px;
+}
+
+.author-profile-card__avatar img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.author-profile-card__content {
+    min-width: 0;
+}
+
+.author-profile-card__name {
+    border: 0;
+    margin-bottom: 0.35rem;
+    padding: 0;
+}
+
+.author-profile-card__institution {
+    color: var(--text-light);
+    font-size: 0.95rem;
+    margin-bottom: 0.8rem;
+}
+
+.author-profile-card__bio {
+    margin-bottom: 0;
+}
+
 .archive-empty {
     color: var(--text-light);
     font-style: italic;
@@ -1352,6 +1446,17 @@ img {
 
     .container {
         padding: 0 14px;
+    }
+
+    .author-profile-card,
+    .author-note-card .author-profile-card {
+        flex-direction: column;
+    }
+
+    .author-profile-card__avatar,
+    .author-profile-card--compact .author-profile-card__avatar {
+        max-width: 140px;
+        flex-basis: auto;
     }
 
     body {
