@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="480" height="600" viewBox="0 0 480 600" role="img" aria-labelledby="title desc">
+  <title id="title">Miller Smith author profile image</title>
+  <desc id="desc">Illustrated monogram profile image for Miller Smith.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#e8f0f8" />
+      <stop offset="100%" stop-color="#d4e0eb" />
+    </linearGradient>
+  </defs>
+  <rect width="480" height="600" rx="36" fill="url(#bg)" />
+  <circle cx="240" cy="212" r="102" fill="#1a3a52" opacity="0.12" />
+  <path d="M240 328c-82 0-148 56-148 126v38h296v-38c0-70-66-126-148-126z" fill="#1a3a52" opacity="0.16" />
+  <text x="240" y="348" text-anchor="middle" font-family="Georgia, serif" font-size="148" font-weight="700" fill="#1a3a52">MS</text>
+</svg>

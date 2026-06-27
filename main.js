@@ -6,8 +6,7 @@
 var ARTICLES = [
     {
         title: 'Profit, Power, and the Climate Crisis: Does Capitalism Prevent Environmental Progress?',
-        author: 'Miller Smith',
-        institution: 'University of Washington Foster School of Business',
+        authorId: 'miller-smith',
         category: 'Behavioral Economics',
         date: 'June 2026',
         readingTime: '12 min read',
@@ -26,8 +25,7 @@ var ARTICLES = [
     },
     {
         title: 'Beyond the Straw: Consumer Behavior, Environmental Policy, and the Future of Single-Use Plastics',
-        author: 'Miller Smith',
-        institution: 'University of Washington Foster School of Business',
+        authorId: 'miller-smith',
         category: 'Law & Society',
         date: 'July 2026',
         readingTime: '9–10 min read',
@@ -36,8 +34,7 @@ var ARTICLES = [
     },
     {
         title: 'Forex Exchange Markets: The Euro-Dollar Relationship in the Post-COVID Era',
-        author: 'Miller Smith',
-        institution: 'University of Washington Foster School of Business',
+        authorId: 'miller-smith',
         category: 'International Affairs',
         date: 'July 2026',
         readingTime: '15 min read',
@@ -46,8 +43,25 @@ var ARTICLES = [
     }
 ];
 
+function getArticleAuthorData(article) {
+    /* main.js is shared by pages that do not load authors.js, so author helpers must remain optional */
+    var profile = article.authorId && typeof window.getAuthorProfile === 'function'
+        ? window.getAuthorProfile(article.authorId)
+        : null;
+
+    return {
+        id: article.authorId || '',
+        name: profile ? profile.name : article.author,
+        institution: profile ? profile.institution : article.institution,
+        profileHref: profile
+            ? window.getAuthorProfileHref(article.authorId)
+            : ''
+    };
+}
+
 /* Build one publication card element from an article object */
 function buildArticleCard(article) {
+    var authorData = getArticleAuthorData(article);
     var card = document.createElement('article');
     card.className = 'publication-card';
     card.setAttribute('data-category', article.category);
@@ -61,7 +75,20 @@ function buildArticleCard(article) {
 
     var meta = document.createElement('div');
     meta.className = 'publication-card-meta';
-    [article.author, article.institution, article.date, article.readingTime].forEach(function (text) {
+
+    var authorSpan = document.createElement('span');
+    if (authorData.profileHref) {
+        var authorLink = document.createElement('a');
+        authorLink.href = authorData.profileHref;
+        authorLink.className = 'author-profile-link';
+        authorLink.textContent = authorData.name;
+        authorSpan.appendChild(authorLink);
+    } else {
+        authorSpan.textContent = authorData.name;
+    }
+    meta.appendChild(authorSpan);
+
+    [authorData.institution, article.date, article.readingTime].forEach(function (text) {
         var span = document.createElement('span');
         span.textContent = text;
         meta.appendChild(span);
@@ -137,6 +164,29 @@ function initRecentArticlesPage() {
     feedEl.appendChild(buildArticleCard(ARTICLES[0]));
 }
 
+/* Author profile page — render linked publications */
+function initAuthorProfilePage() {
+    var feedEl = document.querySelector('[data-author-articles]');
+    if (!feedEl) return;
+
+    var authorId = feedEl.getAttribute('data-author-articles');
+    var authoredArticles = ARTICLES.filter(function (article) {
+        return article.authorId === authorId;
+    });
+
+    if (authoredArticles.length === 0) {
+        var empty = document.createElement('p');
+        empty.className = 'archive-empty';
+        empty.textContent = 'No published articles are available for this author yet.';
+        feedEl.appendChild(empty);
+        return;
+    }
+
+    authoredArticles.forEach(function (article) {
+        feedEl.appendChild(buildArticleCard(article));
+    });
+}
+
 document.addEventListener('DOMContentLoaded', function () {
     /* Navigation toggle */
     var toggle = document.getElementById('navToggle');
@@ -165,4 +215,5 @@ document.addEventListener('DOMContentLoaded', function () {
 
     initArchivePage();
     initRecentArticlesPage();
+    initAuthorProfilePage();
 });
