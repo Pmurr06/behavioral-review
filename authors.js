@@ -20,8 +20,7 @@
     }
 
     function buildSitePath(path) {
-        var siteRoot = getSiteRoot();
-        return siteRoot ? siteRoot + path : path;
+        return getSiteRoot() + path;
     }
 
     function getAuthorProfile(authorId) {

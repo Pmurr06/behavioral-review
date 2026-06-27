@@ -44,6 +44,7 @@ var ARTICLES = [
 ];
 
 function getArticleAuthorData(article) {
+    /* main.js is shared by pages that do not load authors.js, so author helpers must remain optional */
     var profile = article.authorId && typeof window.getAuthorProfile === 'function'
         ? window.getAuthorProfile(article.authorId)
         : null;
