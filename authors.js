@@ -5,9 +5,7 @@
             name: 'Miller Smith',
             institution: 'University of Washington Foster School of Business',
             bio: 'Miller Smith is a Finance & Marketing student at the University of Washington Foster School of Business. His academic interests include international finance, behavioral economics, corporate governance, monetary systems, capital markets, environmental policy, and the intersection of economic policy and geopolitical risk.',
-            profilePath: 'authors/miller-smith.html',
-            imagePath: 'miller-smith.svg',
-            imageAlt: 'Illustrated author profile image for Miller Smith'
+            profilePath: 'authors/miller-smith.html'
         }
     };
 
@@ -48,13 +46,17 @@
         var card = document.createElement('div');
         card.className = 'author-profile-card' + (variant === 'compact' ? ' author-profile-card--compact' : '');
 
-        var avatarWrap = document.createElement('div');
-        avatarWrap.className = 'author-profile-card__avatar';
+        if (author.imagePath) {
+            var avatarWrap = document.createElement('div');
+            avatarWrap.className = 'author-profile-card__avatar';
 
-        var image = document.createElement('img');
-        image.src = buildSitePath(author.imagePath);
-        image.alt = author.imageAlt;
-        avatarWrap.appendChild(image);
+            var image = document.createElement('img');
+            image.src = buildSitePath(author.imagePath);
+            image.alt = author.imageAlt || (author.name + ' profile image');
+            avatarWrap.appendChild(image);
+
+            card.appendChild(avatarWrap);
+        }
 
         var content = document.createElement('div');
         content.className = 'author-profile-card__content';
@@ -75,7 +77,6 @@
         content.appendChild(institution);
         content.appendChild(bio);
 
-        card.appendChild(avatarWrap);
         card.appendChild(content);
         return card;
     }
