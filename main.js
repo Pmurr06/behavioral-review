@@ -52,7 +52,7 @@ function getArticleAuthorData(article) {
         id: article.authorId || '',
         name: profile ? profile.name : article.author,
         institution: profile ? profile.institution : article.institution,
-        profileHref: profile && typeof window.getAuthorProfileHref === 'function'
+        profileHref: profile
             ? window.getAuthorProfileHref(article.authorId)
             : ''
     };

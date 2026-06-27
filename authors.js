@@ -86,7 +86,9 @@
             var authorId = node.getAttribute('data-author-link');
             var author = getAuthorProfile(authorId);
             if (!author) return;
-            node.textContent = author.name;
+            if (node.children.length === 0) {
+                node.textContent = author.name;
+            }
             node.setAttribute('href', getAuthorProfileHref(authorId));
             node.classList.add('author-profile-link');
         });
