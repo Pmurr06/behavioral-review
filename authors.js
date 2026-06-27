@@ -52,7 +52,7 @@
 
             var image = document.createElement('img');
             image.src = buildSitePath(author.imagePath);
-            image.alt = author.imageAlt || '';
+            image.alt = author.imageAlt || (author.name + ' profile image');
             avatarWrap.appendChild(image);
 
             card.appendChild(avatarWrap);
