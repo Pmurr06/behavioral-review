@@ -12,14 +12,16 @@
     };
 
     function getSiteRoot() {
-        var siteRoot = document.body && document.body.getAttribute('data-site-root');
-        if (!siteRoot) return '';
-        return siteRoot.replace(/\/$/, '');
+        var pathname = window.location.pathname;
+        if (pathname.indexOf('/articles/') !== -1 || pathname.indexOf('/authors/') !== -1) {
+            return '../';
+        }
+        return '';
     }
 
     function buildSitePath(path) {
         var siteRoot = getSiteRoot();
-        return siteRoot ? siteRoot + '/' + path : path;
+        return siteRoot ? siteRoot + path : path;
     }
 
     function getAuthorProfile(authorId) {
