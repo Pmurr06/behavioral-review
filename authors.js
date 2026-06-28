@@ -11,10 +11,12 @@
     };
 
     function formatAuthorInstitution(major, institution) {
-        if (!major) return institution || '';
-        if (!institution) return major + ' student';
-        var article = institution.indexOf('University of') === 0 ? 'the ' : '';
-        return major + ' student at ' + article + institution;
+        var normalizedInstitution = (institution || '').trim();
+        if (!major) return normalizedInstitution;
+        if (!normalizedInstitution) return major + ' student';
+        var lowerInstitution = normalizedInstitution.toLowerCase();
+        var needsArticle = normalizedInstitution.indexOf('University of') === 0 && lowerInstitution.indexOf('the ') !== 0;
+        return major + ' student at ' + (needsArticle ? 'the ' : '') + normalizedInstitution;
     }
 
     function getSiteRoot() {
