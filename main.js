@@ -51,6 +51,9 @@ var ARTICLES = [
     {
         title: 'Profit, Power, and the Climate Crisis: Does Capitalism Prevent Environmental Progress?',
         authorId: 'miller-smith',
+        author: 'Miller Smith',
+        major: 'Finance & Marketing',
+        institution: 'University of Washington Foster School of Business',
         category: 'Economics',
         date: 'June 2026',
         readingTime: '12 min read',
@@ -71,6 +74,9 @@ var ARTICLES = [
     {
         title: 'Beyond the Straw: Consumer Behavior, Environmental Policy, and the Future of Single-Use Plastics',
         authorId: 'miller-smith',
+        author: 'Miller Smith',
+        major: 'Finance & Marketing',
+        institution: 'University of Washington Foster School of Business',
         category: 'Law & Society',
         date: 'July 2026',
         readingTime: '9–10 min read',
@@ -80,6 +86,9 @@ var ARTICLES = [
     {
         title: 'Forex Exchange Markets: The Euro-Dollar Relationship in the Post-COVID Era',
         authorId: 'miller-smith',
+        author: 'Miller Smith',
+        major: 'Finance & Marketing',
+        institution: 'University of Washington Foster School of Business',
         category: 'International Affairs',
         date: 'July 2026',
         readingTime: '15 min read',
@@ -135,7 +144,7 @@ function getArticleAuthorData(article) {
     return {
         id: article.authorId || '',
         name: profile ? profile.name : article.author,
-        rawInstitution: institution || '',
+        institutionRaw: institution || '',
         institution: formatAuthorInstitution(major, institution),
         profileHref: profile
             ? window.getAuthorProfileHref(article.authorId)
@@ -154,7 +163,7 @@ function computeHomepageStats() {
     ARTICLES.forEach(function (article) {
         var authorData = getArticleAuthorData(article);
         var authorKey = article.authorId || normalizeKey(authorData.name);
-        var institutionKey = normalizeKey(authorData.rawInstitution);
+        var institutionKey = normalizeKey(authorData.institutionRaw);
 
         if (authorKey) uniqueAuthors[authorKey] = true;
         if (institutionKey) uniqueInstitutions[institutionKey] = true;
