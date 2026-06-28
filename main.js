@@ -5,6 +5,16 @@
    ============================================ */
 var ARTICLES = [
     {
+        title: 'The Value of Boring Banking: Why Financial Stability Matters More Than Speculation',
+        author: 'Kelden Littell',
+        institution: 'University of Utah',
+        categories: ['Economics', 'Behavioral Economics'],
+        date: 'June 2026',
+        readingTime: '9 min read',
+        preview: 'Financial innovation can drive growth, but history shows that long-term prosperity depends on stable banking institutions, prudent risk management, and sustained consumer trust. This article examines the Great Recession, behavioral incentives, and why conservative banking remains essential to economic resilience.',
+        link: 'articles/value-of-boring-banking.html'
+    },
+    {
         title: 'Rethinking Affordable Housing: A Land-Bank Strategy for Bozeman',
         author: 'Radek Janout',
         institution: 'Montana State University',
