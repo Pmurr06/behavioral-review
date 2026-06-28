@@ -92,8 +92,9 @@ function formatAuthorInstitution(major, institution) {
     var normalizedInstitution = (institution || '').trim();
     if (!major) return normalizedInstitution;
     if (!normalizedInstitution) return major + ' student';
-    var lowerInstitution = normalizedInstitution.toLowerCase();
-    var needsArticle = normalizedInstitution.indexOf('University of') === 0 && lowerInstitution.indexOf('the ') !== 0;
+    var startsUniversityOf = /^university of/i.test(normalizedInstitution);
+    var startsWithTheUniversityOf = /^the\s+university of/i.test(normalizedInstitution);
+    var needsArticle = startsUniversityOf && !startsWithTheUniversityOf;
     return major + ' student at ' + (needsArticle ? 'the ' : '') + normalizedInstitution;
 }
 
@@ -251,13 +252,16 @@ function initAuthorProfilePage() {
 }
 
 function initArticlePageMetadata() {
+    var hero = document.querySelector('.article-hero');
     var affiliation = document.querySelector('.article-affiliation');
-    if (!affiliation) return;
+    if (!hero || !affiliation) return;
 
+    var explicitLink = hero.getAttribute('data-article-link');
     var currentFile = window.location.pathname.split('/').pop();
     if (!currentFile) return;
     var article = ARTICLES.find(function (entry) {
         if (!entry.link) return false;
+        if (explicitLink) return entry.link === explicitLink;
         var linkFile = entry.link.split('/').pop();
         return !!linkFile && linkFile === currentFile;
     });
