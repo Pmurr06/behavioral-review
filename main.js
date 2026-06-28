@@ -10,7 +10,7 @@ var ARTICLES = [
         institution: 'Montana State University',
         categories: ['Economics', 'Public Policy'],
         date: 'June 2026',
-        readingTime: '14 min read',
+        readingTime: '9 min read',
         preview: 'Bozeman\'s housing crisis reflects more than construction costs; it reflects the rising cost and scarcity of developable land. This article proposes a mandatory land-dedication framework to build a long-term affordable housing land bank while preserving market-based development incentives.',
         link: 'articles/rethinking-affordable-housing-bozeman.html'
     },
@@ -72,9 +72,10 @@ function getArticleAuthorData(article) {
 /* Build one publication card element from an article object */
 function buildArticleCard(article) {
     var authorData = getArticleAuthorData(article);
-    var displayCategory = Array.isArray(article.categories)
-        ? article.categories[0]
-        : article.category;
+    var articleCategories = Array.isArray(article.categories)
+        ? article.categories
+        : (article.category ? [article.category] : []);
+    var displayCategory = articleCategories.join(' • ');
     var card = document.createElement('article');
     card.className = 'publication-card';
     card.setAttribute('data-category', displayCategory);
