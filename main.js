@@ -5,6 +5,16 @@
    ============================================ */
 var ARTICLES = [
     {
+        title: 'Rethinking Affordable Housing: A Land-Bank Strategy for Bozeman',
+        author: 'Radek Janout',
+        institution: 'Montana State University',
+        categories: ['Economics', 'Public Policy'],
+        date: 'June 2026',
+        readingTime: '9 min read',
+        preview: 'Bozeman\'s housing crisis reflects more than construction costs; it reflects the rising cost and scarcity of developable land. This article proposes a mandatory land-dedication framework to build a long-term affordable housing land bank while preserving market-based development incentives.',
+        link: 'articles/rethinking-affordable-housing-bozeman.html'
+    },
+    {
         title: 'Profit, Power, and the Climate Crisis: Does Capitalism Prevent Environmental Progress?',
         authorId: 'miller-smith',
         category: 'Behavioral Economics',
@@ -62,13 +72,17 @@ function getArticleAuthorData(article) {
 /* Build one publication card element from an article object */
 function buildArticleCard(article) {
     var authorData = getArticleAuthorData(article);
+    var articleCategories = Array.isArray(article.categories)
+        ? article.categories
+        : (article.category ? [article.category] : []);
+    var displayCategory = articleCategories.join(' • ');
     var card = document.createElement('article');
     card.className = 'publication-card';
-    card.setAttribute('data-category', article.category);
+    card.setAttribute('data-category', displayCategory);
 
     var pill = document.createElement('span');
     pill.className = 'article-category-pill';
-    pill.textContent = article.category;
+    pill.textContent = displayCategory;
 
     var heading = document.createElement('h3');
     heading.textContent = article.title;
@@ -117,7 +131,7 @@ function initArchivePage() {
     var feedEl = document.getElementById('archive-feed');
     if (!filtersEl || !feedEl) return;
 
-    var categories = ['All', 'Psychology', 'Criminal Justice', 'Behavioral Economics', 'International Affairs', 'Public Policy', 'Law & Society'];
+    var categories = ['All', 'Psychology', 'Criminal Justice', 'Behavioral Economics', 'Economics', 'International Affairs', 'Public Policy', 'Law & Society'];
     var activeCategory = 'All';
 
     /* Build filter buttons */
@@ -140,7 +154,10 @@ function initArchivePage() {
     function renderFeed() {
         feedEl.innerHTML = '';
         var filtered = ARTICLES.filter(function (a) {
-            return activeCategory === 'All' || a.category === activeCategory;
+            var articleCategories = Array.isArray(a.categories)
+                ? a.categories
+                : (a.category ? [a.category] : []);
+            return activeCategory === 'All' || articleCategories.indexOf(activeCategory) !== -1;
         });
         if (filtered.length === 0) {
             var empty = document.createElement('p');
