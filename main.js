@@ -5,6 +5,16 @@
    ============================================ */
 var ARTICLES = [
     {
+        title: 'The Rule of Reason: Why NCAA v. Alston Changed College Sports',
+        author: 'Carson Wais',
+        institution: 'Washington State University',
+        categories: ['Law & Society', 'Business'],
+        date: 'June 2026',
+        readingTime: '9 min read',
+        preview: 'For decades, the NCAA defended amateurism as the foundation of college athletics. In NCAA v. Alston (2021), the Supreme Court unanimously held that the NCAA\'s restrictions on education-related benefits violated the Sherman Antitrust Act, applying the Rule of Reason to redefine the legal and financial landscape of collegiate sports.',
+        link: 'articles/rule-of-reason-ncaa-alston.html'
+    },
+    {
         title: 'The Value of Boring Banking: Why Financial Stability Matters More Than Speculation',
         author: 'Kelden Littell',
         institution: 'University of Utah',
@@ -141,7 +151,7 @@ function initArchivePage() {
     var feedEl = document.getElementById('archive-feed');
     if (!filtersEl || !feedEl) return;
 
-    var categories = ['All', 'Psychology', 'Criminal Justice', 'Behavioral Economics', 'Economics', 'International Affairs', 'Public Policy', 'Law & Society'];
+    var categories = ['All', 'Psychology', 'Criminal Justice', 'Behavioral Economics', 'Economics', 'International Affairs', 'Public Policy', 'Law & Society', 'Business'];
     var activeCategory = 'All';
 
     /* Build filter buttons */
