@@ -57,24 +57,29 @@
 
             <!-- Right Column: Submission Status -->
             <div class="hero-right">
-                <div class="glance-box">
-                    <h3>Inaugural Publication Cycle</h3>
+                <div class="glance-box" data-glance-stats>
+                    <h3>The Behavioral Review at a Glance</h3>
                     <div class="glance-item">
-                        <span class="glance-label">Status:</span>
-                        <span class="glance-value">Accepting Submissions</span>
+                        <span class="glance-label">Articles Published:</span>
+                        <span class="glance-value" data-glance-stat="articlesPublished">—</span>
                     </div>
                     <div class="glance-item">
-                        <span class="glance-label">Focus Areas:</span>
-                        <span class="glance-value">Behavioral and Social Sciences</span>
+                        <span class="glance-label">Student Authors:</span>
+                        <span class="glance-value" data-glance-stat="studentAuthors">—</span>
                     </div>
                     <div class="glance-item">
-                        <span class="glance-label">Review Timeline:</span>
-                        <span class="glance-value">2–4 weeks</span>
+                        <span class="glance-label">Universities Represented:</span>
+                        <span class="glance-value" data-glance-stat="universitiesRepresented">—</span>
                     </div>
                     <div class="glance-item">
-                        <span class="glance-label">Word Count:</span>
-                        <span class="glance-value">1,500–5,000 words</span>
+                        <span class="glance-label">Average Review Time:</span>
+                        <span class="glance-value" data-glance-stat="averageReviewTime">—</span>
                     </div>
+                    <div class="glance-item">
+                        <span class="glance-label">Currently Accepting:</span>
+                        <span class="glance-value" data-glance-stat="currentlyAccepting">—</span>
+                    </div>
+                    <p class="glance-footer">Featuring undergraduate scholarship from universities across the United States.</p>
                 </div>
             </div>
         </div>
@@ -186,16 +191,7 @@
     <section class="editorial-board">
         <div class="container">
             <h2>Editorial Board</h2>
-            <div class="board-grid">
-                <div class="board-member">
-                    <div class="member-name">Paulo Murray</div>
-                    <div class="member-role">Founder &amp; Managing Editor</div>
-                </div>
-                <div class="board-member">
-                    <div class="member-name">Nathan Isbell</div>
-                    <div class="member-role">Copy &amp; Layout Editor</div>
-                </div>
-            </div>
+            <div class="board-grid" data-editorial-board></div>
             <p style="text-align:center; margin-top:1.25rem; font-size:0.9rem; color:var(--text-light);">Section editor positions are currently open. <a href="contact.html">Inquire about joining the team.</a></p>
         </div>
     </section>

@@ -51,6 +51,9 @@ var ARTICLES = [
     {
         title: 'Profit, Power, and the Climate Crisis: Does Capitalism Prevent Environmental Progress?',
         authorId: 'miller-smith',
+        author: 'Miller Smith',
+        major: 'Finance & Marketing',
+        institution: 'University of Washington Foster School of Business',
         category: 'Economics',
         date: 'June 2026',
         readingTime: '12 min read',
@@ -71,6 +74,9 @@ var ARTICLES = [
     {
         title: 'Beyond the Straw: Consumer Behavior, Environmental Policy, and the Future of Single-Use Plastics',
         authorId: 'miller-smith',
+        author: 'Miller Smith',
+        major: 'Finance & Marketing',
+        institution: 'University of Washington Foster School of Business',
         category: 'Law & Society',
         date: 'July 2026',
         readingTime: '9–10 min read',
@@ -80,6 +86,9 @@ var ARTICLES = [
     {
         title: 'Forex Exchange Markets: The Euro-Dollar Relationship in the Post-COVID Era',
         authorId: 'miller-smith',
+        author: 'Miller Smith',
+        major: 'Finance & Marketing',
+        institution: 'University of Washington Foster School of Business',
         category: 'International Affairs',
         date: 'July 2026',
         readingTime: '15 min read',
@@ -87,6 +96,32 @@ var ARTICLES = [
         link: 'articles/forex-exchange-markets.html'
     }
 ];
+
+var EDITORIAL_TEAM = [
+    {
+        name: 'Paulo Murray',
+        role: 'Founder & Managing Editor',
+        credentials: 'U.S. Marine | Psychology Student, Penn State World Campus',
+        institution: 'Penn State World Campus',
+        bio: 'Paulo Murray founded The Behavioral Review to give undergraduate students a publication outlet for behavioral analysis, criminal case commentary, and original research. He is an active-duty U.S. Marine and psychology student pursuing a bachelor\'s degree.',
+        imagePath: 'paulomurray.jpeg',
+        imageAlt: 'Paulo Murray, Founder and Managing Editor of The Behavioral Review'
+    },
+    {
+        name: 'Nathan Isbell',
+        role: 'Copy & Layout Editor',
+        credentials: 'U.S. Marine | Writing Student, UMGC',
+        institution: 'UMGC',
+        bio: 'Nathan Isbell oversees article formatting, citation consistency, editorial presentation, AI-assisted content screening, and publication readiness. He is an active-duty U.S. Marine, Intelligence Specialist, and writing student pursuing a bachelor\'s degree.',
+        imagePath: 'nathanisbell.jpeg',
+        imageAlt: 'Nathan Isbell, Copy and Layout Editor of The Behavioral Review'
+    }
+];
+
+var SITE_SETTINGS = {
+    averageReviewTime: '2–4 weeks',
+    currentlyAccepting: 'Yes'
+};
 
 function formatAuthorInstitution(major, institution) {
     var normalizedInstitution = (institution || '').trim();
@@ -109,11 +144,134 @@ function getArticleAuthorData(article) {
     return {
         id: article.authorId || '',
         name: profile ? profile.name : article.author,
+        institutionRaw: institution || '',
         institution: formatAuthorInstitution(major, institution),
         profileHref: profile
             ? window.getAuthorProfileHref(article.authorId)
             : ''
     };
+}
+
+function normalizeKey(value) {
+    return (value || '').trim().replace(/\s+/g, ' ').toLowerCase();
+}
+
+function computeHomepageStats() {
+    var uniqueAuthors = {};
+    var uniqueInstitutions = {};
+
+    ARTICLES.forEach(function (article) {
+        var authorData = getArticleAuthorData(article);
+        var authorKey = article.authorId || normalizeKey(authorData.name);
+        var institutionKey = normalizeKey(authorData.institutionRaw);
+
+        if (authorKey) uniqueAuthors[authorKey] = true;
+        if (institutionKey) uniqueInstitutions[institutionKey] = true;
+    });
+
+    EDITORIAL_TEAM.forEach(function (editor) {
+        var institutionKey = normalizeKey(editor.institution);
+        if (institutionKey) uniqueInstitutions[institutionKey] = true;
+    });
+
+    return {
+        articlesPublished: String(ARTICLES.length),
+        studentAuthors: String(Object.keys(uniqueAuthors).length),
+        universitiesRepresented: String(Object.keys(uniqueInstitutions).length),
+        averageReviewTime: SITE_SETTINGS.averageReviewTime,
+        currentlyAccepting: SITE_SETTINGS.currentlyAccepting
+    };
+}
+
+function initHomepageStats() {
+    var statsRoot = document.querySelector('[data-glance-stats]');
+    if (!statsRoot) return;
+
+    var stats = computeHomepageStats();
+    Object.keys(stats).forEach(function (key) {
+        statsRoot.querySelectorAll('[data-glance-stat="' + key + '"]').forEach(function (node) {
+            node.textContent = stats[key];
+        });
+    });
+}
+
+function initHomepageEditorialBoard() {
+    var boardEl = document.querySelector('[data-editorial-board]');
+    if (!boardEl) return;
+
+    boardEl.innerHTML = '';
+    EDITORIAL_TEAM.forEach(function (editor) {
+        var card = document.createElement('div');
+        card.className = 'board-member';
+
+        var name = document.createElement('div');
+        name.className = 'member-name';
+        name.textContent = editor.name;
+
+        var role = document.createElement('div');
+        role.className = 'member-role';
+        role.textContent = editor.role;
+
+        card.appendChild(name);
+        card.appendChild(role);
+        boardEl.appendChild(card);
+    });
+}
+
+function getSiteRoot() {
+    var pathname = window.location.pathname;
+    if (pathname.indexOf('/articles/') !== -1 || pathname.indexOf('/authors/') !== -1) {
+        return '../';
+    }
+    return '';
+}
+
+function initEditorialTeamPage() {
+    var editorsEl = document.querySelector('[data-featured-editors]');
+    if (!editorsEl) return;
+
+    var siteRoot = getSiteRoot();
+    editorsEl.innerHTML = '';
+
+    EDITORIAL_TEAM.forEach(function (editor) {
+        var card = document.createElement('div');
+        card.className = 'editor-card';
+
+        var headshot = document.createElement('div');
+        headshot.className = 'editor-headshot';
+
+        var image = document.createElement('img');
+        image.src = siteRoot + editor.imagePath;
+        image.alt = editor.imageAlt;
+        headshot.appendChild(image);
+
+        var info = document.createElement('div');
+        info.className = 'editor-info';
+
+        var name = document.createElement('h3');
+        name.textContent = editor.name;
+
+        var title = document.createElement('p');
+        title.className = 'editor-title';
+        title.textContent = editor.role;
+
+        var credentials = document.createElement('p');
+        credentials.className = 'editor-credentials';
+        credentials.textContent = editor.credentials;
+
+        var bio = document.createElement('p');
+        bio.className = 'editor-bio';
+        bio.textContent = editor.bio;
+
+        info.appendChild(name);
+        info.appendChild(title);
+        info.appendChild(credentials);
+        info.appendChild(bio);
+
+        card.appendChild(headshot);
+        card.appendChild(info);
+        editorsEl.appendChild(card);
+    });
 }
 
 /* Build one publication card element from an article object */
@@ -301,4 +459,7 @@ document.addEventListener('DOMContentLoaded', function () {
     initRecentArticlesPage();
     initAuthorProfilePage();
     initArticlePageMetadata();
+    initHomepageStats();
+    initHomepageEditorialBoard();
+    initEditorialTeamPage();
 });

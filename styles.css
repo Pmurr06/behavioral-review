@@ -299,6 +299,14 @@ img {
     max-width: 55%;
 }
 
+.glance-footer {
+    margin-top: 1rem;
+    font-size: 0.78rem;
+    color: var(--text-light);
+    text-align: center;
+    line-height: 1.5;
+}
+
 .recruitment-banner {
     margin-top: 1rem;
     padding: 0.85rem 1rem;
