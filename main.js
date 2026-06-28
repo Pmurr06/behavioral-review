@@ -8,7 +8,6 @@ var ARTICLES = [
         title: 'Rethinking Affordable Housing: A Land-Bank Strategy for Bozeman',
         author: 'Radek Janout',
         institution: 'Montana State University',
-        category: 'Economics',
         categories: ['Economics', 'Public Policy'],
         date: 'June 2026',
         readingTime: '14 min read',
@@ -73,7 +72,9 @@ function getArticleAuthorData(article) {
 /* Build one publication card element from an article object */
 function buildArticleCard(article) {
     var authorData = getArticleAuthorData(article);
-    var displayCategory = article.category || (Array.isArray(article.categories) ? article.categories[0] : '');
+    var displayCategory = Array.isArray(article.categories)
+        ? article.categories[0]
+        : article.category;
     var card = document.createElement('article');
     card.className = 'publication-card';
     card.setAttribute('data-category', displayCategory);
