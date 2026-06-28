@@ -7,6 +7,7 @@ var ARTICLES = [
     {
         title: 'Growing Without Losing Your Culture: Organizational Lessons from the Bouldering Project',
         author: 'David Kim',
+        major: 'Logistics, Materials & Supply Chain Management',
         institution: 'University of Washington Foster School of Business',
         categories: ['Business', 'Organizational Behavior'],
         date: 'June 2026',
@@ -17,6 +18,7 @@ var ARTICLES = [
     {
         title: 'The Rule of Reason: Why NCAA v. Alston Changed College Sports',
         author: 'Carson Wais',
+        major: 'Business Finance',
         institution: 'Washington State University',
         categories: ['Law & Society', 'Business'],
         date: 'June 2026',
@@ -27,8 +29,9 @@ var ARTICLES = [
     {
         title: 'The Value of Boring Banking: Why Financial Stability Matters More Than Speculation',
         author: 'Kelden Littell',
+        major: 'Computer Engineering',
         institution: 'University of Utah',
-        categories: ['Economics', 'Behavioral Economics'],
+        categories: ['Economics'],
         date: 'June 2026',
         readingTime: '9 min read',
         preview: 'Financial innovation can drive growth, but history shows that long-term prosperity depends on stable banking institutions, prudent risk management, and sustained consumer trust. This article examines the Great Recession, behavioral incentives, and why conservative banking remains essential to economic resilience.',
@@ -37,6 +40,7 @@ var ARTICLES = [
     {
         title: 'Rethinking Affordable Housing: A Land-Bank Strategy for Bozeman',
         author: 'Radek Janout',
+        major: 'Finance',
         institution: 'Montana State University',
         categories: ['Economics', 'Public Policy'],
         date: 'June 2026',
@@ -47,7 +51,7 @@ var ARTICLES = [
     {
         title: 'Profit, Power, and the Climate Crisis: Does Capitalism Prevent Environmental Progress?',
         authorId: 'miller-smith',
-        category: 'Behavioral Economics',
+        category: 'Economics',
         date: 'June 2026',
         readingTime: '12 min read',
         preview: 'Despite decades of scientific consensus on climate change, global greenhouse gas emissions continue to rise. This article examines whether the modern capitalist system encourages environmental progress or unintentionally prevents it, exploring corporate incentives, lobbying, corporate social responsibility, and the unequal global impacts of climate change.',
@@ -56,7 +60,8 @@ var ARTICLES = [
     {
         title: 'NCAA v. Alston: The Supreme Court Decision That Changed College Athletics',
         author: 'David Morgan',
-        institution: 'Business Administration & Management Student, Washington State University',
+        major: 'Business Administration & Management',
+        institution: 'Washington State University',
         category: 'Law & Society',
         date: 'June 2026',
         readingTime: '10 min read',
@@ -83,16 +88,25 @@ var ARTICLES = [
     }
 ];
 
+function formatAuthorInstitution(major, institution) {
+    if (!major) return institution || '';
+    if (!institution) return major + ' student';
+    var article = institution.indexOf('University of') === 0 ? 'the ' : '';
+    return major + ' student at ' + article + institution;
+}
+
 function getArticleAuthorData(article) {
     /* main.js is shared by pages that do not load authors.js, so author helpers must remain optional */
     var profile = article.authorId && typeof window.getAuthorProfile === 'function'
         ? window.getAuthorProfile(article.authorId)
         : null;
+    var major = profile ? profile.major : article.major;
+    var institution = profile ? profile.institution : article.institution;
 
     return {
         id: article.authorId || '',
         name: profile ? profile.name : article.author,
-        institution: profile ? profile.institution : article.institution,
+        institution: formatAuthorInstitution(major, institution),
         profileHref: profile
             ? window.getAuthorProfileHref(article.authorId)
             : ''
@@ -161,7 +175,7 @@ function initArchivePage() {
     var feedEl = document.getElementById('archive-feed');
     if (!filtersEl || !feedEl) return;
 
-    var categories = ['All', 'Psychology', 'Criminal Justice', 'Behavioral Economics', 'Economics', 'International Affairs', 'Public Policy', 'Law & Society', 'Business', 'Organizational Behavior'];
+    var categories = ['All', 'Psychology', 'Criminal Justice', 'Economics', 'International Affairs', 'Public Policy', 'Law & Society', 'Business', 'Organizational Behavior'];
     var activeCategory = 'All';
 
     /* Build filter buttons */
@@ -234,6 +248,20 @@ function initAuthorProfilePage() {
     });
 }
 
+function initArticlePageMetadata() {
+    var affiliation = document.querySelector('.article-affiliation');
+    if (!affiliation) return;
+
+    var currentFile = window.location.pathname.split('/').pop();
+    var article = ARTICLES.find(function (entry) {
+        return (entry.link || '').split('/').pop() === currentFile;
+    });
+    if (!article) return;
+
+    var authorData = getArticleAuthorData(article);
+    affiliation.textContent = authorData.institution;
+}
+
 document.addEventListener('DOMContentLoaded', function () {
     /* Navigation toggle */
     var toggle = document.getElementById('navToggle');
@@ -263,4 +291,5 @@ document.addEventListener('DOMContentLoaded', function () {
     initArchivePage();
     initRecentArticlesPage();
     initAuthorProfilePage();
+    initArticlePageMetadata();
 });
