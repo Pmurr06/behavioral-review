@@ -119,8 +119,7 @@ var EDITORIAL_TEAM = [
 ];
 
 var SITE_SETTINGS = {
-    averageReviewTime: '2–4 weeks',
-    currentlyAccepting: 'Yes'
+    averageReviewTime: '2–4 weeks'
 };
 
 function formatAuthorInstitution(major, institution) {
@@ -178,8 +177,7 @@ function computeHomepageStats() {
         articlesPublished: String(ARTICLES.length),
         studentAuthors: String(Object.keys(uniqueAuthors).length),
         universitiesRepresented: String(Object.keys(uniqueInstitutions).length),
-        averageReviewTime: SITE_SETTINGS.averageReviewTime,
-        currentlyAccepting: SITE_SETTINGS.currentlyAccepting
+        averageReviewTime: SITE_SETTINGS.averageReviewTime
     };
 }
 
