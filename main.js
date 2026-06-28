@@ -5,6 +5,16 @@
    ============================================ */
 var ARTICLES = [
     {
+        title: 'Growing Without Losing Your Culture: Organizational Lessons from the Bouldering Project',
+        author: 'David Kim',
+        institution: 'University of Washington Foster School of Business',
+        categories: ['Business', 'Organizational Behavior'],
+        date: 'June 2026',
+        readingTime: '10 min read',
+        preview: 'As the Bouldering Project expands nationally, leadership faces a familiar challenge: preserving mission-driven workplace culture while scaling operations. Drawing on interviews with Seattle-area employees, this article examines organizational behavior dynamics and offers practical recommendations for sustaining engagement, trust, and community identity.',
+        link: 'articles/growing-without-losing-your-culture.html'
+    },
+    {
         title: 'The Rule of Reason: Why NCAA v. Alston Changed College Sports',
         author: 'Carson Wais',
         institution: 'Washington State University',
@@ -151,7 +161,7 @@ function initArchivePage() {
     var feedEl = document.getElementById('archive-feed');
     if (!filtersEl || !feedEl) return;
 
-    var categories = ['All', 'Psychology', 'Criminal Justice', 'Behavioral Economics', 'Economics', 'International Affairs', 'Public Policy', 'Law & Society', 'Business'];
+    var categories = ['All', 'Psychology', 'Criminal Justice', 'Behavioral Economics', 'Economics', 'International Affairs', 'Public Policy', 'Law & Society', 'Business', 'Organizational Behavior'];
     var activeCategory = 'All';
 
     /* Build filter buttons */
