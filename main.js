@@ -100,21 +100,39 @@ var ARTICLES = [
 var EDITORIAL_TEAM = [
     {
         name: 'Paulo Murray',
-        role: 'Founder & Managing Editor',
+        role: 'Managing & Behavioral Science Editor',
         credentials: 'U.S. Marine | Psychology Student, Penn State World Campus',
         institution: 'Penn State World Campus',
-        bio: 'Paulo Murray founded The Behavioral Review to give undergraduate students a publication outlet for behavioral analysis, criminal case commentary, and original research. He is an active-duty U.S. Marine and psychology student pursuing a bachelor\'s degree.',
+        bio: 'Psychology student at Penn State, active-duty Marine Corps Meteorology and Oceanography specialist, and Crisis Text Line volunteer.',
         imagePath: 'paulomurray.jpeg',
-        imageAlt: 'Paulo Murray, Founder and Managing Editor of The Behavioral Review'
+        imageAlt: 'Paulo Murray, Managing and Behavioral Science Editor of The Behavioral Review'
+    },
+    {
+        name: 'Carson Wais',
+        role: 'Business & Economics Editor',
+        credentials: 'Business Finance Student, Washington State University',
+        institution: 'Washington State University',
+        bio: 'Business Finance student at Washington State University, VITA and TCE certified, and co-founder of Asnowco LLC.',
+        imagePath: 'CarsonWais.JPG',
+        imageAlt: 'Carson Wais, Business and Economics Editor of The Behavioral Review'
     },
     {
         name: 'Nathan Isbell',
         role: 'Copy & Layout Editor',
         credentials: 'U.S. Marine | Writing Student, UMGC',
         institution: 'UMGC',
-        bio: 'Nathan Isbell oversees article formatting, citation consistency, editorial presentation, AI-assisted content screening, and publication readiness. He is an active-duty U.S. Marine, Intelligence Specialist, and writing student pursuing a bachelor\'s degree.',
+        bio: 'Marine Corps Intelligence Specialist and Writing student at UMGC with experience in data analysis and technical reports.',
         imagePath: 'nathanisbell.jpeg',
         imageAlt: 'Nathan Isbell, Copy and Layout Editor of The Behavioral Review'
+    },
+    {
+        name: 'Brandon Nobrega',
+        role: 'Design & Marketing Editor',
+        credentials: 'U.S. Air Force Aviation Meteorologist',
+        institution: '',
+        bio: 'U.S. Air Force aviation meteorologist supporting Army rotary-wing aircraft operations and managing TBR\'s social media.',
+        imagePath: 'Brandonnobrega.jpeg',
+        imageAlt: 'Brandon Nobrega, Design and Marketing Editor of The Behavioral Review'
     }
 ];
 
