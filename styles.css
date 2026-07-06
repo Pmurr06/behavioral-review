@@ -797,7 +797,7 @@ img {
 }
 
 .editor-info h3 {
-    font-size: 1.05rem;
+    font-size: 1.1rem;
     color: var(--navy);
     margin-bottom: 0.25rem;
     border: none;
@@ -805,7 +805,7 @@ img {
 }
 
 .editor-title {
-    font-size: 0.75rem;
+    font-size: 0.78rem;
     color: var(--text-light);
     font-weight: 600;
     text-transform: uppercase;
