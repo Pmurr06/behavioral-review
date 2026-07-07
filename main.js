@@ -5,6 +5,18 @@
    ============================================ */
 var ARTICLES = [
     {
+        title: 'Moneyball and Market Inefficiency: How the Oakland Athletics Revolutionized Data-Driven Decision Making',
+        author: 'Jackson Pincock',
+        major: 'Business',
+        institution: 'University of Utah',
+        categories: ['Business & Economics', 'Business', 'Economics'],
+        displayCategory: 'Business & Economics',
+        date: '2026',
+        readingTime: '10 min read',
+        preview: 'The Oakland Athletics transformed professional baseball by using statistical analysis to identify market inefficiencies and make evidence-based personnel decisions. This article examines Moneyball as a business case study in analytics, organizational strategy, and competitive advantage.',
+        link: 'articles/moneyball-market-inefficiency.html'
+    },
+    {
         title: 'Implicit Personality Theory and Moral Development in War and Peace',
         author: 'Alan Ta',
         major: 'Honors Finance and Business Analytics',
@@ -307,7 +319,7 @@ function buildArticleCard(article) {
     var articleCategories = Array.isArray(article.categories)
         ? article.categories
         : (article.category ? [article.category] : []);
-    var displayCategory = articleCategories.join(' • ');
+    var displayCategory = article.displayCategory || articleCategories.join(' • ');
     var card = document.createElement('article');
     card.className = 'publication-card';
     card.setAttribute('data-category', displayCategory);
@@ -363,7 +375,7 @@ function initArchivePage() {
     var feedEl = document.getElementById('archive-feed');
     if (!filtersEl || !feedEl) return;
 
-    var categories = ['All', 'Psychology', 'Criminal Justice', 'Economics', 'International Affairs', 'Public Policy', 'Law & Society', 'Business', 'Organizational Behavior'];
+    var categories = ['All', 'Psychology', 'Criminal Justice', 'Economics', 'Business & Economics', 'International Affairs', 'Public Policy', 'Law & Society', 'Business', 'Organizational Behavior'];
     var activeCategory = 'All';
 
     /* Build filter buttons */
