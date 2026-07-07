@@ -5,6 +5,17 @@
    ============================================ */
 var ARTICLES = [
     {
+        title: 'Implicit Personality Theory and Moral Development in War and Peace',
+        author: 'Alan Ta',
+        major: 'Honors Finance and Business Analytics',
+        institution: 'Indiana University Kelley School of Business',
+        categories: ['Psychology'],
+        date: 'July 2026',
+        readingTime: '14 min read',
+        preview: 'Leo Tolstoy\'s War and Peace offers a literary framework for examining implicit personality theory\u2014the cognitive tendency to infer stable character traits from minimal evidence. Through the moral development of Pierre Bezukhov and Natasha Rostova, Tolstoy systematically dismantles the superficial judgments of aristocratic society, demonstrating that authentic character emerges through sacrifice, compassion, and sustained moral growth.',
+        link: 'articles/implicit-personality-theory-war-and-peace.html'
+    },
+    {
         title: 'Growing Without Losing Your Culture: Organizational Lessons from the Bouldering Project',
         author: 'David Kim',
         major: 'Logistics, Materials & Supply Chain Management',
