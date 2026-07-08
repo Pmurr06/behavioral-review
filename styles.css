@@ -734,6 +734,97 @@ img {
 }
 
 /* ============================================
+   Awards & Recognition
+   ============================================ */
+
+.awards-intro {
+    max-width: 860px;
+    margin: 0 auto 2.5rem;
+    text-align: center;
+}
+
+.awards-intro p {
+    font-size: 1.08rem;
+}
+
+.awards-page .content-section h2 {
+    border-bottom-color: #c8a34d;
+}
+
+.featured-award-card {
+    background: linear-gradient(160deg, #ffffff 0%, #fbf8ef 100%);
+    border: 1px solid #e5d7ae;
+    border-top: 4px solid #c8a34d;
+    border-radius: 8px;
+    box-shadow: 0 8px 22px rgba(26, 58, 82, 0.08);
+    display: grid;
+    grid-template-columns: minmax(200px, 320px) minmax(0, 1fr);
+    gap: 1.5rem;
+    align-items: center;
+    max-width: 920px;
+    margin: 0 auto;
+    padding: 1.5rem;
+}
+
+.featured-award-media {
+    text-align: center;
+}
+
+.featured-award-image {
+    width: 100%;
+    max-width: 320px;
+    height: auto;
+    border-radius: 6px;
+    border: 1px solid var(--border-color);
+    object-fit: contain;
+    display: block;
+    margin: 0 auto;
+}
+
+.award-label {
+    text-transform: uppercase;
+    font-size: 0.78rem;
+    letter-spacing: 0.08em;
+    color: var(--text-light);
+    margin-bottom: 0.25rem;
+}
+
+.featured-award-content h3 {
+    margin-bottom: 0.35rem;
+}
+
+.award-institution {
+    color: var(--navy);
+    font-weight: 600;
+    margin-bottom: 0.8rem;
+}
+
+.award-citation {
+    margin-bottom: 1.25rem;
+}
+
+.past-recipients-grid,
+.future-awards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.25rem;
+}
+
+.past-recipient-card,
+.future-award-card {
+    background-color: #fdfaf2;
+    border: 1px solid #e5d7ae;
+    border-left: 4px solid #c8a34d;
+    border-radius: 6px;
+    padding: 1.25rem;
+}
+
+.past-recipient-card h3,
+.future-award-card h3 {
+    margin-bottom: 0.5rem;
+}
+
+/* ============================================
    Editorial Team Styles
    ============================================ */
 
@@ -1432,6 +1523,11 @@ img {
     .nav-links.nav-open {
         display: flex;
     }
+
+    .featured-award-card {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
 }
 
 @media (max-width: 767px) {
@@ -1790,6 +1886,12 @@ img {
 
     .footer {
         padding-top: 2rem;
+    }
+
+    .featured-award-card,
+    .past-recipient-card,
+    .future-award-card {
+        padding: 1rem;
     }
 }
 
