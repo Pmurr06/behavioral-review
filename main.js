@@ -163,6 +163,8 @@ var SITE_SETTINGS = {
     averageReviewTime: '2–4 weeks'
 };
 
+var FALLBACK_EDITOR_IMAGE = 'TBR.png';
+
 function formatAuthorInstitution(major, institution) {
     var normalizedInstitution = (institution || '').trim();
     if (!major) return normalizedInstitution;
@@ -194,6 +196,20 @@ function getArticleAuthorData(article) {
 
 function normalizeKey(value) {
     return (value || '').trim().replace(/\s+/g, ' ').toLowerCase();
+}
+
+function getEditorImageData(editor) {
+    var imagePath = editor.imagePath || FALLBACK_EDITOR_IMAGE;
+    var imageAlt = editor.imageAlt;
+    if (!imageAlt) {
+        imageAlt = editor.name
+            ? editor.name + ', editor at The Behavioral Review'
+            : 'The Behavioral Review editor';
+    }
+    return {
+        imagePath: imagePath,
+        imageAlt: imageAlt
+    };
 }
 
 function computeHomepageStats() {
@@ -234,26 +250,48 @@ function initHomepageStats() {
     });
 }
 
-function initHomepageEditorialBoard() {
-    var boardEl = document.querySelector('[data-editorial-board]');
-    if (!boardEl) return;
+function initHomepageFeaturedEditors() {
+    var editorsEl = document.querySelector('[data-home-featured-editors]');
+    if (!editorsEl) return;
 
-    boardEl.innerHTML = '';
+    var siteRoot = getSiteRoot();
+    editorsEl.innerHTML = '';
+
     EDITORIAL_TEAM.forEach(function (editor) {
+        var imageData = getEditorImageData(editor);
         var card = document.createElement('div');
-        card.className = 'board-member';
+        card.className = 'editor-card';
 
-        var name = document.createElement('div');
-        name.className = 'member-name';
+        var headshot = document.createElement('div');
+        headshot.className = 'editor-headshot';
+
+        var image = document.createElement('img');
+        image.src = siteRoot + imageData.imagePath;
+        image.alt = imageData.imageAlt;
+        image.onerror = function () {
+            if (this.dataset.fallbackApplied === 'true') return;
+            this.dataset.fallbackApplied = 'true';
+            this.src = siteRoot + FALLBACK_EDITOR_IMAGE;
+            this.alt = 'The Behavioral Review logo';
+        };
+        headshot.appendChild(image);
+
+        var info = document.createElement('div');
+        info.className = 'editor-info';
+
+        var name = document.createElement('h3');
         name.textContent = editor.name;
 
-        var role = document.createElement('div');
-        role.className = 'member-role';
+        var role = document.createElement('p');
+        role.className = 'editor-title';
         role.textContent = editor.role;
 
-        card.appendChild(name);
-        card.appendChild(role);
-        boardEl.appendChild(card);
+        info.appendChild(name);
+        info.appendChild(role);
+
+        card.appendChild(headshot);
+        card.appendChild(info);
+        editorsEl.appendChild(card);
     });
 }
 
@@ -273,6 +311,7 @@ function initEditorialTeamPage() {
     editorsEl.innerHTML = '';
 
     EDITORIAL_TEAM.forEach(function (editor) {
+        var imageData = getEditorImageData(editor);
         var card = document.createElement('div');
         card.className = 'editor-card';
 
@@ -280,8 +319,14 @@ function initEditorialTeamPage() {
         headshot.className = 'editor-headshot';
 
         var image = document.createElement('img');
-        image.src = siteRoot + editor.imagePath;
-        image.alt = editor.imageAlt;
+        image.src = siteRoot + imageData.imagePath;
+        image.alt = imageData.imageAlt;
+        image.onerror = function () {
+            if (this.dataset.fallbackApplied === 'true') return;
+            this.dataset.fallbackApplied = 'true';
+            this.src = siteRoot + FALLBACK_EDITOR_IMAGE;
+            this.alt = 'The Behavioral Review logo';
+        };
         headshot.appendChild(image);
 
         var info = document.createElement('div');
@@ -499,6 +544,6 @@ document.addEventListener('DOMContentLoaded', function () {
     initAuthorProfilePage();
     initArticlePageMetadata();
     initHomepageStats();
-    initHomepageEditorialBoard();
+    initHomepageFeaturedEditors();
     initEditorialTeamPage();
 });
