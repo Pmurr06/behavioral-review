@@ -231,12 +231,7 @@ function getInstitutionStatsKey(institution) {
     var normalized = normalizeKey(institution);
     if (!normalized) return '';
 
-    if (
-        normalized === 'university of washington' ||
-        normalized.indexOf('university of washington ') === 0 ||
-        normalized === 'the university of washington' ||
-        normalized.indexOf('the university of washington ') === 0
-    ) {
+    if (/^(the\s+)?university of washington(\s|$)/.test(normalized)) {
         return 'university of washington';
     }
 
