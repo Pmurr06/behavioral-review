@@ -6,7 +6,7 @@
 var ARTICLES = [
     {
         title: 'Financial Barriers and Clinical Judgment in the United States Healthcare System',
-        author: 'Alexandra Quist, Suebin, Emilie, Miranda, and Lydia',
+        author: 'Alexandra Quist',
         institution: 'University of Washington',
         categories: ['Public Policy'],
         date: 'July 2026',
@@ -227,6 +227,22 @@ function normalizeKey(value) {
     return (value || '').trim().replace(/\s+/g, ' ').toLowerCase();
 }
 
+function getInstitutionStatsKey(institution) {
+    var normalized = normalizeKey(institution);
+    if (!normalized) return '';
+
+    if (
+        normalized === 'university of washington' ||
+        normalized.indexOf('university of washington ') === 0 ||
+        normalized === 'the university of washington' ||
+        normalized.indexOf('the university of washington ') === 0
+    ) {
+        return 'university of washington';
+    }
+
+    return normalized;
+}
+
 function getEditorImageData(editor) {
     var imagePath = editor.imagePath || FALLBACK_EDITOR_IMAGE;
     var imageAlt = editor.imageAlt;
@@ -248,14 +264,14 @@ function computeHomepageStats() {
     ARTICLES.forEach(function (article) {
         var authorData = getArticleAuthorData(article);
         var authorKey = article.authorId || normalizeKey(authorData.name);
-        var institutionKey = normalizeKey(authorData.institutionRaw);
+        var institutionKey = getInstitutionStatsKey(authorData.institutionRaw);
 
         if (authorKey) uniqueAuthors[authorKey] = true;
         if (institutionKey) uniqueInstitutions[institutionKey] = true;
     });
 
     EDITORIAL_TEAM.forEach(function (editor) {
-        var institutionKey = normalizeKey(editor.institution);
+        var institutionKey = getInstitutionStatsKey(editor.institution);
         if (institutionKey) uniqueInstitutions[institutionKey] = true;
     });
 
