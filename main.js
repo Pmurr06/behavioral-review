@@ -5,6 +5,18 @@
    ============================================ */
 var ARTICLES = [
     {
+        title: 'Reconsidering Christopher McCandless: Autonomy, Critical Thinking, and the Philosophy of Into the Wild',
+        author: 'Alexandra Quist',
+        major: 'Anthropology',
+        institution: 'University of Washington',
+        categories: ['Behavioral Science'],
+        displayCategory: 'Behavioral Science',
+        date: 'July 2026',
+        readingTime: '8 min read',
+        preview: 'Christopher McCandless is often dismissed as reckless or na\u00efve, yet his story reveals a deliberate effort to live according to carefully examined convictions. Drawing on Lewis Vaughn\u2019s The Power of Critical Thinking, this article argues that McCandless exercised intellectual autonomy and philosophical reasoning\u2014not impulsive idealism\u2014in choosing his unconventional path.',
+        link: 'articles/reconsidering-christopher-mccandless.html'
+    },
+    {
         title: 'Moneyball and Market Inefficiency: How the Oakland Athletics Revolutionized Data-Driven Decision Making',
         author: 'Jackson Pincock',
         major: 'Business',
@@ -420,7 +432,7 @@ function initArchivePage() {
     var feedEl = document.getElementById('archive-feed');
     if (!filtersEl || !feedEl) return;
 
-    var categories = ['All', 'Psychology', 'Criminal Justice', 'Economics', 'Business & Economics', 'International Affairs', 'Public Policy', 'Law & Society', 'Business', 'Organizational Behavior'];
+    var categories = ['All', 'Behavioral Science', 'Psychology', 'Criminal Justice', 'Economics', 'Business & Economics', 'International Affairs', 'Public Policy', 'Law & Society', 'Business', 'Organizational Behavior'];
     var activeCategory = 'All';
 
     /* Build filter buttons */
