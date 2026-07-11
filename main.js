@@ -5,6 +5,17 @@
    ============================================ */
 var ARTICLES = [
     {
+        title: 'Beyond Death: Necropower, Colonialism, and the Unmarked Graves of Indigenous Children in Canada',
+        author: 'Alexandra Quist',
+        major: 'Anthropology',
+        institution: 'University of Washington',
+        categories: ['Anthropology'],
+        date: 'July 2026',
+        readingWordCount: 1733,
+        preview: 'This anthropology article examines Canada\'s residential school graves through necropower, necroviolence, dehumanization, and disrupted grief, arguing that the burial sites remain enduring symbols of colonial erasure and structural violence.',
+        link: 'articles/necropower-colonialism-unmarked-graves-indigenous-children-canada.html'
+    },
+    {
         title: 'Financial Barriers and Clinical Judgment in the United States Healthcare System',
         author: 'Alexandra Quist',
         institution: 'University of Washington',
@@ -460,7 +471,7 @@ function initArchivePage() {
     var feedEl = document.getElementById('archive-feed');
     if (!filtersEl || !feedEl) return;
 
-    var categories = ['All', 'Behavioral Science', 'Psychology', 'Criminal Justice', 'Economics', 'Business & Economics', 'International Affairs', 'Public Policy', 'Law & Society', 'Business', 'Organizational Behavior'];
+    var categories = ['All', 'Anthropology', 'Behavioral Science', 'Psychology', 'Criminal Justice', 'Economics', 'Business & Economics', 'International Affairs', 'Public Policy', 'Law & Society', 'Business', 'Organizational Behavior'];
     var activeCategory = 'All';
 
     /* Build filter buttons */
