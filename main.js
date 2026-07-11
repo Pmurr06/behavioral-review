@@ -5,6 +5,16 @@
    ============================================ */
 var ARTICLES = [
     {
+        title: 'Financial Barriers and Clinical Judgment in the United States Healthcare System',
+        author: 'Alexandra Quist, Suebin, Emilie, Miranda, and Lydia',
+        institution: 'University of Washington',
+        categories: ['Public Policy'],
+        date: 'July 2026',
+        readingWordCount: 2222,
+        preview: 'This qualitative study examines how insurance limitations, medical costs, and healthcare system policies shape clinical judgment, patient decision-making, and access to medically appropriate care within the United States healthcare system.',
+        link: 'articles/financial-barriers-clinical-judgment-us-healthcare.html'
+    },
+    {
         title: 'Reconsidering Christopher McCandless: Autonomy, Critical Thinking, and the Philosophy of Into the Wild',
         author: 'Alexandra Quist',
         major: 'Anthropology',
@@ -185,6 +195,13 @@ function formatAuthorInstitution(major, institution) {
     var startsWithTheUniversityOf = /^the\s+university of/i.test(normalizedInstitution);
     var needsArticle = startsUniversityOf && !startsWithTheUniversityOf;
     return major + ' student at ' + (needsArticle ? 'the ' : '') + normalizedInstitution;
+}
+
+function getArticleReadingTime(article) {
+    if (article && article.readingWordCount) {
+        return Math.max(1, Math.ceil(article.readingWordCount / 200)) + ' min read';
+    }
+    return article && article.readingTime ? article.readingTime : '';
 }
 
 function getArticleAuthorData(article) {
@@ -403,7 +420,7 @@ function buildArticleCard(article) {
     }
     meta.appendChild(authorSpan);
 
-    [authorData.institution, article.date, article.readingTime].forEach(function (text) {
+    [authorData.institution, article.date, getArticleReadingTime(article)].forEach(function (text) {
         var span = document.createElement('span');
         span.textContent = text;
         meta.appendChild(span);
@@ -482,6 +499,42 @@ function initRecentArticlesPage() {
     feedEl.appendChild(buildArticleCard(ARTICLES[0]));
 }
 
+function initHomepageLatestArticle() {
+    var feedEl = document.getElementById('homepage-latest-feed');
+    if (!feedEl || ARTICLES.length === 0) return;
+    feedEl.appendChild(buildArticleCard(ARTICLES[0]));
+}
+
+function initCategoryPage() {
+    var feeds = document.querySelectorAll('[data-category-feed]');
+    if (!feeds.length) return;
+
+    feeds.forEach(function (feedEl) {
+        var category = feedEl.getAttribute('data-category-feed');
+        if (!category) return;
+
+        var filtered = ARTICLES.filter(function (article) {
+            var articleCategories = Array.isArray(article.categories)
+                ? article.categories
+                : (article.category ? [article.category] : []);
+            return articleCategories.indexOf(category) !== -1;
+        });
+
+        feedEl.innerHTML = '';
+        if (filtered.length === 0) {
+            var empty = document.createElement('p');
+            empty.className = 'archive-empty';
+            empty.textContent = 'No articles in this category yet.';
+            feedEl.appendChild(empty);
+            return;
+        }
+
+        filtered.forEach(function (article) {
+            feedEl.appendChild(buildArticleCard(article));
+        });
+    });
+}
+
 /* Author profile page — render linked publications */
 function initAuthorProfilePage() {
     var feedEl = document.querySelector('[data-author-articles]');
@@ -522,7 +575,14 @@ function initArticlePageMetadata() {
     if (!article) return;
 
     var authorData = getArticleAuthorData(article);
-    affiliation.textContent = authorData.institution;
+    if (affiliation.getAttribute('data-static-affiliation') !== 'true') {
+        affiliation.textContent = authorData.institution;
+    }
+
+    var readingTime = document.querySelector('[data-reading-time]');
+    if (readingTime) {
+        readingTime.textContent = getArticleReadingTime(article);
+    }
 }
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -553,6 +613,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
     initArchivePage();
     initRecentArticlesPage();
+    initHomepageLatestArticle();
+    initCategoryPage();
     initAuthorProfilePage();
     initArticlePageMetadata();
     initHomepageStats();

@@ -1391,6 +1391,8 @@ img {
 }
 
 .article-pull-quote {
+    margin-left: 0;
+    margin-right: 0;
     margin-bottom: 2rem;
 }
 
@@ -1417,6 +1419,12 @@ img {
 .article-section h2 {
     font-size: 1.5rem;
     margin-bottom: 1rem;
+}
+
+.article-section h3 {
+    font-size: 1.14rem;
+    color: var(--navy);
+    margin: 1.5rem 0 0.75rem;
 }
 
 .article-body p {
