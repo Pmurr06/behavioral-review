@@ -5,6 +5,17 @@
    ============================================ */
 var ARTICLES = [
     {
+        title: 'Artificial Intelligence and Public Perception: A Rhetorical Analysis of Competing Perspectives',
+        author: 'Ella Roehl and Christine Byrne',
+        authorNames: ['Ella Roehl', 'Christine Byrne'],
+        institution: 'University of Washington',
+        categories: ['Public Policy'],
+        date: 'July 2026',
+        readingWordCount: 1954,
+        preview: 'Ella Roehl and Christine Byrne examine how three sources\u2014the Inventiv Foundation, The New York Times, and Liberties\u2014use contrasting rhetorical strategies to frame artificial intelligence as an engine of innovation, a policy challenge requiring regulation, or a societal threat demanding immediate attention.',
+        link: 'articles/artificial-intelligence-public-perception-rhetorical-analysis.html'
+    },
+    {
         title: 'Grieving Before Goodbye: Dementia, Anticipatory Loss, and the Anthropology of Mourning',
         author: 'Alexandra Quist',
         major: 'Anthropology',
@@ -280,10 +291,18 @@ function computeHomepageStats() {
 
     ARTICLES.forEach(function (article) {
         var authorData = getArticleAuthorData(article);
-        var authorKey = article.authorId || normalizeKey(authorData.name);
         var institutionKey = getInstitutionStatsKey(authorData.institutionRaw);
 
-        if (authorKey) uniqueAuthors[authorKey] = true;
+        if (Array.isArray(article.authorNames)) {
+            article.authorNames.forEach(function (name) {
+                var key = normalizeKey(name);
+                if (key) uniqueAuthors[key] = true;
+            });
+        } else {
+            var authorKey = article.authorId || normalizeKey(authorData.name);
+            if (authorKey) uniqueAuthors[authorKey] = true;
+        }
+
         if (institutionKey) uniqueInstitutions[institutionKey] = true;
     });
 
