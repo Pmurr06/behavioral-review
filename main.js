@@ -5,6 +5,17 @@
    ============================================ */
 var ARTICLES = [
     {
+        title: 'Grieving Before Goodbye: Dementia, Anticipatory Loss, and the Anthropology of Mourning',
+        author: 'Alexandra Quist',
+        major: 'Anthropology',
+        institution: 'University of Washington',
+        categories: ['Anthropology'],
+        date: 'July 2026',
+        readingWordCount: 1643,
+        preview: 'This anthropology article examines dementia-related grief through anticipatory grief, disenfranchised grief, the work of mourning, intersubjectivity, and grievability, arguing that dementia transforms mourning into a prolonged and socially unrecognized process that begins long before physical death.',
+        link: 'articles/grieving-before-goodbye-dementia-anthropology-of-mourning.html'
+    },
+    {
         title: 'Beyond Death: Necropower, Colonialism, and the Unmarked Graves of Indigenous Children in Canada',
         author: 'Alexandra Quist',
         major: 'Anthropology',
