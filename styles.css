@@ -1358,6 +1358,24 @@ img {
     margin-bottom: 1rem;
 }
 
+.article-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-bottom: 0.75rem;
+}
+
+.article-tag {
+    display: inline-block;
+    background-color: transparent;
+    color: var(--text-light);
+    border: 1px solid var(--border-color);
+    border-radius: 999px;
+    padding: 0.2rem 0.65rem;
+    font-size: 0.75rem;
+    letter-spacing: 0.02em;
+}
+
 .article-main {
     padding: 2.5rem 20px 4rem;
 }
