@@ -5,10 +5,21 @@
    ============================================ */
 var ARTICLES = [
     {
+        title: 'Navigating the Labyrinth of Gender, Race, and Economic Inequality: A Sociological Perspective',
+        author: 'Ella Roehl',
+        major: 'Human Physiology',
+        institution: 'University of Iowa',
+        categories: ['Sociology'],
+        date: 'July 2026',
+        readingWordCount: 1496,
+        preview: 'Ella Roehl examines how gender, race, and economic class shape social inequality, showing how institutions, historical patterns, and intersectionality influence opportunity, mobility, and everyday experience.',
+        link: 'articles/navigating-labyrinth-gender-race-economic-inequality-sociological-perspective.html'
+    },
+    {
         title: 'Artificial Intelligence and Public Perception: A Rhetorical Analysis of Competing Perspectives',
         author: 'Ella Roehl and Christine Byrne',
         authorNames: ['Ella Roehl', 'Christine Byrne'],
-        institution: 'University of Washington',
+        institution: 'University of Iowa',
         categories: ['Public Policy'],
         date: 'July 2026',
         readingWordCount: 1954,
@@ -256,6 +267,12 @@ function getArticleAuthorData(article) {
     };
 }
 
+function getArticleCategories(article) {
+    return Array.isArray(article && article.categories)
+        ? article.categories
+        : (article && article.category ? [article.category] : []);
+}
+
 function normalizeKey(value) {
     return (value || '').trim().replace(/\s+/g, ' ').toLowerCase();
 }
@@ -442,9 +459,7 @@ function initEditorialTeamPage() {
 /* Build one publication card element from an article object */
 function buildArticleCard(article) {
     var authorData = getArticleAuthorData(article);
-    var articleCategories = Array.isArray(article.categories)
-        ? article.categories
-        : (article.category ? [article.category] : []);
+    var articleCategories = getArticleCategories(article);
     var displayCategory = article.displayCategory || articleCategories.join(' • ');
     var card = document.createElement('article');
     card.className = 'publication-card';
@@ -501,7 +516,7 @@ function initArchivePage() {
     var feedEl = document.getElementById('archive-feed');
     if (!filtersEl || !feedEl) return;
 
-    var categories = ['All', 'Anthropology', 'Behavioral Science', 'Psychology', 'Criminal Justice', 'Economics', 'Business & Economics', 'International Affairs', 'Public Policy', 'Law & Society', 'Business', 'Organizational Behavior'];
+    var categories = ['All', 'Anthropology', 'Behavioral Science', 'Psychology', 'Sociology', 'Criminal Justice', 'Economics', 'Business & Economics', 'International Affairs', 'Public Policy', 'Law & Society', 'Business', 'Organizational Behavior'];
     var activeCategory = 'All';
 
     /* Build filter buttons */
@@ -524,9 +539,7 @@ function initArchivePage() {
     function renderFeed() {
         feedEl.innerHTML = '';
         var filtered = ARTICLES.filter(function (a) {
-            var articleCategories = Array.isArray(a.categories)
-                ? a.categories
-                : (a.category ? [a.category] : []);
+            var articleCategories = getArticleCategories(a);
             return activeCategory === 'All' || articleCategories.indexOf(activeCategory) !== -1;
         });
         if (filtered.length === 0) {
@@ -566,9 +579,7 @@ function initCategoryPage() {
         if (!category) return;
 
         var filtered = ARTICLES.filter(function (article) {
-            var articleCategories = Array.isArray(article.categories)
-                ? article.categories
-                : (article.category ? [article.category] : []);
+            var articleCategories = getArticleCategories(article);
             return articleCategories.indexOf(category) !== -1;
         });
 
@@ -615,15 +626,7 @@ function initArticlePageMetadata() {
     var affiliation = document.querySelector('.article-affiliation');
     if (!hero || !affiliation) return;
 
-    var explicitLink = hero.getAttribute('data-article-link');
-    var currentFile = window.location.pathname.split('/').pop();
-    if (!currentFile) return;
-    var article = ARTICLES.find(function (entry) {
-        if (!entry.link) return false;
-        if (explicitLink) return entry.link === explicitLink;
-        var linkFile = entry.link.split('/').pop();
-        return !!linkFile && linkFile === currentFile;
-    });
+    var article = getCurrentArticle();
     if (!article) return;
 
     var authorData = getArticleAuthorData(article);
@@ -634,6 +637,101 @@ function initArticlePageMetadata() {
     var readingTime = document.querySelector('[data-reading-time]');
     if (readingTime) {
         readingTime.textContent = getArticleReadingTime(article);
+    }
+}
+
+function getCurrentArticle() {
+    var hero = document.querySelector('.article-hero');
+    if (!hero) return null;
+
+    var explicitLink = hero.getAttribute('data-article-link');
+    var currentFile = window.location.pathname.split('/').pop();
+    if (!currentFile) return null;
+
+    return ARTICLES.find(function (entry) {
+        if (!entry.link) return false;
+        if (explicitLink) return entry.link === explicitLink;
+        var linkFile = entry.link.split('/').pop();
+        return !!linkFile && linkFile === currentFile;
+    }) || null;
+}
+
+function initRelatedArticles() {
+    var feedEl = document.querySelector('[data-related-articles]');
+    if (!feedEl) return;
+
+    var currentArticle = getCurrentArticle();
+    if (!currentArticle) return;
+
+    var currentCategories = getArticleCategories(currentArticle);
+    var limit = parseInt(feedEl.getAttribute('data-related-articles'), 10) || 3;
+    var related = ARTICLES.filter(function (article) {
+        return article.link !== currentArticle.link;
+    }).sort(function (a, b) {
+        var aCategories = getArticleCategories(a);
+        var bCategories = getArticleCategories(b);
+        var aShared = aCategories.filter(function (category) {
+            return currentCategories.indexOf(category) !== -1;
+        }).length;
+        var bShared = bCategories.filter(function (category) {
+            return currentCategories.indexOf(category) !== -1;
+        }).length;
+
+        if (aShared !== bShared) return bShared - aShared;
+        return ARTICLES.indexOf(a) - ARTICLES.indexOf(b);
+    }).slice(0, limit);
+
+    feedEl.innerHTML = '';
+    related.forEach(function (article) {
+        feedEl.appendChild(buildArticleCard(article));
+    });
+}
+
+function buildArticlePaginationLink(label, article) {
+    if (!article) return null;
+
+    var link = document.createElement('a');
+    link.className = 'article-pagination__link';
+    link.href = '../' + article.link;
+
+    var eyebrow = document.createElement('span');
+    eyebrow.className = 'article-pagination__eyebrow';
+    eyebrow.textContent = label;
+
+    var title = document.createElement('span');
+    title.className = 'article-pagination__title';
+    title.textContent = article.title;
+
+    link.appendChild(eyebrow);
+    link.appendChild(title);
+    return link;
+}
+
+function initArticlePagination() {
+    var navEl = document.querySelector('[data-article-pagination]');
+    if (!navEl) return;
+
+    var currentArticle = getCurrentArticle();
+    if (!currentArticle) return;
+
+    var currentIndex = ARTICLES.findIndex(function (article) {
+        return article.link === currentArticle.link;
+    });
+    if (currentIndex === -1) return;
+
+    var previousArticle = currentIndex > 0 ? ARTICLES[currentIndex - 1] : null;
+    var nextArticle = currentIndex < ARTICLES.length - 1 ? ARTICLES[currentIndex + 1] : null;
+
+    navEl.innerHTML = '';
+
+    var previousLink = buildArticlePaginationLink('Previous Article', previousArticle);
+    var nextLink = buildArticlePaginationLink('Next Article', nextArticle);
+
+    if (previousLink) navEl.appendChild(previousLink);
+    if (nextLink) navEl.appendChild(nextLink);
+
+    if (!navEl.children.length) {
+        navEl.remove();
     }
 }
 
@@ -669,6 +767,8 @@ document.addEventListener('DOMContentLoaded', function () {
     initCategoryPage();
     initAuthorProfilePage();
     initArticlePageMetadata();
+    initRelatedArticles();
+    initArticlePagination();
     initHomepageStats();
     initHomepageFeaturedEditors();
     initEditorialTeamPage();
