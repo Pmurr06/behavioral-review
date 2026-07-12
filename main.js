@@ -5,6 +5,18 @@
    ============================================ */
 var ARTICLES = [
     {
+        title: 'Hidden Costs of Global Seafood: Child and Migrant Labor in Thailand\u2019s Shrimp Industry',
+        author: 'Ella Roehl',
+        major: 'Human Physiology',
+        institution: 'University of Iowa',
+        categories: ['Global Affairs', 'Human Rights & International Development'],
+        displayCategory: 'Global Affairs',
+        date: 'July 2026',
+        readingWordCount: 1500,
+        preview: 'Ella Roehl examines how rising global demand for shrimp has contributed to labor exploitation in Thailand\u2019s seafood industry, exploring the relationship between international consumer demand, migrant labor from Myanmar, and workplace conditions that have raised concerns about child labor and forced labor within portions of the supply chain.',
+        link: 'articles/hidden-costs-global-seafood-child-migrant-labor-thailand-shrimp-industry.html'
+    },
+    {
         title: 'Navigating the Labyrinth of Gender, Race, and Economic Inequality: A Sociological Perspective',
         author: 'Ella Roehl',
         major: 'Human Physiology',
@@ -516,7 +528,7 @@ function initArchivePage() {
     var feedEl = document.getElementById('archive-feed');
     if (!filtersEl || !feedEl) return;
 
-    var categories = ['All', 'Anthropology', 'Behavioral Science', 'Psychology', 'Sociology', 'Criminal Justice', 'Economics', 'Business & Economics', 'International Affairs', 'Public Policy', 'Law & Society', 'Business', 'Organizational Behavior'];
+    var categories = ['All', 'Anthropology', 'Behavioral Science', 'Psychology', 'Sociology', 'Criminal Justice', 'Economics', 'Business & Economics', 'Global Affairs', 'International Affairs', 'Public Policy', 'Law & Society', 'Business', 'Organizational Behavior'];
     var activeCategory = 'All';
 
     /* Build filter buttons */
