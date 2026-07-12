@@ -5,6 +5,19 @@
    ============================================ */
 var ARTICLES = [
     {
+        title: 'Religious Racialization and the Yazidi Genocide: Examining ISIS\'s Campaign of Persecution',
+        author: 'Ella Roehl',
+        major: 'Human Physiology',
+        institution: 'University of Iowa',
+        categories: ['Global & International Affairs'],
+        displayCategory: 'Global & International Affairs',
+        tags: ['Human Rights', 'Genocide', 'Iraq', 'ISIS', 'Religious Conflict', 'Middle East'],
+        date: 'July 2026',
+        readingWordCount: 1500,
+        preview: 'Ella Roehl examines how ISIS used religious racialization to frame the Yazidi people as an illegitimate target, analyzing the ideological foundations, historical marginalization, and lasting consequences of the 2014 genocide in Sinjar.',
+        link: 'articles/religious-racialization-yazidi-genocide-isis-campaign-persecution.html'
+    },
+    {
         title: 'Hidden Costs of Global Seafood: Child and Migrant Labor in Thailand\u2019s Shrimp Industry',
         author: 'Ella Roehl',
         major: 'Human Physiology',
@@ -716,20 +729,30 @@ function initRelatedArticles() {
     if (!currentArticle) return;
 
     var currentCategories = getArticleCategories(currentArticle);
+    var currentTags = Array.isArray(currentArticle.tags) ? currentArticle.tags : [];
     var limit = parseInt(feedEl.getAttribute('data-related-articles'), 10) || 3;
     var related = ARTICLES.filter(function (article) {
         return article.link !== currentArticle.link;
     }).sort(function (a, b) {
         var aCategories = getArticleCategories(a);
         var bCategories = getArticleCategories(b);
+        var aTags = Array.isArray(a.tags) ? a.tags : [];
+        var bTags = Array.isArray(b.tags) ? b.tags : [];
         var aShared = aCategories.filter(function (category) {
             return currentCategories.indexOf(category) !== -1;
         }).length;
         var bShared = bCategories.filter(function (category) {
             return currentCategories.indexOf(category) !== -1;
         }).length;
+        var aTagShared = aTags.filter(function (tag) {
+            return currentTags.indexOf(tag) !== -1;
+        }).length;
+        var bTagShared = bTags.filter(function (tag) {
+            return currentTags.indexOf(tag) !== -1;
+        }).length;
 
         if (aShared !== bShared) return bShared - aShared;
+        if (aTagShared !== bTagShared) return bTagShared - aTagShared;
         return ARTICLES.indexOf(a) - ARTICLES.indexOf(b);
     }).slice(0, limit);
 
