@@ -9,8 +9,9 @@ var ARTICLES = [
         author: 'Ella Roehl',
         major: 'Human Physiology',
         institution: 'University of Iowa',
-        categories: ['Global Affairs', 'Human Rights & International Development'],
-        displayCategory: 'Global Affairs',
+        categories: ['Global & International Affairs'],
+        displayCategory: 'Global & International Affairs',
+        tags: ['Human Rights', 'International Development', 'Labor', 'Migration'],
         date: 'July 2026',
         readingWordCount: 1500,
         preview: 'Ella Roehl examines how rising global demand for shrimp has contributed to labor exploitation in Thailand\u2019s seafood industry, exploring the relationship between international consumer demand, migrant labor from Myanmar, and workplace conditions that have raised concerns about child labor and forced labor within portions of the supply chain.',
@@ -21,7 +22,9 @@ var ARTICLES = [
         author: 'Ella Roehl',
         major: 'Human Physiology',
         institution: 'University of Iowa',
-        categories: ['Sociology'],
+        categories: ['Sociology & Anthropology'],
+        displayCategory: 'Sociology & Anthropology',
+        tags: ['Gender', 'Race', 'Social Inequality'],
         date: 'July 2026',
         readingWordCount: 1496,
         preview: 'Ella Roehl examines how gender, race, and economic class shape social inequality, showing how institutions, historical patterns, and intersectionality influence opportunity, mobility, and everyday experience.',
@@ -33,6 +36,7 @@ var ARTICLES = [
         authorNames: ['Ella Roehl', 'Christine Byrne'],
         institution: 'University of Iowa',
         categories: ['Public Policy'],
+        displayCategory: 'Public Policy',
         date: 'July 2026',
         readingWordCount: 1954,
         preview: 'Ella Roehl and Christine Byrne examine how three sources\u2014the Inventiv Foundation, The New York Times, and Liberties\u2014use contrasting rhetorical strategies to frame artificial intelligence as an engine of innovation, a policy challenge requiring regulation, or a societal threat demanding immediate attention.',
@@ -43,7 +47,9 @@ var ARTICLES = [
         author: 'Alexandra Quist',
         major: 'Anthropology',
         institution: 'University of Washington',
-        categories: ['Anthropology'],
+        categories: ['Sociology & Anthropology'],
+        displayCategory: 'Sociology & Anthropology',
+        tags: ['Anthropology'],
         date: 'July 2026',
         readingWordCount: 1643,
         preview: 'This anthropology article examines dementia-related grief through anticipatory grief, disenfranchised grief, the work of mourning, intersubjectivity, and grievability, arguing that dementia transforms mourning into a prolonged and socially unrecognized process that begins long before physical death.',
@@ -54,7 +60,9 @@ var ARTICLES = [
         author: 'Alexandra Quist',
         major: 'Anthropology',
         institution: 'University of Washington',
-        categories: ['Anthropology'],
+        categories: ['Sociology & Anthropology'],
+        displayCategory: 'Sociology & Anthropology',
+        tags: ['Anthropology'],
         date: 'July 2026',
         readingWordCount: 1733,
         preview: 'This anthropology article examines Canada\'s residential school graves through necropower, necroviolence, dehumanization, and disrupted grief, arguing that the burial sites remain enduring symbols of colonial erasure and structural violence.',
@@ -65,6 +73,7 @@ var ARTICLES = [
         author: 'Alexandra Quist',
         institution: 'University of Washington',
         categories: ['Public Policy'],
+        displayCategory: 'Public Policy',
         date: 'July 2026',
         readingWordCount: 2222,
         preview: 'This qualitative study examines how insurance limitations, medical costs, and healthcare system policies shape clinical judgment, patient decision-making, and access to medically appropriate care within the United States healthcare system.',
@@ -87,8 +96,9 @@ var ARTICLES = [
         author: 'Jackson Pincock',
         major: 'Business',
         institution: 'University of Utah',
-        categories: ['Business & Economics', 'Business', 'Economics'],
-        displayCategory: 'Business & Economics',
+        categories: ['Economics & Business'],
+        displayCategory: 'Economics & Business',
+        tags: ['Finance', 'Leadership'],
         date: '2026',
         readingTime: '10 min read',
         preview: 'The Oakland Athletics transformed professional baseball by using statistical analysis to identify market inefficiencies and make evidence-based personnel decisions. This article examines Moneyball as a business case study in analytics, organizational strategy, and competitive advantage.',
@@ -100,6 +110,7 @@ var ARTICLES = [
         major: 'Honors Finance and Business Analytics',
         institution: 'Indiana University Kelley School of Business',
         categories: ['Psychology'],
+        displayCategory: 'Psychology',
         date: 'July 2026',
         readingTime: '14 min read',
         preview: 'Leo Tolstoy\'s War and Peace offers a literary framework for examining implicit personality theory\u2014the cognitive tendency to infer stable character traits from minimal evidence. Through the moral development of Pierre Bezukhov and Natasha Rostova, Tolstoy systematically dismantles the superficial judgments of aristocratic society, demonstrating that authentic character emerges through sacrifice, compassion, and sustained moral growth.',
@@ -110,7 +121,9 @@ var ARTICLES = [
         author: 'David Kim',
         major: 'Logistics, Materials & Supply Chain Management',
         institution: 'University of Washington Foster School of Business',
-        categories: ['Business', 'Organizational Behavior'],
+        categories: ['Economics & Business'],
+        displayCategory: 'Economics & Business',
+        tags: ['Organizational Behavior'],
         date: 'June 2026',
         readingTime: '10 min read',
         preview: 'As the Bouldering Project expands nationally, leadership faces a familiar challenge: preserving mission-driven workplace culture while scaling operations. Drawing on interviews with Seattle-area employees, this article examines organizational behavior dynamics and offers practical recommendations for sustaining engagement, trust, and community identity.',
@@ -121,7 +134,9 @@ var ARTICLES = [
         author: 'Carson Wais',
         major: 'Business Finance',
         institution: 'Washington State University',
-        categories: ['Law & Society', 'Business'],
+        categories: ['Law & Criminal Justice'],
+        displayCategory: 'Law & Criminal Justice',
+        tags: ['Law and Society'],
         date: 'June 2026',
         readingTime: '9 min read',
         preview: 'For decades, the NCAA defended amateurism as the foundation of college athletics. In NCAA v. Alston (2021), the Supreme Court unanimously held that the NCAA\'s restrictions on education-related benefits violated the Sherman Antitrust Act, applying the Rule of Reason to redefine the legal and financial landscape of collegiate sports.',
@@ -132,7 +147,9 @@ var ARTICLES = [
         author: 'Kelden Littell',
         major: 'Computer Engineering',
         institution: 'University of Utah',
-        categories: ['Economics'],
+        categories: ['Economics & Business'],
+        displayCategory: 'Economics & Business',
+        tags: ['Finance'],
         date: 'June 2026',
         readingTime: '9 min read',
         preview: 'Financial innovation can drive growth, but history shows that long-term prosperity depends on stable banking institutions, prudent risk management, and sustained consumer trust. This article examines the Great Recession, behavioral incentives, and why conservative banking remains essential to economic resilience.',
@@ -143,7 +160,9 @@ var ARTICLES = [
         author: 'Radek Janout',
         major: 'Finance',
         institution: 'Montana State University',
-        categories: ['Economics', 'Public Policy'],
+        categories: ['Public Policy', 'Economics & Business'],
+        displayCategory: 'Public Policy',
+        tags: ['Finance'],
         date: 'June 2026',
         readingTime: '9 min read',
         preview: 'Bozeman\'s housing crisis reflects more than construction costs; it reflects the rising cost and scarcity of developable land. This article proposes a mandatory land-dedication framework to build a long-term affordable housing land bank while preserving market-based development incentives.',
@@ -155,7 +174,9 @@ var ARTICLES = [
         author: 'Miller Smith',
         major: 'Finance & Marketing',
         institution: 'University of Washington Foster School of Business',
-        category: 'Economics',
+        categories: ['Economics & Business'],
+        displayCategory: 'Economics & Business',
+        tags: ['Finance'],
         date: 'June 2026',
         readingTime: '12 min read',
         preview: 'Despite decades of scientific consensus on climate change, global greenhouse gas emissions continue to rise. This article examines whether the modern capitalist system encourages environmental progress or unintentionally prevents it, exploring corporate incentives, lobbying, corporate social responsibility, and the unequal global impacts of climate change.',
@@ -166,7 +187,9 @@ var ARTICLES = [
         author: 'David Morgan',
         major: 'Business Administration & Management',
         institution: 'Washington State University',
-        category: 'Law & Society',
+        categories: ['Law & Criminal Justice'],
+        displayCategory: 'Law & Criminal Justice',
+        tags: ['Law and Society'],
         date: 'June 2026',
         readingTime: '10 min read',
         preview: 'For decades, college athletics operated under a model unlike almost any other industry in the United States. NCAA v. Alston (2021) examined whether NCAA rules restricting education-related benefits to student-athletes violated federal antitrust law, ultimately reshaping the legal relationship between universities, athletic organizations, and the athletes who drive collegiate sports.',
@@ -178,9 +201,11 @@ var ARTICLES = [
         author: 'Miller Smith',
         major: 'Finance & Marketing',
         institution: 'University of Washington Foster School of Business',
-        category: 'Law & Society',
+        categories: ['Law & Criminal Justice'],
+        displayCategory: 'Law & Criminal Justice',
+        tags: ['Law and Society'],
         date: 'July 2026',
-        readingTime: '9–10 min read',
+        readingTime: '9\u201310 min read',
         preview: 'The debate over plastic and paper drinking straws has become a public symbol of the broader challenge of reducing single-use plastics. This editorial examines consumer behavior, environmental policy, corporate responsibility, and why incremental changes can still matter in long-term sustainability efforts.',
         link: 'articles/beyond-the-straw.html'
     },
@@ -190,7 +215,9 @@ var ARTICLES = [
         author: 'Miller Smith',
         major: 'Finance & Marketing',
         institution: 'University of Washington Foster School of Business',
-        category: 'International Affairs',
+        categories: ['Global & International Affairs'],
+        displayCategory: 'Global & International Affairs',
+        tags: ['Finance'],
         date: 'July 2026',
         readingTime: '15 min read',
         preview: 'The post-COVID era has placed renewed pressure on the international monetary system, particularly the relationship between the U.S. dollar and the euro. This article examines how fiscal policy, monetary divergence, geopolitical shocks, and de-dollarization efforts have shaped the EUR/USD relationship and the broader reserve currency hierarchy.',
@@ -472,7 +499,7 @@ function initEditorialTeamPage() {
 function buildArticleCard(article) {
     var authorData = getArticleAuthorData(article);
     var articleCategories = getArticleCategories(article);
-    var displayCategory = article.displayCategory || articleCategories.join(' • ');
+    var displayCategory = article.displayCategory || articleCategories[0] || articleCategories.join(' \u2022 ');
     var card = document.createElement('article');
     card.className = 'publication-card';
     card.setAttribute('data-category', displayCategory);
@@ -516,6 +543,19 @@ function buildArticleCard(article) {
     card.appendChild(pill);
     card.appendChild(heading);
     card.appendChild(meta);
+
+    if (Array.isArray(article.tags) && article.tags.length > 0) {
+        var tagsEl = document.createElement('div');
+        tagsEl.className = 'article-tags';
+        article.tags.forEach(function (tag) {
+            var tagSpan = document.createElement('span');
+            tagSpan.className = 'article-tag';
+            tagSpan.textContent = tag;
+            tagsEl.appendChild(tagSpan);
+        });
+        card.appendChild(tagsEl);
+    }
+
     card.appendChild(preview);
     card.appendChild(btn);
 
@@ -528,7 +568,7 @@ function initArchivePage() {
     var feedEl = document.getElementById('archive-feed');
     if (!filtersEl || !feedEl) return;
 
-    var categories = ['All', 'Anthropology', 'Behavioral Science', 'Psychology', 'Sociology', 'Criminal Justice', 'Economics', 'Business & Economics', 'Global Affairs', 'International Affairs', 'Public Policy', 'Law & Society', 'Business', 'Organizational Behavior'];
+    var categories = ['All', 'Behavioral Science', 'Psychology', 'Sociology & Anthropology', 'Law & Criminal Justice', 'Economics & Business', 'Global & International Affairs', 'Public Policy'];
     var activeCategory = 'All';
 
     /* Build filter buttons */
@@ -747,6 +787,22 @@ function initArticlePagination() {
     }
 }
 
+function initArticlePageTags() {
+    var tagsEl = document.querySelector('[data-article-tags]');
+    if (!tagsEl) return;
+
+    var article = getCurrentArticle();
+    if (!article || !Array.isArray(article.tags) || article.tags.length === 0) return;
+
+    tagsEl.innerHTML = '';
+    article.tags.forEach(function (tag) {
+        var tagSpan = document.createElement('span');
+        tagSpan.className = 'article-tag';
+        tagSpan.textContent = tag;
+        tagsEl.appendChild(tagSpan);
+    });
+}
+
 document.addEventListener('DOMContentLoaded', function () {
     /* Navigation toggle */
     var toggle = document.getElementById('navToggle');
@@ -779,6 +835,7 @@ document.addEventListener('DOMContentLoaded', function () {
     initCategoryPage();
     initAuthorProfilePage();
     initArticlePageMetadata();
+    initArticlePageTags();
     initRelatedArticles();
     initArticlePagination();
     initHomepageStats();
