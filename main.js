@@ -5,6 +5,19 @@
    ============================================ */
 var ARTICLES = [
     {
+        title: 'Persuasive Commentary: Futility Laws on Infants and the Case of Tinslee Lewis',
+        author: 'Katie Nguyen',
+        major: 'Health Sciences',
+        institution: 'University of South Florida',
+        categories: ['Public Policy'],
+        displayCategory: 'Public Policy',
+        tags: ['Bioethics', 'Healthcare Policy', 'Medical Ethics', 'Pediatric Care', 'End-of-Life Care', 'Parental Rights'],
+        date: 'July 2026',
+        readingWordCount: 1450,
+        preview: 'Katie Nguyen examines the ethical conflict between parental rights and physician authority in the Tinslee Lewis case, arguing for a collaborative approach to life-sustaining treatment decisions that centers the child\'s best interests.',
+        link: 'articles/persuasive-commentary-futility-laws-infants-tinslee-lewis.html'
+    },
+    {
         title: 'Religious Racialization and the Yazidi Genocide: Examining ISIS\'s Campaign of Persecution',
         author: 'Ella Roehl',
         major: 'Human Physiology',
