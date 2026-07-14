@@ -2622,7 +2622,7 @@ img {
     }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 479px) {
     :root {
         --mobile-page-padding: 1.25rem;
     }
@@ -2660,6 +2660,7 @@ img {
     }
 
     .contact-email a {
+        display: flex;
         width: 100%;
     }
 
