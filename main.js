@@ -5,6 +5,19 @@
    ============================================ */
 var ARTICLES = [
     {
+        title: 'What Common Habits Do Interrogators Examine, and What Strategies Do They Employ to Determine if a Suspect Is Guilty?',
+        author: 'Katie Nguyen',
+        major: 'Health Sciences',
+        institution: 'University of South Florida',
+        categories: ['Law & Criminal Justice'],
+        displayCategory: 'Law & Criminal Justice',
+        tags: ['Criminal Investigations', 'Interrogation', 'Deception Detection', 'Forensic Psychology', 'Investigative Psychology', 'Body Language'],
+        date: 'July 2026',
+        readingWordCount: 1500,
+        preview: 'Katie Nguyen examines how interrogators assess behavioral patterns, speech cues, and interview inconsistencies in high-profile cases while emphasizing that no single cue can independently prove guilt.',
+        link: 'articles/what-common-habits-interrogators-examine-strategies-determine-guilty.html'
+    },
+    {
         title: 'Persuasive Commentary: Futility Laws on Infants and the Case of Tinslee Lewis',
         author: 'Katie Nguyen',
         major: 'Health Sciences',
