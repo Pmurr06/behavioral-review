@@ -1561,6 +1561,40 @@ img {
     margin-bottom: 0.75rem;
 }
 
+/* Footer social icons */
+.footer-social {
+    display: flex;
+    gap: 0.75rem;
+    margin-top: 0.75rem;
+    align-items: center;
+}
+
+.footer-social-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 34px;
+    height: 34px;
+    border-radius: 6px;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.84);
+    transition: background-color 0.25s ease, color 0.25s ease, transform 0.25s ease;
+    flex-shrink: 0;
+}
+
+.footer-social-link:hover {
+    background-color: rgba(255, 255, 255, 0.22);
+    color: #ffffff;
+    transform: translateY(-2px);
+}
+
+.footer-social-link svg {
+    width: 18px;
+    height: 18px;
+    fill: currentColor;
+    display: block;
+}
+
 .footer-bottom {
     border-top: 1px solid rgba(255, 255, 255, 0.12);
     padding: 1rem 20px;
@@ -1571,6 +1605,148 @@ img {
     color: rgba(255, 255, 255, 0.72);
     margin: 0;
     font-size: 0.88rem;
+}
+
+/* ============================================
+   Social Media Section (Contact Page)
+   ============================================ */
+
+.social-connect-intro {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    margin-bottom: 1.75rem;
+}
+
+.social-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.5rem;
+}
+
+.social-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.1rem;
+    background-color: var(--primary-white);
+    border: 1px solid var(--border-color);
+    border-left: 4px solid var(--navy);
+    border-radius: 8px;
+    padding: 1.4rem 1.5rem;
+    text-decoration: none;
+    color: inherit;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 2px 8px rgba(26, 58, 82, 0.07);
+}
+
+.social-card:hover {
+    box-shadow: 0 6px 18px rgba(26, 58, 82, 0.13);
+    transform: translateY(-3px);
+    color: inherit;
+}
+
+.social-card-icon {
+    flex-shrink: 0;
+    width: 44px;
+    height: 44px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.social-card-icon.linkedin {
+    background-color: #0a66c2;
+    color: #ffffff;
+}
+
+.social-card-icon.instagram {
+    background: linear-gradient(135deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+    color: #ffffff;
+}
+
+.social-card-icon svg {
+    width: 24px;
+    height: 24px;
+    fill: currentColor;
+    display: block;
+}
+
+.social-card-body h3 {
+    font-size: 1rem;
+    color: var(--navy);
+    margin-bottom: 0.35rem;
+    border: none;
+    padding: 0;
+}
+
+.social-card-body p {
+    font-size: 0.92rem;
+    color: var(--text-light);
+    margin: 0;
+    line-height: 1.55;
+    font-style: italic;
+}
+
+/* ============================================
+   Follow Us Section (Homepage)
+   ============================================ */
+
+.follow-us-section {
+    background-color: var(--light-blue);
+    border-top: 1px solid var(--border-color);
+    padding: 2.5rem 0;
+    text-align: center;
+}
+
+.follow-us-section h2 {
+    color: var(--navy);
+    margin-bottom: 0.5rem;
+    font-size: 1.4rem;
+}
+
+.follow-us-section p {
+    color: var(--text-light);
+    margin-bottom: 1.25rem;
+    font-size: 0.97rem;
+}
+
+.follow-us-icons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.follow-us-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.55rem 1.2rem;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: opacity 0.25s ease, transform 0.25s ease;
+    color: #ffffff;
+}
+
+.follow-us-link:hover {
+    opacity: 0.88;
+    transform: translateY(-2px);
+}
+
+.follow-us-link.linkedin {
+    background-color: #0a66c2;
+}
+
+.follow-us-link.instagram {
+    background: linear-gradient(135deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+}
+
+.follow-us-link svg {
+    width: 18px;
+    height: 18px;
+    fill: currentColor;
+    flex-shrink: 0;
 }
 
 @media (max-width: 900px) {
