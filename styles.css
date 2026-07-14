@@ -733,6 +733,136 @@ img {
     margin-bottom: 1.5rem;
 }
 
+.content-section > :last-child,
+.about-section > :last-child,
+.contact-box > :last-child,
+.help-card > :last-child,
+.faq-item > :last-child,
+.contact-step > :last-child,
+.social-card-body > :last-child,
+.editor-info > :last-child {
+    margin-bottom: 0;
+}
+
+.about-section {
+    max-width: 880px;
+    margin: 0 auto 3rem;
+}
+
+.about-section h3 {
+    border-bottom: 2px solid var(--navy);
+    padding-bottom: 0.75rem;
+    margin-bottom: 1.35rem;
+}
+
+.standards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.25rem;
+}
+
+.standard-card {
+    background-color: var(--light-blue);
+    border-left: 4px solid var(--navy);
+    border-radius: 4px;
+    padding: 1.35rem;
+}
+
+.standard-card h4 {
+    color: var(--navy);
+    margin-bottom: 0.6rem;
+    border: none;
+    padding: 0;
+}
+
+.standard-card p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.contact-intro {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    max-width: 52rem;
+}
+
+.contact-box,
+.help-card,
+.faq-item,
+.contact-step {
+    background-color: var(--primary-white);
+    border: 1px solid var(--border-color);
+    border-left: 4px solid var(--navy);
+    border-radius: 6px;
+    padding: 1.35rem 1.45rem;
+    box-shadow: 0 4px 14px rgba(26, 58, 82, 0.05);
+}
+
+.contact-box {
+    background-color: var(--off-white);
+}
+
+.help-grid,
+.steps-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1rem;
+}
+
+.help-card h3,
+.faq-item h4,
+.contact-step h4 {
+    border: none;
+    padding: 0;
+    margin-bottom: 0.55rem;
+}
+
+.contact-email {
+    margin: 1rem 0 1.1rem;
+}
+
+.contact-email a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 100%;
+    padding: 0.65rem 1rem;
+    border: 1px solid rgba(26, 58, 82, 0.18);
+    border-radius: 999px;
+    background-color: var(--primary-white);
+    color: var(--navy);
+    font-weight: 700;
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.16em;
+    overflow-wrap: anywhere;
+}
+
+.faq-item + .faq-item {
+    margin-top: 1rem;
+}
+
+.contact-step {
+    position: relative;
+    padding-left: 4.35rem;
+}
+
+.contact-step-number {
+    position: absolute;
+    top: 1.35rem;
+    left: 1.35rem;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 999px;
+    background-color: var(--navy);
+    color: var(--primary-white);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 0.95rem;
+}
+
 /* ============================================
    Awards & Recognition
    ============================================ */
@@ -2210,4 +2340,335 @@ img {
   h4 {
     font-size: 1rem;
   }
+}
+
+@media (max-width: 768px) {
+    :root {
+        --mobile-page-padding: 1.375rem;
+    }
+
+    body {
+        font-size: clamp(1.0625rem, 4.4vw, 1.125rem);
+        line-height: 1.6;
+    }
+
+    p,
+    li,
+    .checklist li,
+    .guideline-box p,
+    .endorsement-content p,
+    .category-item p,
+    .look-card p,
+    .publication-card p,
+    .article-card p,
+    .article-body p,
+    .member-description,
+    .editor-bio,
+    .footer-section p,
+    .footer-section a,
+    .footer-section li,
+    .submit-disciplines-intro,
+    .publish-benefits-note,
+    .hero-mission,
+    .hero-subtitle,
+    .article-affiliation,
+    .article-meta,
+    .publication-card-meta {
+        font-size: clamp(1.0625rem, 4.2vw, 1.125rem);
+        line-height: 1.6;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    .hero-left h1,
+    .page-header h1,
+    .page-header h2,
+    .article-title,
+    .content-section h2,
+    .about-section h3,
+    .featured-editors h2,
+    .team-section h3 {
+        text-wrap: balance;
+        line-height: 1.12;
+    }
+
+    h1,
+    .hero-left h1,
+    .page-header h1,
+    .page-header h2,
+    .article-title {
+        font-size: clamp(2.25rem, 8vw, 2.6rem);
+        max-width: 14ch;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    h2,
+    .content-section h2,
+    .featured-editors h2 {
+        font-size: clamp(1.9rem, 6vw, 2.12rem);
+    }
+
+    h3,
+    .about-section h3,
+    .team-section h3 {
+        font-size: clamp(1.46rem, 4.9vw, 1.68rem);
+        line-height: 1.16;
+    }
+
+    h4 {
+        font-size: 1.18rem;
+        line-height: 1.22;
+    }
+
+    p {
+        margin-bottom: 0.9rem;
+    }
+
+    .container {
+        padding: 0 var(--mobile-page-padding);
+    }
+
+    .navbar,
+    .hero-section,
+    .page-header,
+    .article-hero,
+    .article-main,
+    .publish-benefits,
+    .submit-disciplines,
+    .featured-articles,
+    .editorial-board,
+    .review-process,
+    .cta-final,
+    .footer-bottom {
+        padding-left: var(--mobile-page-padding);
+        padding-right: var(--mobile-page-padding);
+    }
+
+    .nav-links {
+        left: var(--mobile-page-padding);
+        right: var(--mobile-page-padding);
+        transform: none;
+        width: auto;
+        max-width: none;
+        max-height: calc(100vh - 88px);
+        overflow-y: auto;
+    }
+
+    .hero-section,
+    .page-header {
+        padding-top: 2.5rem;
+        padding-bottom: 2.25rem;
+    }
+
+    .main-content,
+    .page-content {
+        padding-top: 3rem;
+        padding-bottom: max(3.2rem, calc(3rem + env(safe-area-inset-bottom)));
+    }
+
+    .content-section,
+    .about-section,
+    .team-section,
+    .featured-editors,
+    .about-cta {
+        margin-bottom: clamp(3rem, 8vw, 3.75rem);
+    }
+
+    .content-section h2,
+    .about-section h3,
+    .team-section h3,
+    .featured-editors h2 {
+        margin-bottom: 1rem;
+        padding-bottom: 0.6rem;
+    }
+
+    .about-page .page-content .container,
+    .contact-page .main-content .container {
+        max-width: 760px;
+    }
+
+    .about-page .about-section p {
+        max-width: 39ch;
+        line-height: 1.62;
+    }
+
+    .about-page .about-section p + p {
+        margin-top: 0.65rem;
+    }
+
+    .standards-grid,
+    .help-grid,
+    .steps-container,
+    .social-cards-grid,
+    .values-grid {
+        grid-template-columns: 1fr;
+        gap: 0.95rem;
+    }
+
+    .contact-intro {
+        font-size: 1rem;
+        line-height: 1.6;
+    }
+
+    .contact-box,
+    .help-card,
+    .faq-item,
+    .contact-step,
+    .social-card,
+    .standard-card,
+    .value-card {
+        padding: 1.15rem 1.2rem;
+    }
+
+    .help-card h3,
+    .faq-item h4,
+    .contact-step h4,
+    .standard-card h4,
+    .value-card h5,
+    .social-card-body h3 {
+        font-size: 1.15rem;
+        line-height: 1.24;
+    }
+
+    .contact-email {
+        margin: 0.85rem 0 1rem;
+    }
+
+    .contact-email a {
+        font-size: clamp(1.0625rem, 4.2vw, 1.125rem);
+    }
+
+    .faq-item + .faq-item {
+        margin-top: 0.75rem;
+    }
+
+    .contact-step {
+        padding-top: 3.1rem;
+        padding-left: 1.15rem;
+    }
+
+    .contact-step-number {
+        top: 1rem;
+        left: 1.15rem;
+        width: 1.9rem;
+        height: 1.9rem;
+    }
+
+    .social-card {
+        gap: 0.9rem;
+    }
+
+    .social-card-icon {
+        width: 40px;
+        height: 40px;
+    }
+
+    .social-card-icon svg {
+        width: 22px;
+        height: 22px;
+    }
+
+    .editors-grid {
+        max-width: 700px;
+        gap: 1rem;
+    }
+
+    .editor-card {
+        padding: 1.3rem;
+        gap: 1rem;
+        align-items: center;
+    }
+
+    .editor-headshot {
+        width: min(100%, 220px);
+        height: auto;
+        aspect-ratio: 4 / 5;
+        margin-bottom: 0;
+    }
+
+    .editor-info {
+        padding: 0;
+        gap: 0.35rem;
+    }
+
+    .editor-info h3 {
+        font-size: clamp(1.75rem, 6vw, 2rem);
+        line-height: 1.08;
+    }
+
+    .editor-title,
+    .editor-credentials {
+        font-size: clamp(1rem, 3.9vw, 1.1rem);
+        line-height: 1.45;
+    }
+
+    .editor-title {
+        margin-bottom: 0.15rem;
+        letter-spacing: 0.03em;
+    }
+
+    .editor-credentials {
+        margin-bottom: 0.25rem;
+    }
+
+    .editor-bio {
+        font-size: clamp(1.0625rem, 4vw, 1.125rem);
+        line-height: 1.58;
+    }
+}
+
+@media (max-width: 479px) {
+    :root {
+        --mobile-page-padding: 1.25rem;
+    }
+
+    .container {
+        padding: 0 var(--mobile-page-padding);
+    }
+
+    .navbar,
+    .hero-section,
+    .page-header,
+    .article-hero,
+    .article-main,
+    .publish-benefits,
+    .submit-disciplines,
+    .featured-articles,
+    .editorial-board,
+    .review-process,
+    .cta-final,
+    .footer-bottom {
+        padding-left: var(--mobile-page-padding);
+        padding-right: var(--mobile-page-padding);
+    }
+
+    .nav-links {
+        left: var(--mobile-page-padding);
+        right: var(--mobile-page-padding);
+    }
+
+    .page-header h1,
+    .page-header h2,
+    .hero-left h1,
+    .article-title {
+        font-size: clamp(2.25rem, 10vw, 2.45rem);
+    }
+
+    .contact-email a {
+        display: flex;
+        width: 100%;
+    }
+
+    .editor-card {
+        padding: 1.15rem;
+    }
+
+    .editor-headshot {
+        width: min(100%, 190px);
+    }
 }
