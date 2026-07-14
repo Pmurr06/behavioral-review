@@ -2370,7 +2370,7 @@ img {
     .article-affiliation,
     .article-meta,
     .publication-card-meta {
-        font-size: 1rem;
+        font-size: clamp(1.0625rem, 4.2vw, 1.125rem);
         line-height: 1.6;
     }
 
@@ -2532,7 +2532,7 @@ img {
     }
 
     .contact-email a {
-        font-size: 1rem;
+        font-size: clamp(1.0625rem, 4.2vw, 1.125rem);
     }
 
     .faq-item + .faq-item {
@@ -2609,7 +2609,7 @@ img {
     }
 
     .editor-bio {
-        font-size: clamp(1rem, 4vw, 1.1rem);
+        font-size: clamp(1.0625rem, 4vw, 1.125rem);
         line-height: 1.58;
     }
 }
