@@ -2603,14 +2603,12 @@ img {
     .publication-card h3,
     .article-card h3 {
         overflow-wrap: break-word;
-        word-break: break-word;
     }
 
     .article-title,
     .article-byline,
     .article-affiliation {
         overflow-wrap: break-word;
-        word-break: break-word;
     }
 
     .article-category-pill,
@@ -2634,7 +2632,6 @@ img {
     .article-section p,
     .article-panel p {
         overflow-wrap: break-word;
-        word-break: break-word;
     }
 
     .articles-grid {
@@ -2672,7 +2669,6 @@ img {
         min-height: 44px;
         padding: 0.6rem 1.2rem;
         overflow-wrap: break-word;
-        word-break: break-word;
         white-space: normal;
         max-width: 100%;
     }
