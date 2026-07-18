@@ -51,19 +51,80 @@
     <!-- Main Content -->
     <main class="main-content">
         <div class="container">
-            <!-- Intro Section -->
-            <section class="content-section">
-                <div class="coming-soon-box">
-                    <h2>Archive of Published Research</h2>
-                    <p>The Behavioral Review archive is a growing record of undergraduate scholarship in behavioral and social science fields. Browse publications by title, author, category, and publication date as new work is released.</p>
-                    <p>Our newest publication examines how rising global demand for shrimp has contributed to labor exploitation in Thailand&rsquo;s seafood industry, raising questions about migrant worker rights, child labor, and ethical sourcing across international supply chains.</p>
-                    <p style="margin-top: 1.5rem;"><strong>Interested in publishing your own research?</strong> <a href="for-authors.html">Review the submission guidelines.</a></p>
+
+            <!-- Archive Statistics -->
+            <div class="archive-stats-bar" aria-label="Archive statistics">
+                <div class="archive-stat">
+                    <span class="archive-stat-value" id="archive-stat-articles">—</span>
+                    <span class="archive-stat-label">Published Articles</span>
                 </div>
+                <div class="archive-stat">
+                    <span class="archive-stat-value" id="archive-stat-authors">—</span>
+                    <span class="archive-stat-label">Student Authors</span>
+                </div>
+                <div class="archive-stat">
+                    <span class="archive-stat-value" id="archive-stat-universities">—</span>
+                    <span class="archive-stat-label">Universities Represented</span>
+                </div>
+                <div class="archive-stat">
+                    <span class="archive-stat-value" id="archive-stat-disciplines">—</span>
+                    <span class="archive-stat-label">Academic Disciplines</span>
+                </div>
+            </div>
+
+            <!-- Editor's Picks (shown only when articles are marked featured: true) -->
+            <section id="archive-featured" class="archive-featured content-section" hidden>
+                <h2>Editor's Picks</h2>
+                <div id="archive-featured-feed" class="publication-feed"></div>
             </section>
 
+            <!-- Published Articles -->
             <section class="content-section">
                 <h2>Published Articles</h2>
-                <div id="archive-filters" class="archive-filters" aria-label="Filter articles by category"></div>
+
+                <!-- Search Bar -->
+                <div class="archive-search-row">
+                    <label for="archive-search" class="sr-only">Search articles by title, author, university, category, or tag</label>
+                    <input type="search" id="archive-search" class="archive-search"
+                           placeholder="Search by title, author, university, category, or tag&hellip;"
+                           aria-label="Search articles by title, author, university, category, or tag">
+                </div>
+
+                <!-- Mobile: Filter Articles toggle -->
+                <button id="archive-filter-toggle" class="archive-filter-toggle"
+                        aria-expanded="false" aria-controls="archive-filter-panel">
+                    Filter Articles
+                    <svg class="archive-filter-chevron" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" focusable="false">
+                        <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"/>
+                    </svg>
+                </button>
+
+                <!-- Filter Panel: category pills + secondary filters -->
+                <div id="archive-filter-panel" class="archive-filter-panel">
+                    <div id="archive-filters" class="archive-filters" role="group" aria-label="Filter by category"></div>
+                    <div class="archive-secondary-filters">
+                        <label class="sr-only" for="archive-sort">Sort articles</label>
+                        <select id="archive-sort" class="archive-select" aria-label="Sort articles">
+                            <option value="newest">Newest First</option>
+                            <option value="oldest">Oldest First</option>
+                            <option value="az">A&ndash;Z</option>
+                            <option value="za">Z&ndash;A</option>
+                        </select>
+                        <label class="sr-only" for="archive-university">Filter by university</label>
+                        <select id="archive-university" class="archive-select" aria-label="Filter by university">
+                            <option value="all">All Universities</option>
+                        </select>
+                        <label class="sr-only" for="archive-author">Filter by author</label>
+                        <select id="archive-author" class="archive-select" aria-label="Filter by author">
+                            <option value="all">All Authors</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Results count (live region for screen readers) -->
+                <p id="archive-results-count" class="archive-results-count" aria-live="polite" aria-atomic="true"></p>
+
+                <!-- Article Feed -->
                 <div id="archive-feed" class="publication-feed"></div>
             </section>
 

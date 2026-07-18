@@ -601,23 +601,212 @@ function buildArticleCard(article) {
     return card;
 }
 
-/* Archive page — render filters and article feed */
+/* Build an archive article card with clickable tag buttons */
+function buildArchiveCard(article, onTagClick) {
+    var authorData = getArticleAuthorData(article);
+    var articleCategories = getArticleCategories(article);
+    var displayCategory = article.displayCategory || articleCategories[0] || '';
+
+    var card = document.createElement('article');
+    card.className = 'publication-card';
+    card.setAttribute('data-category', displayCategory);
+
+    var pill = document.createElement('span');
+    pill.className = 'article-category-pill';
+    pill.textContent = displayCategory;
+    card.appendChild(pill);
+
+    var heading = document.createElement('h3');
+    heading.textContent = article.title;
+    card.appendChild(heading);
+
+    var meta = document.createElement('div');
+    meta.className = 'publication-card-meta';
+
+    var authorSpan = document.createElement('span');
+    if (authorData.profileHref) {
+        var authorLink = document.createElement('a');
+        authorLink.href = authorData.profileHref;
+        authorLink.className = 'author-profile-link';
+        authorLink.textContent = authorData.name;
+        authorSpan.appendChild(authorLink);
+    } else {
+        authorSpan.textContent = authorData.name;
+    }
+    meta.appendChild(authorSpan);
+
+    [authorData.institution, article.date, getArticleReadingTime(article)].forEach(function (text) {
+        if (!text) return;
+        var span = document.createElement('span');
+        span.textContent = text;
+        meta.appendChild(span);
+    });
+    card.appendChild(meta);
+
+    if (Array.isArray(article.tags) && article.tags.length > 0) {
+        var tagsEl = document.createElement('div');
+        tagsEl.className = 'article-tags';
+        article.tags.forEach(function (tag) {
+            var tagBtn = document.createElement('button');
+            tagBtn.type = 'button';
+            tagBtn.className = 'article-tag archive-tag-btn';
+            tagBtn.textContent = tag;
+            tagBtn.setAttribute('aria-label', 'Filter by tag: ' + tag);
+            tagBtn.addEventListener('click', function (e) {
+                e.preventDefault();
+                if (typeof onTagClick === 'function') onTagClick(tag);
+            });
+            tagsEl.appendChild(tagBtn);
+        });
+        card.appendChild(tagsEl);
+    }
+
+    var preview = document.createElement('p');
+    preview.textContent = article.preview;
+    card.appendChild(preview);
+
+    var btn = document.createElement('a');
+    btn.href = article.link;
+    btn.className = 'btn btn-primary';
+    btn.textContent = 'Read Article';
+    card.appendChild(btn);
+
+    return card;
+}
+
+/* Archive page — search, filter, sort, and stats */
 function initArchivePage() {
     var filtersEl = document.getElementById('archive-filters');
     var feedEl = document.getElementById('archive-feed');
     if (!filtersEl || !feedEl) return;
 
-    var categories = ['All', 'Behavioral Science', 'Psychology', 'Sociology & Anthropology', 'Law & Criminal Justice', 'Economics & Business', 'Global & International Affairs', 'Public Policy'];
-    var activeCategory = 'All';
+    var searchInput    = document.getElementById('archive-search');
+    var sortSelect     = document.getElementById('archive-sort');
+    var uniSelect      = document.getElementById('archive-university');
+    var authorSelect   = document.getElementById('archive-author');
+    var resultsCountEl = document.getElementById('archive-results-count');
+    var filterToggle   = document.getElementById('archive-filter-toggle');
+    var filterPanel    = document.getElementById('archive-filter-panel');
+    var featuredSection = document.getElementById('archive-featured');
+    var featuredFeed   = document.getElementById('archive-featured-feed');
 
-    /* Build filter buttons */
+    /* Filter / search state */
+    var state = {
+        query: '',
+        tag: '',
+        category: 'All',
+        sort: 'newest',
+        university: 'all',
+        author: 'all'
+    };
+
+    /* ── Archive statistics ── */
+    (function initStats() {
+        var uniqueAuthors      = {};
+        var uniqueInstitutions = {};
+        var uniqueDisciplines  = {};
+
+        ARTICLES.forEach(function (a) {
+            var authorData       = getArticleAuthorData(a);
+            var institutionKey   = getInstitutionStatsKey(authorData.institutionRaw);
+
+            if (Array.isArray(a.authorNames)) {
+                a.authorNames.forEach(function (name) {
+                    var key = normalizeKey(name);
+                    if (key) uniqueAuthors[key] = true;
+                });
+            } else {
+                var authorKey = a.authorId || normalizeKey(authorData.name);
+                if (authorKey) uniqueAuthors[authorKey] = true;
+            }
+
+            if (institutionKey) uniqueInstitutions[institutionKey] = true;
+
+            getArticleCategories(a).forEach(function (cat) {
+                var key = normalizeKey(cat);
+                if (key) uniqueDisciplines[key] = true;
+            });
+        });
+
+        var elArticles     = document.getElementById('archive-stat-articles');
+        var elAuthors      = document.getElementById('archive-stat-authors');
+        var elUniversities = document.getElementById('archive-stat-universities');
+        var elDisciplines  = document.getElementById('archive-stat-disciplines');
+
+        if (elArticles)     elArticles.textContent     = ARTICLES.length;
+        if (elAuthors)      elAuthors.textContent      = Object.keys(uniqueAuthors).length;
+        if (elUniversities) elUniversities.textContent = Object.keys(uniqueInstitutions).length;
+        if (elDisciplines)  elDisciplines.textContent  = Object.keys(uniqueDisciplines).length;
+    }());
+
+    /* ── Editor's Picks ── */
+    (function initFeatured() {
+        if (!featuredSection || !featuredFeed) return;
+        var featured = ARTICLES.filter(function (a) { return a.featured === true; });
+        if (featured.length === 0) return;
+        featuredSection.removeAttribute('hidden');
+        featured.forEach(function (a) {
+            featuredFeed.appendChild(buildArchiveCard(a, setTagFilter));
+        });
+    }());
+
+    /* ── Populate university and author dropdowns ── */
+    (function initDropdowns() {
+        var universities = [];
+        var authors      = [];
+        var uniSeen      = {};
+        var authorSeen   = {};
+
+        ARTICLES.forEach(function (a) {
+            var institutionRaw = getArticleAuthorData(a).institutionRaw;
+            if (institutionRaw && !uniSeen[institutionRaw]) {
+                uniSeen[institutionRaw] = true;
+                universities.push(institutionRaw);
+            }
+
+            if (Array.isArray(a.authorNames)) {
+                a.authorNames.forEach(function (name) {
+                    var trimmed = name.trim();
+                    if (trimmed && !authorSeen[trimmed]) {
+                        authorSeen[trimmed] = true;
+                        authors.push(trimmed);
+                    }
+                });
+            } else {
+                var authorName = getArticleAuthorData(a).name;
+                if (authorName && !authorSeen[authorName]) {
+                    authorSeen[authorName] = true;
+                    authors.push(authorName);
+                }
+            }
+        });
+
+        universities.sort().forEach(function (uni) {
+            var opt = document.createElement('option');
+            opt.value = uni;
+            opt.textContent = uni;
+            if (uniSelect) uniSelect.appendChild(opt);
+        });
+
+        authors.sort().forEach(function (name) {
+            var opt = document.createElement('option');
+            opt.value = name;
+            opt.textContent = name;
+            if (authorSelect) authorSelect.appendChild(opt);
+        });
+    }());
+
+    /* ── Category filter pills ── */
+    var categories = ['All', 'Behavioral Science', 'Psychology', 'Sociology & Anthropology', 'Law & Criminal Justice', 'Economics & Business', 'Global & International Affairs', 'Public Policy'];
     categories.forEach(function (cat) {
         var btn = document.createElement('button');
+        btn.type = 'button';
         btn.className = 'filter-btn' + (cat === 'All' ? ' filter-btn--active' : '');
         btn.textContent = cat;
         btn.setAttribute('data-filter', cat);
         btn.addEventListener('click', function () {
-            activeCategory = cat;
+            state.category = cat;
+            state.tag = '';
             filtersEl.querySelectorAll('.filter-btn').forEach(function (b) {
                 b.classList.toggle('filter-btn--active', b.getAttribute('data-filter') === cat);
             });
@@ -626,21 +815,144 @@ function initArchivePage() {
         filtersEl.appendChild(btn);
     });
 
-    /* Render article cards, filtered by activeCategory */
+    /* ── Mobile filter toggle ── */
+    if (filterToggle && filterPanel) {
+        filterToggle.addEventListener('click', function () {
+            var expanded = filterToggle.getAttribute('aria-expanded') === 'true';
+            filterToggle.setAttribute('aria-expanded', String(!expanded));
+            filterPanel.classList.toggle('archive-filter-panel--open', !expanded);
+        });
+    }
+
+    /* ── Sort / university / author selects ── */
+    if (sortSelect) {
+        sortSelect.addEventListener('change', function () {
+            state.sort = sortSelect.value;
+            renderFeed();
+        });
+    }
+    if (uniSelect) {
+        uniSelect.addEventListener('change', function () {
+            state.university = uniSelect.value;
+            renderFeed();
+        });
+    }
+    if (authorSelect) {
+        authorSelect.addEventListener('change', function () {
+            state.author = authorSelect.value;
+            renderFeed();
+        });
+    }
+
+    /* ── Search input ── */
+    if (searchInput) {
+        searchInput.addEventListener('input', function () {
+            state.query = searchInput.value;
+            state.tag = '';
+            renderFeed();
+        });
+    }
+
+    /* ── Tag filter (called when a tag badge is clicked) ── */
+    function setTagFilter(tag) {
+        state.tag   = tag;
+        state.query = '';
+        if (searchInput) searchInput.value = '';
+        renderFeed();
+    }
+
+    /* ── Main render function ── */
     function renderFeed() {
-        feedEl.innerHTML = '';
+        var queryLower = (state.tag || state.query || '').trim().toLowerCase();
+        var isFiltered = !!(queryLower
+            || state.category !== 'All'
+            || state.university !== 'all'
+            || state.author !== 'all');
+
         var filtered = ARTICLES.filter(function (a) {
             var articleCategories = getArticleCategories(a);
-            return activeCategory === 'All' || articleCategories.indexOf(activeCategory) !== -1;
+            var authorData = getArticleAuthorData(a);
+
+            /* Category */
+            if (state.category !== 'All') {
+                if (articleCategories.indexOf(state.category) === -1) return false;
+            }
+
+            /* University */
+            if (state.university !== 'all') {
+                var instRaw = authorData.institutionRaw || (a.institution || '').trim();
+                if (instRaw !== state.university) return false;
+            }
+
+            /* Author */
+            if (state.author !== 'all') {
+                var authorMatch = false;
+                if (Array.isArray(a.authorNames)) {
+                    authorMatch = a.authorNames.some(function (n) { return n.trim() === state.author; });
+                } else {
+                    authorMatch = authorData.name === state.author;
+                }
+                if (!authorMatch) return false;
+            }
+
+            /* Search / tag */
+            if (queryLower) {
+                var tags     = Array.isArray(a.tags) ? a.tags : [];
+                var tagsLow  = tags.map(function (t) { return t.toLowerCase(); });
+
+                if (state.tag) {
+                    /* Exact tag match */
+                    return tagsLow.indexOf(queryLower) !== -1;
+                }
+
+                /* Broad text search */
+                var searchText = [
+                    a.title || '',
+                    a.author || '',
+                    Array.isArray(a.authorNames) ? a.authorNames.join(' ') : '',
+                    authorData.name || '',
+                    authorData.institutionRaw || '',
+                    a.institution || '',
+                    articleCategories.join(' '),
+                    tags.join(' ')
+                ].join(' ').toLowerCase();
+
+                return searchText.indexOf(queryLower) !== -1;
+            }
+
+            return true;
         });
+
+        /* Sort */
+        filtered = filtered.slice().sort(function (a, b) {
+            if (state.sort === 'oldest') return ARTICLES.indexOf(b) - ARTICLES.indexOf(a);
+            if (state.sort === 'az')     return (a.title || '').localeCompare(b.title || '');
+            if (state.sort === 'za')     return (b.title || '').localeCompare(a.title || '');
+            /* newest (default): preserve array order */
+            return ARTICLES.indexOf(a) - ARTICLES.indexOf(b);
+        });
+
+        /* Results count */
+        if (resultsCountEl) {
+            if (!isFiltered) {
+                resultsCountEl.textContent = '';
+            } else {
+                resultsCountEl.textContent = filtered.length === 1
+                    ? '1 article found'
+                    : filtered.length + ' articles found';
+            }
+        }
+
+        /* Render cards */
+        feedEl.innerHTML = '';
         if (filtered.length === 0) {
             var empty = document.createElement('p');
             empty.className = 'archive-empty';
-            empty.textContent = 'No articles in this category yet.';
+            empty.textContent = 'No articles found.';
             feedEl.appendChild(empty);
         } else {
             filtered.forEach(function (a) {
-                feedEl.appendChild(buildArticleCard(a));
+                feedEl.appendChild(buildArchiveCard(a, setTagFilter));
             });
         }
     }

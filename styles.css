@@ -1440,6 +1440,249 @@ img {
 }
 
 /* ============================================
+   Archive — Statistics Bar
+   ============================================ */
+
+.archive-stats-bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    padding: 1.25rem 1.75rem;
+    background-color: var(--light-blue);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+}
+
+.archive-stat {
+    flex: 1 1 130px;
+    text-align: center;
+}
+
+.archive-stat-value {
+    display: block;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--navy);
+    font-family: 'Georgia', serif;
+    line-height: 1.1;
+}
+
+.archive-stat-label {
+    display: block;
+    font-size: 0.8rem;
+    color: var(--text-light);
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin-top: 0.25rem;
+}
+
+/* ============================================
+   Archive — Search Bar
+   ============================================ */
+
+.archive-search-row {
+    margin-bottom: 1rem;
+}
+
+.archive-search {
+    width: 100%;
+    padding: 0.72rem 1rem 0.72rem 2.75rem;
+    font: inherit;
+    font-size: 0.95rem;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    background-color: var(--primary-white);
+    color: var(--text-dark);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 20 20' fill='%235a6c7d'%3E%3Cpath fill-rule='evenodd' d='M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z' clip-rule='evenodd'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: 0.9rem center;
+    -webkit-appearance: none;
+    appearance: none;
+    box-sizing: border-box;
+}
+
+.archive-search:focus {
+    outline: none;
+    border-color: var(--navy);
+    box-shadow: 0 0 0 3px rgba(26, 58, 82, 0.12);
+}
+
+.archive-search::placeholder {
+    color: var(--text-light);
+}
+
+/* ============================================
+   Archive — Mobile Filter Toggle
+   ============================================ */
+
+.archive-filter-toggle {
+    display: none; /* shown only on mobile via media query */
+    align-items: center;
+    gap: 0.5rem;
+    background-color: var(--primary-white);
+    border: 1px solid var(--border-color);
+    color: var(--navy);
+    padding: 0.6rem 1rem;
+    font: inherit;
+    font-size: 0.95rem;
+    font-weight: 600;
+    border-radius: 6px;
+    cursor: pointer;
+    width: 100%;
+    justify-content: space-between;
+    margin-bottom: 0.75rem;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.archive-filter-toggle:hover {
+    background-color: var(--light-blue);
+    border-color: var(--navy-light);
+}
+
+.archive-filter-toggle:focus-visible {
+    outline: 2px solid var(--navy);
+    outline-offset: 2px;
+}
+
+.archive-filter-chevron {
+    width: 18px;
+    height: 18px;
+    transition: transform 0.2s ease;
+    flex-shrink: 0;
+}
+
+.archive-filter-toggle[aria-expanded="true"] .archive-filter-chevron {
+    transform: rotate(180deg);
+}
+
+/* ============================================
+   Archive — Filter Panel & Secondary Filters
+   ============================================ */
+
+.archive-filter-panel {
+    /* Always visible on desktop */
+}
+
+.archive-secondary-filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 0.75rem;
+    margin-bottom: 1.5rem;
+    align-items: center;
+}
+
+.archive-select {
+    padding: 0.48rem 2.2rem 0.48rem 0.75rem;
+    font: inherit;
+    font-size: 0.9rem;
+    color: var(--text-dark);
+    background-color: var(--primary-white);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    cursor: pointer;
+    -webkit-appearance: none;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 20 20' fill='%235a6c7d'%3E%3Cpath fill-rule='evenodd' d='M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z' clip-rule='evenodd'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 0.65rem center;
+    min-width: 150px;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.archive-select:focus {
+    outline: none;
+    border-color: var(--navy);
+    box-shadow: 0 0 0 3px rgba(26, 58, 82, 0.12);
+}
+
+/* ============================================
+   Archive — Results Count
+   ============================================ */
+
+.archive-results-count {
+    font-size: 0.88rem;
+    color: var(--text-light);
+    margin-bottom: 1rem;
+    font-style: italic;
+    min-height: 1.4em; /* prevent layout shift */
+}
+
+/* ============================================
+   Archive — Editor's Picks
+   ============================================ */
+
+.archive-featured {
+    border-bottom: 2px solid var(--border-color);
+    padding-bottom: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.archive-featured h2 {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.65rem;
+    margin-bottom: 1.25rem;
+}
+
+.archive-featured h2::after {
+    content: "\2605 Editor\2019s Selection";
+    font-family: 'Arial', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    background-color: var(--navy);
+    color: var(--primary-white);
+    padding: 0.2rem 0.7rem;
+    border-radius: 999px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    font-style: normal;
+}
+
+/* ============================================
+   Archive — Clickable Tag Buttons
+   ============================================ */
+
+.archive-tag-btn {
+    background: transparent;
+    border: 1px solid var(--border-color);
+    cursor: pointer;
+    font-family: inherit;
+    transition: background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+}
+
+.archive-tag-btn:hover {
+    background-color: var(--navy);
+    color: var(--primary-white);
+    border-color: var(--navy);
+}
+
+.archive-tag-btn:focus-visible {
+    outline: 2px solid var(--navy);
+    outline-offset: 2px;
+}
+
+/* ============================================
+   Utility: Screen-reader only
+   ============================================ */
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
+
+/* ============================================
    Article Page Styles
    ============================================ */
 
@@ -2256,6 +2499,57 @@ img {
     .filter-btn {
         font-size: 0.86rem;
         padding: 0.45rem 0.82rem;
+    }
+
+    /* Archive stats — compact on mobile */
+    .archive-stats-bar {
+        gap: 0.6rem;
+        padding: 1rem;
+    }
+
+    .archive-stat {
+        flex: 1 1 100px;
+    }
+
+    .archive-stat-value {
+        font-size: 1.65rem;
+    }
+
+    .archive-stat-label {
+        font-size: 0.72rem;
+    }
+
+    /* Show mobile filter toggle, hide/collapse filter panel */
+    .archive-filter-toggle {
+        display: flex;
+    }
+
+    .archive-filter-panel {
+        display: none;
+    }
+
+    .archive-filter-panel--open {
+        display: block;
+    }
+
+    /* Secondary filters: stack vertically */
+    .archive-secondary-filters {
+        flex-direction: column;
+        gap: 0.6rem;
+        margin-top: 0.6rem;
+        margin-bottom: 1rem;
+    }
+
+    .archive-select {
+        width: 100%;
+        min-width: 0;
+        font-size: 0.95rem;
+        padding: 0.55rem 2rem 0.55rem 0.75rem;
+    }
+
+    .archive-search {
+        font-size: 1rem;
+        padding: 0.7rem 1rem 0.7rem 2.75rem;
     }
 
     .article-hero {
