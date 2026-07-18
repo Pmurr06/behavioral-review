@@ -1940,74 +1940,34 @@ img {
     }
 }
 
-@media (max-width: 767px) {
-    body,
-    p,
-    li,
-    .checklist li,
-    .guideline-box p,
-    .endorsement-content p,
-    .category-item p,
-    .look-card p,
-    .publication-card p,
-    .article-card p,
-    .article-body p,
-    .member-description,
-    .editor-bio,
-    .footer-section p,
-    .footer-section a,
-    .footer-section li,
-    .submit-disciplines-intro,
-    .publish-benefits-note,
-    .hero-mission,
-    .hero-subtitle,
-    .article-affiliation,
-    .article-meta,
-    .publication-card-meta {
-        hyphens: none;
-        word-break: normal;
+/* ============================================
+   Mobile — ≤ 768 px
+   Single consolidated block; replaces the old
+   separate 767px and 768px patches.
+   ============================================ */
+
+@media (max-width: 768px) {
+
+    /* ── Base ── */
+    body {
+        font-size: 16px;
+        line-height: 1.65;
+    }
+
+    p, li {
         overflow-wrap: break-word;
     }
 
-    .article-pagination {
-        grid-template-columns: 1fr;
-    }
-
+    /* ── Layout ── */
     .container {
-        padding: 0 14px;
+        padding: 0 18px;
     }
 
-    .author-profile-card,
-    .author-note-card .author-profile-card {
-        flex-direction: column;
-    }
-
-    .author-profile-card__avatar,
-    .author-profile-card--compact .author-profile-card__avatar {
-        max-width: 140px;
-        flex-basis: auto;
-    }
-
-    body {
-        font-size: 15px;
-    }
-
-    h1 {
-        font-size: 2.1rem;
-    }
-
-    h2 {
-        font-size: 1.7rem;
-    }
-
-    h3 {
-        font-size: 1.2rem;
-    }
-
-    h4 {
-        font-size: 1.02rem;
-    }
-
+    /*
+     * Sections all have an inner .container, so removing their own
+     * left/right padding prevents double-padding on mobile.
+     * footer-bottom has no inner container — handled separately below.
+     */
     .navbar,
     .hero-section,
     .page-header,
@@ -2019,12 +1979,39 @@ img {
     .latest-publication-section,
     .editorial-board,
     .review-process,
-    .cta-final,
-    .footer-bottom {
-        padding-left: 14px;
-        padding-right: 14px;
+    .cta-final {
+        padding-left: 0;
+        padding-right: 0;
     }
 
+    .footer-bottom {
+        padding-left: 18px;
+        padding-right: 18px;
+    }
+
+    /* ── Typography ── */
+    h1 {
+        font-size: clamp(2rem, 9vw, 3rem);
+        line-height: 1.15;
+        overflow-wrap: break-word;
+    }
+
+    h2 {
+        font-size: clamp(1.5rem, 6vw, 2rem);
+        line-height: 1.2;
+    }
+
+    h3 {
+        font-size: clamp(1.2rem, 5vw, 1.5rem);
+        line-height: 1.25;
+    }
+
+    h4 {
+        font-size: 1.05rem;
+        line-height: 1.3;
+    }
+
+    /* ── Navigation ── */
     .navbar {
         padding-top: 0.65rem;
         padding-bottom: 0.65rem;
@@ -2039,162 +2026,103 @@ img {
     }
 
     .site-logo {
-        width: 42px;
-        height: 42px;
-        min-width: 42px;
+        width: 40px;
+        height: 40px;
+        min-width: 40px;
     }
 
+    /* Masthead title must stay compact inside the nav bar */
     .masthead-text h1 {
-        font-size: 0.98rem;
-        line-height: 1.15;
-        hyphens: none;
-        word-break: normal;
+        font-size: 1rem;
+        line-height: 1.2;
         overflow-wrap: break-word;
     }
 
     .masthead-tagline {
-        font-size: 0.58rem;
-        line-height: 1.25;
-        hyphens: none;
-        word-break: normal;
-        overflow-wrap: break-word;
+        font-size: 0.6rem;
+        line-height: 1.3;
     }
 
-    .nav-toggle {
-        padding: 0.3rem 0;
-        margin-right: 0;
-        align-self: center;
-    }
-
+    /* Dropdown overrides (base positioning set by ≤900px block) */
     .nav-links {
-        top: calc(62px + env(safe-area-inset-top, 0px));
-        width: calc(100vw - 28px);
-        max-width: 360px;
-        padding: 0.95rem 1rem;
+        top: calc(58px + env(safe-area-inset-top, 0px));
+        left: 18px;
+        right: 18px;
+        transform: none;
+        width: auto;
+        max-width: none;
+        max-height: calc(100vh - 80px);
+        overflow-y: auto;
+        padding: 0.9rem 1rem;
+    }
+
+    /* Ensure each nav item is a comfortable tap target */
+    .nav-links li {
+        width: 100%;
     }
 
     .nav-links a {
-        font-size: 0.82rem;
-        hyphens: none;
-        word-break: normal;
-        overflow-wrap: break-word;
+        font-size: 0.88rem;
+        display: flex;
+        align-items: center;
+        padding: 0.65rem 0;
+        min-height: 44px;
     }
 
-    .hero-left h1,
-    .page-header h2,
-    .article-title {
-        hyphens: none;
-        word-break: normal;
-        overflow-wrap: break-word;
-    }
-
-    .hero-left h1 {
-        font-size: 2.1rem;
-    }
-
-    .hero-subtitle {
-        font-size: 1.02rem;
-    }
-
-    .hero-mission,
-    .article-body p,
-    .guideline-box p,
-    .category-item p,
-    .look-card p,
-    .publication-card p,
-    .article-card p,
-    .footer-section p,
-    .footer-section a,
-    .footer-section li,
-    .member-description,
-    .editor-bio,
-    .checklist li {
-        font-size: 0.93rem;
-    }
-
-    .article-meta,
-    .publication-card-meta,
-    .article-affiliation,
-    .editor-title,
-    .editor-credentials,
-    .member-role,
-    .footer-bottom p {
-        font-size: 0.82rem;
-    }
-
-    .article-category-pill,
-    .card-badge,
-    .btn,
-    .filter-btn {
-        font-size: 0.74rem;
-    }
-
-    .article-card h3,
-    .publication-card h3,
-    .editor-info h3,
-    .category-item h4,
-    .look-card h4,
-    .process-step h4,
-    .glance-box h3,
-    .value-card h5,
-    .member-header h5,
-    .article-panel h2,
-    .article-section h2,
-    .content-section h2 {
-        hyphens: none;
-        word-break: normal;
-        overflow-wrap: break-word;
-    }
-
-    .article-card h3,
-    .publication-card h3 {
-        font-size: 1.1rem;
-        line-height: 1.35;
-    }
-
-    .editor-info h3,
-    .article-panel h2,
-    .article-section h2,
-    .content-section h2 {
-        font-size: 1.18rem;
-    }
-
-    .category-item h4,
-    .look-card h4,
-    .process-step h4,
-    .glance-box h3,
-    .value-card h5,
-    .member-header h5 {
-        font-size: 0.98rem;
-    }
-
+    /* ── Hero ── */
     .hero-section {
         padding-top: 2rem;
         padding-bottom: 1.75rem;
     }
 
-    .page-header {
-        padding-top: 2rem;
-        padding-bottom: 1.75rem;
+    .hero-left h1 {
+        font-size: clamp(2rem, 9vw, 3rem);
+        line-height: 1.15;
+        overflow-wrap: break-word;
+        margin-bottom: 0.75rem;
     }
 
-    .main-content,
-    .page-content {
-        padding-top: 1.9rem;
-        padding-bottom: 2.3rem;
+    .hero-subtitle {
+        font-size: 1rem;
+        line-height: 1.55;
     }
 
+    .hero-mission {
+        font-size: 1rem;
+        line-height: 1.65;
+    }
+
+    .recruitment-banner {
+        max-width: 100%;
+    }
+
+    /* Full-width hero CTA button on small screens */
+    .hero-left .btn {
+        display: block;
+        width: 100%;
+        text-align: center;
+        box-sizing: border-box;
+    }
+
+    /* ── Buttons (general) ── */
+    .btn {
+        min-height: 44px;
+        padding: 0.7rem 1.25rem;
+        white-space: normal;
+        overflow-wrap: break-word;
+        max-width: 100%;
+    }
+
+    /* ── Section vertical spacing ── */
     .publish-benefits,
     .submit-disciplines,
+    .featured-articles,
+    .latest-publication-section,
     .editorial-board,
     .review-process,
     .cta-final {
         padding-top: 1.75rem;
         padding-bottom: 1.75rem;
-    }
-
-    .content-section {
-        margin-bottom: 1.9rem;
     }
 
     .publish-benefits h2,
@@ -2203,10 +2131,12 @@ img {
     .latest-publication-section h2,
     .editorial-board h2,
     .review-process h2,
+    .cta-final h2,
     .content-section h2 {
-        margin-bottom: 1.2rem;
+        margin-bottom: 1.25rem;
     }
 
+    /* ── Why Publish ── */
     .publish-benefits-list {
         gap: 0.75rem;
         margin-bottom: 1rem;
@@ -2219,390 +2149,151 @@ img {
 
     .publish-benefits-note,
     .submit-disciplines-intro {
-        font-size: 0.93rem;
-        line-height: 1.55;
+        font-size: 0.95rem;
+        line-height: 1.6;
     }
 
-    .submit-disciplines {
-        padding-top: 1.35rem;
-        padding-bottom: 1.35rem;
-    }
-
-    .submit-disciplines h2 {
-        margin-bottom: 0.9rem;
-        padding-bottom: 0.55rem;
-    }
-
-    .submit-disciplines-intro {
-        margin-bottom: 0.8rem;
-    }
-
+    /* ── Who Should Submit ── */
     .submission-fields-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 0.55rem;
+        gap: 0.6rem;
     }
 
     .submission-field {
-        padding: 0.65rem 0.7rem;
-        font-size: 0.82rem;
+        padding: 0.65rem 0.75rem;
+        font-size: 0.85rem;
         line-height: 1.3;
-        hyphens: none;
-        word-break: normal;
         overflow-wrap: break-word;
     }
 
+    /* ── What We Publish — article cards ── */
+
+    /* Un-hide; old 767px patch set display:none */
     .featured-articles {
-        display: none;
+        display: block;
     }
 
-    .board-grid,
-    .process-steps,
-    .publication-feed,
-    .what-coming-grid,
-    .team-grid,
-    .values-grid,
-    .categories-grid,
-    .look-for-grid {
-        gap: 1rem;
-    }
-
-    .article-card,
-    .publication-card,
-    .category-item,
-    .look-card,
-    .what-card,
-    .coming-soon-box,
-    .guideline-box,
-    .endorsement-content,
-    .team-member-card,
-    .board-member,
-    .value-card,
-    .process-step,
-    .scholarly-article,
-    .editor-info {
-        padding-left: 1rem;
-        padding-right: 1rem;
-    }
-
-    .article-card,
-    .publication-card,
-    .coming-soon-box,
-    .what-card,
-    .guideline-box,
-    .endorsement-content,
-    .team-member-card,
-    .board-member,
-    .value-card,
-    .category-item,
-    .look-card,
-    .process-step {
-        padding-top: 1rem;
-        padding-bottom: 1rem;
-    }
-
-    .footer {
-        padding-top: 2rem;
-    }
-
-    .featured-award-card,
-    .past-recipient-card,
-    .future-award-card {
-        padding: 1rem;
-    }
-}
-
-@media (max-width: 768px) {
-    :root {
-        --mobile-page-padding: 1.375rem;
-    }
-
-    body {
-        font-size: clamp(1.0625rem, 4.4vw, 1.125rem);
-        line-height: 1.6;
-    }
-
-    p,
-    li,
-    .checklist li,
-    .guideline-box p,
-    .endorsement-content p,
-    .category-item p,
-    .look-card p,
-    .publication-card p,
-    .article-card p,
-    .article-body p,
-    .member-description,
-    .editor-bio,
-    .footer-section p,
-    .footer-section a,
-    .footer-section li,
-    .submit-disciplines-intro,
-    .publish-benefits-note,
-    .hero-mission,
-    .hero-subtitle,
-    .article-affiliation,
-    .article-meta,
-    .publication-card-meta {
-        font-size: clamp(1.0625rem, 4.2vw, 1.125rem);
-        line-height: 1.6;
-    }
-
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6,
-    .hero-left h1,
-    .page-header h1,
-    .page-header h2,
-    .article-title,
-    .content-section h2,
-    .about-section h3,
-    .featured-editors h2,
-    .team-section h3 {
-        text-wrap: balance;
-        line-height: 1.12;
-    }
-
-    h1,
-    .hero-left h1,
-    .page-header h1,
-    .page-header h2,
-    .article-title {
-        font-size: clamp(2.25rem, 8vw, 2.6rem);
-        max-width: 100%;
-        margin-left: 0;
-        margin-right: 0;
-        overflow-wrap: break-word;
-    }
-
-    h2,
-    .content-section h2,
-    .featured-editors h2 {
-        font-size: clamp(1.9rem, 6vw, 2.12rem);
-    }
-
-    h3,
-    .about-section h3,
-    .team-section h3 {
-        font-size: clamp(1.46rem, 4.9vw, 1.68rem);
-        line-height: 1.16;
-    }
-
-    h4 {
-        font-size: 1.18rem;
-        line-height: 1.22;
-    }
-
-    p {
-        margin-bottom: 0.9rem;
-    }
-
-    .container {
-        padding: 0 var(--mobile-page-padding);
-    }
-
-    .navbar,
-    .hero-section,
-    .page-header,
-    .article-hero,
-    .article-main,
-    .publish-benefits,
-    .submit-disciplines,
-    .featured-articles,
-    .latest-publication-section,
-    .editorial-board,
-    .review-process,
-    .cta-final,
-    .footer-bottom {
-        padding-left: var(--mobile-page-padding);
-        padding-right: var(--mobile-page-padding);
-    }
-
-    .nav-links {
-        left: var(--mobile-page-padding);
-        right: var(--mobile-page-padding);
-        transform: none;
-        width: auto;
-        max-width: none;
-        max-height: calc(100vh - 88px);
-        overflow-y: auto;
-    }
-
-    .hero-section,
-    .page-header {
-        padding-top: 2.5rem;
-        padding-bottom: 2.25rem;
-    }
-
-    .main-content,
-    .page-content {
-        padding-top: 3rem;
-        padding-bottom: max(3.2rem, calc(3rem + env(safe-area-inset-bottom)));
-    }
-
-    .content-section,
-    .about-section,
-    .team-section,
-    .featured-editors,
-    .about-cta {
-        margin-bottom: clamp(3rem, 8vw, 3.75rem);
-    }
-
-    .content-section h2,
-    .about-section h3,
-    .team-section h3,
-    .featured-editors h2 {
-        margin-bottom: 1rem;
-        padding-bottom: 0.6rem;
-    }
-
-    .about-page .page-content .container,
-    .contact-page .main-content .container {
-        max-width: 760px;
-    }
-
-    .about-page .about-section p {
-        max-width: 39ch;
-        line-height: 1.62;
-    }
-
-    .about-page .about-section p + p {
-        margin-top: 0.65rem;
-    }
-
-    .standards-grid,
-    .help-grid,
-    .steps-container,
-    .social-cards-grid,
-    .values-grid {
+    .articles-grid {
         grid-template-columns: 1fr;
-        gap: 0.95rem;
-    }
-
-    .contact-intro {
-        font-size: 1rem;
-        line-height: 1.6;
-    }
-
-    .contact-box,
-    .help-card,
-    .faq-item,
-    .contact-step,
-    .social-card,
-    .standard-card,
-    .value-card {
-        padding: 1.15rem 1.2rem;
-    }
-
-    .help-card h3,
-    .faq-item h4,
-    .contact-step h4,
-    .standard-card h4,
-    .value-card h5,
-    .social-card-body h3 {
-        font-size: 1.15rem;
-        line-height: 1.24;
-    }
-
-    .contact-email {
-        margin: 0.85rem 0 1rem;
-    }
-
-    .contact-email a {
-        font-size: clamp(1.0625rem, 4.2vw, 1.125rem);
-    }
-
-    .faq-item + .faq-item {
-        margin-top: 0.75rem;
-    }
-
-    .contact-step {
-        padding-top: 3.1rem;
-        padding-left: 1.15rem;
-    }
-
-    .contact-step-number {
-        top: 1rem;
-        left: 1.15rem;
-        width: 1.9rem;
-        height: 1.9rem;
-    }
-
-    .social-card {
-        gap: 0.9rem;
-    }
-
-    .social-card-icon {
-        width: 40px;
-        height: 40px;
-    }
-
-    .social-card-icon svg {
-        width: 22px;
-        height: 22px;
-    }
-
-    .editors-grid {
-        max-width: 700px;
+        width: 100%;
+        max-width: 100%;
         gap: 1rem;
     }
 
-    .editor-card {
-        padding: 1.3rem;
-        gap: 1rem;
-        align-items: center;
-    }
-
-    .editor-headshot {
-        width: min(100%, 220px);
-        height: auto;
-        aspect-ratio: 4 / 5;
-        margin-bottom: 0;
-    }
-
-    .editor-info {
-        padding: 0;
-        gap: 0.35rem;
-    }
-
-    .editor-info h3 {
-        font-size: clamp(1.75rem, 6vw, 2rem);
-        line-height: 1.08;
-    }
-
-    .editor-title,
-    .editor-credentials {
-        font-size: clamp(1rem, 3.9vw, 1.1rem);
-        line-height: 1.45;
-    }
-
-    .editor-title {
-        margin-bottom: 0.15rem;
-        letter-spacing: 0.03em;
-    }
-
-    .editor-credentials {
-        margin-bottom: 0.25rem;
-    }
-
-    .editor-bio {
-        font-size: clamp(1.0625rem, 4vw, 1.125rem);
-        line-height: 1.58;
-    }
-
-    /* ── Mobile layout: cards & containers ── */
-    .publication-card,
     .article-card {
         width: 100%;
         max-width: 100%;
         box-sizing: border-box;
+        padding: 1.25rem 1rem;
     }
 
-    .publication-card h3,
     .article-card h3 {
+        font-size: 1.05rem;
+        line-height: 1.4;
         overflow-wrap: break-word;
+    }
+
+    .article-card p {
+        font-size: 0.93rem;
+        line-height: 1.6;
+        overflow-wrap: break-word;
+    }
+
+    .card-badge {
+        font-size: 0.72rem;
+        max-width: 100%;
+        white-space: normal;
+        overflow-wrap: break-word;
+    }
+
+    .card-link {
+        overflow-wrap: break-word;
+    }
+
+    /* ── Latest Publication feed ── */
+    .publication-feed {
+        width: 100%;
+        max-width: 100%;
+        gap: 1rem;
+    }
+
+    .publication-card {
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+        padding: 1.25rem 1rem;
+    }
+
+    .publication-card h3 {
+        font-size: 1.05rem;
+        line-height: 1.4;
+        overflow-wrap: break-word;
+    }
+
+    .publication-card-meta {
+        flex-wrap: wrap;
+        gap: 0.4rem 0.75rem;
+        font-size: 0.85rem;
+        overflow-wrap: break-word;
+    }
+
+    .publication-card p {
+        font-size: 0.93rem;
+        line-height: 1.65;
+        overflow-wrap: break-word;
+    }
+
+    /* ── Glance box ── */
+    .glance-box {
+        padding: 1.25rem;
+    }
+
+    .glance-box h3 {
+        font-size: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    /* ── CTA section ── */
+    .cta-final h2 {
+        font-size: clamp(1.5rem, 6vw, 2rem);
+    }
+
+    .cta-final p {
+        font-size: 0.97rem;
+    }
+
+    /* ── Footer ── */
+    .footer {
+        padding-top: 2rem;
+    }
+
+    .footer-section p,
+    .footer-section a,
+    .footer-section li {
+        overflow-wrap: break-word;
+    }
+
+    /* ── Archive / Filters ── */
+    .archive-filters {
+        flex-wrap: wrap;
+        gap: 0.5rem;
+    }
+
+    .filter-btn {
+        min-width: 0;
+        white-space: normal;
+        font-size: 0.85rem;
+    }
+
+    /* ── Article pages ── */
+    .article-hero {
+        padding-top: 2rem;
+        padding-bottom: 1.5rem;
+    }
+
+    .article-main {
+        padding-top: 1.5rem;
+        padding-bottom: 2.5rem;
     }
 
     .article-title,
@@ -2611,16 +2302,22 @@ img {
         overflow-wrap: break-word;
     }
 
-    .article-category-pill,
-    .card-badge {
-        max-width: 100%;
-        overflow-wrap: break-word;
-        white-space: normal;
+    .article-meta {
+        flex-wrap: wrap;
+        gap: 0.5rem 0.75rem;
+        font-size: 0.87rem;
     }
 
-    .publication-card-meta {
-        flex-wrap: wrap;
+    .article-category-pill,
+    .article-tag {
+        max-width: 100%;
+        white-space: normal;
         overflow-wrap: break-word;
+    }
+
+    .article-pagination {
+        grid-template-columns: 1fr;
+        gap: 1rem;
     }
 
     .scholarly-article {
@@ -2634,48 +2331,150 @@ img {
         overflow-wrap: break-word;
     }
 
-    .articles-grid {
-        grid-template-columns: 1fr;
-        width: 100%;
-        max-width: 100%;
+    /* ── Author profile cards ── */
+    .author-profile-card,
+    .author-note-card .author-profile-card {
+        flex-direction: column;
     }
 
-    .publication-feed {
-        width: 100%;
-        max-width: 100%;
+    .author-profile-card__avatar,
+    .author-profile-card--compact .author-profile-card__avatar {
+        max-width: 140px;
+        flex-basis: auto;
     }
 
-    .archive-filters {
-        flex-wrap: wrap;
-        gap: 0.5rem;
+    /* ── Editorial team ── */
+    .editors-grid {
+        max-width: 700px;
+        gap: 1rem;
     }
 
-    .filter-btn {
-        min-width: 0;
-        overflow-wrap: break-word;
-        white-space: normal;
-        text-align: left;
-    }
-
-    .latest-publication-section {
-        padding-top: 2rem;
-        padding-bottom: 2rem;
-    }
-
-    .btn {
-        display: inline-flex;
+    .editor-card {
+        padding: 1.3rem;
+        gap: 1rem;
         align-items: center;
-        justify-content: center;
-        min-height: 44px;
-        padding: 0.6rem 1.2rem;
-        overflow-wrap: break-word;
-        white-space: normal;
-        max-width: 100%;
     }
 
-    .article-pagination {
+    .editor-headshot {
+        width: min(100%, 200px);
+        height: auto;
+        aspect-ratio: 4 / 5;
+        margin-bottom: 0;
+    }
+
+    .editor-info {
+        padding: 0;
+    }
+
+    .editor-info h3 {
+        font-size: clamp(1.25rem, 5vw, 1.6rem);
+        line-height: 1.2;
+    }
+
+    .editor-title,
+    .editor-credentials {
+        font-size: 0.88rem;
+    }
+
+    .editor-bio {
+        font-size: 0.93rem;
+        line-height: 1.6;
+    }
+
+    /* ── Inner-page layout ── */
+    .page-header {
+        padding-top: 2rem;
+        padding-bottom: 1.75rem;
+    }
+
+    .main-content,
+    .page-content {
+        padding-top: 2rem;
+        padding-bottom: 2.5rem;
+    }
+
+    .content-section {
+        margin-bottom: 2rem;
+    }
+
+    .content-section h2,
+    .about-section h3,
+    .team-section h3,
+    .featured-editors h2 {
+        margin-bottom: 1rem;
+        padding-bottom: 0.6rem;
+    }
+
+    .standards-grid,
+    .help-grid,
+    .steps-container,
+    .social-cards-grid,
+    .values-grid {
         grid-template-columns: 1fr;
         gap: 1rem;
+    }
+
+    .contact-box,
+    .help-card,
+    .faq-item,
+    .contact-step,
+    .social-card,
+    .standard-card,
+    .value-card {
+        padding: 1.1rem;
+    }
+
+    .contact-step {
+        padding-top: 3rem;
+        padding-left: 1.1rem;
+    }
+
+    .contact-step-number {
+        top: 1rem;
+        left: 1.1rem;
+        width: 1.9rem;
+        height: 1.9rem;
+    }
+
+    .contact-email {
+        margin: 0.85rem 0 1rem;
+    }
+
+    .contact-email a {
+        font-size: 1rem;
+    }
+
+    .faq-item + .faq-item {
+        margin-top: 0.75rem;
+    }
+
+    /* ── Grid gaps for remaining card types ── */
+    .board-grid,
+    .process-steps,
+    .publication-feed,
+    .what-coming-grid,
+    .team-grid {
+        gap: 1rem;
+    }
+
+    .category-item,
+    .look-card,
+    .what-card,
+    .coming-soon-box,
+    .guideline-box,
+    .endorsement-content,
+    .team-member-card,
+    .board-member,
+    .value-card,
+    .process-step {
+        padding: 1rem;
+    }
+
+    /* ── Award cards ── */
+    .featured-award-card,
+    .past-recipient-card,
+    .future-award-card {
+        padding: 1rem;
     }
 
     img {
@@ -2684,42 +2483,28 @@ img {
     }
 }
 
+
 @media (max-width: 479px) {
-    :root {
-        --mobile-page-padding: 1.25rem;
-    }
 
     .container {
-        padding: 0 var(--mobile-page-padding);
+        padding: 0 16px;
     }
 
-    .navbar,
-    .hero-section,
-    .page-header,
-    .article-hero,
-    .article-main,
-    .publish-benefits,
-    .submit-disciplines,
-    .featured-articles,
-    .latest-publication-section,
-    .editorial-board,
-    .review-process,
-    .cta-final,
     .footer-bottom {
-        padding-left: var(--mobile-page-padding);
-        padding-right: var(--mobile-page-padding);
+        padding-left: 16px;
+        padding-right: 16px;
     }
 
     .nav-links {
-        left: var(--mobile-page-padding);
-        right: var(--mobile-page-padding);
+        left: 16px;
+        right: 16px;
     }
 
+    .hero-left h1,
     .page-header h1,
     .page-header h2,
-    .hero-left h1,
     .article-title {
-        font-size: clamp(2.25rem, 10vw, 2.45rem);
+        font-size: clamp(1.9rem, 10vw, 2.4rem);
     }
 
     .contact-email a {
