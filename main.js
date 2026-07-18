@@ -308,9 +308,26 @@ var SITE_SETTINGS = {
 };
 
 var FALLBACK_EDITOR_IMAGE = 'TBR.png';
+/* Raw institution labels are normalized during lookup so aliases stay case-insensitive and whitespace-safe. */
+var UNIVERSITY_ALIASES = {
+    'indiana university kelley school of business': 'Indiana University',
+    'university of washington foster school of business': 'University of Washington',
+    'university of iowa tippie college of business': 'University of Iowa',
+    'penn state world campus': 'Penn State University',
+    'university of florida college of health and human performance': 'University of Florida',
+    'washington state university carson college of business': 'Washington State University'
+};
 
-function formatAuthorInstitution(major, institution) {
-    var normalizedInstitution = (institution || '').trim();
+function normalizeUniversityName(institution) {
+    var cleaned = (institution || '').trim().replace(/\s+/g, ' ');
+    if (!cleaned) return '';
+    return UNIVERSITY_ALIASES[normalizeKey(cleaned)] || cleaned;
+}
+
+function formatAuthorInstitution(major, institution, options) {
+    var normalizedInstitution = options && options.normalizeUniversity
+        ? normalizeUniversityName(institution)
+        : (institution || '').trim();
     if (!major) return normalizedInstitution;
     if (!normalizedInstitution) return major + ' student';
     var startsUniversityOf = /^university of/i.test(normalizedInstitution);
@@ -333,12 +350,16 @@ function getArticleAuthorData(article) {
         : null;
     var major = profile ? profile.major : article.major;
     var institution = profile ? profile.institution : article.institution;
+    var normalizedUniversity = normalizeUniversityName(institution);
 
     return {
         id: article.authorId || '',
         name: profile ? profile.name : article.author,
+        major: major || '',
         institutionRaw: institution || '',
+        normalizedUniversity: normalizedUniversity,
         institution: formatAuthorInstitution(major, institution),
+        archiveInstitution: formatAuthorInstitution(major, institution, { normalizeUniversity: true }),
         profileHref: profile
             ? window.getAuthorProfileHref(article.authorId)
             : ''
@@ -356,14 +377,16 @@ function normalizeKey(value) {
 }
 
 function getInstitutionStatsKey(institution) {
-    var normalized = normalizeKey(institution);
-    if (!normalized) return '';
+    return normalizeKey(normalizeUniversityName(institution));
+}
 
-    if (/^(the\s+)?university of washington(\s|$)/.test(normalized)) {
-        return 'university of washington';
-    }
-
-    return normalized;
+function isDefaultArchiveState(state, defaultState) {
+    return state.query.trim() === defaultState.query
+        && state.tag === defaultState.tag
+        && state.category === defaultState.category
+        && state.sort === defaultState.sort
+        && state.university === defaultState.university
+        && state.author === defaultState.author;
 }
 
 function getEditorImageData(editor) {
@@ -565,7 +588,8 @@ function buildArticleCard(article) {
     }
     meta.appendChild(authorSpan);
 
-    [authorData.institution, article.date, getArticleReadingTime(article)].forEach(function (text) {
+    [authorData.archiveInstitution, article.date, getArticleReadingTime(article)].forEach(function (text) {
+        if (!text) return;
         var span = document.createElement('span');
         span.textContent = text;
         meta.appendChild(span);
@@ -635,7 +659,7 @@ function buildArchiveCard(article, onTagClick) {
     }
     meta.appendChild(authorSpan);
 
-    [authorData.institution, article.date, getArticleReadingTime(article)].forEach(function (text) {
+    [authorData.archiveInstitution, article.date, getArticleReadingTime(article)].forEach(function (text) {
         if (!text) return;
         var span = document.createElement('span');
         span.textContent = text;
@@ -684,20 +708,27 @@ function initArchivePage() {
     var sortSelect     = document.getElementById('archive-sort');
     var uniSelect      = document.getElementById('archive-university');
     var authorSelect   = document.getElementById('archive-author');
+    var clearButton    = document.getElementById('archive-clear-filters');
     var resultsCountEl = document.getElementById('archive-results-count');
-    var filterToggle   = document.getElementById('archive-filter-toggle');
-    var filterPanel    = document.getElementById('archive-filter-panel');
     var featuredSection = document.getElementById('archive-featured');
     var featuredFeed   = document.getElementById('archive-featured-feed');
 
     /* Filter / search state */
-    var state = {
+    var defaultState = {
         query: '',
         tag: '',
         category: 'All',
         sort: 'newest',
         university: 'all',
         author: 'all'
+    };
+    var state = {
+        query: defaultState.query,
+        tag: defaultState.tag,
+        category: defaultState.category,
+        sort: defaultState.sort,
+        university: defaultState.university,
+        author: defaultState.author
     };
 
     /* ── Archive statistics ── */
@@ -758,10 +789,11 @@ function initArchivePage() {
         var authorSeen   = {};
 
         ARTICLES.forEach(function (a) {
-            var institutionRaw = getArticleAuthorData(a).institutionRaw;
-            if (institutionRaw && !uniSeen[institutionRaw]) {
-                uniSeen[institutionRaw] = true;
-                universities.push(institutionRaw);
+            var normalizedUniversity = getArticleAuthorData(a).normalizedUniversity;
+            var universityKey = normalizeKey(normalizedUniversity);
+            if (normalizedUniversity && !uniSeen[universityKey]) {
+                uniSeen[universityKey] = true;
+                universities.push(normalizedUniversity);
             }
 
             if (Array.isArray(a.authorNames)) {
@@ -781,7 +813,9 @@ function initArchivePage() {
             }
         });
 
-        universities.sort().forEach(function (uni) {
+        universities.sort(function (a, b) {
+            return a.localeCompare(b, undefined, { sensitivity: 'base' });
+        }).forEach(function (uni) {
             var opt = document.createElement('option');
             opt.value = uni;
             opt.textContent = uni;
@@ -815,15 +849,6 @@ function initArchivePage() {
         filtersEl.appendChild(btn);
     });
 
-    /* ── Mobile filter toggle ── */
-    if (filterToggle && filterPanel) {
-        filterToggle.addEventListener('click', function () {
-            var expanded = filterToggle.getAttribute('aria-expanded') === 'true';
-            filterToggle.setAttribute('aria-expanded', String(!expanded));
-            filterPanel.classList.toggle('archive-filter-panel--open', !expanded);
-        });
-    }
-
     /* ── Sort / university / author selects ── */
     if (sortSelect) {
         sortSelect.addEventListener('change', function () {
@@ -853,6 +878,28 @@ function initArchivePage() {
         });
     }
 
+    if (clearButton) {
+        clearButton.addEventListener('click', function () {
+            state.query = defaultState.query;
+            state.tag = defaultState.tag;
+            state.category = defaultState.category;
+            state.sort = defaultState.sort;
+            state.university = defaultState.university;
+            state.author = defaultState.author;
+
+            if (searchInput) searchInput.value = '';
+            if (sortSelect) sortSelect.value = defaultState.sort;
+            if (uniSelect) uniSelect.value = defaultState.university;
+            if (authorSelect) authorSelect.value = defaultState.author;
+
+            filtersEl.querySelectorAll('.filter-btn').forEach(function (button) {
+                button.classList.toggle('filter-btn--active', button.getAttribute('data-filter') === defaultState.category);
+            });
+
+            renderFeed();
+        });
+    }
+
     /* ── Tag filter (called when a tag badge is clicked) ── */
     function setTagFilter(tag) {
         state.tag   = tag;
@@ -864,10 +911,7 @@ function initArchivePage() {
     /* ── Main render function ── */
     function renderFeed() {
         var queryLower = (state.tag || state.query || '').trim().toLowerCase();
-        var isFiltered = !!(queryLower
-            || state.category !== 'All'
-            || state.university !== 'all'
-            || state.author !== 'all');
+        var hasActiveFilters = !isDefaultArchiveState(state, defaultState);
 
         var filtered = ARTICLES.filter(function (a) {
             var articleCategories = getArticleCategories(a);
@@ -880,8 +924,7 @@ function initArchivePage() {
 
             /* University */
             if (state.university !== 'all') {
-                var instRaw = authorData.institutionRaw || (a.institution || '').trim();
-                if (instRaw !== state.university) return false;
+                if (authorData.normalizedUniversity !== state.university) return false;
             }
 
             /* Author */
@@ -912,6 +955,7 @@ function initArchivePage() {
                     Array.isArray(a.authorNames) ? a.authorNames.join(' ') : '',
                     authorData.name || '',
                     authorData.institutionRaw || '',
+                    authorData.normalizedUniversity || '',
                     a.institution || '',
                     articleCategories.join(' '),
                     tags.join(' ')
@@ -935,13 +979,11 @@ function initArchivePage() {
 
         /* Results count */
         if (resultsCountEl) {
-            if (!isFiltered) {
-                resultsCountEl.textContent = '';
-            } else {
-                resultsCountEl.textContent = filtered.length === 1
-                    ? '1 article found'
-                    : filtered.length + ' articles found';
-            }
+            resultsCountEl.textContent = 'Showing ' + filtered.length + ' of ' + ARTICLES.length + ' articles';
+        }
+
+        if (clearButton) {
+            clearButton.disabled = !hasActiveFilters;
         }
 
         /* Render cards */
@@ -960,6 +1002,8 @@ function initArchivePage() {
 
     renderFeed();
 }
+
+window.normalizeUniversityName = normalizeUniversityName;
 
 /* Recent Articles page — render the newest article */
 function initRecentArticlesPage() {
