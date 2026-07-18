@@ -1941,188 +1941,167 @@ img {
 }
 
 /* ============================================
-   Mobile — ≤ 768 px
-   Single consolidated block; replaces the old
-   separate 767px and 768px patches.
+   Mobile redesign — ≤ 768px
    ============================================ */
 
 @media (max-width: 768px) {
-
-    /* ── Base ── */
     body {
-        font-size: 16px;
-        line-height: 1.65;
+        font-size: 1rem;
+        line-height: 1.55;
     }
 
-    p, li {
-        overflow-wrap: break-word;
-    }
-
-    /* ── Layout ── */
     .container {
-        padding: 0 18px;
+        padding: 0 16px;
     }
 
-    /*
-     * Sections all have an inner .container, so removing their own
-     * left/right padding prevents double-padding on mobile.
-     * footer-bottom has no inner container — handled separately below.
-     */
-    .navbar,
-    .hero-section,
-    .page-header,
-    .article-hero,
-    .article-main,
-    .publish-benefits,
-    .submit-disciplines,
-    .featured-articles,
-    .latest-publication-section,
-    .editorial-board,
-    .review-process,
-    .cta-final {
-        padding-left: 0;
-        padding-right: 0;
-    }
-
-    .footer-bottom {
-        padding-left: 18px;
-        padding-right: 18px;
-    }
-
-    /* ── Typography ── */
     h1 {
-        font-size: clamp(2rem, 9vw, 3rem);
-        line-height: 1.15;
-        overflow-wrap: break-word;
+        font-size: 2rem;
+        line-height: 1.2;
     }
 
     h2 {
-        font-size: clamp(1.5rem, 6vw, 2rem);
-        line-height: 1.2;
-    }
-
-    h3 {
-        font-size: clamp(1.2rem, 5vw, 1.5rem);
+        font-size: 1.5rem;
         line-height: 1.25;
     }
 
-    h4 {
-        font-size: 1.05rem;
+    h3 {
+        font-size: 1.2rem;
         line-height: 1.3;
     }
 
-    /* ── Navigation ── */
     .navbar {
-        padding-top: 0.65rem;
-        padding-bottom: 0.65rem;
+        padding: 0.5rem 16px;
     }
 
     .navbar-content {
-        gap: 0.75rem;
+        gap: 0.55rem;
     }
 
     .navbar-left {
-        gap: 0.6rem;
+        gap: 0.45rem;
     }
 
     .site-logo {
-        width: 40px;
-        height: 40px;
-        min-width: 40px;
+        width: 34px;
+        height: 34px;
+        min-width: 34px;
     }
 
-    /* Masthead title must stay compact inside the nav bar */
     .masthead-text h1 {
-        font-size: 1rem;
-        line-height: 1.2;
-        overflow-wrap: break-word;
+        font-size: 0.92rem;
+        margin-bottom: 0.05rem;
     }
 
     .masthead-tagline {
-        font-size: 0.6rem;
-        line-height: 1.3;
+        font-size: 0.56rem;
+        line-height: 1.2;
     }
 
-    /* Dropdown overrides (base positioning set by ≤900px block) */
+    .nav-toggle {
+        padding: 0.2rem;
+    }
+
     .nav-links {
-        top: calc(58px + env(safe-area-inset-top, 0px));
-        left: 18px;
-        right: 18px;
+        top: calc(52px + env(safe-area-inset-top, 0px));
+        left: 12px;
+        right: 12px;
         transform: none;
         width: auto;
-        max-width: none;
-        max-height: calc(100vh - 80px);
+        gap: 0.25rem;
+        border-radius: 8px;
+        padding: 0.55rem 0.75rem;
+        max-height: calc(100vh - 68px);
         overflow-y: auto;
-        padding: 0.9rem 1rem;
     }
 
-    /* Ensure each nav item is a comfortable tap target */
     .nav-links li {
         width: 100%;
     }
 
     .nav-links a {
-        font-size: 0.88rem;
-        display: flex;
-        align-items: center;
-        padding: 0.65rem 0;
-        min-height: 44px;
+        display: block;
+        font-size: 0.84rem;
+        padding: 0.5rem 0.2rem;
+        min-height: 40px;
     }
 
-    /* ── Hero ── */
     .hero-section {
-        padding-top: 2rem;
-        padding-bottom: 1.75rem;
+        padding: 1.25rem 0 1.1rem;
+    }
+
+    .hero-container {
+        gap: 1rem;
     }
 
     .hero-left h1 {
-        font-size: clamp(2rem, 9vw, 3rem);
-        line-height: 1.15;
-        overflow-wrap: break-word;
-        margin-bottom: 0.75rem;
+        font-size: 2rem;
+        line-height: 1.16;
+        margin-bottom: 0.45rem;
     }
 
     .hero-subtitle {
         font-size: 1rem;
-        line-height: 1.55;
+        margin-bottom: 0.55rem;
+        line-height: 1.4;
     }
 
     .hero-mission {
         font-size: 1rem;
-        line-height: 1.65;
+        line-height: 1.45;
+        margin-bottom: 0.8rem;
     }
 
     .recruitment-banner {
-        max-width: 100%;
+        margin-top: 0.65rem;
+        padding: 0.62rem 0.75rem;
+        font-size: 0.88rem;
+        line-height: 1.45;
     }
 
-    /* Full-width hero CTA button on small screens */
-    .hero-left .btn {
-        display: block;
+    .glance-box {
+        padding: 1rem;
+    }
+
+    .glance-box h3 {
+        font-size: 1rem;
+        margin-bottom: 0.65rem;
+        padding-bottom: 0.45rem;
+    }
+
+    .glance-item {
+        padding: 0.48rem 0;
+    }
+
+    .glance-label,
+    .glance-value,
+    .glance-footer {
+        font-size: 0.85rem;
+    }
+
+    .btn {
+        font-size: 0.95rem;
+        letter-spacing: 0.03em;
+        text-transform: none;
+        min-height: 42px;
+        padding: 0.55rem 0.95rem;
+    }
+
+    .hero-left .btn,
+    .publication-card .btn,
+    .cta-final .btn {
         width: 100%;
         text-align: center;
-        box-sizing: border-box;
     }
 
-    /* ── Buttons (general) ── */
-    .btn {
-        min-height: 44px;
-        padding: 0.7rem 1.25rem;
-        white-space: normal;
-        overflow-wrap: break-word;
-        max-width: 100%;
-    }
-
-    /* ── Section vertical spacing ── */
     .publish-benefits,
     .submit-disciplines,
     .featured-articles,
     .latest-publication-section,
     .editorial-board,
     .review-process,
-    .cta-final {
-        padding-top: 1.75rem;
-        padding-bottom: 1.75rem;
+    .cta-final,
+    .follow-us-section {
+        padding: 1.2rem 0;
     }
 
     .publish-benefits h2,
@@ -2133,233 +2112,314 @@ img {
     .review-process h2,
     .cta-final h2,
     .content-section h2 {
-        margin-bottom: 1.25rem;
+        margin-bottom: 0.85rem;
+        padding-bottom: 0.45rem;
     }
 
-    /* ── Why Publish ── */
-    .publish-benefits-list {
-        gap: 0.75rem;
-        margin-bottom: 1rem;
+    .publish-benefits-list,
+    .submission-fields-grid,
+    .articles-grid {
+        grid-template-columns: 1fr;
+        gap: 0.7rem;
+    }
+
+    .publish-benefits-list li,
+    .submission-field {
+        padding: 0.7rem 0.75rem;
+        font-size: 0.93rem;
+        line-height: 1.4;
     }
 
     .publish-benefits-list li {
-        padding-top: 0.85rem;
-        padding-bottom: 0.85rem;
+        padding-left: 2.3rem;
+    }
+
+    .publish-benefits-list li::before {
+        left: 0.9rem;
+        top: 0.72rem;
     }
 
     .publish-benefits-note,
     .submit-disciplines-intro {
         font-size: 0.95rem;
-        line-height: 1.6;
-    }
-
-    /* ── Who Should Submit ── */
-    .submission-fields-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 0.6rem;
-    }
-
-    .submission-field {
-        padding: 0.65rem 0.75rem;
-        font-size: 0.85rem;
-        line-height: 1.3;
-        overflow-wrap: break-word;
-    }
-
-    /* ── What We Publish — article cards ── */
-
-    /* Un-hide; old 767px patch set display:none */
-    .featured-articles {
-        display: block;
-    }
-
-    .articles-grid {
-        grid-template-columns: 1fr;
-        width: 100%;
-        max-width: 100%;
-        gap: 1rem;
+        line-height: 1.45;
     }
 
     .article-card {
-        width: 100%;
-        max-width: 100%;
-        box-sizing: border-box;
-        padding: 1.25rem 1rem;
-    }
-
-    .article-card h3 {
-        font-size: 1.05rem;
-        line-height: 1.4;
-        overflow-wrap: break-word;
-    }
-
-    .article-card p {
-        font-size: 0.93rem;
-        line-height: 1.6;
-        overflow-wrap: break-word;
+        padding: 1rem;
+        border-top-width: 3px;
     }
 
     .card-badge {
-        font-size: 0.72rem;
-        max-width: 100%;
-        white-space: normal;
-        overflow-wrap: break-word;
+        padding: 0.35rem 0.65rem;
+        margin-bottom: 0.65rem;
+        font-size: 0.68rem;
+    }
+
+    .article-card h3 {
+        font-size: 1.2rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .article-card p {
+        font-size: 1rem;
+        line-height: 1.45;
+        margin-bottom: 0.85rem;
     }
 
     .card-link {
-        overflow-wrap: break-word;
+        font-size: 0.9rem;
     }
 
-    /* ── Latest Publication feed ── */
     .publication-feed {
-        width: 100%;
-        max-width: 100%;
-        gap: 1rem;
+        gap: 0.8rem;
     }
 
     .publication-card {
-        width: 100%;
-        max-width: 100%;
-        box-sizing: border-box;
-        padding: 1.25rem 1rem;
+        padding: 1rem;
+        box-shadow: 0 3px 10px rgba(26, 58, 82, 0.07);
     }
 
     .publication-card h3 {
-        font-size: 1.05rem;
-        line-height: 1.4;
-        overflow-wrap: break-word;
+        font-size: 1.2rem;
+        line-height: 1.32;
+        margin-bottom: 0.38rem;
     }
 
     .publication-card-meta {
-        flex-wrap: wrap;
-        gap: 0.4rem 0.75rem;
-        font-size: 0.85rem;
-        overflow-wrap: break-word;
+        font-size: 0.9rem;
+        gap: 0.3rem 0.75rem;
+        margin-bottom: 0.65rem;
     }
 
     .publication-card p {
-        font-size: 0.93rem;
-        line-height: 1.65;
-        overflow-wrap: break-word;
-    }
-
-    /* ── Glance box ── */
-    .glance-box {
-        padding: 1.25rem;
-    }
-
-    .glance-box h3 {
         font-size: 1rem;
-        margin-bottom: 1rem;
+        line-height: 1.48;
+        margin-bottom: 0.8rem;
     }
 
-    /* ── CTA section ── */
-    .cta-final h2 {
-        font-size: clamp(1.5rem, 6vw, 2rem);
+    .article-category-pill {
+        font-size: 0.72rem;
+        padding: 0.26rem 0.62rem;
+        margin-bottom: 0.65rem;
     }
 
-    .cta-final p {
-        font-size: 0.97rem;
+    .article-tags {
+        gap: 0.3rem;
+        margin-bottom: 0.65rem;
     }
 
-    /* ── Footer ── */
+    .article-tag {
+        font-size: 0.72rem;
+        padding: 0.18rem 0.48rem;
+    }
+
+    .main-content,
+    .page-content {
+        padding-top: 1.2rem;
+        padding-bottom: 1.6rem;
+    }
+
+    .content-section,
+    .about-section,
+    .team-section {
+        margin-bottom: 1.45rem;
+    }
+
+    .page-header {
+        padding: 1.2rem 0 1rem;
+    }
+
+    .page-header h1,
+    .page-header h2 {
+        font-size: 1.65rem;
+    }
+
+    .coming-soon-box,
+    .what-card,
+    .category-item,
+    .look-card,
+    .guideline-box,
+    .endorsement-content,
+    .team-member-card,
+    .board-member,
+    .value-card,
+    .process-step {
+        padding: 0.95rem;
+    }
+
+    .archive-filters {
+        gap: 0.45rem;
+        margin-bottom: 0.9rem;
+    }
+
+    .filter-btn {
+        font-size: 0.86rem;
+        padding: 0.45rem 0.82rem;
+    }
+
+    .article-hero {
+        padding: 1.25rem 0 0.9rem;
+    }
+
+    .article-title {
+        font-size: 1.85rem;
+        line-height: 1.2;
+        margin-bottom: 0.5rem;
+    }
+
+    .article-byline {
+        font-size: 1rem;
+        margin-bottom: 0.08rem;
+    }
+
+    .article-affiliation {
+        font-size: 0.9rem;
+        margin-bottom: 0.6rem;
+    }
+
+    .article-meta {
+        font-size: 0.9rem;
+        gap: 0.35rem 0.7rem;
+    }
+
+    .article-main {
+        padding: 1rem 0 1.5rem;
+    }
+
+    .scholarly-article {
+        padding: 1rem;
+        border-radius: 4px;
+        box-shadow: 0 5px 14px rgba(26, 58, 82, 0.08);
+    }
+
+    .article-intro {
+        gap: 0.8rem;
+        margin-bottom: 1.15rem;
+    }
+
+    .article-panel {
+        padding: 0.85rem 0.9rem;
+    }
+
+    .article-panel h2 {
+        font-size: 1.1rem;
+        margin-bottom: 0.45rem;
+    }
+
+    .article-section {
+        margin-bottom: 1.1rem;
+    }
+
+    .article-section h2 {
+        font-size: 1.25rem;
+        margin-bottom: 0.55rem;
+    }
+
+    .article-section h3 {
+        font-size: 1.08rem;
+        margin: 0.95rem 0 0.5rem;
+    }
+
+    .article-body p,
+    .article-panel p {
+        font-size: 1rem;
+        line-height: 1.55;
+        margin-bottom: 0.85rem;
+    }
+
+    .reference-list {
+        padding-left: 1.05rem;
+    }
+
+    .reference-list li {
+        margin-bottom: 0.65rem;
+        line-height: 1.55;
+    }
+
+    .article-pagination {
+        grid-template-columns: 1fr;
+        gap: 0.7rem;
+    }
+
+    .article-pagination__link {
+        padding: 0.75rem 0.82rem;
+    }
+
     .footer {
-        padding-top: 2rem;
+        padding-top: 1.25rem;
+    }
+
+    .footer-content {
+        gap: 1.2rem;
+        padding-bottom: 1.2rem;
+    }
+
+    .footer-section h4 {
+        margin-bottom: 0.45rem;
     }
 
     .footer-section p,
     .footer-section a,
     .footer-section li {
-        overflow-wrap: break-word;
+        font-size: 0.88rem;
     }
 
-    /* ── Archive / Filters ── */
-    .archive-filters {
-        flex-wrap: wrap;
-        gap: 0.5rem;
+    .footer-bottom {
+        padding: 0.7rem 16px;
     }
 
-    .filter-btn {
-        min-width: 0;
-        white-space: normal;
-        font-size: 0.85rem;
+    .footer-bottom p {
+        font-size: 0.8rem;
     }
 
-    /* ── Article pages ── */
-    .article-hero {
-        padding-top: 2rem;
-        padding-bottom: 1.5rem;
+    .follow-us-section h2 {
+        font-size: 1.25rem;
     }
 
-    .article-main {
-        padding-top: 1.5rem;
-        padding-bottom: 2.5rem;
+    .follow-us-section p {
+        font-size: 0.95rem;
+        margin-bottom: 0.8rem;
     }
 
-    .article-title,
-    .article-byline,
-    .article-affiliation {
-        overflow-wrap: break-word;
+    .follow-us-icons {
+        gap: 0.65rem;
+        flex-direction: column;
     }
 
-    .article-meta {
-        flex-wrap: wrap;
-        gap: 0.5rem 0.75rem;
-        font-size: 0.87rem;
+    .follow-us-link {
+        width: 100%;
+        justify-content: center;
+        font-size: 0.95rem;
+        padding: 0.58rem 0.9rem;
     }
 
-    .article-category-pill,
-    .article-tag {
-        max-width: 100%;
-        white-space: normal;
-        overflow-wrap: break-word;
-    }
-
-    .article-pagination {
-        grid-template-columns: 1fr;
-        gap: 1rem;
-    }
-
-    .scholarly-article {
-        padding: 1.25rem 1rem;
-        box-sizing: border-box;
-    }
-
-    .article-body p,
-    .article-section p,
-    .article-panel p {
-        overflow-wrap: break-word;
-    }
-
-    /* ── Author profile cards ── */
     .author-profile-card,
     .author-note-card .author-profile-card {
         flex-direction: column;
+        gap: 0.75rem;
+        padding: 1rem;
     }
 
     .author-profile-card__avatar,
     .author-profile-card--compact .author-profile-card__avatar {
-        max-width: 140px;
         flex-basis: auto;
+        max-width: 116px;
     }
 
-    /* ── Editorial team ── */
     .editors-grid {
-        max-width: 700px;
-        gap: 1rem;
+        gap: 0.9rem;
     }
 
     .editor-card {
-        padding: 1.3rem;
-        gap: 1rem;
-        align-items: center;
+        padding: 1rem;
     }
 
     .editor-headshot {
-        width: min(100%, 220px);
+        width: min(100%, 180px);
         height: auto;
         aspect-ratio: 4 / 5;
-        margin-bottom: 0;
+        margin-bottom: 0.8rem;
     }
 
     .editor-info {
@@ -2367,51 +2427,30 @@ img {
     }
 
     .editor-info h3 {
-        font-size: clamp(1.25rem, 5vw, 1.6rem);
-        line-height: 1.2;
+        font-size: 1.1rem;
     }
 
     .editor-title,
     .editor-credentials {
-        font-size: 0.88rem;
+        font-size: 0.8rem;
     }
 
     .editor-bio {
-        font-size: 0.93rem;
-        line-height: 1.6;
-    }
-
-    /* ── Inner-page layout ── */
-    .page-header {
-        padding-top: 2rem;
-        padding-bottom: 1.75rem;
-    }
-
-    .main-content,
-    .page-content {
-        padding-top: 2rem;
-        padding-bottom: 2.5rem;
-    }
-
-    .content-section {
-        margin-bottom: 2rem;
-    }
-
-    .content-section h2,
-    .about-section h3,
-    .team-section h3,
-    .featured-editors h2 {
-        margin-bottom: 1rem;
-        padding-bottom: 0.6rem;
+        font-size: 0.9rem;
+        line-height: 1.45;
     }
 
     .standards-grid,
     .help-grid,
     .steps-container,
     .social-cards-grid,
-    .values-grid {
+    .values-grid,
+    .what-coming-grid,
+    .team-grid,
+    .board-grid,
+    .process-steps {
         grid-template-columns: 1fr;
-        gap: 1rem;
+        gap: 0.8rem;
     }
 
     .contact-box,
@@ -2419,104 +2458,46 @@ img {
     .faq-item,
     .contact-step,
     .social-card,
-    .standard-card,
-    .value-card {
-        padding: 1.1rem;
+    .standard-card {
+        padding: 0.95rem;
     }
 
     .contact-step {
-        padding-top: 3rem;
-        padding-left: 1.1rem;
+        padding-top: 2.7rem;
+        padding-left: 0.95rem;
     }
 
     .contact-step-number {
-        top: 1rem;
-        left: 1.1rem;
-        width: 1.9rem;
-        height: 1.9rem;
+        top: 0.75rem;
+        left: 0.95rem;
+        width: 1.75rem;
+        height: 1.75rem;
+        font-size: 0.85rem;
     }
 
     .contact-email {
-        margin: 0.85rem 0 1rem;
+        margin: 0.7rem 0 0.85rem;
     }
 
     .contact-email a {
-        font-size: 1rem;
+        font-size: 0.95rem;
+        padding: 0.55rem 0.85rem;
     }
 
-    .faq-item + .faq-item {
-        margin-top: 0.75rem;
+    .social-card {
+        gap: 0.75rem;
     }
 
-    /* ── Grid gaps for remaining card types ── */
-    .board-grid,
-    .process-steps,
-    .publication-feed,
-    .what-coming-grid,
-    .team-grid {
-        gap: 1rem;
+    .social-card-icon {
+        width: 38px;
+        height: 38px;
     }
 
-    .category-item,
-    .look-card,
-    .what-card,
-    .coming-soon-box,
-    .guideline-box,
-    .endorsement-content,
-    .team-member-card,
-    .board-member,
-    .value-card,
-    .process-step {
-        padding: 1rem;
+    .social-card-body h3 {
+        font-size: 0.95rem;
     }
 
-    /* ── Award cards ── */
-    .featured-award-card,
-    .past-recipient-card,
-    .future-award-card {
-        padding: 1rem;
-    }
-
-    img {
-        max-width: 100%;
-        height: auto;
-    }
-}
-
-
-@media (max-width: 479px) {
-
-    .container {
-        padding: 0 16px;
-    }
-
-    .footer-bottom {
-        padding-left: 16px;
-        padding-right: 16px;
-    }
-
-    .nav-links {
-        left: 16px;
-        right: 16px;
-    }
-
-    .hero-left h1,
-    .page-header h1,
-    .page-header h2,
-    .article-title {
-        font-size: clamp(2rem, 10vw, 2.5rem);
-    }
-
-    .contact-email a {
-        display: flex;
-        width: 100%;
-    }
-
-    .editor-card {
-        padding: 1.15rem;
-    }
-
-    .editor-headshot {
-        width: min(100%, 190px);
+    .social-card-body p {
+        font-size: 0.86rem;
     }
 }
