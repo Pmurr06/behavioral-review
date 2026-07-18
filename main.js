@@ -308,7 +308,7 @@ var SITE_SETTINGS = {
 };
 
 var FALLBACK_EDITOR_IMAGE = 'TBR.png';
-/* Keys use normalizeKey(value) format so aliases remain case-insensitive and whitespace-safe. */
+/* Raw institution labels are normalized during lookup so aliases stay case-insensitive and whitespace-safe. */
 var UNIVERSITY_ALIASES = {
     'indiana university kelley school of business': 'Indiana University',
     'university of washington foster school of business': 'University of Washington',

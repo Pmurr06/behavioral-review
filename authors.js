@@ -11,6 +11,7 @@
     };
 
     function getDisplayInstitutionName(institution, options) {
+        /* authors.js executes before main.js on shared pages, so this helper resolves the global normalizer at render time */
         if (options && options.normalizeUniversity && typeof window.normalizeUniversityName === 'function') {
             return window.normalizeUniversityName(institution);
         }
