@@ -5,6 +5,19 @@
    ============================================ */
 var ARTICLES = [
     {
+        title: 'The Effect of Cannabis on Schizophrenia Diagnoses',
+        author: 'Ryan Trudeau',
+        major: 'Public Health',
+        institution: 'University of Utah',
+        categories: ['Public Health'],
+        displayCategory: 'Public Health',
+        tags: ['Cannabis', 'Mental Health', 'Schizophrenia', 'Substance Use', 'Public Health', 'Public Policy'],
+        date: 'July 2026',
+        readingWordCount: 2895,
+        preview: 'Ryan Trudeau examines how high-potency cannabis products such as dab pens may intensify cannabis-induced psychosis and accelerate schizophrenia onset in genetically vulnerable users.',
+        link: 'articles/the-effect-of-cannabis-on-schizophrenia-diagnoses.html'
+    },
+    {
         title: 'What Common Habits Do Interrogators Examine, and What Strategies Do They Employ to Determine if a Suspect Is Guilty?',
         author: 'Katie Nguyen',
         major: 'Health Sciences',
@@ -831,7 +844,7 @@ function initArchivePage() {
     }());
 
     /* ── Category filter pills ── */
-    var categories = ['All', 'Behavioral Science', 'Psychology', 'Sociology & Anthropology', 'Law & Criminal Justice', 'Economics & Business', 'Global & International Affairs', 'Public Policy'];
+    var categories = ['All', 'Behavioral Science', 'Psychology', 'Sociology & Anthropology', 'Law & Criminal Justice', 'Economics & Business', 'Global & International Affairs', 'Public Policy', 'Public Health'];
     categories.forEach(function (cat) {
         var btn = document.createElement('button');
         btn.type = 'button';
