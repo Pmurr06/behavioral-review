@@ -10,8 +10,15 @@
         }
     };
 
-    function formatAuthorInstitution(major, institution) {
-        var normalizedInstitution = (institution || '').trim();
+    function getDisplayInstitutionName(institution, options) {
+        if (options && options.normalizeUniversity && typeof window.normalizeUniversityName === 'function') {
+            return window.normalizeUniversityName(institution);
+        }
+        return (institution || '').trim();
+    }
+
+    function formatAuthorInstitution(major, institution, options) {
+        var normalizedInstitution = getDisplayInstitutionName(institution, options);
         if (!major) return normalizedInstitution;
         if (!normalizedInstitution) return major + ' student';
         var startsUniversityOf = /^university of/i.test(normalizedInstitution);
@@ -78,7 +85,7 @@
 
         var institution = document.createElement('p');
         institution.className = 'author-profile-card__institution';
-        institution.textContent = formatAuthorInstitution(author.major, author.institution);
+        institution.textContent = formatAuthorInstitution(author.major, author.institution, { normalizeUniversity: true });
 
         var bio = document.createElement('p');
         bio.className = 'author-profile-card__bio';
@@ -113,7 +120,10 @@
 
         document.querySelectorAll('[data-author-institution]').forEach(function (node) {
             var author = getAuthorProfile(node.getAttribute('data-author-institution'));
-            if (author) node.textContent = formatAuthorInstitution(author.major, author.institution);
+            if (!author) return;
+            node.textContent = formatAuthorInstitution(author.major, author.institution, {
+                normalizeUniversity: node.getAttribute('data-author-institution-mode') === 'normalized'
+            });
         });
 
         document.querySelectorAll('[data-author-bio]').forEach(function (node) {

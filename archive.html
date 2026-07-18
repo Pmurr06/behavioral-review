@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" type="image/png" href="TBR.png">
 </head>
-<body>
+<body class="archive-page">
     <!-- Navigation -->
     <nav class="navbar">
         <div class="container navbar-content">
@@ -82,41 +82,41 @@
             <section class="content-section">
                 <h2>Published Articles</h2>
 
-                <!-- Search Bar -->
-                <div class="archive-search-row">
-                    <label for="archive-search" class="sr-only">Search articles by title, author, university, category, or tag</label>
-                    <input type="search" id="archive-search" class="archive-search"
-                           placeholder="Search by title, author, university, category, or tag&hellip;">
-                </div>
+                <div class="archive-toolbar">
+                    <div class="archive-search-row">
+                        <label for="archive-search" class="sr-only">Search articles by title, author, university, category, or tag</label>
+                        <input type="search" id="archive-search" class="archive-search"
+                               placeholder="Search by title, author, university, category, or tag&hellip;">
+                    </div>
 
-                <!-- Mobile: Filter Articles toggle -->
-                <button id="archive-filter-toggle" class="archive-filter-toggle"
-                        aria-expanded="false" aria-controls="archive-filter-panel">
-                    Filter Articles
-                    <svg class="archive-filter-chevron" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" focusable="false">
-                        <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"/>
-                    </svg>
-                </button>
-
-                <!-- Filter Panel: category pills + secondary filters -->
-                <div id="archive-filter-panel" class="archive-filter-panel">
-                    <div id="archive-filters" class="archive-filters" role="group" aria-label="Filter by category"></div>
-                    <div class="archive-secondary-filters">
-                        <label class="sr-only" for="archive-sort">Sort articles</label>
-                        <select id="archive-sort" class="archive-select" aria-label="Sort articles">
-                            <option value="newest">Newest First</option>
-                            <option value="oldest">Oldest First</option>
-                            <option value="az">A&ndash;Z</option>
-                            <option value="za">Z&ndash;A</option>
-                        </select>
-                        <label class="sr-only" for="archive-university">Filter by university</label>
-                        <select id="archive-university" class="archive-select" aria-label="Filter by university">
-                            <option value="all">All Universities</option>
-                        </select>
-                        <label class="sr-only" for="archive-author">Filter by author</label>
-                        <select id="archive-author" class="archive-select" aria-label="Filter by author">
-                            <option value="all">All Authors</option>
-                        </select>
+                    <div id="archive-filter-panel" class="archive-filter-panel">
+                        <div id="archive-filters" class="archive-filters" role="group" aria-label="Filter by category"></div>
+                        <div class="archive-secondary-filters">
+                            <div class="archive-filter-control">
+                                <label class="archive-filter-label" for="archive-sort">Sort By</label>
+                                <select id="archive-sort" class="archive-select">
+                                    <option value="newest">Newest First</option>
+                                    <option value="oldest">Oldest First</option>
+                                    <option value="az">A&ndash;Z</option>
+                                    <option value="za">Z&ndash;A</option>
+                                </select>
+                            </div>
+                            <div class="archive-filter-control">
+                                <label class="archive-filter-label" for="archive-university">University</label>
+                                <select id="archive-university" class="archive-select">
+                                    <option value="all">All Universities</option>
+                                </select>
+                            </div>
+                            <div class="archive-filter-control">
+                                <label class="archive-filter-label" for="archive-author">Author</label>
+                                <select id="archive-author" class="archive-select">
+                                    <option value="all">All Authors</option>
+                                </select>
+                            </div>
+                            <div class="archive-filter-action">
+                                <button id="archive-clear-filters" class="archive-clear-btn" type="button" disabled>Clear Filters</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
