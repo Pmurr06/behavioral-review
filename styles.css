@@ -2356,7 +2356,7 @@ img {
     }
 
     .editor-headshot {
-        width: min(100%, 200px);
+        width: min(100%, 220px);
         height: auto;
         aspect-ratio: 4 / 5;
         margin-bottom: 0;
@@ -2504,7 +2504,7 @@ img {
     .page-header h1,
     .page-header h2,
     .article-title {
-        font-size: clamp(1.9rem, 10vw, 2.4rem);
+        font-size: clamp(2rem, 10vw, 2.5rem);
     }
 
     .contact-email a {
