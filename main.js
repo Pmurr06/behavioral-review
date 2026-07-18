@@ -308,6 +308,7 @@ var SITE_SETTINGS = {
 };
 
 var FALLBACK_EDITOR_IMAGE = 'TBR.png';
+/* Keys use normalizeKey(value) format so aliases remain case-insensitive and whitespace-safe. */
 var UNIVERSITY_ALIASES = {
     'indiana university kelley school of business': 'Indiana University',
     'university of washington foster school of business': 'University of Washington',
@@ -377,6 +378,15 @@ function normalizeKey(value) {
 
 function getInstitutionStatsKey(institution) {
     return normalizeKey(normalizeUniversityName(institution));
+}
+
+function isDefaultArchiveState(state, defaultState) {
+    return state.query.trim() === defaultState.query
+        && state.tag === defaultState.tag
+        && state.category === defaultState.category
+        && state.sort === defaultState.sort
+        && state.university === defaultState.university
+        && state.author === defaultState.author;
 }
 
 function getEditorImageData(editor) {
@@ -803,7 +813,9 @@ function initArchivePage() {
             }
         });
 
-        universities.sort(function (a, b) { return a.localeCompare(b); }).forEach(function (uni) {
+        universities.sort(function (a, b) {
+            return a.localeCompare(b, undefined, { sensitivity: 'base' });
+        }).forEach(function (uni) {
             var opt = document.createElement('option');
             opt.value = uni;
             opt.textContent = uni;
@@ -899,12 +911,7 @@ function initArchivePage() {
     /* ── Main render function ── */
     function renderFeed() {
         var queryLower = (state.tag || state.query || '').trim().toLowerCase();
-        var hasActiveFilters = !!(state.query.trim()
-            || state.tag
-            || state.category !== 'All'
-            || state.sort !== 'newest'
-            || state.university !== 'all'
-            || state.author !== 'all');
+        var hasActiveFilters = !isDefaultArchiveState(state, defaultState);
 
         var filtered = ARTICLES.filter(function (a) {
             var articleCategories = getArticleCategories(a);
