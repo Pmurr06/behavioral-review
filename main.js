@@ -924,12 +924,13 @@ function initArchivePage() {
         });
 
         /* Sort */
+        var indexMap = {};
+        ARTICLES.forEach(function (a, i) { indexMap[a.link] = i; });
         filtered = filtered.slice().sort(function (a, b) {
-            if (state.sort === 'oldest') return ARTICLES.indexOf(b) - ARTICLES.indexOf(a);
+            if (state.sort === 'oldest') return indexMap[b.link] - indexMap[a.link];
             if (state.sort === 'az')     return (a.title || '').localeCompare(b.title || '');
             if (state.sort === 'za')     return (b.title || '').localeCompare(a.title || '');
-            /* newest (default): preserve array order */
-            return ARTICLES.indexOf(a) - ARTICLES.indexOf(b);
+            return indexMap[a.link] - indexMap[b.link]; /* newest (default) */
         });
 
         /* Results count */
