@@ -19,9 +19,9 @@
         'luke-marshall': {
             id: 'luke-marshall',
             name: 'Luke Marshall',
-            major: 'Finance',
+            major: 'Sociology',
             institution: 'University of Oregon',
-            bio: 'Luke Marshall is a finance student at the University of Oregon with interests in financial reporting, corporate valuation, investment analysis, and capital markets. His work focuses on interpreting financial statements and examining how accounting decisions influence investor decision-making.',
+            bio: 'Luke Marshall is a sociology student at the University of Oregon whose academic interests include social inequality, culture, race and ethnicity, and the sociology of popular media. His work explores how contemporary events and cultural products can be analyzed through classical and modern sociological theory.',
             profilePath: 'authors/luke-marshall.html'
         }
     };
