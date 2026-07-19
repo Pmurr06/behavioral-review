@@ -5,6 +5,19 @@
    ============================================ */
 var ARTICLES = [
     {
+        title: 'Obstetric Paternalism in Italy: Autonomy, Medicalization, and the Ethics of Childbirth',
+        author: 'Ryan Trudeau',
+        major: 'Public Health',
+        institution: 'University of Utah',
+        categories: ['Public Health'],
+        displayCategory: 'Public Health',
+        tags: ['Bioethics', 'Medical Ethics', 'Patient Autonomy', "Women's Health", 'Obstetric Violence', 'Human Rights', 'Italy', 'Childbirth', 'Health Humanities', 'Public Health'],
+        date: 'July 2026',
+        readingWordCount: 1800,
+        preview: 'Ryan Trudeau examines obstetric paternalism in Italy through the case of Alessandra Battisti, analyzing the ethical conflict between patient autonomy and medical beneficence and evaluating the deontological implications of informed consent during childbirth.',
+        link: 'articles/obstetric-paternalism-in-italy-autonomy-medicalization-and-the-ethics-of-childbirth.html'
+    },
+    {
         title: 'Food Insecurity and Academic Performance Among College Students',
         author: 'Ryan Trudeau',
         major: 'Public Health',
