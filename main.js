@@ -5,6 +5,20 @@
    ============================================ */
 var ARTICLES = [
     {
+        title: 'Beyond the Diss Track: A Sociological Analysis of Kendrick Lamar\u2019s Not Like Us',
+        authorId: 'luke-marshall',
+        author: 'Luke Marshall',
+        major: 'Sociology',
+        institution: 'University of Oregon',
+        categories: ['Sociology & Anthropology'],
+        displayCategory: 'Sociology',
+        tags: ['Sociology', 'Popular Culture', 'Hip-Hop', 'Kendrick Lamar', 'Drake', 'Race', 'Ethnicity', 'Social Stratification', 'Social Mobility', 'Cultural Appropriation', 'Colonialism', 'Identity', 'Culture', 'Music Sociology'],
+        date: 'July 2026',
+        readingWordCount: 2750,
+        preview: 'Luke Marshall examines Kendrick Lamar\u2019s 2024 song Not Like Us through a sociological lens, analyzing themes of social stratification, social mobility, race, ethnicity, cultural appropriation, and colonialism to show how contemporary hip-hop can serve as a form of social commentary on identity, authenticity, and cultural ownership.',
+        link: 'articles/beyond-the-diss-track-a-sociological-analysis-of-kendrick-lamars-not-like-us.html'
+    },
+    {
         title: 'Revenue Recognition in the Airline Industry: A Case Study of Delta Air Lines',
         authorId: 'luke-marshall',
         author: 'Luke Marshall',
