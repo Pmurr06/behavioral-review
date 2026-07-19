@@ -5,7 +5,22 @@
    ============================================ */
 var ARTICLES = [
     {
+        title: 'The Renormalization of Smoking Among Generation Z',
+        authorId: 'ryan-trudeau',
+        author: 'Ryan Trudeau',
+        major: 'Public Health',
+        institution: 'University of Utah',
+        categories: ['Public Health'],
+        displayCategory: 'Public Health',
+        tags: ['Smoking', 'Generation Z', 'Tobacco', 'Public Health', 'Social Media', 'Nicotine', 'Youth Health', 'Health Policy', 'Substance Use', 'Behavioral Health'],
+        date: 'July 2026',
+        readingWordCount: 2400,
+        preview: 'Ryan Trudeau examines how smoking is being renormalized among Generation Z through social media aesthetics, industry marketing strategies, and the youth mental health crisis, reversing decades of public health progress and demanding updated prevention approaches.',
+        link: 'articles/the-renormalization-of-smoking-among-generation-z.html'
+    },
+    {
         title: 'Obstetric Paternalism in Italy: Autonomy, Medicalization, and the Ethics of Childbirth',
+        authorId: 'ryan-trudeau',
         author: 'Ryan Trudeau',
         major: 'Public Health',
         institution: 'University of Utah',
@@ -19,6 +34,7 @@ var ARTICLES = [
     },
     {
         title: 'Food Insecurity and Academic Performance Among College Students',
+        authorId: 'ryan-trudeau',
         author: 'Ryan Trudeau',
         major: 'Public Health',
         institution: 'University of Utah',
@@ -32,6 +48,7 @@ var ARTICLES = [
     },
     {
         title: 'The Effect of Cannabis on Schizophrenia Diagnoses',
+        authorId: 'ryan-trudeau',
         author: 'Ryan Trudeau',
         major: 'Public Health',
         institution: 'University of Utah',
