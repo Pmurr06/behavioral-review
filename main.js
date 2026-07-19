@@ -5,6 +5,20 @@
    ============================================ */
 var ARTICLES = [
     {
+        title: 'Revenue Recognition in the Airline Industry: A Case Study of Delta Air Lines',
+        authorId: 'luke-marshall',
+        author: 'Luke Marshall',
+        major: 'Finance',
+        institution: 'University of Oregon',
+        categories: ['Economics & Business'],
+        displayCategory: 'Business & Economics',
+        tags: ['Revenue Recognition', 'Airline Industry', 'Delta Air Lines', 'ASC 606', 'Accounting', 'Finance', 'SkyMiles', 'Deferred Revenue', 'Financial Reporting', 'Business & Economics'],
+        date: 'July 2026',
+        readingWordCount: 2200,
+        preview: 'Luke Marshall examines how Delta Air Lines applies ASC 606 to passenger ticket sales, its SkyMiles loyalty program, and ancillary services, explaining how deferred revenue balances and management estimates shape reported financial results and investor analysis.',
+        link: 'articles/revenue-recognition-airline-industry-delta-air-lines.html'
+    },
+    {
         title: 'When Goodwill Disappears: Lessons from Coty\'s $3.9 Billion Impairment',
         authorId: 'luke-marshall',
         author: 'Luke Marshall',
