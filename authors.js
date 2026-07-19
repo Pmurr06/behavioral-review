@@ -1,5 +1,13 @@
 (function () {
     var AUTHOR_DIRECTORY = {
+        'ryan-trudeau': {
+            id: 'ryan-trudeau',
+            name: 'Ryan Trudeau',
+            major: 'Public Health',
+            institution: 'University of Utah',
+            bio: 'Ryan Trudeau is an undergraduate student majoring in Public Health at the University of Utah. His academic interests include mental health, substance use, epidemiology, and public health policy. His work explores how emerging public health challenges intersect with evidence-based research and preventative health initiatives.',
+            profilePath: 'authors/ryan-trudeau.html'
+        },
         'miller-smith': {
             id: 'miller-smith',
             name: 'Miller Smith',
