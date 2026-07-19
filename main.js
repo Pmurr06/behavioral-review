@@ -5,6 +5,20 @@
    ============================================ */
 var ARTICLES = [
     {
+        title: 'When Goodwill Disappears: Lessons from Coty\'s $3.9 Billion Impairment',
+        authorId: 'luke-marshall',
+        author: 'Luke Marshall',
+        major: 'Finance',
+        institution: 'University of Oregon',
+        categories: ['Economics & Business'],
+        displayCategory: 'Business & Economics',
+        tags: ['Finance', 'Accounting', 'Corporate Finance', 'Business & Economics', 'Financial Reporting', 'Goodwill', 'Goodwill Impairment', 'Mergers & Acquisitions', 'SEC Filings', 'Financial Statement Analysis', 'Corporate Valuation', 'Investor Analysis'],
+        date: 'July 2026',
+        readingWordCount: 2350,
+        preview: 'Luke Marshall examines Coty Inc.\'s 2019 $3.85 billion goodwill impairment to explain GAAP recognition, valuation assumptions, and why impairment disclosures matter for investor analysis of acquisition performance.',
+        link: 'articles/when-goodwill-disappears-lessons-from-cotys-3-9-billion-impairment.html'
+    },
+    {
         title: 'The Renormalization of Smoking Among Generation Z',
         authorId: 'ryan-trudeau',
         author: 'Ryan Trudeau',
@@ -558,6 +572,14 @@ function getSiteRoot() {
     return '';
 }
 
+function getArticleHref(articleLink) {
+    if (!articleLink) return '';
+    if (/^(https?:)?\/\//i.test(articleLink) || articleLink.charAt(0) === '/') {
+        return articleLink;
+    }
+    return getSiteRoot() + articleLink;
+}
+
 function initEditorialTeamPage() {
     var editorsEl = document.querySelector('[data-featured-editors]');
     if (!editorsEl) return;
@@ -655,7 +677,7 @@ function buildArticleCard(article) {
     preview.textContent = article.preview;
 
     var btn = document.createElement('a');
-    btn.href = article.link;
+    btn.href = getArticleHref(article.link);
     btn.className = 'btn btn-primary';
     btn.textContent = 'Read Article';
 
@@ -746,7 +768,7 @@ function buildArchiveCard(article, onTagClick) {
     card.appendChild(preview);
 
     var btn = document.createElement('a');
-    btn.href = article.link;
+    btn.href = getArticleHref(article.link);
     btn.className = 'btn btn-primary';
     btn.textContent = 'Read Article';
     card.appendChild(btn);
@@ -1102,6 +1124,35 @@ function initCategoryPage() {
     });
 }
 
+function initUniversityPage() {
+    var feeds = document.querySelectorAll('[data-university-feed]');
+    if (!feeds.length) return;
+
+    feeds.forEach(function (feedEl) {
+        var university = feedEl.getAttribute('data-university-feed');
+        if (!university) return;
+
+        var normalizedTarget = normalizeUniversityName(university);
+        var filtered = ARTICLES.filter(function (article) {
+            var authorData = getArticleAuthorData(article);
+            return authorData.normalizedUniversity === normalizedTarget;
+        });
+
+        feedEl.innerHTML = '';
+        if (filtered.length === 0) {
+            var empty = document.createElement('p');
+            empty.className = 'archive-empty';
+            empty.textContent = 'No articles from this university yet.';
+            feedEl.appendChild(empty);
+            return;
+        }
+
+        filtered.forEach(function (article) {
+            feedEl.appendChild(buildArticleCard(article));
+        });
+    });
+}
+
 /* Author profile page — render linked publications */
 function initAuthorProfilePage() {
     var feedEl = document.querySelector('[data-author-articles]');
@@ -1206,7 +1257,7 @@ function buildArticlePaginationLink(label, article) {
 
     var link = document.createElement('a');
     link.className = 'article-pagination__link';
-    link.href = '../' + article.link;
+    link.href = getArticleHref(article.link);
 
     var eyebrow = document.createElement('span');
     eyebrow.className = 'article-pagination__eyebrow';
@@ -1295,6 +1346,7 @@ document.addEventListener('DOMContentLoaded', function () {
     initRecentArticlesPage();
     initHomepageLatestArticle();
     initCategoryPage();
+    initUniversityPage();
     initAuthorProfilePage();
     initArticlePageMetadata();
     initArticlePageTags();
