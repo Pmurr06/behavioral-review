@@ -15,6 +15,14 @@
             institution: 'University of Washington Foster School of Business',
             bio: 'Miller Smith is a Finance & Marketing student at the University of Washington Foster School of Business. His academic interests include international finance, behavioral economics, corporate governance, monetary systems, capital markets, environmental policy, and the intersection of economic policy and geopolitical risk.',
             profilePath: 'authors/miller-smith.html'
+        },
+        'luke-marshall': {
+            id: 'luke-marshall',
+            name: 'Luke Marshall',
+            major: 'Finance',
+            institution: 'University of Oregon',
+            bio: 'Luke Marshall is a finance student at the University of Oregon with interests in financial reporting, corporate valuation, investment analysis, and capital markets. His work focuses on interpreting financial statements and examining how accounting decisions influence investor decision-making.',
+            profilePath: 'authors/luke-marshall.html'
         }
     };
 
