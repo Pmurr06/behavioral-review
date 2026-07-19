@@ -5,6 +5,19 @@
    ============================================ */
 var ARTICLES = [
     {
+        title: 'Food Insecurity and Academic Performance Among College Students',
+        author: 'Ryan Trudeau',
+        major: 'Public Health',
+        institution: 'University of Utah',
+        categories: ['Public Health'],
+        displayCategory: 'Public Health',
+        tags: ['Food Insecurity', 'Public Health', 'Higher Education', 'College Students', 'Mental Health', 'Academic Performance', 'Nutrition', 'Health Policy', 'Research Methods', 'Social Determinants of Health'],
+        date: 'July 2026',
+        readingWordCount: 2200,
+        preview: 'Ryan Trudeau proposes a longitudinal cohort study examining how food insecurity affects psychosocial health—including depression, anxiety, and hope—and whether those effects contribute to lower academic performance among undergraduate students at the University of Utah.',
+        link: 'articles/food-insecurity-and-academic-performance-among-college-students.html'
+    },
+    {
         title: 'The Effect of Cannabis on Schizophrenia Diagnoses',
         author: 'Ryan Trudeau',
         major: 'Public Health',
