@@ -1,5 +1,20 @@
 (function () {
     var LINKEDIN_ICON_PATH = 'M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z';
+    var AUTHOR_LINKEDIN_DIRECTORY = {
+        'luke-marshall': 'https://www.linkedin.com/in/luke-marshall-0661a3281/',
+        'miller-smith': 'https://www.linkedin.com/in/miller-smithh/',
+        'katie-nguyen': 'https://www.linkedin.com/in/katie-nguyen-190b793ba/',
+        'ella-roehl': 'https://www.linkedin.com/in/ella-roehl-a8315b254/',
+        'alexandra-quist': 'https://www.linkedin.com/in/alexandra-quist-68a0a51b3/',
+        'alan-ta': 'https://www.linkedin.com/in/alanqta/',
+        'ryan-trudeau': 'https://www.linkedin.com/in/ryan-trudeau-748a5a356/',
+        'jackson-pincock': 'https://www.linkedin.com/in/jackson-pincock-5530a43a6/',
+        'david-kim': 'https://www.linkedin.com/in/david-kim-47b133352/',
+        'david-morgan': 'https://www.linkedin.com/in/david-morgan-16740935b/',
+        'carson-wais': 'https://www.linkedin.com/in/carsonwais1/',
+        'kelden-littell': 'https://www.linkedin.com/in/kelden-littell-534a21282/',
+        'radek-janout': 'https://www.linkedin.com/in/radek-janout-b0b44b338/'
+    };
 
     var AUTHOR_DIRECTORY = {
         'ryan-trudeau': {
@@ -8,8 +23,7 @@
             major: 'Public Health',
             institution: 'University of Utah',
             bio: 'Ryan Trudeau is an undergraduate student majoring in Public Health at the University of Utah. His academic interests include mental health, substance use, epidemiology, and public health policy. His work explores how emerging public health challenges intersect with evidence-based research and preventative health initiatives.',
-            profilePath: 'authors/ryan-trudeau.html',
-            linkedinUrl: 'https://www.linkedin.com/in/ryan-trudeau-748a5a356/'
+            profilePath: 'authors/ryan-trudeau.html'
         },
         'miller-smith': {
             id: 'miller-smith',
@@ -17,8 +31,7 @@
             major: 'Finance & Marketing',
             institution: 'University of Washington Foster School of Business',
             bio: 'Miller Smith is a Finance & Marketing student at the University of Washington Foster School of Business. His academic interests include international finance, behavioral economics, corporate governance, monetary systems, capital markets, environmental policy, and the intersection of economic policy and geopolitical risk.',
-            profilePath: 'authors/miller-smith.html',
-            linkedinUrl: 'https://www.linkedin.com/in/miller-smithh/'
+            profilePath: 'authors/miller-smith.html'
         },
         'luke-marshall': {
             id: 'luke-marshall',
@@ -26,78 +39,7 @@
             major: 'Sociology',
             institution: 'University of Oregon',
             bio: 'Luke Marshall is a sociology student at the University of Oregon whose academic interests include social inequality, culture, race and ethnicity, and the sociology of popular media. His work explores how contemporary events and cultural products can be analyzed through classical and modern sociological theory.',
-            profilePath: 'authors/luke-marshall.html',
-            linkedinUrl: 'https://www.linkedin.com/in/luke-marshall-0661a3281/'
-        },
-        'katie-nguyen': {
-            id: 'katie-nguyen',
-            name: 'Katie Nguyen',
-            major: 'Health Sciences',
-            institution: 'University of South Florida',
-            linkedinUrl: 'https://www.linkedin.com/in/katie-nguyen-190b793ba/'
-        },
-        'ella-roehl': {
-            id: 'ella-roehl',
-            name: 'Ella Roehl',
-            major: 'Human Physiology',
-            institution: 'University of Iowa',
-            linkedinUrl: 'https://www.linkedin.com/in/ella-roehl-a8315b254/'
-        },
-        'alexandra-quist': {
-            id: 'alexandra-quist',
-            name: 'Alexandra Quist',
-            major: 'Anthropology',
-            institution: 'University of Washington',
-            linkedinUrl: 'https://www.linkedin.com/in/alexandra-quist-68a0a51b3/'
-        },
-        'alan-ta': {
-            id: 'alan-ta',
-            name: 'Alan Ta',
-            major: 'Honors Finance and Business Analytics',
-            institution: 'Indiana University Kelley School of Business',
-            linkedinUrl: 'https://www.linkedin.com/in/alanqta/'
-        },
-        'jackson-pincock': {
-            id: 'jackson-pincock',
-            name: 'Jackson Pincock',
-            major: 'Business',
-            institution: 'University of Utah',
-            linkedinUrl: 'https://www.linkedin.com/in/jackson-pincock-5530a43a6/'
-        },
-        'david-kim': {
-            id: 'david-kim',
-            name: 'David Kim',
-            major: 'Logistics, Materials & Supply Chain Management',
-            institution: 'University of Washington Foster School of Business',
-            linkedinUrl: 'https://www.linkedin.com/in/david-kim-47b133352/'
-        },
-        'david-morgan': {
-            id: 'david-morgan',
-            name: 'David Morgan',
-            major: 'Business Administration & Management',
-            institution: 'Washington State University',
-            linkedinUrl: 'https://www.linkedin.com/in/david-morgan-16740935b/'
-        },
-        'carson-wais': {
-            id: 'carson-wais',
-            name: 'Carson Wais',
-            major: 'Business Finance',
-            institution: 'Washington State University',
-            linkedinUrl: 'https://www.linkedin.com/in/carsonwais1/'
-        },
-        'kelden-littell': {
-            id: 'kelden-littell',
-            name: 'Kelden Littell',
-            major: 'Computer Engineering',
-            institution: 'University of Utah',
-            linkedinUrl: 'https://www.linkedin.com/in/kelden-littell-534a21282/'
-        },
-        'radek-janout': {
-            id: 'radek-janout',
-            name: 'Radek Janout',
-            major: 'Finance',
-            institution: 'Montana State University',
-            linkedinUrl: 'https://www.linkedin.com/in/radek-janout-b0b44b338/'
+            profilePath: 'authors/luke-marshall.html'
         }
     };
 
@@ -137,7 +79,7 @@
 
     function getAuthorProfileHref(authorId) {
         var author = getAuthorProfile(authorId);
-        return author && author.profilePath ? buildSitePath(author.profilePath) : '';
+        return author ? buildSitePath(author.profilePath) : '';
     }
 
     function createAuthorLink(authorId, text) {
@@ -150,11 +92,12 @@
     }
 
     function createLinkedInLink(author) {
-        if (!author || !author.linkedinUrl) return null;
+        var linkedInUrl = author && author.id ? AUTHOR_LINKEDIN_DIRECTORY[author.id] : '';
+        if (!linkedInUrl) return null;
 
         var link = document.createElement('a');
         link.className = 'follow-us-link linkedin author-profile-linkedin';
-        link.href = author.linkedinUrl;
+        link.href = linkedInUrl;
         link.target = '_blank';
         link.rel = 'noopener noreferrer';
         link.setAttribute('aria-label', author.name + ' on LinkedIn (opens in new tab)');
