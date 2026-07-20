@@ -1463,6 +1463,11 @@ img {
     margin-bottom: 0.8rem;
 }
 
+.author-profile-linkedin {
+    width: fit-content;
+    margin-bottom: 0.8rem;
+}
+
 .author-profile-card__bio {
     margin-bottom: 0;
 }
