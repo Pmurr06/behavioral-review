@@ -40,6 +40,86 @@
             institution: 'University of Oregon',
             bio: 'Luke Marshall is a sociology student at the University of Oregon whose academic interests include social inequality, culture, race and ethnicity, and the sociology of popular media. His work explores how contemporary events and cultural products can be analyzed through classical and modern sociological theory.',
             profilePath: 'authors/luke-marshall.html'
+        },
+        'katie-nguyen': {
+            id: 'katie-nguyen',
+            name: 'Katie Nguyen',
+            major: 'Health Sciences',
+            institution: 'University of South Florida',
+            bio: 'Katie Nguyen is a Health Sciences student at the University of South Florida and a contributor to The Behavioral Review.',
+            profilePath: 'authors/katie-nguyen.html'
+        },
+        'ella-roehl': {
+            id: 'ella-roehl',
+            name: 'Ella Roehl',
+            major: 'Human Physiology',
+            institution: 'University of Iowa',
+            bio: 'Ella Roehl is a Human Physiology student at the University of Iowa and a contributor to The Behavioral Review.',
+            profilePath: 'authors/ella-roehl.html'
+        },
+        'alexandra-quist': {
+            id: 'alexandra-quist',
+            name: 'Alexandra Quist',
+            major: 'Anthropology',
+            institution: 'University of Washington',
+            bio: 'Alexandra Quist is an Anthropology student at the University of Washington. Her academic interests include philosophy, critical reasoning, behavioral science, and the intersection of individual autonomy and social convention.',
+            profilePath: 'authors/alexandra-quist.html'
+        },
+        'alan-ta': {
+            id: 'alan-ta',
+            name: 'Alan Ta',
+            major: 'Honors Finance and Business Analytics',
+            institution: 'Indiana University Kelley School of Business',
+            bio: 'Alan Ta is an Honors student studying Finance and Business Analytics at the Indiana University Kelley School of Business. His academic interests include behavioral economics, financial decision-making, literature, ethics, and the psychology of human judgment.',
+            profilePath: 'authors/alan-ta.html'
+        },
+        'jackson-pincock': {
+            id: 'jackson-pincock',
+            name: 'Jackson Pincock',
+            major: 'Business',
+            institution: 'University of Utah',
+            bio: 'Jackson Pincock is a business student at the University of Utah with interests in business analytics, organizational strategy, sports economics, and data-driven decision making.',
+            profilePath: 'authors/jackson-pincock.html'
+        },
+        'david-kim': {
+            id: 'david-kim',
+            name: 'David Kim',
+            major: 'Logistics, Materials & Supply Chain Management',
+            institution: 'University of Washington Foster School of Business',
+            bio: 'David Kim is a Logistics, Materials & Supply Chain Management student at the University of Washington Foster School of Business. His academic interests include organizational behavior, supply chain management, leadership, operations management, workplace culture, and organizational strategy.',
+            profilePath: 'authors/david-kim.html'
+        },
+        'david-morgan': {
+            id: 'david-morgan',
+            name: 'David Morgan',
+            major: 'Business Administration & Management',
+            institution: 'Washington State University',
+            bio: 'David Morgan is a Business Administration & Management student at Washington State University. His writing focuses on business law, collegiate athletics, and the legal issues shaping modern sports.',
+            profilePath: 'authors/david-morgan.html'
+        },
+        'carson-wais': {
+            id: 'carson-wais',
+            name: 'Carson Wais',
+            major: 'Business Finance',
+            institution: 'Washington State University',
+            bio: 'Carson Wais is a Business Finance student at Washington State University. His academic interests include business law, finance, antitrust law, corporate governance, sports governance, and public policy. His work examines how legal institutions and market regulations influence competition, organizational decision-making, and the business of collegiate athletics.',
+            profilePath: 'authors/carson-wais.html'
+        },
+        'kelden-littell': {
+            id: 'kelden-littell',
+            name: 'Kelden Littell',
+            major: 'Computer Engineering',
+            institution: 'University of Utah',
+            bio: 'Kelden Littell is a Computer Engineering student at the University of Utah. His academic interests include financial systems, banking regulation, technology, market behavior, and the intersection of engineering, economics, and public policy.',
+            profilePath: 'authors/kelden-littell.html'
+        },
+        'radek-janout': {
+            id: 'radek-janout',
+            name: 'Radek Janout',
+            major: 'Finance',
+            institution: 'Montana State University',
+            bio: 'Radek Janout is a Finance student at Montana State University. His academic interests include housing economics, public finance, urban development, real estate markets, and public policy. His work examines how economic incentives, financial markets, and institutional decision-making influence long-term community development and housing affordability.',
+            profilePath: 'authors/radek-janout.html'
         }
     };
 

@@ -104,6 +104,7 @@ var ARTICLES = [
     },
     {
         title: 'What Common Habits Do Interrogators Examine, and What Strategies Do They Employ to Determine if a Suspect Is Guilty?',
+        authorId: 'katie-nguyen',
         author: 'Katie Nguyen',
         major: 'Health Sciences',
         institution: 'University of South Florida',
@@ -117,6 +118,7 @@ var ARTICLES = [
     },
     {
         title: 'Persuasive Commentary: Futility Laws on Infants and the Case of Tinslee Lewis',
+        authorId: 'katie-nguyen',
         author: 'Katie Nguyen',
         major: 'Health Sciences',
         institution: 'University of South Florida',
@@ -130,10 +132,9 @@ var ARTICLES = [
     },
     {
         title: 'Religious Racialization and the Yazidi Genocide: Examining ISIS\'s Campaign of Persecution',
+        authorId: 'ella-roehl',
         author: 'Ella Roehl',
         major: 'Human Physiology',
-        institution: 'University of Iowa',
-        categories: ['Global & International Affairs'],
         displayCategory: 'Global & International Affairs',
         tags: ['Human Rights', 'Genocide', 'Iraq', 'ISIS', 'Religious Conflict', 'Middle East'],
         date: 'July 2026',
@@ -143,12 +144,9 @@ var ARTICLES = [
     },
     {
         title: 'Hidden Costs of Global Seafood: Child and Migrant Labor in Thailand\u2019s Shrimp Industry',
+        authorId: 'ella-roehl',
         author: 'Ella Roehl',
         major: 'Human Physiology',
-        institution: 'University of Iowa',
-        categories: ['Global & International Affairs'],
-        displayCategory: 'Global & International Affairs',
-        tags: ['Human Rights', 'International Development', 'Labor', 'Migration'],
         date: 'July 2026',
         readingWordCount: 1500,
         preview: 'Ella Roehl examines how rising global demand for shrimp has contributed to labor exploitation in Thailand\u2019s seafood industry, exploring the relationship between international consumer demand, migrant labor from Myanmar, and workplace conditions that have raised concerns about child labor and forced labor within portions of the supply chain.',
@@ -156,6 +154,7 @@ var ARTICLES = [
     },
     {
         title: 'Navigating the Labyrinth of Gender, Race, and Economic Inequality: A Sociological Perspective',
+        authorId: 'ella-roehl',
         author: 'Ella Roehl',
         major: 'Human Physiology',
         institution: 'University of Iowa',
@@ -181,6 +180,7 @@ var ARTICLES = [
     },
     {
         title: 'Grieving Before Goodbye: Dementia, Anticipatory Loss, and the Anthropology of Mourning',
+        authorId: 'alexandra-quist',
         author: 'Alexandra Quist',
         major: 'Anthropology',
         institution: 'University of Washington',
@@ -194,6 +194,7 @@ var ARTICLES = [
     },
     {
         title: 'Beyond Death: Necropower, Colonialism, and the Unmarked Graves of Indigenous Children in Canada',
+        authorId: 'alexandra-quist',
         author: 'Alexandra Quist',
         major: 'Anthropology',
         institution: 'University of Washington',
@@ -207,6 +208,7 @@ var ARTICLES = [
     },
     {
         title: 'Financial Barriers and Clinical Judgment in the United States Healthcare System',
+        authorId: 'alexandra-quist',
         author: 'Alexandra Quist',
         institution: 'University of Washington',
         categories: ['Public Policy'],
@@ -218,6 +220,7 @@ var ARTICLES = [
     },
     {
         title: 'Reconsidering Christopher McCandless: Autonomy, Critical Thinking, and the Philosophy of Into the Wild',
+        authorId: 'alexandra-quist',
         author: 'Alexandra Quist',
         major: 'Anthropology',
         institution: 'University of Washington',
@@ -230,6 +233,7 @@ var ARTICLES = [
     },
     {
         title: 'Moneyball and Market Inefficiency: How the Oakland Athletics Revolutionized Data-Driven Decision Making',
+        authorId: 'jackson-pincock',
         author: 'Jackson Pincock',
         major: 'Business',
         institution: 'University of Utah',
@@ -243,6 +247,7 @@ var ARTICLES = [
     },
     {
         title: 'Implicit Personality Theory and Moral Development in War and Peace',
+        authorId: 'alan-ta',
         author: 'Alan Ta',
         major: 'Honors Finance and Business Analytics',
         institution: 'Indiana University Kelley School of Business',
@@ -255,6 +260,7 @@ var ARTICLES = [
     },
     {
         title: 'Growing Without Losing Your Culture: Organizational Lessons from the Bouldering Project',
+        authorId: 'david-kim',
         author: 'David Kim',
         major: 'Logistics, Materials & Supply Chain Management',
         institution: 'University of Washington Foster School of Business',
@@ -268,6 +274,7 @@ var ARTICLES = [
     },
     {
         title: 'The Rule of Reason: Why NCAA v. Alston Changed College Sports',
+        authorId: 'carson-wais',
         author: 'Carson Wais',
         major: 'Business Finance',
         institution: 'Washington State University',
@@ -281,6 +288,7 @@ var ARTICLES = [
     },
     {
         title: 'The Value of Boring Banking: Why Financial Stability Matters More Than Speculation',
+        authorId: 'kelden-littell',
         author: 'Kelden Littell',
         major: 'Computer Engineering',
         institution: 'University of Utah',
@@ -294,6 +302,7 @@ var ARTICLES = [
     },
     {
         title: 'Rethinking Affordable Housing: A Land-Bank Strategy for Bozeman',
+        authorId: 'radek-janout',
         author: 'Radek Janout',
         major: 'Finance',
         institution: 'Montana State University',
@@ -321,6 +330,7 @@ var ARTICLES = [
     },
     {
         title: 'NCAA v. Alston: The Supreme Court Decision That Changed College Athletics',
+        authorId: 'david-morgan',
         author: 'David Morgan',
         major: 'Business Administration & Management',
         institution: 'Washington State University',
