@@ -1,4 +1,21 @@
 (function () {
+    var LINKEDIN_ICON_PATH = 'M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z';
+    var AUTHOR_LINKEDIN_DIRECTORY = {
+        'luke-marshall': 'https://www.linkedin.com/in/luke-marshall-0661a3281/',
+        'miller-smith': 'https://www.linkedin.com/in/miller-smithh/',
+        'katie-nguyen': 'https://www.linkedin.com/in/katie-nguyen-190b793ba/',
+        'ella-roehl': 'https://www.linkedin.com/in/ella-roehl-a8315b254/',
+        'alexandra-quist': 'https://www.linkedin.com/in/alexandra-quist-68a0a51b3/',
+        'alan-ta': 'https://www.linkedin.com/in/alanqta/',
+        'ryan-trudeau': 'https://www.linkedin.com/in/ryan-trudeau-748a5a356/',
+        'jackson-pincock': 'https://www.linkedin.com/in/jackson-pincock-5530a43a6/',
+        'david-kim': 'https://www.linkedin.com/in/david-kim-47b133352/',
+        'david-morgan': 'https://www.linkedin.com/in/david-morgan-16740935b/',
+        'carson-wais': 'https://www.linkedin.com/in/carsonwais1/',
+        'kelden-littell': 'https://www.linkedin.com/in/kelden-littell-534a21282/',
+        'radek-janout': 'https://www.linkedin.com/in/radek-janout-b0b44b338/'
+    };
+
     var AUTHOR_DIRECTORY = {
         'ryan-trudeau': {
             id: 'ryan-trudeau',
@@ -74,6 +91,31 @@
         return link;
     }
 
+    function createLinkedInLink(author) {
+        var linkedInUrl = author && author.id ? AUTHOR_LINKEDIN_DIRECTORY[author.id] : '';
+        if (!linkedInUrl) return null;
+
+        var link = document.createElement('a');
+        link.className = 'follow-us-link linkedin author-profile-linkedin';
+        link.href = linkedInUrl;
+        link.target = '_blank';
+        link.rel = 'noopener noreferrer';
+        link.setAttribute('aria-label', author.name + ' on LinkedIn (opens in new tab)');
+
+        var icon = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+        icon.setAttribute('viewBox', '0 0 24 24');
+        icon.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
+        icon.setAttribute('aria-hidden', 'true');
+
+        var path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+        path.setAttribute('d', LINKEDIN_ICON_PATH);
+        icon.appendChild(path);
+
+        link.appendChild(icon);
+        link.appendChild(document.createTextNode('LinkedIn'));
+        return link;
+    }
+
     function buildAuthorProfileCard(authorId, variant) {
         var author = getAuthorProfile(authorId);
         if (!author) return null;
@@ -104,13 +146,19 @@
         institution.className = 'author-profile-card__institution';
         institution.textContent = formatAuthorInstitution(author.major, author.institution, { normalizeUniversity: true });
 
-        var bio = document.createElement('p');
-        bio.className = 'author-profile-card__bio';
-        bio.textContent = author.bio;
-
         content.appendChild(name);
         content.appendChild(institution);
-        content.appendChild(bio);
+        var linkedInLink = createLinkedInLink(author);
+        if (linkedInLink) {
+            content.appendChild(linkedInLink);
+        }
+
+        if (author.bio) {
+            var bio = document.createElement('p');
+            bio.className = 'author-profile-card__bio';
+            bio.textContent = author.bio;
+            content.appendChild(bio);
+        }
 
         card.appendChild(content);
         return card;

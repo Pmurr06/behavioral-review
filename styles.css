@@ -1457,10 +1457,16 @@ img {
     padding: 0;
 }
 
-.author-profile-card__institution {
+.author-profile-card__institution,
+.author-profile-linkedin {
     color: var(--text-light);
     font-size: 0.95rem;
     margin-bottom: 0.8rem;
+}
+
+.author-profile-linkedin {
+    width: fit-content;
+    color: #ffffff;
 }
 
 .author-profile-card__bio {
