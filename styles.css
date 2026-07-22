@@ -3913,7 +3913,6 @@ button {
     .hero-container,
     .homepage-primary-layout,
     .contact-primary-layout,
-    .contact-compact-layout,
     .two-column-section,
     .author-guidelines-layout,
     .cta-final__content {
@@ -3923,6 +3922,7 @@ button {
 
     .contact-compact-layout {
         grid-template-columns: minmax(260px, 1fr) minmax(0, 1.5fr);
+        gap: var(--space-5);
     }
 
     .author-guidelines-layout {
