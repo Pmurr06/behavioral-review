@@ -227,6 +227,54 @@ img {
     border-bottom: 1px solid var(--border-color);
 }
 
+/* Minimal single-column hero (new homepage design) */
+.hero-section--minimal {
+    padding: 2.5rem 20px;
+}
+
+.hero-section--minimal .hero-left {
+    max-width: 640px;
+}
+
+.hero-section--minimal .hero-left h1 {
+    font-size: 2.6rem;
+    margin-bottom: 0.4rem;
+}
+
+.hero-section--minimal .hero-subtitle {
+    margin-bottom: 1.25rem;
+}
+
+/* Hero stats row */
+.hero-stats-row {
+    display: flex;
+    gap: 2rem;
+    margin-top: 1.5rem;
+    padding-top: 1.25rem;
+    border-top: 1px solid var(--border-color);
+}
+
+.hero-stat {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+}
+
+.hero-stat__number {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--navy);
+    font-family: 'Georgia', serif;
+    line-height: 1;
+}
+
+.hero-stat__label {
+    font-size: 0.75rem;
+    color: var(--text-light);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
+
 .hero-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -254,6 +302,44 @@ img {
     color: var(--text-dark);
     line-height: 1.7;
     margin-bottom: 1.5rem;
+}
+
+/* Award banner — full-width strip replacing sidebar card */
+.homepage-award-section {
+    padding-top: 0;
+}
+
+.award-banner {
+    border-top: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
+    padding: 1.75rem 0;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.award-banner__body {
+    flex: 1;
+}
+
+.award-banner__body h2 {
+    font-size: 1.25rem;
+    margin-bottom: 0.35rem;
+}
+
+.award-banner__body p {
+    font-size: 0.9rem;
+    color: var(--text-light);
+    margin-bottom: 0.5rem;
+    max-width: 640px;
+}
+
+/* Contact compact two-column layout */
+.contact-compact-layout {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 3rem;
+    align-items: start;
 }
 
 /* Journal at a Glance Box */
@@ -2832,6 +2918,38 @@ img {
     .social-card-body p {
         font-size: 0.86rem;
     }
+
+    /* New hero redesign — mobile */
+    .hero-section--minimal {
+        padding: 1.5rem 16px 1.25rem;
+    }
+
+    .hero-section--minimal .hero-left h1 {
+        font-size: 1.85rem;
+    }
+
+    .hero-stats-row {
+        gap: 1.25rem;
+        margin-top: 1.1rem;
+        padding-top: 1rem;
+    }
+
+    .hero-stat__number {
+        font-size: 1.25rem;
+    }
+
+    /* Award banner — stack on mobile */
+    .award-banner {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.75rem;
+    }
+
+    /* Contact compact layout — stack on mobile */
+    .contact-compact-layout {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
 }
 
 @media (max-width: 480px) {
@@ -3795,11 +3913,16 @@ button {
     .hero-container,
     .homepage-primary-layout,
     .contact-primary-layout,
+    .contact-compact-layout,
     .two-column-section,
     .author-guidelines-layout,
     .cta-final__content {
         grid-template-columns: minmax(0, 1.35fr) minmax(280px, 1fr);
         gap: var(--space-5);
+    }
+
+    .contact-compact-layout {
+        grid-template-columns: minmax(260px, 1fr) minmax(0, 1.5fr);
     }
 
     .author-guidelines-layout {
