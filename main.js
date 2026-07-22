@@ -5,6 +5,20 @@
    ============================================ */
 var ARTICLES = [
     {
+        title: 'The Body That Drives: Merleau-Ponty\u2019s Phenomenology of Embodiment in Baby Driver',
+        authorId: 'harrison-mclain',
+        author: 'Harrison McLain',
+        major: 'Computer Science',
+        institution: 'Gonzaga University',
+        categories: ['Philosophy'],
+        displayCategory: 'Philosophy',
+        tags: ['Philosophy', 'Film Studies', 'Phenomenology', 'Maurice Merleau-Ponty', 'Baby Driver', 'Edgar Wright', 'Consciousness', 'Embodiment', 'Cinema'],
+        date: 'July 2026',
+        readingTime: '12\u201314 min read',
+        preview: 'Harrison McLain examines Edgar Wright\u2019s Baby Driver through Maurice Merleau-Ponty\u2019s phenomenology of embodiment, arguing that the film enacts key claims about the body-schema, the intentional arc, and sedimented habit\u2014making it one of the most philosophically precise films in recent cinema.',
+        link: 'articles/the-body-that-drives-merleau-ponty-phenomenology-baby-driver.html'
+    },
+    {
         title: 'Beyond the Diss Track: A Sociological Analysis of Kendrick Lamar\u2019s Not Like Us',
         authorId: 'luke-marshall',
         author: 'Luke Marshall',
@@ -953,7 +967,7 @@ function initArchivePage() {
     }());
 
     /* ── Category filter pills ── */
-    var categories = ['All', 'Behavioral Science', 'Psychology', 'Sociology & Anthropology', 'Law & Criminal Justice', 'Economics & Business', 'Global & International Affairs', 'Public Policy', 'Public Health'];
+    var categories = ['All', 'Behavioral Science', 'Philosophy', 'Psychology', 'Sociology & Anthropology', 'Law & Criminal Justice', 'Economics & Business', 'Global & International Affairs', 'Public Policy', 'Public Health'];
     categories.forEach(function (cat) {
         var btn = document.createElement('button');
         btn.type = 'button';
