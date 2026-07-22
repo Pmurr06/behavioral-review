@@ -446,6 +446,20 @@ var UNIVERSITY_ALIASES = {
     'washington state university carson college of business': 'Washington State University'
 };
 
+var CATEGORY_PAGE_MAP = {
+    'Behavioral Science': 'behavioral-science.html',
+    'Philosophy': 'philosophy.html',
+    'Psychology': 'psychology.html',
+    'Sociology & Anthropology': 'sociology-anthropology.html',
+    'Law & Criminal Justice': 'law-criminal-justice.html',
+    'Economics & Business': 'economics-business.html',
+    'Global & International Affairs': 'global-affairs.html',
+    'Public Policy': 'public-policy.html',
+    'Public Health': 'public-health.html'
+};
+
+var BROWSE_CATEGORIES = ['Behavioral Science', 'Philosophy', 'Psychology', 'Sociology & Anthropology', 'Law & Criminal Justice', 'Economics & Business', 'Global & International Affairs', 'Public Policy', 'Public Health'];
+
 function normalizeUniversityName(institution) {
     var cleaned = (institution || '').trim().replace(/\s+/g, ' ');
     if (!cleaned) return '';
@@ -693,25 +707,11 @@ function initEditorialTeamPage() {
     });
 }
 
-/* Build one publication card element from an article object */
-function buildArticleCard(article) {
-    var authorData = getArticleAuthorData(article);
-    var articleCategories = getArticleCategories(article);
-    var displayCategory = article.displayCategory || articleCategories[0] || articleCategories.join(' \u2022 ');
-    var card = document.createElement('article');
-    card.className = 'publication-card';
-    card.setAttribute('data-category', displayCategory);
+function getCategoryHref(category) {
+    return getSiteRoot() + (CATEGORY_PAGE_MAP[category] || 'archive.html');
+}
 
-    var pill = document.createElement('span');
-    pill.className = 'article-category-pill';
-    pill.textContent = displayCategory;
-
-    var heading = document.createElement('h3');
-    heading.textContent = article.title;
-
-    var meta = document.createElement('div');
-    meta.className = 'publication-card-meta';
-
+function appendPublicationMeta(meta, authorData, article) {
     var authorSpan = document.createElement('span');
     if (authorData.profileHref) {
         var authorLink = document.createElement('a');
@@ -730,108 +730,230 @@ function buildArticleCard(article) {
         span.textContent = text;
         meta.appendChild(span);
     });
+}
 
-    var preview = document.createElement('p');
-    preview.textContent = article.preview;
+function buildPublicationCard(article, options) {
+    var settings = options || {};
+    var authorData = getArticleAuthorData(article);
+    var articleCategories = getArticleCategories(article);
+    var displayCategory = article.displayCategory || articleCategories[0] || articleCategories.join(' • ') || 'Uncategorized';
+    var card = document.createElement('article');
+    card.className = 'publication-card' + (settings.featured ? ' publication-card--featured' : '');
+    card.setAttribute('data-category', displayCategory);
 
-    var btn = document.createElement('a');
-    btn.href = getArticleHref(article.link);
-    btn.className = 'btn btn-primary';
-    btn.textContent = 'Read Article';
+    var header = document.createElement('div');
+    header.className = 'publication-card__header';
 
-    card.appendChild(pill);
-    card.appendChild(heading);
-    card.appendChild(meta);
+    var pill = document.createElement('span');
+    pill.className = 'article-category-pill';
+    pill.textContent = displayCategory;
+    header.appendChild(pill);
+
+    var heading = document.createElement('h3');
+    heading.textContent = article.title;
+    header.appendChild(heading);
+
+    var meta = document.createElement('div');
+    meta.className = 'publication-card-meta';
+    appendPublicationMeta(meta, authorData, article);
+    header.appendChild(meta);
+
+    card.appendChild(header);
 
     if (Array.isArray(article.tags) && article.tags.length > 0) {
         var tagsEl = document.createElement('div');
         tagsEl.className = 'article-tags';
         article.tags.forEach(function (tag) {
-            var tagSpan = document.createElement('span');
-            tagSpan.className = 'article-tag';
-            tagSpan.textContent = tag;
-            tagsEl.appendChild(tagSpan);
+            var tagNode = settings.clickableTags ? document.createElement('button') : document.createElement('span');
+            if (settings.clickableTags) {
+                tagNode.type = 'button';
+                tagNode.className = 'article-tag archive-tag-btn';
+                tagNode.setAttribute('aria-label', 'Filter by tag: ' + tag);
+                tagNode.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    if (typeof settings.onTagClick === 'function') settings.onTagClick(tag);
+                });
+            } else {
+                tagNode.className = 'article-tag';
+            }
+            tagNode.textContent = tag;
+            tagsEl.appendChild(tagNode);
         });
         card.appendChild(tagsEl);
     }
 
+    var preview = document.createElement('p');
+    preview.className = 'publication-card__preview';
+    preview.textContent = article.preview;
     card.appendChild(preview);
-    card.appendChild(btn);
 
+    var footer = document.createElement('div');
+    footer.className = 'publication-card__footer';
+
+    var btn = document.createElement('a');
+    btn.href = getArticleHref(article.link);
+    btn.className = 'btn btn-primary';
+    btn.textContent = 'Read Article';
+    footer.appendChild(btn);
+
+    card.appendChild(footer);
     return card;
+}
+
+/* Build one publication card element from an article object */
+function buildArticleCard(article) {
+    return buildPublicationCard(article);
 }
 
 /* Build an archive article card with clickable tag buttons */
 function buildArchiveCard(article, onTagClick) {
+    return buildPublicationCard(article, { clickableTags: true, onTagClick: onTagClick });
+}
+
+function buildCompactPublicationCard(article) {
     var authorData = getArticleAuthorData(article);
     var articleCategories = getArticleCategories(article);
-    var displayCategory = article.displayCategory || articleCategories[0] || '';
+    var displayCategory = article.displayCategory || articleCategories[0] || 'Uncategorized';
+    var link = document.createElement('a');
+    link.className = 'compact-publication-card';
+    link.href = getArticleHref(article.link);
 
-    var card = document.createElement('article');
-    card.className = 'publication-card';
-    card.setAttribute('data-category', displayCategory);
-
-    var pill = document.createElement('span');
-    pill.className = 'article-category-pill';
-    pill.textContent = displayCategory;
-    card.appendChild(pill);
+    var category = document.createElement('span');
+    category.className = 'compact-publication-card__category';
+    category.textContent = displayCategory;
+    link.appendChild(category);
 
     var heading = document.createElement('h3');
     heading.textContent = article.title;
+    link.appendChild(heading);
+
+    var meta = document.createElement('p');
+    meta.className = 'compact-publication-card__meta';
+    meta.textContent = [authorData.name, article.date, getArticleReadingTime(article)].filter(Boolean).join(' • ');
+    link.appendChild(meta);
+
+    var summary = document.createElement('p');
+    summary.className = 'compact-publication-card__summary';
+    summary.textContent = article.preview;
+    link.appendChild(summary);
+
+    return link;
+}
+
+function buildContributorHighlight(entry) {
+    var card = document.createElement('article');
+    card.className = 'contributor-card';
+
+    var eyebrow = document.createElement('span');
+    eyebrow.className = 'feature-panel__eyebrow';
+    eyebrow.textContent = 'Contributor highlight';
+    card.appendChild(eyebrow);
+
+    var name = document.createElement(entry.profileHref ? 'a' : 'h3');
+    if (entry.profileHref) {
+        name.href = entry.profileHref;
+        name.className = 'contributor-card__name';
+        name.textContent = entry.name;
+    } else {
+        name.textContent = entry.name;
+    }
+    card.appendChild(name);
+
+    var institution = document.createElement('p');
+    institution.className = 'contributor-card__institution';
+    institution.textContent = entry.institution;
+    card.appendChild(institution);
+
+    var latest = document.createElement('p');
+    latest.className = 'contributor-card__summary';
+    latest.textContent = 'Latest publication: ' + entry.article.title;
+    card.appendChild(latest);
+
+    var footer = document.createElement('div');
+    footer.className = 'contributor-card__footer';
+
+    var articleLink = document.createElement('a');
+    articleLink.href = getArticleHref(entry.article.link);
+    articleLink.className = 'card-link';
+    articleLink.textContent = 'Read latest article →';
+    footer.appendChild(articleLink);
+
+    if (entry.profileHref) {
+        var profileLink = document.createElement('a');
+        profileLink.href = entry.profileHref;
+        profileLink.className = 'card-link';
+        profileLink.textContent = 'View profile →';
+        footer.appendChild(profileLink);
+    }
+
+    card.appendChild(footer);
+    return card;
+}
+
+function buildCategoryBrowseCard(category) {
+    var card = document.createElement('a');
+    card.className = 'browse-card';
+    card.href = getCategoryHref(category);
+
+    var heading = document.createElement('h3');
+    heading.textContent = category;
     card.appendChild(heading);
 
-    var meta = document.createElement('div');
-    meta.className = 'publication-card-meta';
+    var count = ARTICLES.filter(function (article) {
+        return getArticleCategories(article).indexOf(category) !== -1;
+    }).length;
 
-    var authorSpan = document.createElement('span');
-    if (authorData.profileHref) {
-        var authorLink = document.createElement('a');
-        authorLink.href = authorData.profileHref;
-        authorLink.className = 'author-profile-link';
-        authorLink.textContent = authorData.name;
-        authorSpan.appendChild(authorLink);
-    } else {
-        authorSpan.textContent = authorData.name;
-    }
-    meta.appendChild(authorSpan);
-
-    [authorData.archiveInstitution, article.date, getArticleReadingTime(article)].forEach(function (text) {
-        if (!text) return;
-        var span = document.createElement('span');
-        span.textContent = text;
-        meta.appendChild(span);
-    });
-    card.appendChild(meta);
-
-    if (Array.isArray(article.tags) && article.tags.length > 0) {
-        var tagsEl = document.createElement('div');
-        tagsEl.className = 'article-tags';
-        article.tags.forEach(function (tag) {
-            var tagBtn = document.createElement('button');
-            tagBtn.type = 'button';
-            tagBtn.className = 'article-tag archive-tag-btn';
-            tagBtn.textContent = tag;
-            tagBtn.setAttribute('aria-label', 'Filter by tag: ' + tag);
-            tagBtn.addEventListener('click', function (e) {
-                e.preventDefault();
-                if (typeof onTagClick === 'function') onTagClick(tag);
-            });
-            tagsEl.appendChild(tagBtn);
-        });
-        card.appendChild(tagsEl);
-    }
-
-    var preview = document.createElement('p');
-    preview.textContent = article.preview;
-    card.appendChild(preview);
-
-    var btn = document.createElement('a');
-    btn.href = getArticleHref(article.link);
-    btn.className = 'btn btn-primary';
-    btn.textContent = 'Read Article';
-    card.appendChild(btn);
+    var body = document.createElement('p');
+    body.textContent = count + ' published article' + (count === 1 ? '' : 's');
+    card.appendChild(body);
 
     return card;
+}
+
+function getContributorHighlights(limit) {
+    var seen = {};
+    var highlights = [];
+
+    ARTICLES.forEach(function (article) {
+        if (!article.authorId || seen[article.authorId]) return;
+        var authorData = getArticleAuthorData(article);
+        seen[article.authorId] = true;
+        highlights.push({
+            name: authorData.name,
+            institution: authorData.institution,
+            profileHref: authorData.profileHref,
+            article: article
+        });
+    });
+
+    return highlights.slice(0, limit || 3);
+}
+
+function renderCompactPublicationCollection(selector, articles) {
+    var target = document.querySelector(selector);
+    if (!target) return;
+    target.innerHTML = '';
+    articles.forEach(function (article) {
+        target.appendChild(buildCompactPublicationCard(article));
+    });
+}
+
+function renderContributorHighlights(selector, limit) {
+    var target = document.querySelector(selector);
+    if (!target) return;
+    target.innerHTML = '';
+    getContributorHighlights(limit).forEach(function (entry) {
+        target.appendChild(buildContributorHighlight(entry));
+    });
+}
+
+function renderBrowseCards(selector, categories) {
+    var target = document.querySelector(selector);
+    if (!target) return;
+    target.innerHTML = '';
+    (categories || BROWSE_CATEGORIES).forEach(function (category) {
+        target.appendChild(buildCategoryBrowseCard(category));
+    });
 }
 
 /* Archive page — search, filter, sort, and stats */
@@ -1144,14 +1266,24 @@ window.normalizeUniversityName = normalizeUniversityName;
 /* Recent Articles page — render the newest article */
 function initRecentArticlesPage() {
     var feedEl = document.getElementById('recent-feed');
-    if (!feedEl || ARTICLES.length === 0) return;
-    feedEl.appendChild(buildArticleCard(ARTICLES[0]));
+    if (feedEl && ARTICLES.length > 0) {
+        feedEl.innerHTML = '';
+        feedEl.appendChild(buildPublicationCard(ARTICLES[0], { featured: true }));
+    }
+
+    renderCompactPublicationCollection('[data-recent-secondary-feed]', ARTICLES.slice(1, 5));
+    renderBrowseCards('[data-recent-category-grid]');
 }
 
 function initHomepageLatestArticle() {
     var feedEl = document.getElementById('homepage-latest-feed');
-    if (!feedEl || ARTICLES.length === 0) return;
-    feedEl.appendChild(buildArticleCard(ARTICLES[0]));
+    if (feedEl && ARTICLES.length > 0) {
+        feedEl.innerHTML = '';
+        feedEl.appendChild(buildPublicationCard(ARTICLES[0], { featured: true }));
+    }
+
+    renderCompactPublicationCollection('[data-home-newest-feed]', ARTICLES.slice(1, 5));
+    renderContributorHighlights('[data-home-contributors]', 3);
 }
 
 function initCategoryPage() {

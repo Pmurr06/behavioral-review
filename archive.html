@@ -14,7 +14,6 @@
     <link rel="icon" type="image/png" href="TBR.png">
 </head>
 <body class="archive-page">
-    <!-- Navigation -->
     <nav class="navbar">
         <div class="container navbar-content">
             <div class="navbar-left">
@@ -41,18 +40,16 @@
         </div>
     </nav>
 
-    <!-- Page Header -->
-    <header class="page-header">
-        <div class="container">
+    <header class="page-header page-header--compact">
+        <div class="container page-header__content">
+            <span class="page-header__eyebrow">Discover research</span>
             <h1>Article Archive</h1>
+            <p class="page-header__intro">Search, filter, and browse the full collection of published articles by category, university, author, and topic.</p>
         </div>
     </header>
 
-    <!-- Main Content -->
-    <main class="main-content">
+    <main class="main-content main-content--dense">
         <div class="container">
-
-            <!-- Archive Statistics -->
             <div class="archive-stats-bar" aria-label="Archive statistics">
                 <div class="archive-stat">
                     <span class="archive-stat-value" id="archive-stat-articles">—</span>
@@ -72,33 +69,38 @@
                 </div>
             </div>
 
-            <!-- Editor's Picks (shown only when articles are marked featured: true) -->
             <section id="archive-featured" class="archive-featured content-section" hidden>
                 <h2>Editor's Picks</h2>
                 <div id="archive-featured-feed" class="publication-feed"></div>
             </section>
 
-            <!-- Published Articles -->
-            <section class="content-section">
-                <h2>Published Articles</h2>
+            <section class="content-section archive-discovery-section">
+                <div class="section-heading section-heading--inline">
+                    <div>
+                        <span class="section-eyebrow">Find articles faster</span>
+                        <h2>Published Articles</h2>
+                    </div>
+                    <a href="recent-articles.html" class="section-link">See what is new</a>
+                </div>
 
                 <div class="archive-toolbar">
                     <div class="archive-search-row">
                         <label for="archive-search" class="sr-only">Search articles by title, author, university, category, or tag</label>
-                        <input type="search" id="archive-search" class="archive-search"
-                               placeholder="Search by title, author, university, category, or tag&hellip;">
+                        <input type="search" id="archive-search" class="archive-search" placeholder="Search by title, author, university, category, or tag…">
                     </div>
 
                     <div id="archive-filter-panel" class="archive-filter-panel">
-                        <div id="archive-filters" class="archive-filters" role="group" aria-label="Filter by category"></div>
+                        <div class="archive-filter-row">
+                            <div id="archive-filters" class="archive-filters" role="group" aria-label="Filter by category"></div>
+                        </div>
                         <div class="archive-secondary-filters">
                             <div class="archive-filter-control">
                                 <label class="archive-filter-label" for="archive-sort">Sort By</label>
                                 <select id="archive-sort" class="archive-select">
                                     <option value="newest">Newest First</option>
                                     <option value="oldest">Oldest First</option>
-                                    <option value="az">A&ndash;Z</option>
-                                    <option value="za">Z&ndash;A</option>
+                                    <option value="az">A–Z</option>
+                                    <option value="za">Z–A</option>
                                 </select>
                             </div>
                             <div class="archive-filter-control">
@@ -120,23 +122,25 @@
                     </div>
                 </div>
 
-                <!-- Results count (live region for screen readers) -->
                 <p id="archive-results-count" class="archive-results-count" aria-live="polite" aria-atomic="true"></p>
-
-                <!-- Article Feed -->
                 <div id="archive-feed" class="publication-feed"></div>
             </section>
 
-            <!-- Call to Action -->
-            <section class="content-section cta-section">
-                <h2>Submit Your Work</h2>
-                <p>We're looking for original research, case analysis, literature reviews, and commentary from undergraduate students. Your work belongs here.</p>
-                <a href="for-authors.html" class="btn btn-primary">View Submission Guidelines</a>
+            <section class="cta-final cta-final--compact cta-final--surface">
+                <div class="cta-final__content">
+                    <div>
+                        <span class="section-eyebrow">Want your work here?</span>
+                        <h2>Prepare your manuscript for publication.</h2>
+                        <p>We publish original research, case analysis, literature reviews, and commentary from undergraduate students.</p>
+                    </div>
+                    <div class="cta-final__actions">
+                        <a href="for-authors.html" class="btn btn-primary">View Submission Guidelines</a>
+                    </div>
+                </div>
             </section>
         </div>
     </main>
 
-    <!-- Footer -->
     <footer class="footer">
         <div class="container footer-content">
             <div class="footer-section">
