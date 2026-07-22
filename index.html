@@ -40,47 +40,29 @@
         </div>
     </nav>
 
-    <header class="hero-section hero-section--publication">
-        <div class="container hero-container">
-            <div class="hero-left hero-left--compact">
+    <header class="hero-section hero-section--minimal">
+        <div class="container">
+            <div class="hero-left">
                 <span class="hero-eyebrow">Undergraduate research journal</span>
                 <h1>The Behavioral Review</h1>
-                <p class="hero-subtitle">A student-led digital publication for behavioral and social science research.</p>
-                <p class="hero-mission">Explore original undergraduate work in psychology, criminology, economics, public policy, international affairs, law, and related social sciences.</p>
+                <p class="hero-subtitle">A student-led publication for behavioral and social science research.</p>
                 <div class="hero-actions">
-                    <a href="for-authors.html" class="btn btn-primary">Submit Your Work</a>
-                    <a href="archive.html" class="btn btn-secondary">Browse the Archive</a>
+                    <a href="archive.html" class="btn btn-primary">Read Articles</a>
+                    <a href="for-authors.html" class="btn btn-secondary">Submit Research</a>
                 </div>
-                <div class="hero-chip-list" aria-label="Featured disciplines">
-                    <a href="psychology.html" class="hero-chip">Psychology</a>
-                    <a href="law-criminal-justice.html" class="hero-chip">Law &amp; Criminal Justice</a>
-                    <a href="economics-business.html" class="hero-chip">Economics &amp; Business</a>
-                    <a href="public-health.html" class="hero-chip">Public Health</a>
-                    <a href="global-affairs.html" class="hero-chip">Global Affairs</a>
-                    <a href="philosophy.html" class="hero-chip">Philosophy</a>
-                </div>
-                <div class="recruitment-banner">Now accepting inaugural submissions from undergraduate students at colleges and universities nationwide.</div>
-            </div>
-            <div class="hero-right">
-                <div class="glance-box" data-glance-stats>
-                    <h3>At a Glance</h3>
-                    <div class="glance-item">
-                        <span class="glance-label">Articles Published</span>
-                        <span class="glance-value" data-glance-stat="articlesPublished">—</span>
+                <div class="hero-stats-row" data-hero-stats>
+                    <div class="hero-stat">
+                        <span class="hero-stat__number" data-hero-stat="articlesPublished">—</span>
+                        <span class="hero-stat__label">Articles</span>
                     </div>
-                    <div class="glance-item">
-                        <span class="glance-label">Student Authors</span>
-                        <span class="glance-value" data-glance-stat="studentAuthors">—</span>
+                    <div class="hero-stat">
+                        <span class="hero-stat__number" data-hero-stat="studentAuthors">—</span>
+                        <span class="hero-stat__label">Authors</span>
                     </div>
-                    <div class="glance-item">
-                        <span class="glance-label">Universities Represented</span>
-                        <span class="glance-value" data-glance-stat="universitiesRepresented">—</span>
+                    <div class="hero-stat">
+                        <span class="hero-stat__number" data-hero-stat="universitiesRepresented">—</span>
+                        <span class="hero-stat__label">Universities</span>
                     </div>
-                    <div class="glance-item">
-                        <span class="glance-label">Average Review Time</span>
-                        <span class="glance-value" data-glance-stat="averageReviewTime">—</span>
-                    </div>
-                    <p class="glance-footer">Featuring student research and analysis from universities across the United States.</p>
                 </div>
             </div>
         </div>
@@ -88,96 +70,45 @@
 
     <main class="main-content main-content--dense">
         <div class="container">
-            <section class="content-section homepage-primary-layout">
-                <div>
-                    <div class="section-heading section-heading--inline">
-                        <div>
-                            <span class="section-eyebrow">Featured article</span>
-                            <h2>Latest Publication</h2>
-                        </div>
-                        <a href="recent-articles.html" class="section-link">View recent articles</a>
+            <section class="content-section">
+                <div class="section-heading section-heading--inline">
+                    <div>
+                        <span class="section-eyebrow">Featured article</span>
+                        <h2>Latest Publication</h2>
                     </div>
-                    <div id="homepage-latest-feed" class="publication-feed publication-feed--featured"></div>
+                    <a href="recent-articles.html" class="section-link">View recent articles</a>
                 </div>
-                <aside class="homepage-sidebar-stack" aria-label="Highlights and calls to action">
-                    <article class="feature-panel">
-                        <span class="feature-panel__eyebrow">Award spotlight</span>
-                        <h3>Student Writer of the Month</h3>
-                        <p>Alan Ta was recognized for original interdisciplinary scholarship on implicit personality theory and moral development in <em>War and Peace</em>.</p>
-                        <a href="awards.html" class="card-link">See awards &amp; recognition →</a>
-                    </article>
-                    <article class="feature-panel feature-panel--accent">
-                        <span class="feature-panel__eyebrow">For authors</span>
-                        <h3>Submission Snapshot</h3>
-                        <ul class="compact-checklist compact-checklist--tight">
-                            <li>Currently enrolled undergraduate authors</li>
-                            <li>1,500–5,000 words including references</li>
-                            <li>APA 7 citations and references</li>
-                            <li>Original research, reviews, case analyses, and commentary</li>
-                        </ul>
-                        <a href="for-authors.html" class="btn btn-primary">Review Guidelines</a>
-                    </article>
-                </aside>
+                <div id="homepage-latest-feed" class="publication-feed publication-feed--featured"></div>
             </section>
 
             <section class="content-section">
                 <div class="section-heading section-heading--inline">
                     <div>
                         <span class="section-eyebrow">Discover quickly</span>
-                        <h2>Newest Publications</h2>
+                        <h2>Latest Articles</h2>
                     </div>
                     <a href="archive.html" class="section-link">Open full archive</a>
                 </div>
                 <div class="compact-publication-grid" data-home-newest-feed></div>
             </section>
 
-            <section class="content-section">
-                <div class="section-heading">
-                    <span class="section-eyebrow">Browse by discipline</span>
-                    <h2>What We Publish</h2>
+            <section class="content-section homepage-award-section">
+                <div class="award-banner">
+                    <div class="award-banner__body">
+                        <span class="section-eyebrow">Award spotlight</span>
+                        <h2>Student Writer of the Month</h2>
+                        <p>Alan Ta was recognized for original interdisciplinary scholarship on implicit personality theory and moral development in <em>War and Peace</em>.</p>
+                        <a href="awards.html" class="card-link">See awards &amp; recognition →</a>
+                    </div>
                 </div>
-                <div class="browse-grid browse-grid--topics">
-                    <a class="browse-card" href="psychology.html">
-                        <h3>Psychology &amp; Behavioral Science</h3>
-                        <p>Research on cognition, behavior, mental health, development, and decision-making.</p>
-                    </a>
-                    <a class="browse-card" href="law-criminal-justice.html">
-                        <h3>Law &amp; Criminal Justice</h3>
-                        <p>Scholarship on crime, policing, courts, corrections, investigations, and justice policy.</p>
-                    </a>
-                    <a class="browse-card" href="economics-business.html">
-                        <h3>Economics &amp; Business</h3>
-                        <p>Analysis of markets, incentives, finance, strategy, risk, and economic behavior.</p>
-                    </a>
-                    <a class="browse-card" href="public-policy.html">
-                        <h3>Public Policy</h3>
-                        <p>Evidence-based commentary on institutions, governance, and public decisions.</p>
-                    </a>
-                    <a class="browse-card" href="global-affairs.html">
-                        <h3>Global &amp; International Affairs</h3>
-                        <p>Research on conflict, foreign policy, international institutions, and global systems.</p>
-                    </a>
-                    <a class="browse-card" href="sociology-anthropology.html">
-                        <h3>Sociology &amp; Anthropology</h3>
-                        <p>Work on culture, inequality, social structure, identity, and human experience.</p>
-                    </a>
-                </div>
-            </section>
-
-            <section class="content-section">
-                <div class="section-heading">
-                    <span class="section-eyebrow">People behind the work</span>
-                    <h2>Contributor Highlights</h2>
-                </div>
-                <div class="contributor-grid" data-home-contributors></div>
             </section>
 
             <section class="cta-final cta-final--compact">
                 <div class="cta-final__content">
                     <div>
                         <span class="section-eyebrow section-eyebrow--light">Ready to publish?</span>
-                        <h2>Prepare your manuscript and join the inaugural collection.</h2>
-                        <p>Review the guidelines, format your research, and submit to contact@thebehavioralreview.com.</p>
+                        <h2>Submit your undergraduate research.</h2>
+                        <p>Review the guidelines, format your work, and email your manuscript to contact@thebehavioralreview.com.</p>
                     </div>
                     <div class="cta-final__actions">
                         <a href="for-authors.html" class="btn btn-primary">For Authors</a>

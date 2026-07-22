@@ -580,15 +580,27 @@ function computeHomepageStats() {
 }
 
 function initHomepageStats() {
-    var statsRoot = document.querySelector('[data-glance-stats]');
-    if (!statsRoot) return;
-
     var stats = computeHomepageStats();
-    Object.keys(stats).forEach(function (key) {
-        statsRoot.querySelectorAll('[data-glance-stat="' + key + '"]').forEach(function (node) {
-            node.textContent = stats[key];
+
+    /* Legacy glance-box (still used on other pages if any) */
+    var statsRoot = document.querySelector('[data-glance-stats]');
+    if (statsRoot) {
+        Object.keys(stats).forEach(function (key) {
+            statsRoot.querySelectorAll('[data-glance-stat="' + key + '"]').forEach(function (node) {
+                node.textContent = stats[key];
+            });
         });
-    });
+    }
+
+    /* New hero stats row */
+    var heroStatsRoot = document.querySelector('[data-hero-stats]');
+    if (heroStatsRoot) {
+        Object.keys(stats).forEach(function (key) {
+            heroStatsRoot.querySelectorAll('[data-hero-stat="' + key + '"]').forEach(function (node) {
+                node.textContent = stats[key];
+            });
+        });
+    }
 }
 
 function initHomepageFeaturedEditors() {
@@ -1283,7 +1295,6 @@ function initHomepageLatestArticle() {
     }
 
     renderCompactPublicationCollection('[data-home-newest-feed]', ARTICLES.slice(1, 5));
-    renderContributorHighlights('[data-home-contributors]', 3);
 }
 
 function initCategoryPage() {
