@@ -736,7 +736,7 @@ function buildPublicationCard(article, options) {
     var settings = options || {};
     var authorData = getArticleAuthorData(article);
     var articleCategories = getArticleCategories(article);
-    var displayCategory = article.displayCategory || articleCategories[0] || articleCategories.join(' • ');
+    var displayCategory = article.displayCategory || articleCategories[0] || articleCategories.join(' • ') || 'Uncategorized';
     var card = document.createElement('article');
     card.className = 'publication-card' + (settings.featured ? ' publication-card--featured' : '');
     card.setAttribute('data-category', displayCategory);
@@ -813,7 +813,7 @@ function buildArchiveCard(article, onTagClick) {
 function buildCompactPublicationCard(article) {
     var authorData = getArticleAuthorData(article);
     var articleCategories = getArticleCategories(article);
-    var displayCategory = article.displayCategory || articleCategories[0] || '';
+    var displayCategory = article.displayCategory || articleCategories[0] || 'Uncategorized';
     var link = document.createElement('a');
     link.className = 'compact-publication-card';
     link.href = getArticleHref(article.link);
