@@ -3688,6 +3688,12 @@ button {
 .archive-secondary-filters {
     display: grid;
     gap: 0.7rem;
+    min-width: 0;
+    width: 100%;
+}
+
+.archive-filter-row {
+    min-width: 0;
 }
 
 .archive-filters {
@@ -3697,6 +3703,8 @@ button {
     gap: 0.5rem;
     padding-bottom: 0.1rem;
     scrollbar-width: thin;
+    min-width: 0;
+    max-width: 100%;
 }
 
 .filter-btn {
@@ -3953,13 +3961,17 @@ button {
     }
 
     .archive-secondary-filters {
-        grid-template-columns: 170px minmax(0, 1fr) minmax(0, 1fr) auto;
+        grid-template-columns: minmax(0, 170px) minmax(0, 1fr) minmax(0, 1fr) minmax(0, max-content);
         align-items: end;
     }
 
     .archive-filter-action,
     .archive-clear-btn {
         width: auto;
+    }
+
+    .archive-clear-btn {
+        max-width: 100%;
     }
 
     .publication-card--featured {
