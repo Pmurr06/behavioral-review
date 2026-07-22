@@ -14,7 +14,6 @@
     <link rel="icon" type="image/png" href="TBR.png">
 </head>
 <body>
-    <!-- Navigation -->
     <nav class="navbar">
         <div class="container navbar-content">
             <div class="navbar-left">
@@ -41,65 +40,75 @@
         </div>
     </nav>
 
-    <!-- Page Header -->
-    <header class="page-header">
-        <div class="container">
+    <header class="page-header page-header--compact">
+        <div class="container page-header__content">
+            <span class="page-header__eyebrow">Freshly published</span>
             <h1>Recent Articles</h1>
+            <p class="page-header__intro">Start with the newest publication, continue with the latest additions, and jump into a discipline that matches your interests.</p>
         </div>
     </header>
 
-    <!-- Main Content -->
-    <main class="main-content">
+    <main class="main-content main-content--dense">
         <div class="container">
-            <!-- Intro Section -->
-            <section class="content-section">
-                <div class="coming-soon-box">
-                    <h2>Our Inaugural Collection is Growing</h2>
-                    <p>The Behavioral Review is newly established and actively building its first collection of undergraduate research. This page will feature the most recently published articles as contributors share their work.</p>
-                    <p>Be part of the inaugural cohort. Submit your research, analysis, or commentary to appear here.</p>
-                    <p style="margin-top: 1.5rem;"><strong>Ready to submit?</strong> <a href="for-authors.html">Review our submission guidelines.</a></p>
+            <section class="content-section homepage-primary-layout">
+                <div>
+                    <div class="section-heading section-heading--inline">
+                        <div>
+                            <span class="section-eyebrow">Most recent</span>
+                            <h2>Latest Publication</h2>
+                        </div>
+                        <a href="archive.html" class="section-link">Browse full archive</a>
+                    </div>
+                    <div id="recent-feed" class="publication-feed publication-feed--featured"></div>
                 </div>
+                <aside class="homepage-sidebar-stack" aria-label="Recent article actions">
+                    <article class="feature-panel">
+                        <span class="feature-panel__eyebrow">Why follow recent work?</span>
+                        <p>Use this page to discover the newest additions first, then move into the archive for deeper filtering and topic browsing.</p>
+                    </article>
+                    <article class="feature-panel feature-panel--accent">
+                        <span class="feature-panel__eyebrow">Ready to contribute?</span>
+                        <h3>Join the inaugural cohort.</h3>
+                        <p>Submit original research, applied analysis, literature reviews, or commentary for editorial review.</p>
+                        <a href="for-authors.html" class="btn btn-primary">Submission Guidelines</a>
+                    </article>
+                </aside>
             </section>
 
-            <!-- Most Recent Article -->
             <section class="content-section">
-                <h2>Most Recent Publication</h2>
-                <div id="recent-feed" class="publication-feed"></div>
-            </section>
-
-            <!-- What's Coming Section -->
-            <section class="content-section">
-                <h2>What You'll Find Here</h2>
-                <div class="what-coming-grid">
-                    <div class="what-card">
-                        <h3>Research Papers</h3>
-                        <p>Original empirical research and scholarly analysis from undergraduate contributors across the behavioral and social sciences.</p>
-                    </div>
-                    <div class="what-card">
-                        <h3>Case Studies &amp; Applied Analysis</h3>
-                        <p>Evidence-based examinations of real-world events, institutions, policies, legal issues, criminal investigations, economic systems, and behavioral phenomena.</p>
-                    </div>
-                    <div class="what-card">
-                        <h3>Literature Reviews</h3>
-                        <p>Comprehensive reviews that synthesize existing research, identify trends, and evaluate current scholarship within the behavioral and social sciences.</p>
-                    </div>
-                    <div class="what-card">
-                        <h3>Editorials &amp; Commentary</h3>
-                        <p>Thoughtful student perspectives analyzing contemporary issues in psychology, criminal justice, economics, international affairs, public policy, law, ethics, and society.</p>
+                <div class="section-heading section-heading--inline">
+                    <div>
+                        <span class="section-eyebrow">More to read</span>
+                        <h2>Recently Published</h2>
                     </div>
                 </div>
+                <div class="compact-publication-grid" data-recent-secondary-feed></div>
             </section>
 
-            <!-- Call to Action -->
-            <section class="content-section cta-section">
-                <h2>Ready to Be Published?</h2>
-                <p>Review our guidelines, prepare your manuscript, and submit to <a href="mailto:contact@thebehavioralreview.com">contact@thebehavioralreview.com</a>.</p>
-                <a href="for-authors.html" class="btn btn-primary">For Authors</a>
+            <section class="content-section">
+                <div class="section-heading">
+                    <span class="section-eyebrow">Explore by category</span>
+                    <h2>Browse a Discipline</h2>
+                </div>
+                <div class="browse-grid browse-grid--topics" data-recent-category-grid></div>
+            </section>
+
+            <section class="cta-final cta-final--compact">
+                <div class="cta-final__content">
+                    <div>
+                        <span class="section-eyebrow section-eyebrow--light">Publish with us</span>
+                        <h2>Be part of the next group of newly published authors.</h2>
+                        <p>Prepare your manuscript and submit your work to contact@thebehavioralreview.com.</p>
+                    </div>
+                    <div class="cta-final__actions">
+                        <a href="for-authors.html" class="btn btn-primary">For Authors</a>
+                        <a href="mailto:contact@thebehavioralreview.com" class="btn btn-secondary btn-secondary--light">Submit by Email</a>
+                    </div>
+                </div>
             </section>
         </div>
     </main>
 
-    <!-- Footer -->
     <footer class="footer">
         <div class="container footer-content">
             <div class="footer-section">

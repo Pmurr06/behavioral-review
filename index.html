@@ -14,7 +14,6 @@
     <link rel="icon" type="image/png" href="TBR.png">
 </head>
 <body>
-    <!-- Navigation/Masthead -->
     <nav class="navbar">
         <div class="container navbar-content">
             <div class="navbar-left">
@@ -41,183 +40,154 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <header class="hero-section">
+    <header class="hero-section hero-section--publication">
         <div class="container hero-container">
-            <!-- Left Column: Title & Mission -->
-            <div class="hero-left">
+            <div class="hero-left hero-left--compact">
+                <span class="hero-eyebrow">Undergraduate research journal</span>
                 <h1>The Behavioral Review</h1>
-                <p class="hero-subtitle">Student-Led Publication for Behavioral and Social Science Research</p>
-                <p class="hero-mission">An undergraduate publication for original research and applied analysis in psychology, criminology, economics, public policy, international affairs, law, and social science.</p>
-                <a href="for-authors.html" class="btn btn-primary">Submit Your Work</a>
-                <div class="recruitment-banner">
-                    Now accepting inaugural submissions from undergraduate students at colleges and universities nationwide.
+                <p class="hero-subtitle">A student-led digital publication for behavioral and social science research.</p>
+                <p class="hero-mission">Explore original undergraduate work in psychology, criminology, economics, public policy, international affairs, law, and related social sciences.</p>
+                <div class="hero-actions">
+                    <a href="for-authors.html" class="btn btn-primary">Submit Your Work</a>
+                    <a href="archive.html" class="btn btn-secondary">Browse the Archive</a>
                 </div>
+                <div class="hero-chip-list" aria-label="Featured disciplines">
+                    <a href="psychology.html" class="hero-chip">Psychology</a>
+                    <a href="law-criminal-justice.html" class="hero-chip">Law &amp; Criminal Justice</a>
+                    <a href="economics-business.html" class="hero-chip">Economics &amp; Business</a>
+                    <a href="public-health.html" class="hero-chip">Public Health</a>
+                    <a href="global-affairs.html" class="hero-chip">Global Affairs</a>
+                    <a href="philosophy.html" class="hero-chip">Philosophy</a>
+                </div>
+                <div class="recruitment-banner">Now accepting inaugural submissions from undergraduate students at colleges and universities nationwide.</div>
             </div>
-
-            <!-- Right Column: Submission Status -->
             <div class="hero-right">
                 <div class="glance-box" data-glance-stats>
-                    <h3>The Behavioral Review at a Glance</h3>
+                    <h3>At a Glance</h3>
                     <div class="glance-item">
-                        <span class="glance-label">Articles Published:</span>
+                        <span class="glance-label">Articles Published</span>
                         <span class="glance-value" data-glance-stat="articlesPublished">—</span>
                     </div>
                     <div class="glance-item">
-                        <span class="glance-label">Student Authors:</span>
+                        <span class="glance-label">Student Authors</span>
                         <span class="glance-value" data-glance-stat="studentAuthors">—</span>
                     </div>
                     <div class="glance-item">
-                        <span class="glance-label">Universities Represented:</span>
+                        <span class="glance-label">Universities Represented</span>
                         <span class="glance-value" data-glance-stat="universitiesRepresented">—</span>
                     </div>
                     <div class="glance-item">
-                        <span class="glance-label">Average Review Time:</span>
+                        <span class="glance-label">Average Review Time</span>
                         <span class="glance-value" data-glance-stat="averageReviewTime">—</span>
                     </div>
-                    <p class="glance-footer">Featuring undergraduate research and analysis from universities across the United States.</p>
+                    <p class="glance-footer">Featuring student research and analysis from universities across the United States.</p>
                 </div>
             </div>
         </div>
     </header>
 
-    <!-- Why Publish Section -->
-    <section class="publish-benefits">
+    <main class="main-content main-content--dense">
         <div class="container">
-            <h2>WHY PUBLISH WITH THE BEHAVIORAL REVIEW?</h2>
-            <div class="publish-benefits-content">
-                <ul class="publish-benefits-list">
-                    <li>Publish under your own name</li>
-                    <li>Transform coursework into portfolio pieces</li>
-                    <li>Strengthen graduate school and job applications</li>
-                    <li>Gain experience with an editorial review process</li>
-                    <li>Receive publication credit for original academic work</li>
-                    <li>Build a permanent online record of your research</li>
-                </ul>
-                <p class="publish-benefits-note">Many submissions begin as class papers, research projects, case studies, literature reviews, or policy analyses. A strong paper you've already written may be eligible for publication with revision.</p>
-            </div>
+            <section class="content-section homepage-primary-layout">
+                <div>
+                    <div class="section-heading section-heading--inline">
+                        <div>
+                            <span class="section-eyebrow">Featured article</span>
+                            <h2>Latest Publication</h2>
+                        </div>
+                        <a href="recent-articles.html" class="section-link">View recent articles</a>
+                    </div>
+                    <div id="homepage-latest-feed" class="publication-feed publication-feed--featured"></div>
+                </div>
+                <aside class="homepage-sidebar-stack" aria-label="Highlights and calls to action">
+                    <article class="feature-panel">
+                        <span class="feature-panel__eyebrow">Award spotlight</span>
+                        <h3>Student Writer of the Month</h3>
+                        <p>Alan Ta was recognized for original interdisciplinary scholarship on implicit personality theory and moral development in <em>War and Peace</em>.</p>
+                        <a href="awards.html" class="card-link">See awards &amp; recognition →</a>
+                    </article>
+                    <article class="feature-panel feature-panel--accent">
+                        <span class="feature-panel__eyebrow">For authors</span>
+                        <h3>Submission Snapshot</h3>
+                        <ul class="compact-checklist compact-checklist--tight">
+                            <li>Currently enrolled undergraduate authors</li>
+                            <li>1,500–5,000 words including references</li>
+                            <li>APA 7 citations and references</li>
+                            <li>Original research, reviews, case analyses, and commentary</li>
+                        </ul>
+                        <a href="for-authors.html" class="btn btn-primary">Review Guidelines</a>
+                    </article>
+                </aside>
+            </section>
+
+            <section class="content-section">
+                <div class="section-heading section-heading--inline">
+                    <div>
+                        <span class="section-eyebrow">Discover quickly</span>
+                        <h2>Newest Publications</h2>
+                    </div>
+                    <a href="archive.html" class="section-link">Open full archive</a>
+                </div>
+                <div class="compact-publication-grid" data-home-newest-feed></div>
+            </section>
+
+            <section class="content-section">
+                <div class="section-heading">
+                    <span class="section-eyebrow">Browse by discipline</span>
+                    <h2>What We Publish</h2>
+                </div>
+                <div class="browse-grid browse-grid--topics">
+                    <a class="browse-card" href="psychology.html">
+                        <h3>Psychology &amp; Behavioral Science</h3>
+                        <p>Research on cognition, behavior, mental health, development, and decision-making.</p>
+                    </a>
+                    <a class="browse-card" href="law-criminal-justice.html">
+                        <h3>Law &amp; Criminal Justice</h3>
+                        <p>Scholarship on crime, policing, courts, corrections, investigations, and justice policy.</p>
+                    </a>
+                    <a class="browse-card" href="economics-business.html">
+                        <h3>Economics &amp; Business</h3>
+                        <p>Analysis of markets, incentives, finance, strategy, risk, and economic behavior.</p>
+                    </a>
+                    <a class="browse-card" href="public-policy.html">
+                        <h3>Public Policy</h3>
+                        <p>Evidence-based commentary on institutions, governance, and public decisions.</p>
+                    </a>
+                    <a class="browse-card" href="global-affairs.html">
+                        <h3>Global &amp; International Affairs</h3>
+                        <p>Research on conflict, foreign policy, international institutions, and global systems.</p>
+                    </a>
+                    <a class="browse-card" href="sociology-anthropology.html">
+                        <h3>Sociology &amp; Anthropology</h3>
+                        <p>Work on culture, inequality, social structure, identity, and human experience.</p>
+                    </a>
+                </div>
+            </section>
+
+            <section class="content-section">
+                <div class="section-heading">
+                    <span class="section-eyebrow">People behind the work</span>
+                    <h2>Contributor Highlights</h2>
+                </div>
+                <div class="contributor-grid" data-home-contributors></div>
+            </section>
+
+            <section class="cta-final cta-final--compact">
+                <div class="cta-final__content">
+                    <div>
+                        <span class="section-eyebrow section-eyebrow--light">Ready to publish?</span>
+                        <h2>Prepare your manuscript and join the inaugural collection.</h2>
+                        <p>Review the guidelines, format your research, and submit to contact@thebehavioralreview.com.</p>
+                    </div>
+                    <div class="cta-final__actions">
+                        <a href="for-authors.html" class="btn btn-primary">For Authors</a>
+                        <a href="mailto:contact@thebehavioralreview.com" class="btn btn-secondary btn-secondary--light">Submit by Email</a>
+                    </div>
+                </div>
+            </section>
         </div>
-    </section>
+    </main>
 
-    <!-- Who Should Submit -->
-    <section class="submit-disciplines">
-        <div class="container">
-            <h2>WHO SHOULD SUBMIT?</h2>
-            <p class="submit-disciplines-intro">Undergraduate students researching human behavior, criminal justice, decision-making, public policy, or social science are encouraged to submit.</p>
-            <div class="submission-fields-grid">
-                <div class="submission-field">Psychology</div>
-                <div class="submission-field">Criminal Justice</div>
-                <div class="submission-field">Criminology</div>
-                <div class="submission-field">Sociology</div>
-                <div class="submission-field">Economics</div>
-                <div class="submission-field">Political Science</div>
-                <div class="submission-field">Public Policy</div>
-                <div class="submission-field">Behavioral Science</div>
-                <div class="submission-field">Related Social Sciences</div>
-            </div>
-        </div>
-    </section>
-
-    <!-- What We Publish -->
-    <section class="featured-articles">
-        <div class="container">
-            <h2>What We Publish</h2>
-            <div class="articles-grid">
-                <article class="article-card">
-                    <div class="card-badge psychology">Psychology &amp; Behavioral Science</div>
-                    <h3>Psychology &amp; Behavioral Science</h3>
-                    <p>Articles examining cognition, behavior, mental health, decision-making, and human development.</p>
-                    <a href="for-authors.html" class="card-link">Submission Guidelines →</a>
-                </article>
-
-                <article class="article-card">
-                    <div class="card-badge criminology">Criminal Justice &amp; Criminology</div>
-                    <h3>Criminal Justice &amp; Criminology</h3>
-                    <p>Analysis of crime, policing, corrections, courts, investigations, and justice policy.</p>
-                    <a href="for-authors.html" class="card-link">Submission Guidelines →</a>
-                </article>
-
-                <article class="article-card">
-                    <div class="card-badge criminal-justice">Economics &amp; Decision-Making</div>
-                    <h3>Economics &amp; Decision-Making</h3>
-                    <p>Work exploring economic behavior, incentives, markets, risk, finance, and decision-making.</p>
-                    <a href="for-authors.html" class="card-link">Submission Guidelines →</a>
-                </article>
-
-                <article class="article-card">
-                    <div class="card-badge psychology">Political Behavior &amp; Public Policy</div>
-                    <h3>Political Behavior &amp; Public Policy</h3>
-                    <p>Articles focused on governance, institutions, public policy, political psychology, and civic behavior.</p>
-                    <a href="for-authors.html" class="card-link">Submission Guidelines →</a>
-                </article>
-
-                <article class="article-card">
-                    <div class="card-badge criminology">International Affairs &amp; Global Systems</div>
-                    <h3>International Affairs &amp; Global Systems</h3>
-                    <p>Analysis of global conflict, monetary systems, foreign policy, economic power, and international institutions.</p>
-                    <a href="for-authors.html" class="card-link">Submission Guidelines →</a>
-                </article>
-
-                <article class="article-card">
-                    <div class="card-badge criminal-justice">Law, Ethics, &amp; Society</div>
-                    <h3>Law, Ethics, &amp; Society</h3>
-                    <p>Work examining legal systems, moral questions, civil rights, institutional responsibility, and social consequences.</p>
-                    <a href="for-authors.html" class="card-link">Submission Guidelines →</a>
-                </article>
-
-                <article class="article-card">
-                    <div class="card-badge psychology">Social Science Research</div>
-                    <h3>Social Science Research</h3>
-                    <p>Empirical research, literature reviews, and analytical papers using social science frameworks.</p>
-                    <a href="for-authors.html" class="card-link">Submission Guidelines →</a>
-                </article>
-
-                <article class="article-card">
-                    <div class="card-badge criminology">Case Studies &amp; Applied Analysis</div>
-                    <h3>Case Studies &amp; Applied Analysis</h3>
-                    <p>Focused studies applying behavioral, legal, economic, or social science concepts to real-world events.</p>
-                    <a href="for-authors.html" class="card-link">Submission Guidelines →</a>
-                </article>
-            </div>
-            <p style="text-align:center; margin-top:1.5rem; font-size:0.9rem; color:var(--text-light);">See the full list of accepted categories on our <a href="for-authors.html">For Authors</a> page.</p>
-        </div>
-    </section>
-
-    <section class="latest-publication-section">
-        <div class="container">
-            <h2>Latest Publication</h2>
-            <div id="homepage-latest-feed" class="publication-feed"></div>
-        </div>
-    </section>
-
-    <!-- Call to Action -->
-    <section class="cta-final">
-        <div class="container">
-            <h2>Ready to Submit Your Work?</h2>
-            <p>We're currently building our inaugural collection. Be among the first published authors in The Behavioral Review.</p>
-            <a href="for-authors.html" class="btn btn-primary">View Submission Guidelines</a>
-        </div>
-    </section>
-
-    <!-- Follow Us -->
-    <section class="follow-us-section">
-        <div class="container">
-            <h2>Follow Us</h2>
-            <p>Stay connected for new publications, student spotlights, and editorial updates.</p>
-            <div class="follow-us-icons">
-                <a class="follow-us-link linkedin" href="https://www.linkedin.com/company/the-behavioral-review/" target="_blank" rel="noopener noreferrer">
-                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-                    LinkedIn
-                </a>
-                <a class="follow-us-link instagram" href="https://www.instagram.com/thebehavioralreview/" target="_blank" rel="noopener noreferrer">
-                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
-                    Instagram
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
     <footer class="footer">
         <div class="container footer-content">
             <div class="footer-section">
@@ -252,6 +222,7 @@
             <p>&copy; 2026 The Behavioral Review. All rights reserved.</p>
         </div>
     </footer>
+    <script src="authors.js" defer></script>
     <script src="main.js" defer></script>
 </body>
 </html>
