@@ -255,13 +255,13 @@ img {
 }
 
 .hero-credibility-badge {
-    flex: 1 1 0;
+    flex: 1 1 0%;
     min-width: 0;
     display: flex;
     flex-direction: column;
     gap: 0.45rem;
     padding: 0.15rem 0;
-    transition: transform 0.22s ease, color 0.22s ease;
+    transition: transform 0.22s ease;
 }
 
 .hero-credibility-badge:hover {
