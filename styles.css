@@ -4017,8 +4017,26 @@ button {
 }
 
 @media (max-width: 767px) {
-    .hero-section--minimal,
-    .hero-section--minimal > .container,
+    .hero-section--minimal {
+        display: block !important;
+        position: relative;
+        overflow: visible;
+        height: auto !important;
+        min-height: 0 !important;
+        max-height: none !important;
+        padding: 44px 28px 34px 28px !important;
+    }
+
+    .hero-section--minimal > .container {
+        display: block !important;
+        position: relative;
+        overflow: visible;
+        height: auto !important;
+        min-height: 0 !important;
+        max-height: none !important;
+        padding: 0 !important;
+    }
+
     .hero-section--minimal .hero-left {
         display: block !important;
         position: relative;
@@ -4026,24 +4044,6 @@ button {
         height: auto !important;
         min-height: 0 !important;
         max-height: none !important;
-        justify-content: flex-start !important;
-        align-content: normal !important;
-        place-content: normal !important;
-        grid-template-rows: none !important;
-        flex: none !important;
-    }
-
-    .hero-section--minimal {
-        padding: 44px 28px 34px !important;
-        gap: 0;
-    }
-
-    .hero-section--minimal > .container {
-        padding: 0 !important;
-    }
-
-    .hero-section--minimal .hero-left {
-        gap: 0;
     }
 
     .hero-section--minimal .hero-eyebrow {
