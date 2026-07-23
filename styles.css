@@ -245,39 +245,17 @@ img {
     margin-bottom: 1.25rem;
 }
 
-/* Hero credibility row */
-.hero-credibility-row {
-    display: flex;
-    gap: 2rem;
-    margin-top: 1.5rem;
-    max-width: 38rem;
-}
-
-.hero-credibility-badge {
-    flex: 1 1 0%;
-    min-width: 0;
-    max-width: 12rem;
-    display: flex;
-    flex-direction: column;
-    gap: 0.4rem;
-    padding-top: 0.6rem;
-    border-top: 2px solid var(--navy);
-}
-
-.hero-credibility-badge__title {
-    margin: 0;
-    font-size: 0.92rem;
-    line-height: 1.3;
+/* Hero tagline row */
+.hero-tagline {
+    margin: 1.5rem 0 0;
+    padding-top: 1.25rem;
+    border-top: 1px solid var(--navy);
     font-family: 'Georgia', serif;
-    font-weight: 700;
+    font-size: 1.06rem;
+    font-weight: 500;
     color: var(--navy);
-}
-
-.hero-credibility-badge__description {
-    margin: 0;
-    font-size: 0.78rem;
-    line-height: 1.55;
-    color: var(--text-light);
+    letter-spacing: 0.04em;
+    text-align: left;
 }
 
 .hero-container {
@@ -2933,11 +2911,6 @@ img {
         font-size: 1.85rem;
     }
 
-    .hero-credibility-row {
-        gap: 1rem;
-        margin-top: 1.1rem;
-    }
-
     /* Award banner — stack on mobile */
     .award-banner {
         flex-direction: column;
@@ -2949,18 +2922,6 @@ img {
     .contact-compact-layout {
         grid-template-columns: 1fr;
         gap: 2rem;
-    }
-}
-
-@media (max-width: 640px) {
-    .hero-credibility-row {
-        flex-direction: column;
-        gap: 1.1rem;
-        max-width: 100%;
-    }
-
-    .hero-credibility-badge {
-        max-width: none;
     }
 }
 
