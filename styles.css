@@ -254,8 +254,6 @@ img {
     color: var(--navy);
     letter-spacing: 0.04em;
     text-align: left;
-    line-height: 1.45;
-    white-space: nowrap;
 }
 
 .hero-container {
@@ -2909,10 +2907,6 @@ img {
 
     .hero-section--minimal .hero-left h1 {
         font-size: 1.85rem;
-    }
-
-    .hero-tagline {
-        white-space: normal;
     }
 
     /* Award banner — stack on mobile */
