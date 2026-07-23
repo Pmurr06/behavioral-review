@@ -247,12 +247,10 @@ img {
 
 /* Hero tagline row */
 .hero-tagline {
-    margin: 1.5rem 0 0;
-    padding-top: 1.25rem;
-    border-top: 1px solid var(--navy);
+    margin: 2.25rem 0 2.75rem;
     font-family: 'Georgia', serif;
-    font-size: 1.06rem;
-    font-weight: 500;
+    font-size: 0.96875rem;
+    font-weight: 400;
     color: var(--navy);
     letter-spacing: 0.04em;
     text-align: left;
