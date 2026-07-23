@@ -3969,3 +3969,49 @@ button {
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 }
+
+@media (max-width: 768px) {
+    .hero-section--minimal {
+        min-height: auto;
+        height: auto;
+        padding-top: 3.25rem;
+        padding-bottom: 3.5rem;
+    }
+
+    .hero-section--minimal .hero-left {
+        min-height: auto;
+        height: auto;
+    }
+
+    .hero-section--minimal .hero-eyebrow {
+        margin-bottom: 1.125rem;
+    }
+
+    .hero-section--minimal .hero-left h1 {
+        margin-bottom: 1rem;
+    }
+
+    .hero-section--minimal .hero-subtitle {
+        margin-bottom: 2.125rem;
+    }
+
+    .hero-section--minimal .hero-actions {
+        gap: 1rem;
+        margin-bottom: 3.25rem;
+    }
+
+    .hero-section--minimal .hero-actions .btn {
+        width: 100%;
+        min-height: 4.75rem;
+        padding-top: 0.9rem;
+        padding-bottom: 0.9rem;
+    }
+
+    .hero-section--minimal .hero-tagline {
+        margin: 0;
+    }
+
+    header.hero-section--minimal + .main-content--dense {
+        padding-top: 0;
+    }
+}
