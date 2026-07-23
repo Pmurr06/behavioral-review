@@ -4018,53 +4018,68 @@ button {
 
 @media (max-width: 767px) {
     .hero-section--minimal {
+        display: block !important;
+        position: relative;
+        overflow: visible;
         height: auto !important;
         min-height: 0 !important;
-        padding-top: 68px;
-        padding-bottom: 36px;
-        justify-content: flex-start !important;
-        gap: 0;
+        max-height: none !important;
+        padding: 44px 28px 34px 28px !important;
+    }
+
+    .hero-section--minimal > .container {
+        display: block !important;
+        position: relative;
+        overflow: visible;
+        height: auto !important;
+        min-height: 0 !important;
+        max-height: none !important;
+        padding: 0 !important;
     }
 
     .hero-section--minimal .hero-left {
+        display: block !important;
+        position: relative;
+        overflow: visible;
         height: auto !important;
         min-height: 0 !important;
-        justify-content: flex-start !important;
-        gap: 0;
+        max-height: none !important;
     }
 
     .hero-section--minimal .hero-eyebrow {
-        margin-bottom: 22px;
-    }
-
-    .hero-section--minimal .hero-left h1 {
         margin-bottom: 18px;
     }
 
+    .hero-section--minimal .hero-left h1 {
+        margin-bottom: 16px;
+    }
+
     .hero-section--minimal .hero-subtitle {
-        margin-bottom: 32px;
+        margin-bottom: 28px;
     }
 
     .hero-section--minimal .hero-actions {
-        gap: 14px;
-        margin-bottom: 42px;
+        gap: 12px;
+        margin-bottom: 32px;
         padding: 0;
     }
 
     .hero-section--minimal .hero-actions .btn {
         width: 100%;
-        min-height: 68px !important;
-        height: 68px;
+        height: 64px !important;
+        min-height: 64px !important;
+        max-height: 64px !important;
         padding: 0 24px;
         margin: 0;
+        box-sizing: border-box;
     }
 
     .hero-section--minimal .hero-actions .btn:first-child {
-        margin-bottom: 14px;
+        margin-bottom: 0 !important;
     }
 
     .hero-section--minimal .hero-actions .btn:last-child {
-        margin-bottom: 42px;
+        margin-bottom: 0 !important;
     }
 
     .hero-section--minimal .hero-tagline {
@@ -4074,6 +4089,16 @@ button {
     }
 
     header.hero-section--minimal + .main-content--dense {
-        padding-top: 28px;
+        margin-top: 0 !important;
+        padding-top: 28px !important;
+    }
+
+    .hero-section--minimal::before,
+    .hero-section--minimal::after,
+    .hero-section--minimal > .container::before,
+    .hero-section--minimal > .container::after,
+    .hero-section--minimal .hero-left::before,
+    .hero-section--minimal .hero-left::after {
+        content: none !important;
     }
 }
