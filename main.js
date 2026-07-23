@@ -592,15 +592,6 @@ function initHomepageStats() {
         });
     }
 
-    /* New hero stats row */
-    var heroStatsRoot = document.querySelector('[data-hero-stats]');
-    if (heroStatsRoot) {
-        Object.keys(stats).forEach(function (key) {
-            heroStatsRoot.querySelectorAll('[data-hero-stat="' + key + '"]').forEach(function (node) {
-                node.textContent = stats[key];
-            });
-        });
-    }
 }
 
 function initHomepageFeaturedEditors() {
