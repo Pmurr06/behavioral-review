@@ -247,15 +247,15 @@ img {
 
 /* Hero tagline row */
 .hero-tagline {
-    margin: 1.5rem 0 0;
-    padding-top: 1.25rem;
-    border-top: 1px solid var(--navy);
+    margin: 2.25rem 0 2.75rem;
     font-family: 'Georgia', serif;
-    font-size: 1.06rem;
-    font-weight: 500;
+    font-size: 0.96875rem;
+    font-weight: 400;
     color: var(--navy);
     letter-spacing: 0.04em;
     text-align: left;
+    line-height: 1.45;
+    white-space: nowrap;
 }
 
 .hero-container {
@@ -2909,6 +2909,10 @@ img {
 
     .hero-section--minimal .hero-left h1 {
         font-size: 1.85rem;
+    }
+
+    .hero-tagline {
+        white-space: normal;
     }
 
     /* Award banner — stack on mobile */
