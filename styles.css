@@ -2982,7 +2982,7 @@ img {
     }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 640px) {
     .hero-credibility-row {
         flex-direction: column;
         gap: 1.1rem;
@@ -2992,7 +2992,9 @@ img {
         align-items: center;
         text-align: center;
     }
+}
 
+@media (max-width: 480px) {
     .archive-toolbar {
         padding: 0.85rem;
     }
