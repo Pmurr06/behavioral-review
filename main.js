@@ -562,6 +562,13 @@ function getEditorImageData(editor) {
     };
 }
 
+function applyEditorImageTransform(image, imageData) {
+    if (imageData.imageTransform) {
+        image.style.transform = imageData.imageTransform;
+        image.style.transformOrigin = imageData.imageTransformOrigin;
+    }
+}
+
 function computeHomepageStats() {
     var uniqueAuthors = {};
     var uniqueInstitutions = {};
@@ -638,10 +645,7 @@ function initHomepageFeaturedEditors() {
         var image = document.createElement('img');
         image.src = siteRoot + imageData.imagePath;
         image.alt = imageData.imageAlt;
-        if (imageData.imageTransform) {
-            image.style.transform = imageData.imageTransform;
-            image.style.transformOrigin = imageData.imageTransformOrigin;
-        }
+        applyEditorImageTransform(image, imageData);
         image.onerror = function () {
             if (this.dataset.fallbackApplied === 'true') return;
             this.dataset.fallbackApplied = 'true';
@@ -703,10 +707,7 @@ function initEditorialTeamPage() {
         var image = document.createElement('img');
         image.src = siteRoot + imageData.imagePath;
         image.alt = imageData.imageAlt;
-        if (imageData.imageTransform) {
-            image.style.transform = imageData.imageTransform;
-            image.style.transformOrigin = imageData.imageTransformOrigin;
-        }
+        applyEditorImageTransform(image, imageData);
         image.onerror = function () {
             if (this.dataset.fallbackApplied === 'true') return;
             this.dataset.fallbackApplied = 'true';
