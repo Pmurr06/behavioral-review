@@ -430,13 +430,13 @@ var EDITORIAL_TEAM = [
         imageAlt: 'Brandon Nobrega, Design and Marketing Editor of The Behavioral Review'
     },
     {
-        name: 'Iliana Badillo',
+        name: 'Ilianis Badillo',
         role: 'Health Sciences Editor',
         credentials: 'Biomedical Sciences Student, University of South Florida',
         institution: 'University of South Florida',
         bio: 'Biomedical Sciences student at the University of South Florida with experience analyzing scientific literature and conducting chemical research.',
         imagePath: 'Ilianis.jpg',
-        imageAlt: 'Iliana Badillo, Health Sciences Editor of The Behavioral Review'
+        imageAlt: 'Ilianis Badillo, Health Sciences Editor of The Behavioral Review'
     }
 ];
 
