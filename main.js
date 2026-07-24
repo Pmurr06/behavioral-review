@@ -418,7 +418,9 @@ var EDITORIAL_TEAM = [
         institution: 'UMGC',
         bio: 'Marine Corps Intelligence Specialist and Writing student at UMGC with experience in data analysis and technical reports.',
         imagePath: 'nathanisbell.jpeg',
-        imageAlt: 'Nathan Isbell, Copy and Layout Editor of The Behavioral Review'
+        imageAlt: 'Nathan Isbell, Copy and Layout Editor of The Behavioral Review',
+        imageTransform: 'scale(1.4)',
+        imageTransformOrigin: '40% 10%'
     },
     {
         name: 'Brandon Nobrega',
@@ -427,16 +429,20 @@ var EDITORIAL_TEAM = [
         institution: '',
         bio: 'U.S. Air Force aviation meteorologist supporting Army rotary-wing aircraft operations and managing TBR\'s social media.',
         imagePath: 'Brandonnobrega.jpeg',
-        imageAlt: 'Brandon Nobrega, Design and Marketing Editor of The Behavioral Review'
+        imageAlt: 'Brandon Nobrega, Design and Marketing Editor of The Behavioral Review',
+        imageTransform: 'scale(1.5)',
+        imageTransformOrigin: '50% 12%'
     },
     {
         name: 'Iliana Badillo',
-        role: 'Biomedical Sciences Editor',
+        role: 'Health Sciences Editor',
         credentials: 'Biomedical Sciences Student, University of South Florida',
         institution: 'University of South Florida',
         bio: 'Biomedical Sciences student at the University of South Florida with experience analyzing scientific literature and conducting chemical research.',
         imagePath: 'iliana-badillo.jpg',
-        imageAlt: 'Iliana Badillo, Biomedical Sciences Editor of The Behavioral Review'
+        imageAlt: 'Iliana Badillo, Health Sciences Editor of The Behavioral Review',
+        imageTransform: 'scale(1.8)',
+        imageTransformOrigin: '50% 32%'
     }
 ];
 
@@ -550,8 +556,17 @@ function getEditorImageData(editor) {
     }
     return {
         imagePath: imagePath,
-        imageAlt: imageAlt
+        imageAlt: imageAlt,
+        imageTransform: editor.imageTransform || '',
+        imageTransformOrigin: editor.imageTransformOrigin || ''
     };
+}
+
+function applyEditorImageTransform(image, imageData) {
+    if (imageData.imageTransform) {
+        image.style.transform = imageData.imageTransform;
+        image.style.transformOrigin = imageData.imageTransformOrigin;
+    }
 }
 
 function computeHomepageStats() {
@@ -630,6 +645,7 @@ function initHomepageFeaturedEditors() {
         var image = document.createElement('img');
         image.src = siteRoot + imageData.imagePath;
         image.alt = imageData.imageAlt;
+        applyEditorImageTransform(image, imageData);
         image.onerror = function () {
             if (this.dataset.fallbackApplied === 'true') return;
             this.dataset.fallbackApplied = 'true';
@@ -691,6 +707,7 @@ function initEditorialTeamPage() {
         var image = document.createElement('img');
         image.src = siteRoot + imageData.imagePath;
         image.alt = imageData.imageAlt;
+        applyEditorImageTransform(image, imageData);
         image.onerror = function () {
             if (this.dataset.fallbackApplied === 'true') return;
             this.dataset.fallbackApplied = 'true';
