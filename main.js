@@ -419,7 +419,8 @@ var EDITORIAL_TEAM = [
         bio: 'Marine Corps Intelligence Specialist and Writing student at UMGC with experience in data analysis and technical reports.',
         imagePath: 'nathanisbell.jpeg',
         imageAlt: 'Nathan Isbell, Copy and Layout Editor of The Behavioral Review',
-        imageStyle: 'transform: scale(1.4); transform-origin: 40% 10%;'
+        imageTransform: 'scale(1.4)',
+        imageTransformOrigin: '40% 10%'
     },
     {
         name: 'Brandon Nobrega',
@@ -429,7 +430,8 @@ var EDITORIAL_TEAM = [
         bio: 'U.S. Air Force aviation meteorologist supporting Army rotary-wing aircraft operations and managing TBR\'s social media.',
         imagePath: 'Brandonnobrega.jpeg',
         imageAlt: 'Brandon Nobrega, Design and Marketing Editor of The Behavioral Review',
-        imageStyle: 'transform: scale(1.5); transform-origin: 50% 12%;'
+        imageTransform: 'scale(1.5)',
+        imageTransformOrigin: '50% 12%'
     },
     {
         name: 'Iliana Badillo',
@@ -439,7 +441,8 @@ var EDITORIAL_TEAM = [
         bio: 'Biomedical Sciences student at the University of South Florida with experience analyzing scientific literature and conducting chemical research.',
         imagePath: 'iliana-badillo.jpg',
         imageAlt: 'Iliana Badillo, Health Sciences Editor of The Behavioral Review',
-        imageStyle: 'transform: scale(1.8); transform-origin: 50% 32%;'
+        imageTransform: 'scale(1.8)',
+        imageTransformOrigin: '50% 32%'
     }
 ];
 
@@ -554,7 +557,8 @@ function getEditorImageData(editor) {
     return {
         imagePath: imagePath,
         imageAlt: imageAlt,
-        imageStyle: editor.imageStyle || ''
+        imageTransform: editor.imageTransform || '',
+        imageTransformOrigin: editor.imageTransformOrigin || ''
     };
 }
 
@@ -634,8 +638,9 @@ function initHomepageFeaturedEditors() {
         var image = document.createElement('img');
         image.src = siteRoot + imageData.imagePath;
         image.alt = imageData.imageAlt;
-        if (imageData.imageStyle) {
-            image.style.cssText = imageData.imageStyle;
+        if (imageData.imageTransform) {
+            image.style.transform = imageData.imageTransform;
+            image.style.transformOrigin = imageData.imageTransformOrigin;
         }
         image.onerror = function () {
             if (this.dataset.fallbackApplied === 'true') return;
@@ -698,8 +703,9 @@ function initEditorialTeamPage() {
         var image = document.createElement('img');
         image.src = siteRoot + imageData.imagePath;
         image.alt = imageData.imageAlt;
-        if (imageData.imageStyle) {
-            image.style.cssText = imageData.imageStyle;
+        if (imageData.imageTransform) {
+            image.style.transform = imageData.imageTransform;
+            image.style.transformOrigin = imageData.imageTransformOrigin;
         }
         image.onerror = function () {
             if (this.dataset.fallbackApplied === 'true') return;
