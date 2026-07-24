@@ -428,6 +428,15 @@ var EDITORIAL_TEAM = [
         bio: 'U.S. Air Force aviation meteorologist supporting Army rotary-wing aircraft operations and managing TBR\'s social media.',
         imagePath: 'Brandonnobrega.jpeg',
         imageAlt: 'Brandon Nobrega, Design and Marketing Editor of The Behavioral Review'
+    },
+    {
+        name: 'Iliana Badillo',
+        role: 'Biomedical Sciences Editor',
+        credentials: 'Biomedical Sciences Student, University of South Florida',
+        institution: 'University of South Florida',
+        bio: 'Biomedical Sciences student at the University of South Florida with experience analyzing scientific literature and conducting chemical research.',
+        imagePath: 'iliana-badillo.jpg',
+        imageAlt: 'Iliana Badillo, Biomedical Sciences Editor of The Behavioral Review'
     }
 ];
 
