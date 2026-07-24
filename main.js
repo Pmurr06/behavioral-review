@@ -399,7 +399,7 @@ var EDITORIAL_TEAM = [
         credentials: 'U.S. Marine | Psychology Student, Penn State World Campus',
         institution: 'Penn State World Campus',
         bio: 'Psychology student at Penn State, active-duty Marine Corps Meteorology and Oceanography specialist, and Crisis Text Line volunteer.',
-        imagePath: 'paulomurray.jpeg',
+        imagePath: 'Paulo.jpg',
         imageAlt: 'Paulo Murray, Managing and Behavioral Science Editor of The Behavioral Review'
     },
     {
@@ -408,7 +408,7 @@ var EDITORIAL_TEAM = [
         credentials: 'Business Finance Student, Washington State University',
         institution: 'Washington State University',
         bio: 'Business Finance student at Washington State University, VITA and TCE certified, and co-founder of Asnowco LLC.',
-        imagePath: 'CarsonWais.JPG',
+        imagePath: 'Carson.jpg',
         imageAlt: 'Carson Wais, Business and Economics Editor of The Behavioral Review'
     },
     {
@@ -417,10 +417,8 @@ var EDITORIAL_TEAM = [
         credentials: 'U.S. Marine | Writing Student, UMGC',
         institution: 'UMGC',
         bio: 'Marine Corps Intelligence Specialist and Writing student at UMGC with experience in data analysis and technical reports.',
-        imagePath: 'nathanisbell.jpeg',
-        imageAlt: 'Nathan Isbell, Copy and Layout Editor of The Behavioral Review',
-        imageTransform: 'scale(1.4)',
-        imageTransformOrigin: '40% 10%'
+        imagePath: 'Nathan.jpg',
+        imageAlt: 'Nathan Isbell, Copy and Layout Editor of The Behavioral Review'
     },
     {
         name: 'Brandon Nobrega',
@@ -428,10 +426,8 @@ var EDITORIAL_TEAM = [
         credentials: 'U.S. Air Force Aviation Meteorologist',
         institution: '',
         bio: 'U.S. Air Force aviation meteorologist supporting Army rotary-wing aircraft operations and managing TBR\'s social media.',
-        imagePath: 'Brandonnobrega.jpeg',
-        imageAlt: 'Brandon Nobrega, Design and Marketing Editor of The Behavioral Review',
-        imageTransform: 'scale(1.5)',
-        imageTransformOrigin: '50% 12%'
+        imagePath: 'Nobrega.jpg',
+        imageAlt: 'Brandon Nobrega, Design and Marketing Editor of The Behavioral Review'
     },
     {
         name: 'Iliana Badillo',
@@ -439,10 +435,8 @@ var EDITORIAL_TEAM = [
         credentials: 'Biomedical Sciences Student, University of South Florida',
         institution: 'University of South Florida',
         bio: 'Biomedical Sciences student at the University of South Florida with experience analyzing scientific literature and conducting chemical research.',
-        imagePath: 'iliana-badillo.jpg',
-        imageAlt: 'Iliana Badillo, Health Sciences Editor of The Behavioral Review',
-        imageTransform: 'scale(1.8)',
-        imageTransformOrigin: '50% 32%'
+        imagePath: 'Ilianis.jpg',
+        imageAlt: 'Iliana Badillo, Health Sciences Editor of The Behavioral Review'
     }
 ];
 
@@ -556,17 +550,8 @@ function getEditorImageData(editor) {
     }
     return {
         imagePath: imagePath,
-        imageAlt: imageAlt,
-        imageTransform: editor.imageTransform || '',
-        imageTransformOrigin: editor.imageTransformOrigin || ''
+        imageAlt: imageAlt
     };
-}
-
-function applyEditorImageTransform(image, imageData) {
-    if (imageData.imageTransform) {
-        image.style.transform = imageData.imageTransform;
-        image.style.transformOrigin = imageData.imageTransformOrigin;
-    }
 }
 
 function computeHomepageStats() {
@@ -645,7 +630,6 @@ function initHomepageFeaturedEditors() {
         var image = document.createElement('img');
         image.src = siteRoot + imageData.imagePath;
         image.alt = imageData.imageAlt;
-        applyEditorImageTransform(image, imageData);
         image.onerror = function () {
             if (this.dataset.fallbackApplied === 'true') return;
             this.dataset.fallbackApplied = 'true';
@@ -707,7 +691,6 @@ function initEditorialTeamPage() {
         var image = document.createElement('img');
         image.src = siteRoot + imageData.imagePath;
         image.alt = imageData.imageAlt;
-        applyEditorImageTransform(image, imageData);
         image.onerror = function () {
             if (this.dataset.fallbackApplied === 'true') return;
             this.dataset.fallbackApplied = 'true';
