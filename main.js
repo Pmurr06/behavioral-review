@@ -553,7 +553,8 @@ function getEditorImageData(editor) {
     }
     return {
         imagePath: imagePath,
-        imageAlt: imageAlt
+        imageAlt: imageAlt,
+        imageStyle: editor.imageStyle || ''
     };
 }
 
@@ -633,8 +634,8 @@ function initHomepageFeaturedEditors() {
         var image = document.createElement('img');
         image.src = siteRoot + imageData.imagePath;
         image.alt = imageData.imageAlt;
-        if (editor.imageStyle) {
-            image.style.cssText = editor.imageStyle;
+        if (imageData.imageStyle) {
+            image.style.cssText = imageData.imageStyle;
         }
         image.onerror = function () {
             if (this.dataset.fallbackApplied === 'true') return;
@@ -697,8 +698,8 @@ function initEditorialTeamPage() {
         var image = document.createElement('img');
         image.src = siteRoot + imageData.imagePath;
         image.alt = imageData.imageAlt;
-        if (editor.imageStyle) {
-            image.style.cssText = editor.imageStyle;
+        if (imageData.imageStyle) {
+            image.style.cssText = imageData.imageStyle;
         }
         image.onerror = function () {
             if (this.dataset.fallbackApplied === 'true') return;
