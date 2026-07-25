@@ -5,6 +5,20 @@
    ============================================ */
 var ARTICLES = [
     {
+        title: 'Fight Club: Fincher\'s Dark Symphony',
+        authorId: 'braydon-perko',
+        author: 'Braydon Perko',
+        major: 'Business Administration',
+        institution: 'University of Oregon',
+        categories: ['Behavioral Science'],
+        displayCategory: 'Behavioral Science',
+        tags: ['Behavioral Science', 'Film & Media', 'Film Analysis', 'David Fincher', 'Fight Club', 'Narrative Techniques', 'Cinematography'],
+        date: 'July 2026',
+        readingTime: '10–12 min read',
+        preview: 'Braydon Perko examines how David Fincher\'s attention to detail, dark atmospheric style, and narrative construction make Fight Club a film that continues to reward repeated viewing.',
+        link: 'articles/fight-club-finchers-dark-symphony.html'
+    },
+    {
         title: 'The Body That Drives: Merleau-Ponty\u2019s Phenomenology of Embodiment in Baby Driver',
         authorId: 'harrison-mclain',
         author: 'Harrison McLain',
