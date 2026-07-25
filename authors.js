@@ -138,6 +138,16 @@
             institution: 'Montana State University',
             bio: 'Radek Janout is a Finance student at Montana State University. His academic interests include housing economics, public finance, urban development, real estate markets, and public policy. His work examines how economic incentives, financial markets, and institutional decision-making influence long-term community development and housing affordability.',
             profilePath: 'authors/radek-janout.html'
+        },
+        'sisira-yerrajennu': {
+            id: 'sisira-yerrajennu',
+            name: 'Sisira Yerrajennu',
+            major: 'Health Sciences',
+            institution: 'University of South Florida',
+            bio: 'Sisira Yerrajennu is a Health Sciences student at the University of South Florida with experience in writing, researching, and analyzing STEM and humanities research.',
+            profilePath: 'authors/sisira-yerrajennu.html',
+            imagePath: 'Sisira.jpg',
+            imageAlt: 'Sisira Yerrajennu headshot'
         }
     };
 
