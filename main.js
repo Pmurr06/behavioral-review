@@ -16,7 +16,8 @@ var ARTICLES = [
         date: 'July 2026',
         readingWordCount: 1106,
         preview: 'Braydon Perko examines whether AI can help writers overcome writer\'s block by comparing Laura Hartenberger\'s critique of AI writing with Jennifer Lepp\'s experience using AI as a creative aid.',
-        link: 'articles/can-ai-help-cure-writers-block.html'
+        link: 'articles/can-ai-help-cure-writers-block.html',
+        hidden: true
     },
     {
         title: 'Fight Club: Fincher\'s Dark Symphony',
@@ -420,6 +421,9 @@ var ARTICLES = [
     }
 ];
 
+/* Published articles — excludes any entry with hidden: true */
+var PUBLISHED_ARTICLES = ARTICLES.filter(function (a) { return !a.hidden; });
+
 var EDITORIAL_TEAM = [
     {
         name: 'Paulo Murray',
@@ -591,7 +595,7 @@ function computeHomepageStats() {
         nameToAuthorId[normalizeKey(authorDir[id].name)] = id;
     });
 
-    ARTICLES.forEach(function (article) {
+    PUBLISHED_ARTICLES.forEach(function (article) {
         var authorData = getArticleAuthorData(article);
         var institutionKey = getInstitutionStatsKey(authorData.institutionRaw);
 
@@ -614,7 +618,7 @@ function computeHomepageStats() {
     });
 
     return {
-        articlesPublished: String(ARTICLES.length),
+        articlesPublished: String(PUBLISHED_ARTICLES.length),
         studentAuthors: String(Object.keys(uniqueAuthors).length),
         universitiesRepresented: String(Object.keys(uniqueInstitutions).length),
         averageReviewTime: SITE_SETTINGS.averageReviewTime
@@ -953,7 +957,7 @@ function buildCategoryBrowseCard(category) {
     heading.textContent = category;
     card.appendChild(heading);
 
-    var count = ARTICLES.filter(function (article) {
+    var count = PUBLISHED_ARTICLES.filter(function (article) {
         return getArticleCategories(article).indexOf(category) !== -1;
     }).length;
 
@@ -968,7 +972,7 @@ function getContributorHighlights(limit) {
     var seen = {};
     var highlights = [];
 
-    ARTICLES.forEach(function (article) {
+    PUBLISHED_ARTICLES.forEach(function (article) {
         if (!article.authorId || seen[article.authorId]) return;
         var authorData = getArticleAuthorData(article);
         seen[article.authorId] = true;
@@ -1054,7 +1058,7 @@ function initArchivePage() {
             nameToAuthorId[normalizeKey(authorDir[id].name)] = id;
         });
 
-        ARTICLES.forEach(function (a) {
+        PUBLISHED_ARTICLES.forEach(function (a) {
             var authorData       = getArticleAuthorData(a);
             var institutionKey   = getInstitutionStatsKey(authorData.institutionRaw);
 
@@ -1082,7 +1086,7 @@ function initArchivePage() {
         var elUniversities = document.getElementById('archive-stat-universities');
         var elDisciplines  = document.getElementById('archive-stat-disciplines');
 
-        if (elArticles)     elArticles.textContent     = ARTICLES.length;
+        if (elArticles)     elArticles.textContent     = PUBLISHED_ARTICLES.length;
         if (elAuthors)      elAuthors.textContent      = Object.keys(uniqueAuthors).length;
         if (elUniversities) elUniversities.textContent = Object.keys(uniqueInstitutions).length;
         if (elDisciplines)  elDisciplines.textContent  = Object.keys(uniqueDisciplines).length;
@@ -1091,7 +1095,7 @@ function initArchivePage() {
     /* ── Editor's Picks ── */
     (function initFeatured() {
         if (!featuredSection || !featuredFeed) return;
-        var featured = ARTICLES.filter(function (a) { return a.featured === true; });
+        var featured = PUBLISHED_ARTICLES.filter(function (a) { return a.featured === true; });
         if (featured.length === 0) return;
         featuredSection.removeAttribute('hidden');
         featured.forEach(function (a) {
@@ -1106,7 +1110,7 @@ function initArchivePage() {
         var uniSeen      = {};
         var authorSeen   = {};
 
-        ARTICLES.forEach(function (a) {
+        PUBLISHED_ARTICLES.forEach(function (a) {
             var normalizedUniversity = getArticleAuthorData(a).normalizedUniversity;
             var universityKey = normalizeKey(normalizedUniversity);
             if (normalizedUniversity && !uniSeen[universityKey]) {
@@ -1231,7 +1235,7 @@ function initArchivePage() {
         var queryLower = (state.tag || state.query || '').trim().toLowerCase();
         var hasActiveFilters = !isDefaultArchiveState(state, defaultState);
 
-        var filtered = ARTICLES.filter(function (a) {
+        var filtered = PUBLISHED_ARTICLES.filter(function (a) {
             var articleCategories = getArticleCategories(a);
             var authorData = getArticleAuthorData(a);
 
@@ -1287,7 +1291,7 @@ function initArchivePage() {
 
         /* Sort */
         var indexMap = {};
-        ARTICLES.forEach(function (a, i) { indexMap[a.link] = i; });
+        PUBLISHED_ARTICLES.forEach(function (a, i) { indexMap[a.link] = i; });
         filtered = filtered.slice().sort(function (a, b) {
             if (state.sort === 'oldest') return indexMap[b.link] - indexMap[a.link];
             if (state.sort === 'az')     return (a.title || '').localeCompare(b.title || '');
@@ -1297,7 +1301,7 @@ function initArchivePage() {
 
         /* Results count */
         if (resultsCountEl) {
-            resultsCountEl.textContent = 'Showing ' + filtered.length + ' of ' + ARTICLES.length + ' articles';
+            resultsCountEl.textContent = 'Showing ' + filtered.length + ' of ' + PUBLISHED_ARTICLES.length + ' articles';
         }
 
         if (clearButton) {
@@ -1326,23 +1330,23 @@ window.normalizeUniversityName = normalizeUniversityName;
 /* Recent Articles page — render the newest article */
 function initRecentArticlesPage() {
     var feedEl = document.getElementById('recent-feed');
-    if (feedEl && ARTICLES.length > 0) {
+    if (feedEl && PUBLISHED_ARTICLES.length > 0) {
         feedEl.innerHTML = '';
-        feedEl.appendChild(buildPublicationCard(ARTICLES[0], { featured: true }));
+        feedEl.appendChild(buildPublicationCard(PUBLISHED_ARTICLES[0], { featured: true }));
     }
 
-    renderCompactPublicationCollection('[data-recent-secondary-feed]', ARTICLES.slice(1, 5));
+    renderCompactPublicationCollection('[data-recent-secondary-feed]', PUBLISHED_ARTICLES.slice(1, 5));
     renderBrowseCards('[data-recent-category-grid]');
 }
 
 function initHomepageLatestArticle() {
     var feedEl = document.getElementById('homepage-latest-feed');
-    if (feedEl && ARTICLES.length > 0) {
+    if (feedEl && PUBLISHED_ARTICLES.length > 0) {
         feedEl.innerHTML = '';
-        feedEl.appendChild(buildPublicationCard(ARTICLES[0], { featured: true }));
+        feedEl.appendChild(buildPublicationCard(PUBLISHED_ARTICLES[0], { featured: true }));
     }
 
-    renderCompactPublicationCollection('[data-home-newest-feed]', ARTICLES.slice(1, 5));
+    renderCompactPublicationCollection('[data-home-newest-feed]', PUBLISHED_ARTICLES.slice(1, 5));
 }
 
 function initCategoryPage() {
@@ -1353,7 +1357,7 @@ function initCategoryPage() {
         var category = feedEl.getAttribute('data-category-feed');
         if (!category) return;
 
-        var filtered = ARTICLES.filter(function (article) {
+        var filtered = PUBLISHED_ARTICLES.filter(function (article) {
             var articleCategories = getArticleCategories(article);
             return articleCategories.indexOf(category) !== -1;
         });
@@ -1382,7 +1386,7 @@ function initUniversityPage() {
         if (!university) return;
 
         var normalizedTarget = normalizeUniversityName(university);
-        var filtered = ARTICLES.filter(function (article) {
+        var filtered = PUBLISHED_ARTICLES.filter(function (article) {
             var authorData = getArticleAuthorData(article);
             return authorData.normalizedUniversity === normalizedTarget;
         });
@@ -1408,7 +1412,7 @@ function initAuthorProfilePage() {
     if (!feedEl) return;
 
     var authorId = feedEl.getAttribute('data-author-articles');
-    var authoredArticles = ARTICLES.filter(function (article) {
+    var authoredArticles = PUBLISHED_ARTICLES.filter(function (article) {
         return article.authorId === authorId;
     });
 
@@ -1470,7 +1474,7 @@ function initRelatedArticles() {
     var currentCategories = getArticleCategories(currentArticle);
     var currentTags = Array.isArray(currentArticle.tags) ? currentArticle.tags : [];
     var limit = parseInt(feedEl.getAttribute('data-related-articles'), 10) || 3;
-    var related = ARTICLES.filter(function (article) {
+    var related = PUBLISHED_ARTICLES.filter(function (article) {
         return article.link !== currentArticle.link;
     }).sort(function (a, b) {
         var aCategories = getArticleCategories(a);
@@ -1492,7 +1496,7 @@ function initRelatedArticles() {
 
         if (aShared !== bShared) return bShared - aShared;
         if (aTagShared !== bTagShared) return bTagShared - aTagShared;
-        return ARTICLES.indexOf(a) - ARTICLES.indexOf(b);
+        return PUBLISHED_ARTICLES.indexOf(a) - PUBLISHED_ARTICLES.indexOf(b);
     }).slice(0, limit);
 
     feedEl.innerHTML = '';
@@ -1528,13 +1532,13 @@ function initArticlePagination() {
     var currentArticle = getCurrentArticle();
     if (!currentArticle) return;
 
-    var currentIndex = ARTICLES.findIndex(function (article) {
+    var currentIndex = PUBLISHED_ARTICLES.findIndex(function (article) {
         return article.link === currentArticle.link;
     });
     if (currentIndex === -1) return;
 
-    var previousArticle = currentIndex > 0 ? ARTICLES[currentIndex - 1] : null;
-    var nextArticle = currentIndex < ARTICLES.length - 1 ? ARTICLES[currentIndex + 1] : null;
+    var previousArticle = currentIndex > 0 ? PUBLISHED_ARTICLES[currentIndex - 1] : null;
+    var nextArticle = currentIndex < PUBLISHED_ARTICLES.length - 1 ? PUBLISHED_ARTICLES[currentIndex + 1] : null;
 
     navEl.innerHTML = '';
 
