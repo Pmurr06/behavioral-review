@@ -431,7 +431,7 @@ var EDITORIAL_TEAM = [
         credentials: 'U.S. Marine | Psychology Student, Penn State World Campus',
         institution: 'Penn State World Campus',
         bio: 'Psychology student at Penn State, active-duty Marine Corps Meteorology and Oceanography specialist, and Crisis Text Line volunteer.',
-        imagePath: 'paulomurray.jpeg',
+        imagePath: 'Paulo-2.jpg',
         imageAlt: 'Paulo Murray, Managing and Behavioral Science Editor of The Behavioral Review'
     },
     {
