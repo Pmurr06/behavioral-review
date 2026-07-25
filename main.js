@@ -5,6 +5,20 @@
    ============================================ */
 var ARTICLES = [
     {
+        title: 'Can AI Help Cure Writer\'s Block?',
+        authorId: 'braydon-perko',
+        author: 'Braydon Perko',
+        major: 'Business Administration',
+        institution: 'University of Oregon',
+        categories: ['Behavioral Science'],
+        displayCategory: 'Behavioral Science',
+        tags: ['Behavioral Science', 'Artificial Intelligence', 'Writer's Block', 'Writing', 'Creativity', 'Higher Education', 'Fiction Writing', 'Technology'],
+        date: 'July 2026',
+        readingWordCount: 1106,
+        preview: 'Braydon Perko examines whether AI can help writers overcome writer's block by comparing Laura Hartenberger's critique of AI writing with Jennifer Lepp's experience using AI as a creative aid.',
+        link: 'articles/can-ai-help-cure-writers-block.html'
+    },
+    {
         title: 'Fight Club: Fincher\'s Dark Symphony',
         authorId: 'braydon-perko',
         author: 'Braydon Perko',
