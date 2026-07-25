@@ -585,6 +585,11 @@ function getEditorImageData(editor) {
 function computeHomepageStats() {
     var uniqueAuthors = {};
     var uniqueInstitutions = {};
+    var authorDir = (typeof window !== 'undefined' && window.AUTHOR_DIRECTORY) || {};
+    var nameToAuthorId = {};
+    Object.keys(authorDir).forEach(function (id) {
+        nameToAuthorId[normalizeKey(authorDir[id].name)] = id;
+    });
 
     ARTICLES.forEach(function (article) {
         var authorData = getArticleAuthorData(article);
@@ -592,14 +597,14 @@ function computeHomepageStats() {
 
         if (Array.isArray(article.authorNames)) {
             article.authorNames.forEach(function (name) {
-                var key = normalizeKey(name);
+                var normalizedName = normalizeKey(name);
+                var key = nameToAuthorId[normalizedName] || normalizedName;
                 if (key) uniqueAuthors[key] = true;
             });
         } else {
             var authorKey = article.authorId || normalizeKey(authorData.name);
             if (authorKey) uniqueAuthors[authorKey] = true;
         }
-
         if (institutionKey) uniqueInstitutions[institutionKey] = true;
     });
 
@@ -1043,6 +1048,11 @@ function initArchivePage() {
         var uniqueAuthors      = {};
         var uniqueInstitutions = {};
         var uniqueDisciplines  = {};
+        var authorDir = (typeof window !== 'undefined' && window.AUTHOR_DIRECTORY) || {};
+        var nameToAuthorId = {};
+        Object.keys(authorDir).forEach(function (id) {
+            nameToAuthorId[normalizeKey(authorDir[id].name)] = id;
+        });
 
         ARTICLES.forEach(function (a) {
             var authorData       = getArticleAuthorData(a);
@@ -1050,7 +1060,8 @@ function initArchivePage() {
 
             if (Array.isArray(a.authorNames)) {
                 a.authorNames.forEach(function (name) {
-                    var key = normalizeKey(name);
+                    var normalizedName = normalizeKey(name);
+                    var key = nameToAuthorId[normalizedName] || normalizedName;
                     if (key) uniqueAuthors[key] = true;
                 });
             } else {
