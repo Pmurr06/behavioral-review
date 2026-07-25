@@ -463,12 +463,12 @@ var EDITORIAL_TEAM = [
     },
     {
         name: 'Ilianis Badillo',
-        role: 'Health Sciences Editor',
+        role: 'Biomedical Sciences Editor',
         credentials: 'Biomedical Sciences Student, University of South Florida',
         institution: 'University of South Florida',
         bio: 'Biomedical Sciences student at the University of South Florida with experience analyzing scientific literature and conducting chemical research.',
         imagePath: 'Ilianis.jpg',
-        imageAlt: 'Ilianis Badillo, Health Sciences Editor of The Behavioral Review'
+        imageAlt: 'Ilianis Badillo, Biomedical Sciences Editor of The Behavioral Review'
     },
     {
         name: 'Sisira Yerrajennu',
