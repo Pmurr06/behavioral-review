@@ -585,24 +585,20 @@ function getEditorImageData(editor) {
 function computeHomepageStats() {
     var uniqueAuthors = {};
     var uniqueInstitutions = {};
+    var authorDir = (typeof window !== 'undefined' && window.AUTHOR_DIRECTORY) || {};
+    var nameToAuthorId = {};
+    Object.keys(authorDir).forEach(function (id) {
+        nameToAuthorId[normalizeKey(authorDir[id].name)] = id;
+    });
 
     ARTICLES.forEach(function (article) {
         var authorData = getArticleAuthorData(article);
         var institutionKey = getInstitutionStatsKey(authorData.institutionRaw);
 
         if (Array.isArray(article.authorNames)) {
-            var authorDir = (typeof window !== 'undefined' && window.AUTHOR_DIRECTORY) || {};
-            var authorDirIds = Object.keys(authorDir);
             article.authorNames.forEach(function (name) {
                 var normalizedName = normalizeKey(name);
-                var matchedId = '';
-                for (var i = 0; i < authorDirIds.length; i++) {
-                    if (normalizeKey(authorDir[authorDirIds[i]].name) === normalizedName) {
-                        matchedId = authorDirIds[i];
-                        break;
-                    }
-                }
-                var key = matchedId || normalizedName;
+                var key = nameToAuthorId[normalizedName] || normalizedName;
                 if (key) uniqueAuthors[key] = true;
             });
         } else {
@@ -1052,24 +1048,20 @@ function initArchivePage() {
         var uniqueAuthors      = {};
         var uniqueInstitutions = {};
         var uniqueDisciplines  = {};
+        var authorDir = (typeof window !== 'undefined' && window.AUTHOR_DIRECTORY) || {};
+        var nameToAuthorId = {};
+        Object.keys(authorDir).forEach(function (id) {
+            nameToAuthorId[normalizeKey(authorDir[id].name)] = id;
+        });
 
         ARTICLES.forEach(function (a) {
             var authorData       = getArticleAuthorData(a);
             var institutionKey   = getInstitutionStatsKey(authorData.institutionRaw);
 
             if (Array.isArray(a.authorNames)) {
-                var authorDir = (typeof window !== 'undefined' && window.AUTHOR_DIRECTORY) || {};
-                var authorDirIds = Object.keys(authorDir);
                 a.authorNames.forEach(function (name) {
                     var normalizedName = normalizeKey(name);
-                    var matchedId = '';
-                    for (var i = 0; i < authorDirIds.length; i++) {
-                        if (normalizeKey(authorDir[authorDirIds[i]].name) === normalizedName) {
-                            matchedId = authorDirIds[i];
-                            break;
-                        }
-                    }
-                    var key = matchedId || normalizedName;
+                    var key = nameToAuthorId[normalizedName] || normalizedName;
                     if (key) uniqueAuthors[key] = true;
                 });
             } else {
