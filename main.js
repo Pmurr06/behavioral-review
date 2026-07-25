@@ -591,15 +591,24 @@ function computeHomepageStats() {
         var institutionKey = getInstitutionStatsKey(authorData.institutionRaw);
 
         if (Array.isArray(article.authorNames)) {
+            var authorDir = (typeof window !== 'undefined' && window.AUTHOR_DIRECTORY) || {};
+            var authorDirIds = Object.keys(authorDir);
             article.authorNames.forEach(function (name) {
-                var key = normalizeKey(name);
+                var normalizedName = normalizeKey(name);
+                var matchedId = '';
+                for (var i = 0; i < authorDirIds.length; i++) {
+                    if (normalizeKey(authorDir[authorDirIds[i]].name) === normalizedName) {
+                        matchedId = authorDirIds[i];
+                        break;
+                    }
+                }
+                var key = matchedId || normalizedName;
                 if (key) uniqueAuthors[key] = true;
             });
         } else {
             var authorKey = article.authorId || normalizeKey(authorData.name);
             if (authorKey) uniqueAuthors[authorKey] = true;
         }
-
         if (institutionKey) uniqueInstitutions[institutionKey] = true;
     });
 
@@ -1049,8 +1058,18 @@ function initArchivePage() {
             var institutionKey   = getInstitutionStatsKey(authorData.institutionRaw);
 
             if (Array.isArray(a.authorNames)) {
+                var authorDir = (typeof window !== 'undefined' && window.AUTHOR_DIRECTORY) || {};
+                var authorDirIds = Object.keys(authorDir);
                 a.authorNames.forEach(function (name) {
-                    var key = normalizeKey(name);
+                    var normalizedName = normalizeKey(name);
+                    var matchedId = '';
+                    for (var i = 0; i < authorDirIds.length; i++) {
+                        if (normalizeKey(authorDir[authorDirIds[i]].name) === normalizedName) {
+                            matchedId = authorDirIds[i];
+                            break;
+                        }
+                    }
+                    var key = matchedId || normalizedName;
                     if (key) uniqueAuthors[key] = true;
                 });
             } else {

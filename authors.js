@@ -24,7 +24,7 @@
             name: 'Braydon Perko',
             major: 'Business Administration',
             institution: 'University of Oregon',
-            bio: 'Braydon Perko is a Business Administration student at the University of Oregon with an interest in film, storytelling, and the ways visual media shapes audience perception. His writing explores the techniques behind influential films and why they continue to resonate with viewers.',
+            bio: 'Braydon Perko is a Business Administration student at the University of Oregon. His writing explores topics related to technology, media, business, and contemporary society.',
             profilePath: 'authors/braydon-perko.html'
         },
         'harrison-mclain': {
