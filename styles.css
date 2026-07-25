@@ -1913,6 +1913,52 @@ img {
     padding: 2.25rem;
 }
 
+.article-toc {
+    background-color: var(--off-white);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    padding: 1.05rem 1.4rem;
+    margin: 0 auto 2.125rem;
+    max-width: 540px;
+}
+
+.article-toc__heading {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--navy);
+    margin: 0 0 0.55rem;
+    padding: 0;
+    border: none;
+}
+
+.article-toc__list {
+    margin: 0;
+    padding-left: 1.4rem;
+    list-style: decimal;
+}
+
+.article-toc__list li {
+    margin-bottom: 0.28rem;
+    line-height: 1.35;
+}
+
+.article-toc__list li:last-child {
+    margin-bottom: 0;
+}
+
+.article-toc__list a {
+    color: var(--navy);
+    text-decoration: none;
+    font-size: 0.88rem;
+    text-align: left;
+    display: inline;
+}
+
+.article-toc__list a:hover {
+    text-decoration: underline;
+}
+
 .article-intro {
     display: grid;
     gap: 1.25rem;
@@ -2726,6 +2772,21 @@ img {
         margin-bottom: 1.15rem;
     }
 
+    .article-toc {
+        padding: 0.75rem 1rem;
+        margin-bottom: 2rem;
+        max-width: 100%;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+    }
+
+    .article-toc__list a {
+        font-size: 0.85rem;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        hyphens: auto;
+    }
+
     .article-panel {
         padding: 0.85rem 0.9rem;
     }
@@ -2987,6 +3048,19 @@ img {
     .archive-select,
     .archive-clear-btn {
         font-size: 0.9rem;
+    }
+
+    .article-toc {
+        padding: 0.6rem 0.8rem;
+        margin-bottom: 1.875rem;
+    }
+
+    .article-toc__list {
+        padding-left: 1.15rem;
+    }
+
+    .article-toc__list a {
+        font-size: 0.82rem;
     }
 }
 
