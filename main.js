@@ -431,7 +431,7 @@ var EDITORIAL_TEAM = [
         credentials: 'U.S. Marine | Psychology Student, Penn State World Campus',
         institution: 'Penn State World Campus',
         bio: 'Psychology student at Penn State, active-duty Marine Corps Meteorology and Oceanography specialist, and Crisis Text Line volunteer.',
-        imagePath: 'Paulo.jpg',
+        imagePath: 'paulomurray.jpeg',
         imageAlt: 'Paulo Murray, Managing and Behavioral Science Editor of The Behavioral Review'
     },
     {
@@ -469,6 +469,15 @@ var EDITORIAL_TEAM = [
         bio: 'Biomedical Sciences student at the University of South Florida with experience analyzing scientific literature and conducting chemical research.',
         imagePath: 'Ilianis.jpg',
         imageAlt: 'Ilianis Badillo, Health Sciences Editor of The Behavioral Review'
+    },
+    {
+        name: 'Sisira Yerrajennu',
+        role: 'Health Sciences Editor',
+        credentials: 'Health Sciences Student, University of South Florida',
+        institution: 'University of South Florida',
+        bio: 'Sisira Yerrajennu is a Health Sciences student at the University of South Florida with experience in writing, researching, and analyzing STEM and humanities research.',
+        imagePath: 'Sisira.jpg',
+        imageAlt: 'Sisira Yerrajennu, Health Sciences Editor of The Behavioral Review'
     }
 ];
 
