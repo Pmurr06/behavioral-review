@@ -65,7 +65,7 @@ var ARTICLES = [
         title: 'Beyond the Diss Track: A Sociological Analysis of Kendrick Lamar\u2019s Not Like Us',
         authorId: 'luke-marshall',
         author: 'Luke Marshall',
-        major: 'Sociology',
+        major: 'Accounting',
         institution: 'University of Oregon',
         categories: ['Sociology & Anthropology'],
         displayCategory: 'Sociology',

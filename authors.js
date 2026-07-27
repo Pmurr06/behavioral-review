@@ -54,9 +54,9 @@
         'luke-marshall': {
             id: 'luke-marshall',
             name: 'Luke Marshall',
-            major: 'Sociology',
+            major: 'Accounting',
             institution: 'University of Oregon',
-            bio: 'Luke Marshall is a sociology student at the University of Oregon whose academic interests include social inequality, culture, race and ethnicity, and the sociology of popular media. His work explores how contemporary events and cultural products can be analyzed through classical and modern sociological theory.',
+            bio: 'Luke Marshall is an accounting student at the University of Oregon whose academic interests include social inequality, culture, race and ethnicity, and the sociology of popular media. His work explores how contemporary events and cultural products can be analyzed through classical and modern sociological theory.',
             profilePath: 'authors/luke-marshall.html'
         },
         'katie-nguyen': {
