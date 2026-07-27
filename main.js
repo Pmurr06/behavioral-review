@@ -5,6 +5,20 @@
    ============================================ */
 var ARTICLES = [
     {
+        title: 'The Moral Work of Anger',
+        authorId: 'braydon-perko',
+        author: 'Braydon Perko',
+        major: 'Business Administration',
+        institution: 'University of Oregon',
+        categories: ['Behavioral Science'],
+        displayCategory: 'Behavioral Science',
+        tags: ['Behavioral Science', 'Anger', 'Moral Philosophy', 'Post-Truth', 'Social Change', 'Justice', 'Activism', 'Political Theory'],
+        date: 'July 2026',
+        readingWordCount: 1227,
+        preview: 'Braydon Perko examines anger as a morally appropriate response to injustice, showing how it exposes deception, drives accountability, and powers social change.',
+        link: 'articles/the-moral-work-of-anger.html'
+    },
+    {
         title: 'Can AI Help Cure Writer\'s Block?',
         authorId: 'braydon-perko',
         author: 'Braydon Perko',
