@@ -1363,13 +1363,7 @@ function initRecentArticlesPage() {
 }
 
 function initHomepageLatestArticle() {
-    var feedEl = document.getElementById('homepage-latest-feed');
-    if (feedEl && PUBLISHED_ARTICLES.length > 0) {
-        feedEl.innerHTML = '';
-        feedEl.appendChild(buildPublicationCard(PUBLISHED_ARTICLES[0], { featured: true }));
-    }
-
-    renderCompactPublicationCollection('[data-home-newest-feed]', PUBLISHED_ARTICLES.slice(1, 5));
+    renderCompactPublicationCollection('[data-home-newest-feed]', PUBLISHED_ARTICLES.slice(0, 4));
 }
 
 function initCategoryPage() {

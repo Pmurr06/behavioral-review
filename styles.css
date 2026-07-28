@@ -4087,6 +4087,24 @@ button {
    Homepage hero — minimal variant overrides
    ============================================ */
 
+/* Short supporting description line below the journal title */
+.hero-description {
+    margin: 0 0 1rem;
+    font-size: 0.98rem;
+    color: var(--text-light);
+    line-height: 1.5;
+}
+
+/* Secondary mission statement line — prominent but below the title */
+.hero-mission-line {
+    margin: 0 0 0.5rem;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--navy);
+    line-height: 1.25;
+    font-family: 'Georgia', serif;
+}
+
 /* Tagline is left-aligned within the minimal single-column hero */
 .hero-section--minimal .hero-tagline {
     text-align: left;
@@ -4155,13 +4173,23 @@ button {
 
     .hero-section--minimal .hero-left h1,
     .hero-section--minimal .hero-headline {
-        font-size: clamp(1.75rem, 7vw, 2.4rem);
-        line-height: 1.15;
-        margin-bottom: 0.6rem;
+        font-size: clamp(1.85rem, 8vw, 2.6rem);
+        line-height: 1.1;
+        margin-bottom: 0.4rem;
+    }
+
+    .hero-section--minimal .hero-description {
+        font-size: 0.9rem;
+        margin-bottom: 0.75rem;
+    }
+
+    .hero-section--minimal .hero-mission-line {
+        font-size: 1.1rem;
+        margin-bottom: 0.4rem;
     }
 
     .hero-section--minimal .hero-subtitle {
-        font-size: 0.97rem;
+        font-size: 0.93rem;
         line-height: 1.55;
         margin-bottom: 1.1rem;
     }
