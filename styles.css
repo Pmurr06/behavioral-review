@@ -229,7 +229,7 @@ img {
 
 /* Minimal single-column hero (new homepage design) */
 .hero-section--minimal {
-    padding: 2.5rem 20px;
+    padding: 2.2rem 20px 2rem;
 }
 
 .hero-section--minimal .hero-left {
@@ -238,11 +238,11 @@ img {
 
 .hero-section--minimal .hero-left h1 {
     font-size: 2.6rem;
-    margin-bottom: 0.4rem;
+    margin-bottom: 0.5rem;
 }
 
 .hero-section--minimal .hero-subtitle {
-    margin-bottom: 1.25rem;
+    margin-bottom: 1.1rem;
 }
 
 /* Hero stats row */
@@ -4089,7 +4089,7 @@ button {
 
 /* Short supporting description line below the journal title */
 .hero-description {
-    margin: 0 0 1rem;
+    margin: 0 0 0.8rem;
     font-size: 0.98rem;
     color: var(--text-light);
     line-height: 1.5;
@@ -4149,7 +4149,7 @@ button {
 /* Mobile hero improvements for the minimal variant */
 @media (max-width: 768px) {
     .hero-section--minimal {
-        padding: 1.4rem 0 1.2rem;
+        padding: 1.15rem 0 1rem;
     }
 
     /* Slightly smaller, less pill-like buttons inside the minimal hero on mobile */
@@ -4173,14 +4173,14 @@ button {
 
     .hero-section--minimal .hero-left h1,
     .hero-section--minimal .hero-headline {
-        font-size: clamp(1.85rem, 8vw, 2.6rem);
+        font-size: clamp(1.8rem, 7.5vw, 2.3rem);
         line-height: 1.1;
         margin-bottom: 0.4rem;
     }
 
     .hero-section--minimal .hero-description {
         font-size: 0.9rem;
-        margin-bottom: 0.75rem;
+        margin-bottom: 0.65rem;
     }
 
     .hero-section--minimal .hero-mission-line {
@@ -4191,7 +4191,7 @@ button {
     .hero-section--minimal .hero-subtitle {
         font-size: 0.93rem;
         line-height: 1.55;
-        margin-bottom: 1.1rem;
+        margin-bottom: 0.95rem;
     }
 
     .hero-section--minimal .hero-tagline {
