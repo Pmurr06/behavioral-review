@@ -229,7 +229,7 @@ img {
 
 /* Minimal single-column hero (new homepage design) */
 .hero-section--minimal {
-    padding: 2rem 20px 1.7rem;
+    padding: 2.85rem 20px 2.35rem;
 }
 
 .hero-section--minimal .hero-left {
@@ -237,13 +237,13 @@ img {
 }
 
 .hero-section--minimal .hero-left h1 {
-    font-size: 2.6rem;
-    margin-bottom: 0.4rem;
+    font-size: 3.05rem;
+    margin-bottom: 1.2rem;
 }
 
 .hero-section--minimal .hero-subtitle {
-    max-width: 60ch;
-    margin-bottom: 0.95rem;
+    max-width: 52ch;
+    margin-bottom: 1.7rem;
 }
 
 /* Hero stats row */
@@ -3435,7 +3435,7 @@ button {
 }
 
 .hero-section--minimal + .main-content--dense {
-    padding-top: calc(var(--space-5) - 0.35rem);
+    padding-top: calc(var(--space-5) + 0.45rem);
 }
 
 .content-section,
@@ -4094,10 +4094,12 @@ button {
 
 /* Short supporting description line below the journal title */
 .hero-description {
-    margin: 0 0 0.55rem;
+    margin: 0 0 0.95rem;
+    max-width: 40ch;
     font-size: 0.98rem;
-    color: var(--text-light);
-    line-height: 1.5;
+    color: var(--navy-light);
+    line-height: 1.68;
+    font-weight: 400;
 }
 
 /* Secondary mission statement line — prominent but below the title */
@@ -4113,17 +4115,19 @@ button {
 /* Tagline is left-aligned within the minimal single-column hero */
 .hero-section--minimal .hero-tagline {
     text-align: left;
-    margin-top: 0.75rem;
-    font-size: 0.84rem;
+    margin: 0;
+    font-size: 0.82rem;
     color: var(--text-light);
-    line-height: 1.55;
+    line-height: 1.6;
+    letter-spacing: 0.01em;
 }
 
 /* Inline archive link inside the tagline */
 .hero-archive-link {
     display: inline-block;
     color: var(--text-light);
-    font-weight: 500;
+    font-weight: 400;
+    font-size: 0.82rem;
     text-decoration: none;
     border-bottom: 1px solid rgba(90, 108, 125, 0.45);
     padding-bottom: 0.05rem;
@@ -4132,6 +4136,67 @@ button {
 .hero-archive-link:hover {
     color: var(--navy);
     border-bottom-color: currentColor;
+}
+
+.hero-section--minimal .hero-headline,
+.hero-section--minimal .hero-left h1 {
+    margin-top: 0;
+    margin-bottom: 1.25rem;
+    font-size: clamp(2.8rem, 8vw, 4.15rem);
+    line-height: 1.03;
+}
+
+.hero-section--minimal .hero-description {
+    margin-bottom: 1rem;
+}
+
+.hero-section--minimal .hero-subtitle {
+    margin: 0 0 1.75rem;
+    max-width: 48ch;
+    font-size: 1rem;
+    line-height: 1.72;
+    color: var(--text-light);
+    font-weight: 400;
+}
+
+.hero-section--minimal .hero-actions {
+    margin: 0 0 1.25rem;
+    gap: 0.65rem;
+}
+
+.homepage-latest-section .section-heading--inline {
+    margin-bottom: 0.72rem;
+}
+
+.homepage-latest-grid {
+    gap: 1rem;
+    grid-auto-rows: 1fr;
+}
+
+.homepage-latest-grid .compact-publication-card {
+    height: 100%;
+    gap: 0.72rem;
+    padding: calc(var(--space-4) + 0.1rem);
+}
+
+.homepage-latest-grid .compact-publication-card h3 {
+    font-size: 1.16rem;
+    line-height: 1.35;
+}
+
+.homepage-latest-grid .compact-publication-card__meta {
+    margin-top: 0.1rem;
+}
+
+.homepage-latest-grid .compact-publication-card__summary {
+    margin-top: 0.2rem;
+    line-height: 1.62;
+}
+
+@media (min-width: 901px) {
+    .homepage-latest-grid .compact-publication-card:hover {
+        transform: translateY(-1px);
+    }
 }
 
 /* Disciplines list on About page */
@@ -4155,38 +4220,43 @@ button {
 /* Mobile hero improvements for the minimal variant */
 @media (max-width: 768px) {
     .hero-section--minimal {
-        padding: 1.1rem 0 0.95rem;
+        padding: 1.6rem 0 1.45rem;
+    }
+
+    .hero-section--minimal + .main-content--dense {
+        padding-top: var(--space-5);
     }
 
     /* Slightly smaller, less pill-like buttons inside the minimal hero on mobile */
     .hero-section--minimal .hero-actions .btn {
-        border-radius: 10px;
-        min-height: 46px;
-        padding: 0.7rem 1rem;
-        font-size: 0.93rem;
+        border-radius: 8px;
+        min-height: 42px;
+        padding: 0.58rem 0.9rem;
+        font-size: 0.88rem;
     }
 
-    /* Stack buttons and make them full-width */
+    /* Keep actions compact to avoid visual dominance on smaller screens */
     .hero-section--minimal .hero-actions {
-        flex-direction: column;
-        gap: 0.55rem;
+        gap: 0.5rem;
+        margin-bottom: 0.95rem;
     }
 
     .hero-section--minimal .hero-actions .btn {
-        width: 100%;
+        width: auto;
         text-align: center;
     }
 
     .hero-section--minimal .hero-left h1,
     .hero-section--minimal .hero-headline {
-        font-size: clamp(1.8rem, 7.5vw, 2.3rem);
-        line-height: 1.1;
-        margin-bottom: 0.4rem;
+        font-size: clamp(2.1rem, 8.2vw, 2.8rem);
+        line-height: 1.06;
+        margin-bottom: 0.95rem;
     }
 
     .hero-section--minimal .hero-description {
+        max-width: 37ch;
         font-size: 0.9rem;
-        margin-bottom: 0.5rem;
+        margin-bottom: 0.72rem;
     }
 
     .hero-section--minimal .hero-mission-line {
@@ -4195,15 +4265,28 @@ button {
     }
 
     .hero-section--minimal .hero-subtitle {
-        font-size: 0.93rem;
-        line-height: 1.55;
-        margin-bottom: 0.85rem;
+        max-width: 40ch;
+        font-size: 0.92rem;
+        line-height: 1.62;
+        margin-bottom: 1.2rem;
     }
 
     .hero-section--minimal .hero-tagline {
-        margin-top: 0.7rem;
+        margin-top: 0;
         font-size: 0.82rem;
         line-height: 1.5;
+    }
+
+    .homepage-latest-section .section-heading--inline {
+        margin-bottom: 0.65rem;
+    }
+
+    .homepage-latest-grid {
+        gap: 0.85rem;
+    }
+
+    .homepage-latest-grid .compact-publication-card {
+        padding: var(--space-4);
     }
 
     .about-disciplines-list {
