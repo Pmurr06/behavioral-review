@@ -233,7 +233,7 @@ img {
 }
 
 .hero-section--minimal .hero-left {
-    max-width: 700px;
+    max-width: 710px;
 }
 
 .hero-section--minimal .hero-left h1 {
@@ -4095,7 +4095,7 @@ button {
 /* Short supporting description line below the journal title */
 .hero-description {
     margin: 0 0 0.95rem;
-    max-width: 40ch;
+    max-width: 46ch;
     font-size: 0.98rem;
     color: var(--navy-light);
     line-height: 1.68;
@@ -4142,7 +4142,7 @@ button {
 .hero-section--minimal .hero-left h1 {
     margin-top: 0;
     margin-bottom: 1.25rem;
-    font-size: clamp(2.8rem, 8vw, 4.15rem);
+    font-size: clamp(2.55rem, 5.9vw, 3.1rem);
     line-height: 1.03;
 }
 
@@ -4152,7 +4152,7 @@ button {
 
 .hero-section--minimal .hero-subtitle {
     margin: 0 0 1.75rem;
-    max-width: 48ch;
+    max-width: 54ch;
     font-size: 1rem;
     line-height: 1.72;
     color: var(--text-light);
