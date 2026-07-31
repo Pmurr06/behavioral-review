@@ -7,7 +7,7 @@ var ARTICLES = [
     {
         title: 'Over-Reliance on AI and the Decline of Student Cognitive Skills',
         authorId: 'karthikeya-r-nandi',
-        author: 'Karthikeya R. Nandi',
+        author: 'Karthikeya Nandi',
         major: 'Biomedical Sciences',
         institution: 'University of South Florida',
         categories: ['Behavioral Science'],
@@ -15,7 +15,7 @@ var ARTICLES = [
         tags: ['Artificial Intelligence', 'Education', 'Critical Thinking', 'Decision-Making', 'Cognitive Psychology', 'Student Learning', 'Technology', 'Higher Education'],
         date: 'July 2026',
         readingWordCount: 3050,
-        preview: 'Karthikeya R. Nandi argues that growing student dependence on AI can come at a cognitive cost. When students prioritize fast answers over understanding, over-reliance may weaken conceptual learning, reduce attention, and erode independent decision-making. Drawing on evidence about note-taking, media multitasking, memory externalization, and AI trust effects, the article shows how convenience-driven usage can gradually displace critical engagement. Rather than rejecting AI, Nandi proposes that schools adopt AI literacy instruction, process-focused assignments, and explicit guidance that treats AI as a supplement to human thought, not a substitute.',
+        preview: 'Karthikeya Nandi argues that growing student dependence on AI can come at a cognitive cost. When students prioritize fast answers over understanding, over-reliance may weaken conceptual learning, reduce attention, and erode independent decision-making. Drawing on evidence about note-taking, media multitasking, memory externalization, and AI trust effects, the article shows how convenience-driven usage can gradually displace critical engagement. Rather than rejecting AI, Nandi proposes that schools adopt AI literacy instruction, process-focused assignments, and explicit guidance that treats AI as a supplement to human thought, not a substitute.',
         link: 'articles/over-reliance-on-ai-and-student-cognition.html'
     },
     {
