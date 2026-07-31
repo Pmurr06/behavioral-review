@@ -142,10 +142,10 @@
         },
         'karthikeya-r-nandi': {
             id: 'karthikeya-r-nandi',
-            name: 'Karthikeya R. Nandi',
+            name: 'Karthikeya Nandi',
             major: 'Biomedical Sciences',
             institution: 'University of South Florida',
-            bio: 'Karthikeya R. Nandi is a Biomedical Sciences student at the University of South Florida. His work examines artificial intelligence, cognition, and decision-making in educational settings.',
+            bio: 'Karthikeya Nandi is a Biomedical Sciences student at the University of South Florida. His work examines artificial intelligence, cognition, and decision-making in educational settings.',
             profilePath: 'authors/karthikeya-r-nandi.html'
         },
         'sisira-yerrajennu': {
