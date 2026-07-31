@@ -5,6 +5,20 @@
    ============================================ */
 var ARTICLES = [
     {
+        title: 'Work, Meaning, and the Search for Fulfillment: A Philosophical Reading of \u2018Office Space\u2019',
+        authorId: 'braydon-perko',
+        author: 'Braydon Perko',
+        major: 'Business Administration',
+        institution: 'University of Oregon',
+        categories: ['Philosophy'],
+        displayCategory: 'Philosophy',
+        tags: ['Philosophy', 'Film & Media', 'Film Analysis', 'Office Space', 'Meaningful Work', 'David Graeber', 'Immanuel Kant', 'John Stuart Mill', 'Work and Meaning', 'Utilitarianism'],
+        date: 'July 2026',
+        readingWordCount: 1550,
+        preview: 'Braydon Perko examines Office Space through the philosophical frameworks of David Graeber, Immanuel Kant, and John Stuart Mill, arguing that the dissatisfaction of Peter, Michael, and Samir reflects a broader failure of modern workplaces to provide the meaning, autonomy, and higher forms of satisfaction that genuine fulfillment requires.',
+        link: 'articles/office-space-work-meaning-autonomy-fulfillment.html'
+    },
+    {
         title: 'The Moral Work of Anger',
         authorId: 'braydon-perko',
         author: 'Braydon Perko',
