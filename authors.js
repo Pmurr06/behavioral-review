@@ -15,7 +15,8 @@
         'david-morgan': 'https://www.linkedin.com/in/david-morgan-16740935b/',
         'carson-wais': 'https://www.linkedin.com/in/carsonwais1/',
         'kelden-littell': 'https://www.linkedin.com/in/kelden-littell-534a21282/',
-        'radek-janout': 'https://www.linkedin.com/in/radek-janout-b0b44b338/'
+        'radek-janout': 'https://www.linkedin.com/in/radek-janout-b0b44b338/',
+        'karthikeya-r-nandi': 'https://www.linkedin.com/in/karthik-nandi-a4720831a/',
     };
 
     var AUTHOR_DIRECTORY = {
@@ -138,6 +139,14 @@
             institution: 'Montana State University',
             bio: 'Radek Janout is a Finance student at Montana State University. His academic interests include housing economics, public finance, urban development, real estate markets, and public policy. His work examines how economic incentives, financial markets, and institutional decision-making influence long-term community development and housing affordability.',
             profilePath: 'authors/radek-janout.html'
+        },
+        'karthikeya-r-nandi': {
+            id: 'karthikeya-r-nandi',
+            name: 'Karthikeya R. Nandi',
+            major: 'Biomedical Sciences',
+            institution: 'University of South Florida',
+            bio: 'Karthikeya R. Nandi is a Biomedical Sciences student at the University of South Florida. His work examines artificial intelligence, cognition, and decision-making in educational settings.',
+            profilePath: 'authors/karthikeya-r-nandi.html'
         },
         'sisira-yerrajennu': {
             id: 'sisira-yerrajennu',
