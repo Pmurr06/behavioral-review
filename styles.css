@@ -4399,9 +4399,11 @@ button {
         top: calc(50px + env(safe-area-inset-top, 0px));
     }
 
-    /* --- Article hero: compact top, generous bottom breathing room --- */
+    /* --- Article hero: compact, 24 px side padding, rounded bottom edge --- */
     .article-hero {
-        padding: 1.15rem 0 1.8rem;
+        padding: 1.15rem 24px 1.15rem;
+        border-radius: 0 0 28px 28px;
+        border-bottom: none;
     }
 
     /* Category pill: clear separation before title */
