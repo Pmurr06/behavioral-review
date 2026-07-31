@@ -2070,7 +2070,7 @@ img {
 
 .article-figure img {
     display: block;
-    max-width: 67%;
+    max-width: 100%;
     margin: 0 auto;
     border: 1px solid var(--border-color);
     border-radius: 4px;
