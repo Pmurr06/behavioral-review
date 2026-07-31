@@ -5,6 +5,20 @@
    ============================================ */
 var ARTICLES = [
     {
+        title: 'Over-Reliance on AI and the Decline of Student Cognitive Skills',
+        authorId: 'karthikeya-r-nandi',
+        author: 'Karthikeya R. Nandi',
+        major: 'Biomedical Sciences',
+        institution: 'University of South Florida',
+        categories: ['Behavioral Science'],
+        displayCategory: 'Behavioral Science',
+        tags: ['Artificial Intelligence', 'Education', 'Critical Thinking', 'Decision-Making', 'Cognitive Psychology', 'Student Learning', 'Technology', 'Higher Education'],
+        date: 'July 2026',
+        readingWordCount: 3050,
+        preview: 'Artificial intelligence is becoming routine in classrooms, but growing student dependence on AI can come at a cognitive cost. Karthikeya R. Nandi argues that over-reliance on AI may weaken conceptual learning, reduce attention control, and erode independent decision-making when students prioritize fast answers over understanding. Drawing from evidence on note-taking, media multitasking, memory externalization, and AI recommendation trust, the article shows how convenience can gradually displace critical engagement. Rather than rejecting AI, Nandi proposes a balanced path: AI literacy instruction, process-focused coursework, and explicit limits that keep students actively reasoning through problems. The central claim is clear—AI should supplement human thought, not replace it, if students are to preserve the skills they need for long-term academic and professional success.',
+        link: 'articles/over-reliance-on-ai-and-student-cognition.html'
+    },
+    {
         title: 'Work, Meaning, and the Search for Fulfillment: A Philosophical Reading of \u2018Office Space\u2019',
         authorId: 'braydon-perko',
         author: 'Braydon Perko',
