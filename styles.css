@@ -4338,3 +4338,129 @@ button {
         color: var(--text-light);
     }
 }
+
+/* ============================================
+   Mobile article page — premium editorial
+   redesign (max-width: 768px)
+   Overrides the 2026 refresh global rules
+   for article pages only on small screens.
+   ============================================ */
+
+/* "+X more" tag toggle button — shared style */
+.article-tag--more {
+    -webkit-appearance: none;
+    appearance: none;
+    font-family: inherit;
+    background-color: transparent;
+    border-color: rgba(26, 58, 82, 0.35);
+    color: var(--navy);
+    font-weight: 700;
+    cursor: pointer;
+    letter-spacing: 0.02em;
+}
+
+.article-tag--more:hover {
+    background-color: rgba(26, 58, 82, 0.07);
+    border-color: var(--navy);
+}
+
+@media (max-width: 768px) {
+    /* --- Navbar: shave a few pixels so more content shows on load --- */
+    .navbar {
+        padding: 0.48rem 0;
+    }
+
+    .site-logo {
+        width: 34px;
+        height: 34px;
+        min-width: 34px;
+    }
+
+    /* Keep the dropdown aligned with the slimmer header */
+    .nav-links {
+        top: calc(50px + env(safe-area-inset-top, 0px));
+    }
+
+    /* --- Article hero: compact top, generous bottom breathing room --- */
+    .article-hero {
+        padding: 1.15rem 0 1.8rem;
+    }
+
+    /* Category pill: clear separation before title */
+    .article-category-pill {
+        margin-bottom: 1.1rem;
+    }
+
+    /* Title: ~12% smaller so long titles land in 3-4 lines */
+    .article-title {
+        font-size: 1.62rem;
+        line-height: 1.22;
+        letter-spacing: -0.01em;
+        margin-bottom: 1.15rem;
+    }
+
+    /* Author name: tight coupling to affiliation below */
+    .article-byline {
+        font-size: 1.01rem;
+        margin-bottom: 0.2rem;
+    }
+
+    /* Degree + university on one compact line beneath the name */
+    .article-affiliation {
+        font-size: 0.88rem;
+        line-height: 1.38;
+        margin-bottom: 1rem;
+    }
+
+    /* Date + reading time only — hide the category (already shown as pill) */
+    .article-hero .article-meta > span:first-child {
+        display: none;
+    }
+
+    .article-meta {
+        display: flex;
+        flex-wrap: nowrap;
+        align-items: center;
+        gap: 0.3rem 0.72rem;
+        font-size: 0.87rem;
+        margin-bottom: 1.15rem;
+    }
+
+    /* Tags row: tighter vertical gap before body */
+    .article-tags {
+        gap: 0.38rem;
+        margin-bottom: 0;
+    }
+
+    /* Abstract card: larger radius, more padding, refined feel */
+    .article-panel {
+        padding: 1.3rem 1.4rem;
+        border-radius: 10px;
+    }
+
+    /* Abstract heading: strong uppercase label */
+    .article-panel h2 {
+        font-size: 0.78rem;
+        font-weight: 800;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--navy);
+        margin-bottom: 0.7rem;
+        padding: 0;
+        border: none;
+    }
+
+    /* Body text: slightly larger + more open for phone reading */
+    .article-body p,
+    .article-panel p {
+        font-size: 1.06rem;
+        line-height: 1.78;
+        margin-bottom: 1.1rem;
+    }
+
+    /* Article intro gap */
+    .article-intro {
+        gap: 1.05rem;
+        margin-bottom: 1.6rem;
+    }
+}

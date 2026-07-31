@@ -1605,13 +1605,38 @@ function initArticlePageTags() {
     var article = getCurrentArticle();
     if (!article || !Array.isArray(article.tags) || article.tags.length === 0) return;
 
+    var tags = article.tags;
+    var MOBILE_MAX = 5;
+    var isMobile = window.innerWidth <= 768;
+    var collapseNeeded = isMobile && tags.length > MOBILE_MAX;
+
     tagsEl.innerHTML = '';
-    article.tags.forEach(function (tag) {
+
+    var visibleTags = collapseNeeded ? tags.slice(0, MOBILE_MAX) : tags;
+    visibleTags.forEach(function (tag) {
         var tagSpan = document.createElement('span');
         tagSpan.className = 'article-tag';
         tagSpan.textContent = tag;
         tagsEl.appendChild(tagSpan);
     });
+
+    if (collapseNeeded) {
+        var remaining = tags.length - MOBILE_MAX;
+        var moreBtn = document.createElement('button');
+        moreBtn.className = 'article-tag article-tag--more';
+        moreBtn.textContent = '+' + remaining + ' more';
+        moreBtn.setAttribute('aria-label', 'Show ' + remaining + ' more tags');
+        moreBtn.addEventListener('click', function () {
+            tags.slice(MOBILE_MAX).forEach(function (tag) {
+                var tagSpan = document.createElement('span');
+                tagSpan.className = 'article-tag';
+                tagSpan.textContent = tag;
+                tagsEl.insertBefore(tagSpan, moreBtn);
+            });
+            moreBtn.remove();
+        });
+        tagsEl.appendChild(moreBtn);
+    }
 }
 
 document.addEventListener('DOMContentLoaded', function () {
