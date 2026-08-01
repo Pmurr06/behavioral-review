@@ -140,6 +140,14 @@
             bio: 'Radek Janout is a Finance student at Montana State University. His academic interests include housing economics, public finance, urban development, real estate markets, and public policy. His work examines how economic incentives, financial markets, and institutional decision-making influence long-term community development and housing affordability.',
             profilePath: 'authors/radek-janout.html'
         },
+        'georgia-lewis': {
+            id: 'georgia-lewis',
+            name: 'Georgia Lewis',
+            major: 'Art History',
+            institution: 'School of the Art Institute of Chicago',
+            bio: 'Georgia Lewis is an undergraduate Art History student at the School of the Art Institute of Chicago whose academic interests include photography, visual culture, and the history of art. Her work explores how photography documents everyday life while preserving cultural memory and historical perspective.',
+            profilePath: 'authors/georgia-lewis.html'
+        },
         'karthikeya-r-nandi': {
             id: 'karthikeya-r-nandi',
             name: 'Karthikeya Nandi',
