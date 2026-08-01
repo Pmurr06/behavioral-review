@@ -5,6 +5,20 @@
    ============================================ */
 var ARTICLES = [
     {
+        title: 'Diary of a Century: Jacques-Henri Lartigue and the Scope of Vernacular Photography',
+        authorId: 'georgia-lewis',
+        author: 'Georgia Lewis',
+        major: 'Art History',
+        institution: 'School of the Art Institute of Chicago',
+        categories: ['Arts & Humanities'],
+        displayCategory: 'Arts & Humanities',
+        tags: ['Photography', 'Art History', 'Visual Culture', 'Street Photography', 'History of Photography', 'Jacques-Henri Lartigue', 'Belle Époque', 'French History', 'Vernacular Photography'],
+        date: 'August 2026',
+        readingWordCount: 2100,
+        preview: 'Georgia Lewis examines Jacques-Henri Lartigue's Diary of a Century as a defining vernacular archive, showing how his childlike curiosity, elite social vantage, and fascination with motion transformed private memory into a lasting portrait of the Belle Époque.',
+        link: 'articles/jacques-henri-lartigue-vernacular-photography.html'
+    },
+    {
         title: 'Over-Reliance on AI and the Decline of Student Cognitive Skills',
         authorId: 'karthikeya-r-nandi',
         author: 'Karthikeya Nandi',

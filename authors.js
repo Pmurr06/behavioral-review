@@ -148,6 +148,14 @@
             bio: 'Karthikeya Nandi is a Biomedical Sciences student at the University of South Florida. His work examines artificial intelligence, cognition, and decision-making in educational settings.',
             profilePath: 'authors/karthikeya-r-nandi.html'
         },
+        'georgia-lewis': {
+            id: 'georgia-lewis',
+            name: 'Georgia Lewis',
+            major: 'Art History',
+            institution: 'School of the Art Institute of Chicago',
+            bio: 'Georgia Lewis is an undergraduate Art History student at the School of the Art Institute of Chicago whose academic interests include photography, visual culture, and the history of art. Her work explores how photography documents everyday life while preserving cultural memory and historical perspective.',
+            profilePath: 'authors/georgia-lewis.html'
+        },
         'sisira-yerrajennu': {
             id: 'sisira-yerrajennu',
             name: 'Sisira Yerrajennu',
