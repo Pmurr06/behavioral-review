@@ -2085,17 +2085,20 @@ img {
 }
 
 .article-body--uniform-figures .article-figure {
-    width: 100%;
+    width: min(100%, 700px);
     margin: 2rem auto;
     padding: 0;
 }
 
 .article-body--uniform-figures .article-figure img {
     width: 100%;
-    max-width: 700px;
-    height: auto;
+    aspect-ratio: 16 / 10;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+    background-color: #fff;
     display: block;
-    margin: 2rem auto;
+    margin: 0 auto;
 }
 
 .article-body--uniform-figures .article-figure figcaption {
