@@ -19,6 +19,7 @@
         'karthikeya-r-nandi': 'https://www.linkedin.com/in/karthik-nandi-a4720831a/',
     };
 
+
     var AUTHOR_DIRECTORY = {
         'braydon-perko': {
             id: 'braydon-perko',
@@ -157,6 +158,14 @@
             profilePath: 'authors/sisira-yerrajennu.html',
             imagePath: 'Sisira.jpg',
             imageAlt: 'Sisira Yerrajennu headshot'
+        },
+        'georgia-lewis': {
+            id: 'georgia-lewis',
+            name: 'Georgia Lewis',
+            major: 'Art History',
+            institution: 'School of the Art Institute of Chicago',
+            bio: 'Georgia Lewis is an undergraduate Art History student at the School of the Art Institute of Chicago whose academic interests include photography, visual culture, and the history of art. Her work explores how photography documents everyday life while preserving cultural memory and historical perspective.',
+            profilePath: 'authors/georgia-lewis.html'
         }
     };
 
