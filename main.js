@@ -5,6 +5,20 @@
    ============================================ */
 var ARTICLES = [
     {
+        title: 'Jacques-Henri Lartigue and the Scope of Vernacular Photography',
+        authorId: 'georgia-lewis',
+        author: 'Georgia Lewis',
+        major: 'Art History',
+        institution: 'School of the Art Institute of Chicago',
+        categories: ['Arts & Humanities'],
+        displayCategory: 'Arts & Humanities',
+        tags: ['Photography', 'Art History', 'Visual Culture', 'Street Photography', 'History of Photography', 'Jacques-Henri Lartigue', 'Belle \u00c9poque', 'French History', 'Vernacular Photography'],
+        date: 'August 2026',
+        readingWordCount: 2800,
+        preview: 'Georgia Lewis examines Jacques-Henri Lartigue\u2019s boyhood photography as a lens on vernacular photography, exploring how his childlike curiosity, economic privilege, and fascination with technological advancement produced a body of work that uniquely captured the Belle \u00c9poque from a perspective all its own.',
+        link: 'articles/vernacular-photography-lartigue.html'
+    },
+    {
         title: 'Over-Reliance on AI and the Decline of Student Cognitive Skills',
         authorId: 'karthikeya-r-nandi',
         author: 'Karthikeya Nandi',
@@ -1204,7 +1218,7 @@ function initArchivePage() {
     }());
 
     /* ── Category filter pills ── */
-    var categories = ['All', 'Behavioral Science', 'Philosophy', 'Psychology', 'Sociology & Anthropology', 'Law & Criminal Justice', 'Economics & Business', 'Global & International Affairs', 'Public Policy', 'Public Health'];
+    var categories = ['All', 'Arts & Humanities', 'Behavioral Science', 'Philosophy', 'Psychology', 'Sociology & Anthropology', 'Law & Criminal Justice', 'Economics & Business', 'Global & International Affairs', 'Public Policy', 'Public Health'];
     categories.forEach(function (cat) {
         var btn = document.createElement('button');
         btn.type = 'button';
