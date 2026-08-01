@@ -5,6 +5,20 @@
    ============================================ */
 var ARTICLES = [
     {
+        title: 'Capturing Wonder: Jacques-Henri Lartigue and the Art of Vernacular Photography',
+        authorId: 'georgia-lewis',
+        author: 'Georgia Lewis',
+        major: 'Art History',
+        institution: 'School of the Art Institute of Chicago',
+        categories: ['Arts & Humanities'],
+        displayCategory: 'Arts & Humanities',
+        tags: ['Photography', 'Art History', 'Visual Culture', 'Street Photography', 'History of Photography', 'Jacques-Henri Lartigue', 'Belle \u00c9poque', 'French History', 'Vernacular Photography'],
+        date: 'August 2026',
+        readingWordCount: 2600,
+        preview: 'Georgia Lewis examines Jacques-Henri Lartigue\u2019s vernacular photography through three qualities: his childlike genuineness, his economic standing and social class, and his fascination with the technological advancements of Belle \u00c9poque France. Drawing on Lartigue\u2019s boyhood photographs in Diary of a Century, Lewis shows how an affluent child\u2019s uninfluenced curiosity produced some of the most original and enduring images of the early twentieth century.',
+        link: 'articles/lartigue-vernacular-photography.html'
+    },
+    {
         title: 'Over-Reliance on AI and the Decline of Student Cognitive Skills',
         authorId: 'karthikeya-r-nandi',
         author: 'Karthikeya Nandi',
