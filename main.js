@@ -5,6 +5,20 @@
    ============================================ */
 var ARTICLES = [
     {
+        title: 'The Alien Invasion Has Already Happened: An Introduction to Afrofuturism',
+        authorId: 'georgia-lewis',
+        author: 'Georgia Lewis',
+        major: 'Art History',
+        institution: 'School of the Art Institute of Chicago',
+        categories: ['Arts & Humanities'],
+        displayCategory: 'Arts & Humanities',
+        tags: ['Afrofuturism', 'Art History', 'Visual Culture', 'Black Panther', 'The Wiz', 'Sun Ra', 'Robert Colescott', 'Photography', 'Cultural Studies', 'African Diaspora', 'Science Fiction', 'History', 'American Art'],
+        date: 'August 2026',
+        readingWordCount: 3200,
+        preview: 'Georgia Lewis introduces Afrofuturism through film, music, and art, arguing that for Black people the alien invasion of colonialism has already happened\u2014and that Afrofuturist artists from Sun Ra to Black Panther reclaim that narrative to imagine worlds of liberation. Drawing on examples including The Wiz (1978), Black Panther (2018), Sun Ra\u2019s Space Is the Place (1974), and Robert Colescott\u2019s painting Washington Carver Crossing the Delaware (1975), Lewis traces how the genre merges science fiction, technology, and African diasporic history to challenge colonial narratives and reimagine Black identity.',
+        link: 'articles/afrofuturism-and-invasion.html'
+    },
+    {
         title: 'Capturing Wonder: Jacques-Henri Lartigue and the Art of Vernacular Photography',
         authorId: 'georgia-lewis',
         author: 'Georgia Lewis',

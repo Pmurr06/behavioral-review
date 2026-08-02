@@ -164,7 +164,7 @@
             name: 'Georgia Lewis',
             major: 'Art History',
             institution: 'School of the Art Institute of Chicago',
-            bio: 'Georgia Lewis is an undergraduate Art History student at the School of the Art Institute of Chicago whose academic interests include photography, visual culture, and the history of art. Her work explores how photography documents everyday life while preserving cultural memory and historical perspective.',
+            bio: 'Georgia Lewis is an undergraduate Art History student at the School of the Art Institute of Chicago. Her academic interests include photography, visual culture, race, cultural history, and the role of art in shaping historical narratives. Georgia explores how visual media can reinterpret history, identity, and culture while examining the intersection of art, storytelling, and social change.',
             profilePath: 'authors/georgia-lewis.html'
         }
     };
