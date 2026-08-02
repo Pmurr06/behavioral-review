@@ -897,7 +897,7 @@ function buildPublicationCard(article, options) {
 
     card.appendChild(header);
 
-    if (Array.isArray(article.tags) && article.tags.length > 0) {
+    if (!settings.hideTags && Array.isArray(article.tags) && article.tags.length > 0) {
         var tagsEl = document.createElement('div');
         tagsEl.className = 'article-tags';
         article.tags.forEach(function (tag) {
@@ -944,7 +944,7 @@ function buildArticleCard(article) {
 
 /* Build an archive article card with clickable tag buttons */
 function buildArchiveCard(article, onTagClick) {
-    return buildPublicationCard(article, { clickableTags: true, onTagClick: onTagClick });
+    return buildPublicationCard(article, { clickableTags: true, onTagClick: onTagClick, hideTags: true });
 }
 
 function buildCompactPublicationCard(article) {
