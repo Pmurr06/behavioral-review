@@ -1106,9 +1106,10 @@ img {
 .editors-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 1.5rem;
-    max-width: 900px;
+    gap: 1.1rem;
+    max-width: 860px;
     margin: 0 auto;
+    align-items: stretch;
 }
 
 .editor-card {
@@ -1120,7 +1121,8 @@ img {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-top: 1.75rem;
+    height: 100%;
+    padding-top: 1.15rem;
     box-shadow: 0 2px 8px rgba(26, 58, 82, 0.07);
 }
 
@@ -1129,12 +1131,13 @@ img {
 }
 
 .editor-headshot {
-    width: 220px;
-    height: 260px;
+    width: min(100%, 220px);
+    height: 238px;
     overflow: hidden;
     background-color: var(--border-color);
     border-radius: 4px;
-    margin-bottom: 1.25rem;
+    margin-bottom: 0.9rem;
+    flex-shrink: 0;
 }
 
 .editor-headshot img {
@@ -1146,41 +1149,46 @@ img {
 }
 
 .editor-info {
-    padding: 0 1.5rem 1.75rem;
+    padding: 0 1.15rem 1.2rem;
     display: flex;
     flex-direction: column;
     text-align: left;
     width: 100%;
+    flex: 1;
 }
 
 .editor-info h3 {
     font-size: 1.1rem;
     color: var(--navy);
-    margin-bottom: 0.25rem;
+    margin-bottom: 0.2rem;
     border: none;
     padding: 0;
+    line-height: 1.2;
 }
 
 .editor-title {
-    font-size: 0.78rem;
+    font-size: 0.74rem;
     color: var(--text-light);
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.05em;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.35rem;
+    line-height: 1.35;
 }
 
 .editor-credentials {
-    font-size: 0.8rem;
+    font-size: 0.76rem;
     color: var(--navy);
     font-weight: 600;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.4rem;
+    line-height: 1.35;
 }
 
 .editor-bio {
-    font-size: 0.82rem;
+    font-size: 0.78rem;
     color: var(--text-dark);
-    line-height: 1.6;
+    line-height: 1.45;
+    margin-top: auto;
 }
 
 /* ============================================
@@ -2945,14 +2953,14 @@ img {
     }
 
     .editor-card {
-        padding: 1rem;
+        padding: 0.9rem;
     }
 
     .editor-headshot {
         width: min(100%, 180px);
-        height: auto;
-        aspect-ratio: 4 / 5;
-        margin-bottom: 0.8rem;
+        height: 170px;
+        aspect-ratio: auto;
+        margin-bottom: 0.7rem;
     }
 
     .editor-info {
@@ -2960,17 +2968,17 @@ img {
     }
 
     .editor-info h3 {
-        font-size: 1.1rem;
+        font-size: 1.02rem;
     }
 
     .editor-title,
     .editor-credentials {
-        font-size: 0.8rem;
+        font-size: 0.76rem;
     }
 
     .editor-bio {
-        font-size: 0.9rem;
-        line-height: 1.45;
+        font-size: 0.8rem;
+        line-height: 1.4;
     }
 
     .standards-grid,

@@ -514,7 +514,7 @@ var EDITORIAL_TEAM = [
         role: 'Managing & Behavioral Science Editor',
         credentials: 'U.S. Marine | Psychology Student, Penn State World Campus',
         institution: 'Penn State World Campus',
-        bio: 'Psychology student at Penn State, active-duty Marine Corps Meteorology and Oceanography specialist, and Crisis Text Line volunteer.',
+        bio: 'Psychology student at Penn State, active-duty Marine Corps meteorology specialist, and Crisis Text Line volunteer.',
         imagePath: 'Paulo-2.jpg',
         imageAlt: 'Paulo Murray, Managing and Behavioral Science Editor of The Behavioral Review'
     },
@@ -523,7 +523,7 @@ var EDITORIAL_TEAM = [
         role: 'Business & Economics Editor',
         credentials: 'Business Finance Student, Washington State University',
         institution: 'Washington State University',
-        bio: 'Business Finance student at Washington State University, VITA and TCE certified, and co-founder of Asnowco LLC.',
+        bio: 'Business Finance student at Washington State University, VITA and TCE certified, and Asnowco LLC co-founder.',
         imagePath: 'Carson.jpg',
         imageAlt: 'Carson Wais, Business and Economics Editor of The Behavioral Review'
     },
@@ -532,7 +532,7 @@ var EDITORIAL_TEAM = [
         role: 'Copy & Layout Editor',
         credentials: 'U.S. Marine | Writing Student, UMGC',
         institution: 'UMGC',
-        bio: 'Marine Corps Intelligence Specialist and Writing student at UMGC with experience in data analysis and technical reports.',
+        bio: 'Marine Corps intelligence specialist and Writing student at UMGC with experience in data analysis and technical reporting.',
         imagePath: 'Nathan.jpg',
         imageAlt: 'Nathan Isbell, Copy and Layout Editor of The Behavioral Review'
     },
@@ -541,7 +541,7 @@ var EDITORIAL_TEAM = [
         role: 'Design & Marketing Editor',
         credentials: 'U.S. Air Force Aviation Meteorologist',
         institution: '',
-        bio: 'U.S. Air Force aviation meteorologist supporting Army rotary-wing aircraft operations and managing TBR\'s social media.',
+        bio: 'U.S. Air Force aviation meteorologist supporting Army rotary-wing operations and managing TBR\'s social media.',
         imagePath: 'Nobrega.jpg',
         imageAlt: 'Brandon Nobrega, Design and Marketing Editor of The Behavioral Review'
     },
@@ -550,7 +550,7 @@ var EDITORIAL_TEAM = [
         role: 'Biomedical Sciences Editor',
         credentials: 'Biomedical Sciences Student, University of South Florida',
         institution: 'University of South Florida',
-        bio: 'Biomedical Sciences student at the University of South Florida with experience analyzing scientific literature and conducting chemical research.',
+        bio: 'Biomedical Sciences student at the University of South Florida with experience analyzing scientific literature and chemical research.',
         imagePath: 'Ilianis.jpg',
         imageAlt: 'Ilianis Badillo, Biomedical Sciences Editor of The Behavioral Review'
     },
@@ -559,7 +559,7 @@ var EDITORIAL_TEAM = [
         role: 'Health Sciences Editor',
         credentials: 'Health Sciences Student, University of South Florida',
         institution: 'University of South Florida',
-        bio: 'Sisira Yerrajennu is a Health Sciences student at the University of South Florida with experience in writing, researching, and analyzing STEM and humanities research.',
+        bio: 'Health Sciences student at the University of South Florida with experience writing and analyzing STEM and humanities research.',
         imagePath: 'Sisira.jpg',
         imageAlt: 'Sisira Yerrajennu, Health Sciences Editor of The Behavioral Review'
     }
