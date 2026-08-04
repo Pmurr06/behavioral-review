@@ -1720,4 +1720,194 @@ document.addEventListener('DOMContentLoaded', function () {
     initHomepageStats();
     initHomepageFeaturedEditors();
     initEditorialTeamPage();
+    initBulletinCarousel();
 });
+
+function initBulletinCarousel() {
+    const track = document.getElementById('bulletinTrack');
+    const dotsContainer = document.getElementById('bulletinDots');
+    if (!track || !dotsContainer) return;
+
+    const slides = Array.from(track.children);
+    const dots = Array.from(dotsContainer.querySelectorAll('.bulletin-dot'));
+    let current = 0;
+    let startX = 0;
+    let isDragging = false;
+
+    function goTo(index) {
+        current = Math.max(0, Math.min(index, slides.length - 1));
+        const slideWidth = slides[0].offsetWidth + parseInt(getComputedStyle(track).gap || '16', 10);
+        track.style.transform = `translateX(-${current * slideWidth}px)`;
+        dots.forEach((d, i) => {
+            d.classList.toggle('bulletin-dot--active', i === current);
+            d.setAttribute('aria-current', i === current ? 'true' : 'false');
+        });
+    }
+
+    dots.forEach((dot) => {
+        dot.addEventListener('click', () => goTo(parseInt(dot.dataset.index, 10)));
+    });
+
+    // Touch/swipe support
+    track.addEventListener('touchstart', (e) => {
+        startX = e.touches[0].clientX;
+        isDragging = true;
+    }, { passive: true });
+
+    track.addEventListener('touchend', (e) => {
+        if (!isDragging) return;
+        const diff = startX - e.changedTouches[0].clientX;
+        if (Math.abs(diff) > 40) {
+            goTo(diff > 0 ? current + 1 : current - 1);
+        }
+        isDragging = false;
+    }, { passive: true });
+
+    // Keyboard navigation
+    dotsContainer.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowLeft') goTo(current - 1);
+        if (e.key === 'ArrowRight') goTo(current + 1);
+    });
+}
+
+// ============================================
+// Bulletin Viewer
+// ============================================
+
+(function initBulletinViewer() {
+    const BULLETINS = {
+        '001': {
+            title: 'TBR Bulletin — Volume 001',
+            pages: [
+                { src: 'IMG_5898.png',       alt: 'Volume 001 — Cover' },
+                { src: 'IMG_5904(1).png',    alt: 'Volume 001 — Articles 1–5' },
+                { src: 'IMG_5905(1).png',    alt: 'Volume 001 — Articles 6–10' },
+                { src: 'IMG_5901(1).png',    alt: 'Volume 001 — Closing' }
+            ]
+        },
+        '002': {
+            title: 'TBR Bulletin — Volume 002',
+            pages: [
+                { src: 'IMG_5912.png',       alt: 'Volume 002 — Cover' },
+                { src: 'IMG_5913(2).png',    alt: 'Volume 002 — Articles 1–5' },
+                { src: 'IMG_5914.png',       alt: 'Volume 002 — Articles 6–10' },
+                { src: 'IMG_5915(1).png',    alt: 'Volume 002 — Closing' }
+            ]
+        },
+        '003': {
+            title: 'TBR Bulletin — Volume 003',
+            pages: [
+                { src: 'slide1_cover.jpeg',              alt: 'Volume 003 — Cover' },
+                { src: 'slide2_articles1-5(1).jpeg',     alt: 'Volume 003 — Articles 1–5' },
+                { src: 'slide3_articles6-10(1).jpeg',    alt: 'Volume 003 — Articles 6–10' },
+                { src: 'slide4_back(1).jpeg',            alt: 'Volume 003 — Closing' }
+            ]
+        }
+    };
+
+    let currentBulletin = null;
+    let currentPage = 0;
+    let touchStartX = 0;
+    let preloaded = {};
+    let openerEl = null;
+
+    const overlay = document.getElementById('bulletinViewer');
+    if (!overlay) return;
+
+    const bvTitle     = document.getElementById('bvTitle');
+    const bvIndicator = document.getElementById('bvIndicator');
+    const bvImage     = document.getElementById('bvImage');
+    const bvImageWrap = document.getElementById('bvImageWrap');
+    const bvClose     = document.getElementById('bvClose');
+    const bvPrev      = document.getElementById('bvPrev');
+    const bvNext      = document.getElementById('bvNext');
+    const bvBackdrop  = document.getElementById('bvBackdrop');
+
+    function preloadAdjacent(bulletin, pageIndex) {
+        const pages = BULLETINS[bulletin].pages;
+        [-1, 0, 1].forEach(offset => {
+            const i = pageIndex + offset;
+            if (i >= 0 && i < pages.length) {
+                const key = bulletin + ':' + i;
+                if (!preloaded[key]) {
+                    const img = new Image();
+                    img.src = pages[i].src;
+                    preloaded[key] = true;
+                }
+            }
+        });
+    }
+
+    function showPage(pageIndex, direction) {
+        const pages = BULLETINS[currentBulletin].pages;
+        currentPage = Math.max(0, Math.min(pageIndex, pages.length - 1));
+        const page = pages[currentPage];
+
+        // Fade transition
+        bvImageWrap.classList.remove('bv-fade-in');
+        void bvImageWrap.offsetWidth; // reflow
+        bvImage.src = page.src;
+        bvImage.alt = page.alt;
+        bvImageWrap.classList.add('bv-fade-in');
+
+        bvIndicator.textContent = (currentPage + 1) + ' / ' + pages.length;
+        bvPrev.disabled = currentPage === 0;
+        bvNext.disabled = currentPage === pages.length - 1;
+
+        preloadAdjacent(currentBulletin, currentPage);
+    }
+
+    function openViewer(bulletinKey) {
+        if (!BULLETINS[bulletinKey]) return;
+        currentBulletin = bulletinKey;
+        currentPage = 0;
+        bvTitle.textContent = BULLETINS[bulletinKey].title;
+        overlay.hidden = false;
+        overlay.removeAttribute('hidden');
+        overlay.classList.add('bv-visible');
+        document.body.style.overflow = 'hidden';
+        showPage(0);
+        bvClose.focus();
+    }
+
+    function closeViewer() {
+        overlay.classList.remove('bv-visible');
+        setTimeout(() => {
+            overlay.hidden = true;
+            document.body.style.overflow = '';
+            if (openerEl) { openerEl.focus(); openerEl = null; }
+        }, 250);
+    }
+
+    // Open via cover buttons
+    document.addEventListener('click', function(e) {
+        const btn = e.target.closest('[data-bulletin]');
+        if (btn) {
+            e.preventDefault();
+            openerEl = btn;
+            openViewer(btn.dataset.bulletin);
+        }
+    });
+
+    bvClose.addEventListener('click', closeViewer);
+    bvBackdrop.addEventListener('click', closeViewer);
+
+    bvPrev.addEventListener('click', () => showPage(currentPage - 1));
+    bvNext.addEventListener('click', () => showPage(currentPage + 1));
+
+    // Keyboard navigation
+    document.addEventListener('keydown', function(e) {
+        if (overlay.hidden) return;
+        if (e.key === 'Escape') closeViewer();
+        if (e.key === 'ArrowLeft')  showPage(currentPage - 1);
+        if (e.key === 'ArrowRight') showPage(currentPage + 1);
+    });
+
+    // Swipe support
+    const stage = document.getElementById('bvStage');
+    stage.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; }, { passive: true });
+    stage.addEventListener('touchend', e => {
+        const diff = touchStartX - e.changedTouches[0].clientX;
+        if (Math.abs(diff) > 45) showPage(diff > 0 ? currentPage + 1 : currentPage - 1);
+    }, { passive: true });
+})();

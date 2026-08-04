@@ -4560,3 +4560,639 @@ button {
         margin-bottom: 1.6rem;
     }
 }
+
+/* ============================================
+   Hero Two-Column Layout with Bulletin Archive
+   ============================================ */
+
+.hero-two-col {
+    display: flex;
+    align-items: flex-start;
+    gap: 3rem;
+}
+
+.hero-two-col .hero-left {
+    flex: 1 1 0;
+    min-width: 0;
+}
+
+/* Desktop bulletin archive panel */
+.hero-bulletin-archive {
+    flex: 0 0 290px;
+    width: 290px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    border-left: 1px solid var(--border-color);
+    padding-left: 2rem;
+    align-self: stretch;
+}
+
+.hero-bulletin-mobile {
+    display: none;
+}
+
+.bulletin-archive__eyebrow {
+    font-family: 'Georgia', serif;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--navy);
+    letter-spacing: 0.01em;
+    margin: 0;
+}
+
+.bulletin-archive__subtitle {
+    font-size: 0.78rem;
+    color: var(--text-light);
+    margin: 0 0 0.5rem;
+    line-height: 1.5;
+}
+
+.bulletin-covers {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    overflow-y: auto;
+    flex: 1;
+}
+
+.bulletin-cover-link {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.25rem;
+    cursor: pointer;
+    text-decoration: none;
+    transition: transform 0.22s ease;
+}
+
+.bulletin-cover-link:hover {
+    transform: translateY(-4px);
+}
+
+.bulletin-cover-link:hover .bulletin-cover-img {
+    box-shadow: 0 8px 24px rgba(26, 58, 82, 0.22);
+    filter: brightness(1.04);
+}
+
+.bulletin-cover-img {
+    width: 100%;
+    max-width: 250px;
+    height: auto;
+    display: block;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 2px 8px rgba(26, 58, 82, 0.09);
+    transition: box-shadow 0.22s ease, filter 0.22s ease;
+}
+
+.bulletin-cover-label {
+    font-size: 0.73rem;
+    color: var(--text-light);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    font-family: 'Georgia', serif;
+    margin-top: 0.15rem;
+}
+
+.bulletin-cover-cta {
+    font-size: 0.72rem;
+    color: var(--navy-light);
+    font-family: 'Georgia', serif;
+    font-style: italic;
+    letter-spacing: 0.01em;
+    opacity: 0.8;
+    transition: opacity 0.2s ease, color 0.2s ease;
+}
+
+.bulletin-cover-link:hover .bulletin-cover-cta {
+    opacity: 1;
+    color: var(--navy);
+}
+
+/* Mobile carousel */
+.bulletin-carousel {
+    overflow: hidden;
+    width: 100%;
+}
+
+.bulletin-carousel__track {
+    display: flex;
+    gap: 1rem;
+    transition: transform 0.35s ease;
+    will-change: transform;
+}
+
+.bulletin-carousel__track .bulletin-cover-link {
+    flex: 0 0 220px;
+    width: 220px;
+}
+
+.bulletin-carousel__track .bulletin-cover-img {
+    max-width: 220px;
+    width: 220px;
+}
+
+.bulletin-carousel__dots {
+    display: flex;
+    justify-content: center;
+    gap: 0.4rem;
+    margin-top: 0.75rem;
+}
+
+.bulletin-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--border-color);
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    transition: background 0.2s ease;
+}
+
+.bulletin-dot--active,
+.bulletin-dot:focus-visible {
+    background: var(--navy);
+    outline: none;
+}
+
+/* Mobile: hide desktop archive, show carousel */
+@media (max-width: 768px) {
+    .hero-two-col {
+        flex-direction: column;
+    }
+
+    .hero-bulletin-archive {
+        display: none;
+    }
+
+    .hero-bulletin-mobile {
+        display: block;
+        padding: 1.2rem 20px 0.5rem;
+        border-top: 1px solid var(--border-color);
+        margin-top: 0.5rem;
+    }
+
+    .hero-bulletin-mobile .bulletin-archive__eyebrow {
+        margin-bottom: 0.2rem;
+    }
+
+    .hero-bulletin-mobile .bulletin-archive__subtitle {
+        margin-bottom: 0.75rem;
+    }
+}
+
+/* ============================================
+   Bulletin Pages
+   ============================================ */
+
+.bulletin-page {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 2.5rem 20px 4rem;
+}
+
+.bulletin-page__header {
+    margin-bottom: 2.5rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.bulletin-page__cover {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    display: block;
+    margin: 0 auto 2rem;
+    box-shadow: 0 4px 24px rgba(26, 58, 82, 0.12);
+    border: 1px solid var(--border-color);
+}
+
+.bulletin-page__volume {
+    font-family: 'Georgia', serif;
+    font-size: 1.75rem;
+    color: var(--navy);
+    font-weight: 700;
+    margin: 0 0 0.25rem;
+    text-align: center;
+}
+
+.bulletin-page__date {
+    font-size: 0.88rem;
+    color: var(--text-light);
+    text-align: center;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+}
+
+.bulletin-page__meta {
+    display: flex;
+    justify-content: center;
+    gap: 2.5rem;
+    flex-wrap: wrap;
+    padding-top: 1.25rem;
+    border-top: 1px solid var(--border-color);
+}
+
+.bulletin-page__meta-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.15rem;
+}
+
+.bulletin-page__meta-number {
+    font-family: 'Georgia', serif;
+    font-size: 1.45rem;
+    font-weight: 700;
+    color: var(--navy);
+    line-height: 1;
+}
+
+.bulletin-page__meta-label {
+    font-size: 0.72rem;
+    color: var(--text-light);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+}
+
+.bulletin-page__pages {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+.bulletin-page__section-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 2px 12px rgba(26, 58, 82, 0.07);
+}
+
+.bulletin-page__section-label {
+    font-size: 0.75rem;
+    color: var(--text-light);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    text-align: center;
+    margin-top: 0.75rem;
+    font-family: 'Georgia', serif;
+}
+
+.bulletin-page__section-block {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Only show the side-by-side bulletin archive at wider viewports */
+@media (max-width: 899px) {
+    .hero-bulletin-archive {
+        display: none;
+    }
+
+    .hero-bulletin-mobile {
+        display: block;
+    }
+}
+
+@media (min-width: 900px) {
+    .hero-bulletin-mobile {
+        display: none;
+    }
+
+    .hero-bulletin-archive {
+        display: flex;
+    }
+}
+
+/* ============================================
+   Bulletin Cover Link — button reset
+   ============================================ */
+button.bulletin-cover-link {
+    background: none;
+    border: none;
+    padding: 0;
+    text-align: left;
+    cursor: pointer;
+    font-family: inherit;
+}
+
+/* ============================================
+   Bulletin Viewer Overlay
+   ============================================ */
+.bv-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 9000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s ease;
+}
+
+.bv-overlay.bv-visible {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.bv-overlay[hidden] {
+    display: none;
+}
+
+.bv-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(10, 18, 32, 0.88);
+    backdrop-filter: blur(4px);
+}
+
+.bv-container {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    width: min(960px, 96vw);
+    max-height: 96vh;
+    background: #fff;
+    border-radius: 4px;
+    box-shadow: 0 24px 80px rgba(0, 0, 0, 0.55);
+    overflow: hidden;
+}
+
+.bv-topbar {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.65rem 1.1rem 0.65rem 1.25rem;
+    border-bottom: 1px solid var(--border-color);
+    background: #fdfaf3;
+    flex-shrink: 0;
+}
+
+.bv-title {
+    flex: 1;
+    font-family: 'Georgia', serif;
+    font-size: 0.88rem;
+    font-weight: 700;
+    color: var(--navy);
+    letter-spacing: 0.01em;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.bv-indicator {
+    font-size: 0.78rem;
+    color: var(--text-light);
+    letter-spacing: 0.06em;
+    white-space: nowrap;
+}
+
+.bv-close {
+    background: none;
+    border: none;
+    font-size: 1.1rem;
+    color: var(--text-light);
+    cursor: pointer;
+    padding: 0.25rem 0.4rem;
+    border-radius: 3px;
+    line-height: 1;
+    transition: color 0.18s ease, background 0.18s ease;
+    flex-shrink: 0;
+}
+
+.bv-close:hover {
+    color: var(--navy);
+    background: rgba(26, 58, 82, 0.07);
+}
+
+.bv-stage {
+    flex: 1;
+    overflow: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+    background: #f5f3ee;
+    min-height: 0;
+}
+
+.bv-image-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 900px;
+    opacity: 0;
+    transition: opacity 0.28s ease;
+}
+
+.bv-image-wrap.bv-fade-in {
+    opacity: 1;
+}
+
+.bv-image {
+    display: block;
+    max-width: 100%;
+    max-height: calc(96vh - 120px);
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    box-shadow: 0 6px 32px rgba(0, 0, 0, 0.22);
+    border: 1px solid #ddd;
+}
+
+.bv-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.6rem 1.25rem;
+    border-top: 1px solid var(--border-color);
+    background: #fdfaf3;
+    flex-shrink: 0;
+}
+
+.bv-btn {
+    background: none;
+    border: 1px solid var(--border-color);
+    border-radius: 3px;
+    padding: 0.38rem 0.9rem;
+    font-family: 'Georgia', serif;
+    font-size: 0.82rem;
+    color: var(--navy);
+    cursor: pointer;
+    transition: background 0.18s ease, border-color 0.18s ease, transform 0.18s ease;
+}
+
+.bv-btn:hover:not(:disabled) {
+    background: var(--navy);
+    color: #fff;
+    border-color: var(--navy);
+}
+
+.bv-btn:disabled {
+    opacity: 0.3;
+    cursor: default;
+}
+
+@media (max-width: 600px) {
+    .bv-stage {
+        padding: 0.75rem;
+    }
+
+    .bv-image {
+        max-height: calc(96vh - 110px);
+    }
+
+    .bv-title {
+        font-size: 0.78rem;
+    }
+}
+
+/* ============================================
+   Awards — Featured Card Refinements
+   ============================================ */
+.featured-award-card {
+    background: linear-gradient(160deg, #ffffff 0%, #fbf8ef 100%);
+    border: 1px solid #e0d0a0;
+    border-top: 3px solid #c8a34d;
+    border-radius: 6px;
+    box-shadow: 0 4px 18px rgba(26, 58, 82, 0.07);
+    display: grid;
+    grid-template-columns: minmax(180px, 240px) minmax(0, 1fr);
+    gap: 2rem;
+    align-items: start;
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 1.75rem;
+    transition: transform 0.22s ease, box-shadow 0.22s ease;
+}
+
+.featured-award-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 28px rgba(26, 58, 82, 0.12);
+}
+
+.featured-award-image {
+    width: 100%;
+    max-width: 240px;
+    height: auto;
+    border-radius: 4px;
+    border: 1px solid var(--border-color);
+    object-fit: contain;
+    display: block;
+    margin: 0 auto;
+    box-shadow: 0 2px 12px rgba(26, 58, 82, 0.1);
+}
+
+.featured-award-content h3 {
+    font-size: 1.55rem;
+    margin-bottom: 0.25rem;
+    margin-top: 0.5rem;
+}
+
+.award-institution {
+    color: var(--navy);
+    font-weight: 600;
+    margin-bottom: 1rem;
+    font-size: 0.95rem;
+}
+
+.award-citation {
+    margin-bottom: 1.4rem;
+    line-height: 1.7;
+    color: var(--text-body, #444);
+}
+
+/* ============================================
+   Awards — Past Recipient Cards Refinements
+   ============================================ */
+.past-recipient-card {
+    background: #fdfaf2;
+    border: 1px solid #e0d0a0;
+    border-radius: 4px;
+    padding: 1.5rem 1.4rem;
+    transition: transform 0.22s ease, box-shadow 0.22s ease;
+    position: relative;
+}
+
+.past-recipient-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 3px;
+    height: 100%;
+    background: #c8a34d;
+    border-radius: 4px 0 0 4px;
+}
+
+.past-recipient-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(26, 58, 82, 0.1);
+}
+
+.past-recipient-card h3 {
+    font-size: 1.12rem;
+    margin-bottom: 0.2rem;
+    margin-top: 0.4rem;
+}
+
+.past-recipient-institution {
+    color: var(--navy);
+    font-size: 0.88rem;
+    margin-bottom: 0.8rem;
+}
+
+.past-recipient-card__meta {
+    margin-bottom: 0;
+}
+
+/* ============================================
+   Awards — Editorial Criteria Rows
+   ============================================ */
+.criteria-rows {
+    margin-top: 2rem;
+}
+
+.criteria-row {
+    padding: 1.4rem 0;
+    border-top: 1px solid #e0d0a0;
+}
+
+.criteria-row:last-child {
+    border-bottom: 1px solid #e0d0a0;
+}
+
+.criteria-row h4 {
+    font-family: 'Georgia', serif;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 0.4rem;
+    letter-spacing: 0.01em;
+}
+
+.criteria-row p {
+    margin: 0;
+    font-size: 0.93rem;
+    line-height: 1.7;
+    color: var(--text-body, #555);
+    max-width: 56ch;
+}
+
+@media (max-width: 640px) {
+    .featured-award-card {
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+        padding: 1.25rem;
+    }
+
+    .featured-award-image {
+        max-width: 180px;
+    }
+}
