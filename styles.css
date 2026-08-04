@@ -1207,50 +1207,52 @@ img {
    ============================================ */
 
 .featured-editors {
-    margin-bottom: 2rem;
+    margin-bottom: 3.5rem;
 }
 
 .featured-editors h2 {
     text-align: center;
-    border-bottom: 2px solid var(--navy);
-    padding-bottom: 0.75rem;
-    margin-bottom: 1.5rem;
+    font-size: clamp(1.5rem, 4vw, 2rem);
+    letter-spacing: 0.04em;
+    border-bottom: 1px solid rgba(26, 58, 82, 0.18);
+    padding-bottom: 0.9rem;
+    margin-bottom: 3rem;
 }
 
 .editors-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 1.1rem;
-    max-width: 860px;
+    gap: 3rem 2.5rem;
+    max-width: 960px;
     margin: 0 auto;
-    align-items: stretch;
+    align-items: start;
 }
 
 .editor-card {
-    background-color: var(--primary-white);
-    border: 1px solid var(--border-color);
-    border-radius: 8px;
-    overflow: hidden;
-    transition: box-shadow 0.3s ease;
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    overflow: visible;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    height: 100%;
-    padding-top: 1.15rem;
-    box-shadow: 0 2px 8px rgba(26, 58, 82, 0.07);
+    align-items: flex-start;
+    padding: 0;
+    box-shadow: none;
+    transition: none;
 }
 
-.editor-card:hover {
-    box-shadow: 0 6px 18px rgba(26, 58, 82, 0.13);
+.editor-card:hover .editor-headshot img {
+    opacity: 0.88;
+    transition: opacity 0.25s ease;
 }
 
 .editor-headshot {
-    width: min(100%, 220px);
-    height: 238px;
+    width: 100%;
+    height: 260px;
     overflow: hidden;
     background-color: var(--border-color);
-    border-radius: 4px;
-    margin-bottom: 0.9rem;
+    border-radius: 2px;
+    margin-bottom: 1.2rem;
     flex-shrink: 0;
 }
 
@@ -1258,51 +1260,56 @@ img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: center;
+    object-position: center top;
     display: block;
+    transition: opacity 0.25s ease;
 }
 
 .editor-info {
-    padding: 0 1.15rem 1.2rem;
+    padding: 0;
     display: flex;
     flex-direction: column;
     text-align: left;
     width: 100%;
-    flex: 1;
 }
 
 .editor-info h3 {
-    font-size: 1.1rem;
+    font-size: 1.35rem;
     color: var(--navy);
-    margin-bottom: 0.2rem;
+    margin-bottom: 0.3rem;
     border: none;
     padding: 0;
-    line-height: 1.2;
+    line-height: 1.15;
+    font-weight: 700;
+    letter-spacing: 0.01em;
 }
 
 .editor-title {
-    font-size: 0.74rem;
+    font-size: 0.68rem;
     color: var(--text-light);
-    font-weight: 600;
+    font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 0.05em;
-    margin-bottom: 0.35rem;
-    line-height: 1.35;
+    letter-spacing: 0.1em;
+    margin-bottom: 0.3rem;
+    line-height: 1.4;
 }
 
 .editor-credentials {
-    font-size: 0.76rem;
-    color: var(--navy);
-    font-weight: 600;
-    margin-bottom: 0.4rem;
-    line-height: 1.35;
+    font-size: 0.8rem;
+    color: var(--navy-light);
+    font-weight: 500;
+    margin-bottom: 0.75rem;
+    line-height: 1.4;
+    border-top: 1px solid rgba(26, 58, 82, 0.1);
+    padding-top: 0.5rem;
+    margin-top: 0.1rem;
 }
 
 .editor-bio {
-    font-size: 0.78rem;
-    color: var(--text-dark);
-    line-height: 1.45;
-    margin-top: auto;
+    font-size: 0.82rem;
+    color: var(--text-light);
+    line-height: 1.6;
+    font-style: italic;
 }
 
 /* ============================================
@@ -2488,9 +2495,14 @@ img {
 
 @media (max-width: 900px) {
     .hero-container,
-    .footer-content,
+    .footer-content {
+        grid-template-columns: 1fr;
+    }
+
     .editors-grid {
         grid-template-columns: 1fr;
+        gap: 2.5rem;
+        max-width: 520px;
     }
 
     .submission-fields-grid,
@@ -3063,36 +3075,20 @@ img {
     }
 
     .editors-grid {
-        gap: 0.9rem;
-    }
-
-    .editor-card {
-        padding: 0.9rem;
+        gap: 2rem 1.75rem;
     }
 
     .editor-headshot {
-        width: min(100%, 180px);
-        height: 170px;
-        aspect-ratio: auto;
-        margin-bottom: 0.7rem;
-    }
-
-    .editor-info {
-        padding: 0;
+        height: 220px;
     }
 
     .editor-info h3 {
-        font-size: 1.02rem;
-    }
-
-    .editor-title,
-    .editor-credentials {
-        font-size: 0.76rem;
+        font-size: 1.2rem;
     }
 
     .editor-bio {
         font-size: 0.8rem;
-        line-height: 1.4;
+        line-height: 1.55;
     }
 
     .help-grid,
@@ -3481,7 +3477,6 @@ button {
 .contact-box,
 .contact-step,
 .process-step,
-.editor-card,
 .featured-award-card,
 .future-award-card {
     border: 1px solid rgba(26, 58, 82, 0.1);
@@ -3515,7 +3510,6 @@ button {
 .contact-box,
 .contact-step,
 .process-step,
-.editor-card,
 .future-award-card {
     padding: var(--space-4);
 }
@@ -3533,8 +3527,7 @@ button {
 .team-member-card,
 .past-recipient-card,
 .process-step,
-.author-profile-card,
-.editor-card {
+.author-profile-card {
     border-left: 4px solid var(--navy);
 }
 
@@ -3597,13 +3590,11 @@ button {
 
 .content-section,
 .about-section,
-.team-section,
-.featured-editors {
+.team-section {
     margin-bottom: var(--space-5);
 }
 
 .content-section h2,
-.featured-editors h2,
 .team-section h3,
 .about-section h3 {
     margin-bottom: 0.9rem;
@@ -3687,8 +3678,7 @@ button {
 .social-follow-grid,
 .values-grid,
 .past-recipients-grid,
-.what-coming-grid,
-.editors-grid {
+.what-coming-grid {
     display: grid;
     gap: 0.9rem;
 }
@@ -4100,9 +4090,13 @@ button {
     .compact-publication-grid,
     .values-grid,
     .past-recipients-grid,
-    .what-coming-grid,
+    .what-coming-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
     .editors-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 2.5rem 2rem;
     }
 
     .archive-stats-bar {
@@ -4198,9 +4192,14 @@ button {
     .help-grid--compact,
     .social-follow-grid,
     .values-grid,
-    .past-recipients-grid,
+    .past-recipients-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
     .editors-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 3rem 2.5rem;
+        max-width: 960px;
     }
 
     .archive-secondary-filters {
