@@ -1780,27 +1780,27 @@ function initBulletinCarousel() {
             title: 'TBR Bulletin — Volume 001',
             pages: [
                 { src: 'IMG_5898.png',       alt: 'Volume 001 — Cover' },
-                { src: 'IMG_5904(1).png',    alt: 'Volume 001 — Articles 1–5' },
-                { src: 'IMG_5905(1).png',    alt: 'Volume 001 — Articles 6–10' },
-                { src: 'IMG_5901(1).png',    alt: 'Volume 001 — Closing' }
+                { src: 'IMG_5904.png',       alt: 'Volume 001 — Page 2' },
+                { src: 'IMG_5905.png',       alt: 'Volume 001 — Page 3' },
+                { src: 'IMG_5906.png',       alt: 'Volume 001 — Page 4' }
             ]
         },
         '002': {
             title: 'TBR Bulletin — Volume 002',
             pages: [
                 { src: 'IMG_5912.png',       alt: 'Volume 002 — Cover' },
-                { src: 'IMG_5913(2).png',    alt: 'Volume 002 — Articles 1–5' },
-                { src: 'IMG_5914.png',       alt: 'Volume 002 — Articles 6–10' },
-                { src: 'IMG_5915(1).png',    alt: 'Volume 002 — Closing' }
+                { src: 'IMG_5910(1).png',    alt: 'Volume 002 — Page 2' },
+                { src: 'IMG_5911(1).png',    alt: 'Volume 002 — Page 3' },
+                { src: 'IMG_5913(1).png',    alt: 'Volume 002 — Page 4' }
             ]
         },
         '003': {
             title: 'TBR Bulletin — Volume 003',
             pages: [
                 { src: 'slide1_cover.jpeg',              alt: 'Volume 003 — Cover' },
-                { src: 'slide2_articles1-5(1).jpeg',     alt: 'Volume 003 — Articles 1–5' },
-                { src: 'slide3_articles6-10(1).jpeg',    alt: 'Volume 003 — Articles 6–10' },
-                { src: 'slide4_back(1).jpeg',            alt: 'Volume 003 — Closing' }
+                { src: 'slide2_articles1-5.jpeg',        alt: 'Volume 003 — Page 2' },
+                { src: 'slide3_articles6-10.jpeg',       alt: 'Volume 003 — Page 3' },
+                { src: 'slide4_end.jpeg',                alt: 'Volume 003 — Page 4' }
             ]
         }
     };
@@ -1825,7 +1825,7 @@ function initBulletinCarousel() {
 
     function preloadAdjacent(bulletin, pageIndex) {
         const pages = BULLETINS[bulletin].pages;
-        [-1, 0, 1].forEach(offset => {
+        [-1, 1].forEach(offset => {
             const i = pageIndex + offset;
             if (i >= 0 && i < pages.length) {
                 const key = bulletin + ':' + i;
@@ -1843,7 +1843,6 @@ function initBulletinCarousel() {
         currentPage = Math.max(0, Math.min(pageIndex, pages.length - 1));
         const page = pages[currentPage];
 
-        // Fade transition
         bvImageWrap.classList.remove('bv-fade-in');
         void bvImageWrap.offsetWidth; // reflow
         bvImage.src = page.src;
@@ -1866,6 +1865,7 @@ function initBulletinCarousel() {
         overlay.removeAttribute('hidden');
         overlay.classList.add('bv-visible');
         document.body.style.overflow = 'hidden';
+        preloaded = {};
         showPage(0);
         bvClose.focus();
     }
