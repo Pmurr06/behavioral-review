@@ -5,6 +5,20 @@
    ============================================ */
 var ARTICLES = [
     {
+        title: 'Balancing Climate Policy with Economic Interests',
+        authorId: 'braydon-perko',
+        author: 'Braydon Perko',
+        major: 'Business Administration',
+        institution: 'University of Oregon',
+        categories: ['Economics & Business'],
+        displayCategory: 'Economics & Business',
+        tags: ['Climate Policy', 'Renewable Energy', 'Fossil Fuels', 'GDP', 'Sea Level Rise', 'Environmental Economics', 'Public Policy', 'Climate Change'],
+        date: 'August 2026',
+        readingWordCount: 2111,
+        preview: 'Braydon Perko argues that the economic cost of waiting on climate action now exceeds the upfront cost of transitioning to renewable energy, pointing to rising disaster losses, hidden fossil-fuel costs, GDP projections, and sea-level risk as evidence that immediate policy action is the more fiscally responsible path.',
+        link: 'articles/balancing-climate-policy-with-economic-interests.html'
+    },
+    {
         title: 'The Alien Invasion Has Already Happened: An Introduction to Afrofuturism',
         authorId: 'georgia-lewis',
         author: 'Georgia Lewis',
