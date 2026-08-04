@@ -1809,6 +1809,7 @@ function initBulletinCarousel() {
     let currentPage = 0;
     let touchStartX = 0;
     let preloaded = {};
+    let openerEl = null;
 
     const overlay = document.getElementById('bulletinViewer');
     if (!overlay) return;
@@ -1874,6 +1875,7 @@ function initBulletinCarousel() {
         setTimeout(() => {
             overlay.hidden = true;
             document.body.style.overflow = '';
+            if (openerEl) { openerEl.focus(); openerEl = null; }
         }, 250);
     }
 
@@ -1882,6 +1884,7 @@ function initBulletinCarousel() {
         const btn = e.target.closest('[data-bulletin]');
         if (btn) {
             e.preventDefault();
+            openerEl = btn;
             openViewer(btn.dataset.bulletin);
         }
     });
