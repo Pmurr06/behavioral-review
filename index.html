@@ -103,19 +103,16 @@
     <div class="bv-overlay" id="bulletinViewer" role="dialog" aria-modal="true" aria-label="Bulletin Viewer" hidden>
         <div class="bv-backdrop" id="bvBackdrop"></div>
         <div class="bv-container">
-            <div class="bv-topbar">
-                <span class="bv-title" id="bvTitle"></span>
-                <span class="bv-indicator" id="bvIndicator"></span>
-                <button class="bv-close" id="bvClose" aria-label="Close bulletin viewer">&#x2715;</button>
-            </div>
+            <button class="bv-close" id="bvClose" aria-label="Close bulletin viewer">&#x2715;</button>
             <div class="bv-stage" id="bvStage">
+                <button class="bv-arrow bv-arrow--prev" id="bvPrev" aria-label="Previous page">&#8249;</button>
                 <div class="bv-image-wrap" id="bvImageWrap">
                     <img class="bv-image" id="bvImage" alt="" draggable="false">
                 </div>
+                <button class="bv-arrow bv-arrow--next" id="bvNext" aria-label="Next page">&#8250;</button>
             </div>
-            <div class="bv-controls">
-                <button class="bv-btn bv-prev" id="bvPrev" aria-label="Previous page">&#8592; Prev</button>
-                <button class="bv-btn bv-next" id="bvNext" aria-label="Next page">Next &#8594;</button>
+            <div class="bv-footer">
+                <span class="bv-indicator" id="bvIndicator"></span>
             </div>
         </div>
     </div>

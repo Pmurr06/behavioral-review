@@ -4888,6 +4888,9 @@ button.bulletin-cover-link {
 /* ============================================
    Bulletin Viewer Overlay
    ============================================ */
+/* ============================================
+   Bulletin Viewer — Premium Digital Publication
+   ============================================ */
 .bv-overlay {
     position: fixed;
     inset: 0;
@@ -4912,8 +4915,9 @@ button.bulletin-cover-link {
 .bv-backdrop {
     position: absolute;
     inset: 0;
-    background: rgba(10, 18, 32, 0.88);
-    backdrop-filter: blur(4px);
+    background: rgba(8, 14, 26, 0.82);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
 }
 
 .bv-container {
@@ -4921,162 +4925,137 @@ button.bulletin-cover-link {
     z-index: 1;
     display: flex;
     flex-direction: column;
-    width: min(960px, 96vw);
-    max-height: 96vh;
-    min-height: min(720px, 96vh);
+    align-items: center;
+    width: 100%;
+    max-width: 96vw;
     background: transparent;
-    border-radius: 0;
-    box-shadow: none;
     overflow: visible;
 }
 
-.bv-topbar {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    padding: 0.65rem 1.1rem 0.65rem 1.25rem;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.16);
-    background: rgba(12, 18, 30, 0.52);
-    flex-shrink: 0;
-    color: #fff;
-    backdrop-filter: blur(12px);
-    border-radius: 18px 18px 0 0;
-}
-
-.bv-title {
-    flex: 1;
-    font-family: 'Georgia', serif;
-    font-size: 0.88rem;
-    font-weight: 700;
-    color: #fff;
-    letter-spacing: 0.01em;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-
-.bv-indicator {
-    font-size: 0.78rem;
-    color: rgba(255, 255, 255, 0.8);
-    letter-spacing: 0.06em;
-    white-space: nowrap;
-}
-
+/* Close button — top-right corner */
 .bv-close {
-    background: none;
-    border: 1px solid rgba(255, 255, 255, 0.16);
-    font-size: 1.1rem;
-    color: rgba(255, 255, 255, 0.88);
+    position: fixed;
+    top: 1.1rem;
+    right: 1.25rem;
+    z-index: 10;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.9);
     cursor: pointer;
-    padding: 0.25rem 0.4rem;
-    border-radius: 3px;
+    padding: 0.3rem 0.55rem;
+    border-radius: 50%;
     line-height: 1;
-    transition: color 0.18s ease, background 0.18s ease;
-    flex-shrink: 0;
+    transition: color 0.2s ease, background 0.2s ease;
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
 }
 
 .bv-close:hover {
     color: #fff;
-    background: rgba(255, 255, 255, 0.12);
+    background: rgba(255, 255, 255, 0.2);
 }
 
+/* Stage — horizontal row with floating arrows flanking the image */
 .bv-stage {
-    flex: 1;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 1.25rem 0;
-    background: transparent;
-    min-height: 0;
-    overflow: hidden;
+    gap: 1.25rem;
+    width: 100%;
+    padding: 0;
 }
 
+/* Floating side arrows */
+.bv-arrow {
+    flex-shrink: 0;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.24);
+    border-radius: 50%;
+    width: 2.8rem;
+    height: 2.8rem;
+    font-size: 2rem;
+    line-height: 1;
+    color: rgba(255, 255, 255, 0.9);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+}
+
+.bv-arrow:hover:not(:disabled) {
+    background: rgba(255, 255, 255, 0.22);
+    color: #fff;
+    transform: scale(1.08);
+}
+
+.bv-arrow:disabled {
+    opacity: 0.2;
+    cursor: default;
+}
+
+/* Image wrapper — fade transition */
 .bv-image-wrap {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 100%;
-    max-width: 960px;
-    height: 100%;
     opacity: 0;
-    transition: opacity 0.28s ease;
+    transition: opacity 0.22s ease;
 }
 
 .bv-image-wrap.bv-fade-in {
     opacity: 1;
 }
 
+/* The bulletin page itself — floats naturally, fills ~90vh */
 .bv-image {
     display: block;
-    width: 100%;
-    max-width: 960px;
-    max-height: calc(96vh - 168px);
-    height: 100%;
+    max-height: 90vh;
+    max-width: calc(96vw - 8rem); /* leave room for arrows */
+    width: auto;
+    height: auto;
     object-fit: contain;
-    box-shadow: 0 6px 32px rgba(0, 0, 0, 0.22);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 18px;
-    background: rgba(255, 255, 255, 0.96);
+    border-radius: 6px;
+    box-shadow: 0 8px 48px rgba(0, 0, 0, 0.55), 0 2px 12px rgba(0, 0, 0, 0.3);
 }
 
-.bv-controls {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0.6rem 1.25rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.16);
-    background: rgba(12, 18, 30, 0.52);
-    flex-shrink: 0;
-    backdrop-filter: blur(12px);
-    border-radius: 0 0 18px 18px;
+/* Indicator below image */
+.bv-footer {
+    margin-top: 0.9rem;
+    text-align: center;
 }
 
-.bv-btn {
-    background: rgba(255, 255, 255, 0.08);
-    border: 1px solid rgba(255, 255, 255, 0.18);
-    border-radius: 999px;
-    padding: 0.38rem 0.9rem;
+.bv-indicator {
     font-family: 'Georgia', serif;
     font-size: 0.82rem;
-    color: #fff;
-    cursor: pointer;
-    transition: background 0.18s ease, border-color 0.18s ease, transform 0.18s ease;
-}
-
-.bv-btn:hover:not(:disabled) {
-    background: rgba(255, 255, 255, 0.18);
-    color: #fff;
-    border-color: rgba(255, 255, 255, 0.28);
-}
-
-.bv-btn:disabled {
-    opacity: 0.3;
-    cursor: default;
+    color: rgba(255, 255, 255, 0.75);
+    letter-spacing: 0.06em;
+    white-space: nowrap;
 }
 
 @media (max-width: 600px) {
-    .bv-container {
-        width: 100vw;
-        min-height: 100vh;
-        max-height: 100vh;
-    }
-
-    .bv-topbar,
-    .bv-controls {
-        border-radius: 0;
-    }
-
     .bv-stage {
-        padding: 0.75rem 0;
+        gap: 0.6rem;
+    }
+
+    .bv-arrow {
+        width: 2.2rem;
+        height: 2.2rem;
+        font-size: 1.5rem;
     }
 
     .bv-image {
-        max-height: calc(100vh - 154px);
-        border-radius: 0;
+        max-height: 85vh;
+        max-width: calc(100vw - 5.5rem);
+        border-radius: 4px;
     }
 
-    .bv-title {
-        font-size: 0.78rem;
+    .bv-close {
+        top: 0.6rem;
+        right: 0.75rem;
     }
 }
 
