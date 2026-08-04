@@ -1232,13 +1232,11 @@ img {
     background: #fff;
     border: 1px solid rgba(26, 58, 82, 0.1);
     border-radius: 20px;
-    overflow: hidden;
     display: flex;
     flex-direction: row;
     align-items: flex-start;
     gap: 0.95rem;
     padding: 18px;
-    min-height: 240px;
     box-shadow: 0 4px 12px rgba(26, 58, 82, 0.04);
     transition: box-shadow 0.2s ease;
 }
@@ -1314,10 +1312,6 @@ img {
     line-height: 1.45;
     font-style: normal;
     margin: 0;
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
 }
 
 /* ============================================
