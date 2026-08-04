@@ -1777,30 +1777,27 @@ function initBulletinCarousel() {
 (function initBulletinViewer() {
     const BULLETINS = {
         '001': {
-            title: 'TBR Bulletin — Volume 001',
+            title: 'Volume 001',
             pages: [
                 { src: 'IMG_5898.png',       alt: 'Volume 001 — Cover' },
                 { src: 'IMG_5904.png',       alt: 'Volume 001 — Page 2' },
-                { src: 'IMG_5905.png',       alt: 'Volume 001 — Page 3' },
-                { src: 'IMG_5901.png',       alt: 'Volume 001 — Page 4' }
+                { src: 'IMG_5905.png',       alt: 'Volume 001 — Page 3' }
             ]
         },
         '002': {
-            title: 'TBR Bulletin — Volume 002',
+            title: 'Volume 002',
             pages: [
                 { src: 'IMG_5912.png',       alt: 'Volume 002 — Cover' },
                 { src: 'IMG_5913.png',       alt: 'Volume 002 — Page 2' },
-                { src: 'IMG_5914.png',       alt: 'Volume 002 — Page 3' },
-                { src: 'IMG_5915.png',       alt: 'Volume 002 — Page 4' }
+                { src: 'IMG_5914.png',       alt: 'Volume 002 — Page 3' }
             ]
         },
         '003': {
-            title: 'TBR Bulletin — Volume 003',
+            title: 'Volume 003',
             pages: [
                 { src: 'slide1_cover.jpeg',              alt: 'Volume 003 — Cover' },
                 { src: 'slide2_articles1-5.jpeg',        alt: 'Volume 003 — Page 2' },
-                { src: 'slide3_articles6-10.jpeg',       alt: 'Volume 003 — Page 3' },
-                { src: 'slide4_end.jpeg',                alt: 'Volume 003 — Page 4' }
+                { src: 'slide3_articles6-10.jpeg',       alt: 'Volume 003 — Page 3' }
             ]
         }
     };
@@ -1814,7 +1811,6 @@ function initBulletinCarousel() {
     const overlay = document.getElementById('bulletinViewer');
     if (!overlay) return;
 
-    const bvTitle     = document.getElementById('bvTitle');
     const bvIndicator = document.getElementById('bvIndicator');
     const bvImage     = document.getElementById('bvImage');
     const bvImageWrap = document.getElementById('bvImageWrap');
@@ -1849,7 +1845,7 @@ function initBulletinCarousel() {
         bvImage.alt = page.alt;
         bvImageWrap.classList.add('bv-fade-in');
 
-        bvIndicator.textContent = (currentPage + 1) + ' / ' + pages.length;
+        bvIndicator.textContent = BULLETINS[currentBulletin].title + ' \u2022 ' + (currentPage + 1) + ' of 3';
         bvPrev.disabled = currentPage === 0;
         bvNext.disabled = currentPage === pages.length - 1;
 
@@ -1860,7 +1856,6 @@ function initBulletinCarousel() {
         if (!BULLETINS[bulletinKey]) return;
         currentBulletin = bulletinKey;
         currentPage = 0;
-        bvTitle.textContent = BULLETINS[bulletinKey].title;
         overlay.hidden = false;
         overlay.removeAttribute('hidden');
         overlay.classList.add('bv-visible');
