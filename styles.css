@@ -5491,20 +5491,49 @@ button.bulletin-cover-link {
 
     /* ── Standards section ────────────────── */
     .standards-section {
-        padding-top: 0.85rem;
-        padding-bottom: 0.85rem;
+        padding-top: 0.6rem;
+        padding-bottom: 0.6rem;
+    }
+
+    .standards-intro {
+        font-size: 0.88rem;
+        margin-bottom: 0.7rem;
+        margin-top: 0;
+        line-height: 1.5;
+    }
+
+    .standards-grid {
+        border-top-width: 1px;
     }
 
     .standard-item {
-        padding: 0.6rem 1rem 0.6rem 0;
+        padding: 0.48rem 0 0.48rem 0;
+        gap: 0.45rem;
     }
 
     .standard-item:nth-child(odd) {
-        padding-right: 1rem;
+        padding-right: 0.75rem;
+        border-right: none;
     }
 
     .standard-item:nth-child(even) {
-        padding-left: 1rem;
+        padding-left: 0;
+    }
+
+    .standard-mark {
+        font-size: 0.75rem;
+        margin-top: 0.1rem;
+    }
+
+    .standard-item h4 {
+        font-size: 0.875rem;
+        margin-bottom: 0.1rem;
+        line-height: 1.25;
+    }
+
+    .standard-item p {
+        font-size: 0.83rem;
+        line-height: 1.45;
     }
 
     /* ── Criteria list (awards page) ─────── */
