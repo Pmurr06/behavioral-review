@@ -1207,7 +1207,7 @@ img {
    ============================================ */
 
 .featured-editors {
-    margin-bottom: 3.5rem;
+    margin-bottom: 3rem;
 }
 
 .featured-editors h2 {
@@ -1216,14 +1216,14 @@ img {
     letter-spacing: 0.04em;
     border-bottom: 1px solid rgba(26, 58, 82, 0.18);
     padding-bottom: 0.9rem;
-    margin-bottom: 3rem;
+    margin-bottom: 2.25rem;
 }
 
 .editors-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 3rem 2.5rem;
-    max-width: 960px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem 1.75rem;
+    max-width: 1100px;
     margin: 0 auto;
     align-items: start;
 }
@@ -1248,11 +1248,13 @@ img {
 
 .editor-headshot {
     width: 100%;
-    height: 260px;
+    aspect-ratio: 4 / 5;
+    height: auto;
+    max-height: 200px;
     overflow: hidden;
     background-color: var(--border-color);
     border-radius: 2px;
-    margin-bottom: 1.2rem;
+    margin-bottom: 0.75rem;
     flex-shrink: 0;
 }
 
@@ -1260,7 +1262,7 @@ img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: center top;
+    object-position: center 15%;
     display: block;
     transition: opacity 0.25s ease;
 }
@@ -1274,41 +1276,41 @@ img {
 }
 
 .editor-info h3 {
-    font-size: 1.35rem;
+    font-size: 1.1rem;
     color: var(--navy);
-    margin-bottom: 0.3rem;
+    margin-bottom: 0.2rem;
     border: none;
     padding: 0;
-    line-height: 1.15;
+    line-height: 1.2;
     font-weight: 700;
     letter-spacing: 0.01em;
 }
 
 .editor-title {
-    font-size: 0.68rem;
+    font-size: 0.65rem;
     color: var(--text-light);
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.1em;
-    margin-bottom: 0.3rem;
+    margin-bottom: 0.2rem;
     line-height: 1.4;
 }
 
 .editor-credentials {
-    font-size: 0.8rem;
+    font-size: 0.75rem;
     color: var(--navy-light);
     font-weight: 500;
-    margin-bottom: 0.75rem;
+    margin-bottom: 0.5rem;
     line-height: 1.4;
     border-top: 1px solid rgba(26, 58, 82, 0.1);
-    padding-top: 0.5rem;
+    padding-top: 0.4rem;
     margin-top: 0.1rem;
 }
 
 .editor-bio {
-    font-size: 0.82rem;
+    font-size: 0.75rem;
     color: var(--text-light);
-    line-height: 1.6;
+    line-height: 1.55;
     font-style: italic;
 }
 
@@ -2501,8 +2503,8 @@ img {
 
     .editors-grid {
         grid-template-columns: 1fr;
-        gap: 2.5rem;
-        max-width: 520px;
+        gap: 1.5rem;
+        max-width: 400px;
     }
 
     .submission-fields-grid,
@@ -3075,20 +3077,20 @@ img {
     }
 
     .editors-grid {
-        gap: 2rem 1.75rem;
+        gap: 1.75rem 1.5rem;
     }
 
     .editor-headshot {
-        height: 220px;
+        max-height: 190px;
     }
 
     .editor-info h3 {
-        font-size: 1.2rem;
+        font-size: 1rem;
     }
 
     .editor-bio {
-        font-size: 0.8rem;
-        line-height: 1.55;
+        font-size: 0.73rem;
+        line-height: 1.5;
     }
 
     .help-grid,
@@ -4096,7 +4098,7 @@ button {
 
     .editors-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 2.5rem 2rem;
+        gap: 1.75rem 1.5rem;
     }
 
     .archive-stats-bar {
@@ -4197,9 +4199,9 @@ button {
     }
 
     .editors-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 3rem 2.5rem;
-        max-width: 960px;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 2rem 1.75rem;
+        max-width: 1100px;
     }
 
     .archive-secondary-filters {
