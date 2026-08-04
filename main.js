@@ -1782,16 +1782,16 @@ function initBulletinCarousel() {
                 { src: 'IMG_5898.png',       alt: 'Volume 001 — Cover' },
                 { src: 'IMG_5904.png',       alt: 'Volume 001 — Page 2' },
                 { src: 'IMG_5905.png',       alt: 'Volume 001 — Page 3' },
-                { src: 'IMG_5906.png',       alt: 'Volume 001 — Page 4' }
+                { src: 'IMG_5901.png',       alt: 'Volume 001 — Page 4' }
             ]
         },
         '002': {
             title: 'TBR Bulletin — Volume 002',
             pages: [
                 { src: 'IMG_5912.png',       alt: 'Volume 002 — Cover' },
-                { src: 'IMG_5910(1).png',    alt: 'Volume 002 — Page 2' },
-                { src: 'IMG_5911(1).png',    alt: 'Volume 002 — Page 3' },
-                { src: 'IMG_5913(1).png',    alt: 'Volume 002 — Page 4' }
+                { src: 'IMG_5913.png',       alt: 'Volume 002 — Page 2' },
+                { src: 'IMG_5914.png',       alt: 'Volume 002 — Page 3' },
+                { src: 'IMG_5915.png',       alt: 'Volume 002 — Page 4' }
             ]
         },
         '003': {
