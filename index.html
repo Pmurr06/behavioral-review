@@ -56,21 +56,21 @@
                 <p class="bulletin-archive__eyebrow">The TBR Bulletin</p>
                 <p class="bulletin-archive__subtitle">Browse recent issues.</p>
                 <div class="bulletin-covers">
-                    <a href="bulletins/volume-003.html" class="bulletin-cover-link" aria-label="TBR Bulletin Volume 003">
+                    <button class="bulletin-cover-link" aria-label="Open TBR Bulletin Volume 003" data-bulletin="003">
                         <img src="slide1_cover.jpeg" alt="TBR Bulletin Volume 003 cover" class="bulletin-cover-img" loading="lazy" width="230">
                         <span class="bulletin-cover-label">Volume 003</span>
                         <span class="bulletin-cover-cta">View Bulletin →</span>
-                    </a>
-                    <a href="bulletins/volume-002.html" class="bulletin-cover-link" aria-label="TBR Bulletin Volume 002">
+                    </button>
+                    <button class="bulletin-cover-link" aria-label="Open TBR Bulletin Volume 002" data-bulletin="002">
                         <img src="IMG_5912.png" alt="TBR Bulletin Volume 002 cover" class="bulletin-cover-img" loading="lazy" width="230">
                         <span class="bulletin-cover-label">Volume 002</span>
                         <span class="bulletin-cover-cta">View Bulletin →</span>
-                    </a>
-                    <a href="bulletins/volume-001.html" class="bulletin-cover-link" aria-label="TBR Bulletin Volume 001">
+                    </button>
+                    <button class="bulletin-cover-link" aria-label="Open TBR Bulletin Volume 001" data-bulletin="001">
                         <img src="IMG_5898.png" alt="TBR Bulletin Volume 001 cover" class="bulletin-cover-img" loading="lazy" width="230">
                         <span class="bulletin-cover-label">Volume 001</span>
                         <span class="bulletin-cover-cta">View Bulletin →</span>
-                    </a>
+                    </button>
                 </div>
             </div>
         </div>
@@ -80,21 +80,21 @@
             <p class="bulletin-archive__subtitle">Browse recent issues.</p>
             <div class="bulletin-carousel" role="region" aria-label="Bulletin carousel">
                 <div class="bulletin-carousel__track" id="bulletinTrack">
-                    <a href="bulletins/volume-003.html" class="bulletin-cover-link" aria-label="TBR Bulletin Volume 003">
+                    <button class="bulletin-cover-link" aria-label="Open TBR Bulletin Volume 003" data-bulletin="003">
                         <img src="slide1_cover.jpeg" alt="TBR Bulletin Volume 003 cover" class="bulletin-cover-img" loading="lazy" width="220">
                         <span class="bulletin-cover-label">Volume 003</span>
                         <span class="bulletin-cover-cta">View Bulletin →</span>
-                    </a>
-                    <a href="bulletins/volume-002.html" class="bulletin-cover-link" aria-label="TBR Bulletin Volume 002">
+                    </button>
+                    <button class="bulletin-cover-link" aria-label="Open TBR Bulletin Volume 002" data-bulletin="002">
                         <img src="IMG_5912.png" alt="TBR Bulletin Volume 002 cover" class="bulletin-cover-img" loading="lazy" width="220">
                         <span class="bulletin-cover-label">Volume 002</span>
                         <span class="bulletin-cover-cta">View Bulletin →</span>
-                    </a>
-                    <a href="bulletins/volume-001.html" class="bulletin-cover-link" aria-label="TBR Bulletin Volume 001">
+                    </button>
+                    <button class="bulletin-cover-link" aria-label="Open TBR Bulletin Volume 001" data-bulletin="001">
                         <img src="IMG_5898.png" alt="TBR Bulletin Volume 001 cover" class="bulletin-cover-img" loading="lazy" width="220">
                         <span class="bulletin-cover-label">Volume 001</span>
                         <span class="bulletin-cover-cta">View Bulletin →</span>
-                    </a>
+                    </button>
                 </div>
             </div>
             <div class="bulletin-carousel__dots" id="bulletinDots" aria-label="Carousel pagination">
@@ -104,6 +104,27 @@
             </div>
         </div>
     </header>
+
+    <!-- Bulletin Viewer Overlay -->
+    <div class="bv-overlay" id="bulletinViewer" role="dialog" aria-modal="true" aria-label="Bulletin Viewer" hidden>
+        <div class="bv-backdrop" id="bvBackdrop"></div>
+        <div class="bv-container">
+            <div class="bv-topbar">
+                <span class="bv-title" id="bvTitle"></span>
+                <span class="bv-indicator" id="bvIndicator"></span>
+                <button class="bv-close" id="bvClose" aria-label="Close bulletin viewer">&#x2715;</button>
+            </div>
+            <div class="bv-stage" id="bvStage">
+                <div class="bv-image-wrap" id="bvImageWrap">
+                    <img class="bv-image" id="bvImage" src="" alt="" draggable="false">
+                </div>
+            </div>
+            <div class="bv-controls">
+                <button class="bv-btn bv-prev" id="bvPrev" aria-label="Previous page">&#8592; Prev</button>
+                <button class="bv-btn bv-next" id="bvNext" aria-label="Next page">Next &#8594;</button>
+            </div>
+        </div>
+    </div>
 
     <main class="main-content main-content--dense">
         <div class="container">
