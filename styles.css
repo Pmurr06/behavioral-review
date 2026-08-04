@@ -3646,6 +3646,9 @@ button {
 
 .publication-card__footer {
     margin-top: 0.9rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
 }
 
 .article-category-pill,

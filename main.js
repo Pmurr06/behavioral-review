@@ -947,6 +947,14 @@ function buildPublicationCard(article, options) {
     btn.textContent = 'Read Article';
     footer.appendChild(btn);
 
+    if (settings.secondaryAction && settings.secondaryAction.href && settings.secondaryAction.text) {
+        var secondaryBtn = document.createElement('a');
+        secondaryBtn.href = getSiteRoot() + settings.secondaryAction.href;
+        secondaryBtn.className = 'btn btn-secondary';
+        secondaryBtn.textContent = settings.secondaryAction.text;
+        footer.appendChild(secondaryBtn);
+    }
+
     card.appendChild(footer);
     return card;
 }
@@ -1425,7 +1433,13 @@ function initRecentArticlesPage() {
     var feedEl = document.getElementById('recent-feed');
     if (feedEl && PUBLISHED_ARTICLES.length > 0) {
         feedEl.innerHTML = '';
-        feedEl.appendChild(buildPublicationCard(PUBLISHED_ARTICLES[0], { featured: true }));
+        feedEl.appendChild(buildPublicationCard(PUBLISHED_ARTICLES[0], {
+            featured: true,
+            secondaryAction: {
+                href: 'archive.html',
+                text: 'Pull Older Articles'
+            }
+        }));
     }
 
     renderCompactPublicationCollection('[data-recent-secondary-feed]', PUBLISHED_ARTICLES.slice(1, 5));
