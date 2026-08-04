@@ -1181,10 +1181,38 @@ img {
     border-color: currentColor;
 }
 
+.past-recipient-entry--text-only {
+    grid-template-columns: minmax(0, 1fr);
+}
+
+.past-recipient-entry--portrait {
+    grid-template-columns: 96px minmax(0, 1fr);
+    align-items: start;
+}
+
+.past-recipient-thumbnail--lg {
+    width: 96px;
+    height: 120px;
+    border-radius: 8px;
+}
+
 @media (max-width: 640px) {
     .past-recipient-entry {
         grid-template-columns: 64px minmax(0, 1fr);
         gap: 0.9rem;
+    }
+
+    .past-recipient-entry--text-only {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .past-recipient-entry--portrait {
+        grid-template-columns: 80px minmax(0, 1fr);
+    }
+
+    .past-recipient-thumbnail--lg {
+        width: 80px;
+        height: 100px;
     }
 
     .past-recipient-thumbnail {
