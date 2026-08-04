@@ -15,7 +15,7 @@ var ARTICLES = [
         tags: ['Climate Policy', 'Renewable Energy', 'Fossil Fuels', 'GDP', 'Sea Level Rise', 'Environmental Economics', 'Public Policy', 'Climate Change'],
         date: 'August 2026',
         readingWordCount: 2111,
-        preview: 'Braydon Perko argues that the economic cost of waiting on climate action now exceeds the upfront cost of transitioning to renewable energy, pointing to rising disaster losses, hidden fossil-fuel costs, GDP projections, and sea-level risk as evidence that immediate policy action is the more fiscally responsible path.',
+        preview: 'Braydon Perko argues that the economic cost of inaction on climate change now exceeds the cost of transitioning to renewable energy. Pointing to rising disaster losses, hidden fossil-fuel subsidies, GDP projections, and sea-level risk, Perko makes the case that immediate climate policy is the more fiscally responsible path.',
         link: 'articles/balancing-climate-policy-with-economic-interests.html'
     },
     {
@@ -29,7 +29,7 @@ var ARTICLES = [
         tags: ['Afrofuturism', 'Art History', 'Visual Culture', 'Black Panther', 'The Wiz', 'Sun Ra', 'Robert Colescott', 'Photography', 'Cultural Studies', 'African Diaspora', 'Science Fiction', 'History', 'American Art'],
         date: 'August 2026',
         readingWordCount: 3200,
-        preview: 'Georgia Lewis introduces Afrofuturism through film, music, and art, arguing that for Black people the alien invasion of colonialism has already happened\u2014and that Afrofuturist artists from Sun Ra to Black Panther reclaim that narrative to imagine worlds of liberation. Drawing on examples including The Wiz (1978), Black Panther (2018), Sun Ra\u2019s Space Is the Place (1974), and Robert Colescott\u2019s painting Washington Carver Crossing the Delaware (1975), Lewis traces how the genre merges science fiction, technology, and African diasporic history to challenge colonial narratives and reimagine Black identity.',
+        preview: 'Georgia Lewis argues that for Black people the alien invasion of colonialism has already happened\u2014and that Afrofuturist artists reclaim that narrative to imagine worlds of liberation. Drawing on The Wiz, Black Panther, Sun Ra, and Robert Colescott, Lewis shows how the genre merges science fiction with African diasporic history to challenge colonial erasure.',
         link: 'articles/afrofuturism-and-invasion.html'
     },
     {
@@ -43,7 +43,7 @@ var ARTICLES = [
         tags: ['Photography', 'Art History', 'Visual Culture', 'Street Photography', 'History of Photography', 'Jacques-Henri Lartigue', 'Belle \u00c9poque', 'French History', 'Vernacular Photography'],
         date: 'August 2026',
         readingWordCount: 2600,
-        preview: 'Georgia Lewis examines Jacques-Henri Lartigue\u2019s vernacular photography through three qualities: his childlike genuineness, his economic standing and social class, and his fascination with the technological advancements of Belle \u00c9poque France. Drawing on Lartigue\u2019s boyhood photographs in Diary of a Century, Lewis shows how an affluent child\u2019s uninfluenced curiosity produced some of the most original and enduring images of the early twentieth century.',
+        preview: 'Georgia Lewis argues that Jacques-Henri Lartigue\u2019s vernacular photography owes its originality to three intersecting qualities: childlike genuineness, economic privilege, and fascination with the technological marvels of Belle \u00c9poque France. Drawing on Lartigue\u2019s boyhood photographs in Diary of a Century, Lewis shows how an affluent child\u2019s uninfluenced curiosity produced some of the most enduring images of the early twentieth century.',
         link: 'articles/lartigue-vernacular-photography.html'
     },
     {
@@ -57,7 +57,7 @@ var ARTICLES = [
         tags: ['Artificial Intelligence', 'Education', 'Critical Thinking', 'Decision-Making', 'Cognitive Psychology', 'Student Learning', 'Technology', 'Higher Education'],
         date: 'July 2026',
         readingWordCount: 3050,
-        preview: 'Karthikeya Nandi argues that growing student dependence on AI can come at a cognitive cost. When students prioritize fast answers over understanding, over-reliance may weaken conceptual learning, reduce attention, and erode independent decision-making. Drawing on evidence about note-taking, media multitasking, memory externalization, and AI trust effects, the article shows how convenience-driven usage can gradually displace critical engagement. Rather than rejecting AI, Nandi proposes that schools adopt AI literacy instruction, process-focused assignments, and explicit guidance that treats AI as a supplement to human thought, not a substitute.',
+        preview: 'Karthikeya Nandi argues that over-reliance on AI can erode the cognitive skills students need most. Drawing on research into note-taking, media multitasking, memory externalization, and AI trust effects, Nandi shows how convenience-driven usage displaces critical engagement and proposes that schools adopt AI literacy instruction that treats AI as a supplement to human thought, not a substitute.',
         link: 'articles/over-reliance-on-ai-and-student-cognition.html'
     },
     {
@@ -71,7 +71,7 @@ var ARTICLES = [
         tags: ['Philosophy', 'Film & Media', 'Film Analysis', 'Office Space', 'Meaningful Work', 'David Graeber', 'Immanuel Kant', 'John Stuart Mill', 'Work and Meaning', 'Utilitarianism'],
         date: 'July 2026',
         readingWordCount: 1550,
-        preview: 'Braydon Perko examines Office Space through the philosophical frameworks of David Graeber, Immanuel Kant, and John Stuart Mill, arguing that the dissatisfaction of Peter, Michael, and Samir reflects a broader failure of modern workplaces to provide the meaning, autonomy, and higher forms of satisfaction that genuine fulfillment requires.',
+        preview: 'Braydon Perko reads Office Space through David Graeber, Immanuel Kant, and John Stuart Mill, arguing that the dissatisfaction of Peter, Michael, and Samir reflects a broader failure of modern workplaces to provide the meaning, autonomy, and higher forms of satisfaction that genuine fulfillment requires. The film, Perko contends, is an inadvertent philosophical case study.',
         link: 'articles/office-space-work-meaning-autonomy-fulfillment.html'
     },
     {
@@ -85,7 +85,7 @@ var ARTICLES = [
         tags: ['Behavioral Science', 'Anger', 'Moral Philosophy', 'Post-Truth', 'Social Change', 'Justice', 'Activism', 'Political Theory'],
         date: 'July 2026',
         readingWordCount: 1227,
-        preview: 'Braydon Perko examines anger as a morally appropriate response to injustice, showing how it exposes deception, drives accountability, and powers social change.',
+        preview: 'Braydon Perko argues that anger is not merely an emotional reaction but a morally appropriate response to injustice. Rather than dismissing anger as destructive, Perko shows how it functions as an epistemic tool that exposes deception, drives accountability, and supplies the motivational energy behind meaningful social and political change.',
         link: 'articles/the-moral-work-of-anger.html'
     },
     {
@@ -99,7 +99,7 @@ var ARTICLES = [
         tags: ['Behavioral Science', 'Artificial Intelligence', 'Writer\'s Block', 'Writing', 'Creativity', 'Higher Education', 'Fiction Writing', 'Technology'],
         date: 'July 2026',
         readingWordCount: 1106,
-        preview: 'Braydon Perko examines whether AI can help writers overcome writer\'s block by comparing Laura Hartenberger\'s critique of AI writing with Jennifer Lepp\'s experience using AI as a creative aid.',
+        preview: 'Braydon Perko weighs whether AI can serve as a practical remedy for writer\'s block, setting Laura Hartenberger\'s critique of AI-generated writing against Jennifer Lepp\'s experience using AI as a generative aid. Perko concludes that the answer depends less on the technology than on how deliberately writers choose to engage with it.',
         link: 'articles/can-ai-help-cure-writers-block.html',
         hidden: true
     },
@@ -114,7 +114,7 @@ var ARTICLES = [
         tags: ['Behavioral Science', 'Film & Media', 'Film Analysis', 'David Fincher', 'Fight Club', 'Narrative Techniques', 'Cinematography'],
         date: 'July 2026',
         readingTime: '10–12 min read',
-        preview: 'Braydon Perko examines how David Fincher\'s attention to detail, dark atmospheric style, and narrative construction make Fight Club a film that continues to reward repeated viewing.',
+        preview: 'Braydon Perko argues that Fight Club endures because David Fincher treats every element\u2014lighting, sound design, editing, and narrative structure\u2014as a deliberate compositional choice. Rather than a shock-value spectacle, the film reveals itself on repeat viewings as a carefully constructed work whose dark atmosphere and formal precision repay close attention.',
         link: 'articles/fight-club-finchers-dark-symphony.html'
     },
     {
@@ -128,7 +128,7 @@ var ARTICLES = [
         tags: ['Philosophy', 'Film Studies', 'Phenomenology', 'Maurice Merleau-Ponty', 'Baby Driver', 'Edgar Wright', 'Consciousness', 'Embodiment', 'Cinema'],
         date: 'July 2026',
         readingTime: '12\u201314 min read',
-        preview: 'Harrison McLain examines Edgar Wright\u2019s Baby Driver through Maurice Merleau-Ponty\u2019s phenomenology of embodiment, arguing that the film enacts key claims about the body-schema, the intentional arc, and sedimented habit\u2014making it one of the most philosophically precise films in recent cinema.',
+        preview: 'Harrison McLain argues that Baby Driver does more than use music cleverly\u2014it enacts Maurice Merleau-Ponty\u2019s phenomenology of embodiment. Through Baby\u2019s body-schema, intentional arc, and sedimented driving habit, Edgar Wright translates philosophical claims about perception and motor skill into cinematic form, making it one of the most philosophically precise films in recent memory.',
         link: 'articles/the-body-that-drives-merleau-ponty-phenomenology-baby-driver.html'
     },
     {
@@ -142,7 +142,7 @@ var ARTICLES = [
         tags: ['Sociology', 'Popular Culture', 'Hip-Hop', 'Kendrick Lamar', 'Drake', 'Race', 'Ethnicity', 'Social Stratification', 'Social Mobility', 'Cultural Appropriation', 'Colonialism', 'Identity', 'Culture', 'Music Sociology'],
         date: 'July 2026',
         readingWordCount: 2750,
-        preview: 'Luke Marshall examines Kendrick Lamar\u2019s 2024 song Not Like Us through a sociological lens, analyzing themes of social stratification, social mobility, race, ethnicity, cultural appropriation, and colonialism to show how contemporary hip-hop can serve as a form of social commentary on identity, authenticity, and cultural ownership.',
+        preview: 'Luke Marshall reads Kendrick Lamar\u2019s Not Like Us as sociological commentary, arguing that the song\u2019s attack on Drake is really a critique of racial inauthenticity, cultural appropriation, and social stratification. Marshall draws on concepts of colonialism, identity, and social mobility to show how contemporary hip-hop can function as a form of public sociological argument.',
         link: 'articles/beyond-the-diss-track-a-sociological-analysis-of-kendrick-lamars-not-like-us.html'
     },
     {
@@ -156,7 +156,7 @@ var ARTICLES = [
         tags: ['Revenue Recognition', 'Airline Industry', 'Delta Air Lines', 'ASC 606', 'Accounting', 'Finance', 'SkyMiles', 'Deferred Revenue', 'Financial Reporting', 'Business & Economics'],
         date: 'July 2026',
         readingWordCount: 2200,
-        preview: 'Luke Marshall examines how Delta Air Lines applies ASC 606 to passenger ticket sales, its SkyMiles loyalty program, and ancillary services, explaining how deferred revenue balances and management estimates shape reported financial results and investor analysis.',
+        preview: 'Luke Marshall explains how Delta Air Lines applies ASC 606 across three revenue streams\u2014passenger tickets, the SkyMiles loyalty program, and ancillary services\u2014and why the accounting choices matter. Deferred revenue balances and management estimates, Marshall argues, shape reported financial results in ways that investors and analysts need to understand to read Delta\u2019s financials accurately.',
         link: 'articles/revenue-recognition-airline-industry-delta-air-lines.html'
     },
     {
@@ -170,7 +170,7 @@ var ARTICLES = [
         tags: ['Finance', 'Accounting', 'Corporate Finance', 'Business & Economics', 'Financial Reporting', 'Goodwill', 'Goodwill Impairment', 'Mergers & Acquisitions', 'SEC Filings', 'Financial Statement Analysis', 'Corporate Valuation', 'Investor Analysis'],
         date: 'July 2026',
         readingWordCount: 2350,
-        preview: 'Luke Marshall examines Coty Inc.\'s 2019 $3.85 billion goodwill impairment to explain GAAP recognition, valuation assumptions, and why impairment disclosures matter for investor analysis of acquisition performance.',
+        preview: 'Luke Marshall uses Coty Inc.\u2019s 2019 write-down of $3.85 billion to explain how goodwill impairment works under GAAP. Walking through the recognition rules, valuation assumptions, and disclosure requirements behind the charge, Marshall argues that impairment events reveal critical information about acquisition performance that investors cannot afford to overlook.',
         link: 'articles/when-goodwill-disappears-lessons-from-cotys-3-9-billion-impairment.html'
     },
     {
@@ -184,7 +184,7 @@ var ARTICLES = [
         tags: ['Smoking', 'Generation Z', 'Tobacco', 'Public Health', 'Social Media', 'Nicotine', 'Youth Health', 'Health Policy', 'Substance Use', 'Behavioral Health'],
         date: 'July 2026',
         readingWordCount: 2400,
-        preview: 'Ryan Trudeau examines how smoking is being renormalized among Generation Z through social media aesthetics, industry marketing strategies, and the youth mental health crisis, reversing decades of public health progress and demanding updated prevention approaches.',
+        preview: 'Ryan Trudeau argues that smoking is undergoing a cultural revival among Generation Z, driven by social media aesthetics, targeted industry marketing, and the youth mental health crisis. Together these forces are reversing decades of public health progress and creating conditions that existing prevention frameworks\u2014designed for an earlier era\u2014are poorly equipped to address.',
         link: 'articles/the-renormalization-of-smoking-among-generation-z.html'
     },
     {
@@ -198,7 +198,7 @@ var ARTICLES = [
         tags: ['Bioethics', 'Medical Ethics', 'Patient Autonomy', "Women's Health", 'Obstetric Violence', 'Human Rights', 'Italy', 'Childbirth', 'Health Humanities', 'Public Health'],
         date: 'July 2026',
         readingWordCount: 1800,
-        preview: 'Ryan Trudeau examines obstetric paternalism in Italy through the case of Alessandra Battisti, analyzing the ethical conflict between patient autonomy and medical beneficence and evaluating the deontological implications of informed consent during childbirth.',
+        preview: 'Ryan Trudeau examines obstetric paternalism in Italy through the case of Alessandra Battisti, a patient whose wishes during childbirth were overridden by medical staff. Analyzing the tension between patient autonomy and physician beneficence, Trudeau evaluates the deontological implications of informed consent and argues that institutional medical culture has not yet caught up with ethical obligations.',
         link: 'articles/obstetric-paternalism-in-italy-autonomy-medicalization-and-the-ethics-of-childbirth.html'
     },
     {
@@ -212,7 +212,7 @@ var ARTICLES = [
         tags: ['Food Insecurity', 'Public Health', 'Higher Education', 'College Students', 'Mental Health', 'Academic Performance', 'Nutrition', 'Health Policy', 'Research Methods', 'Social Determinants of Health'],
         date: 'July 2026',
         readingWordCount: 2200,
-        preview: 'Ryan Trudeau proposes a longitudinal cohort study examining how food insecurity affects psychosocial health—including depression, anxiety, and hope—and whether those effects contribute to lower academic performance among undergraduate students at the University of Utah.',
+        preview: 'Ryan Trudeau proposes a longitudinal cohort study to examine how food insecurity shapes psychosocial health\u2014including depression, anxiety, and hope\u2014and whether those effects translate into lower academic performance. The study focuses on undergraduates at the University of Utah and argues that food access is a social determinant of educational outcomes that campus policy cannot ignore.',
         link: 'articles/food-insecurity-and-academic-performance-among-college-students.html'
     },
     {
@@ -226,7 +226,7 @@ var ARTICLES = [
         tags: ['Cannabis', 'Mental Health', 'Schizophrenia', 'Substance Use', 'Public Health', 'Public Policy'],
         date: 'July 2026',
         readingWordCount: 2895,
-        preview: 'Ryan Trudeau examines how high-potency cannabis products such as dab pens may intensify cannabis-induced psychosis and accelerate schizophrenia onset in genetically vulnerable users.',
+        preview: 'Ryan Trudeau argues that high-potency cannabis products\u2014particularly dab pens\u2014are intensifying cannabis-induced psychosis and accelerating schizophrenia onset in genetically vulnerable users. As legalization expands access without equivalent expansion of public health education, Trudeau contends that clinicians and policymakers urgently need updated frameworks for assessing the psychiatric risks of concentrated THC.',
         link: 'articles/the-effect-of-cannabis-on-schizophrenia-diagnoses.html'
     },
     {
@@ -240,7 +240,7 @@ var ARTICLES = [
         tags: ['Criminal Investigations', 'Interrogation', 'Deception Detection', 'Forensic Psychology', 'Investigative Psychology', 'Body Language'],
         date: 'July 2026',
         readingWordCount: 1500,
-        preview: 'Katie Nguyen examines how interrogators assess behavioral patterns, speech cues, and interview inconsistencies in high-profile cases while emphasizing that no single cue can independently prove guilt.',
+        preview: 'Katie Nguyen examines the behavioral cues and interview techniques that interrogators use to assess credibility in high-profile criminal cases. Reviewing patterns in speech, body language, and narrative consistency, Nguyen argues that no single cue can independently establish guilt and that professional interrogators must weigh converging evidence rather than rely on any one behavioral signal.',
         link: 'articles/what-common-habits-interrogators-examine-strategies-determine-guilty.html'
     },
     {
@@ -254,7 +254,7 @@ var ARTICLES = [
         tags: ['Bioethics', 'Healthcare Policy', 'Medical Ethics', 'Pediatric Care', 'End-of-Life Care', 'Parental Rights'],
         date: 'July 2026',
         readingWordCount: 1450,
-        preview: 'Katie Nguyen examines the ethical conflict between parental rights and physician authority in the Tinslee Lewis case, arguing for a collaborative approach to life-sustaining treatment decisions that centers the child\'s best interests.',
+        preview: 'Katie Nguyen examines the ethical conflict between parental rights and physician authority in the case of Tinslee Lewis, a Texas infant whose parents and doctors disagreed about continuing life-sustaining treatment. Nguyen argues that futility laws should require collaborative decision-making rather than unilateral physician authority, centering the child\u2019s best interests above all other considerations.',
         link: 'articles/persuasive-commentary-futility-laws-infants-tinslee-lewis.html'
     },
     {
@@ -268,7 +268,7 @@ var ARTICLES = [
         tags: ['Human Rights', 'Genocide', 'Iraq', 'ISIS', 'Religious Conflict', 'Middle East'],
         date: 'July 2026',
         readingWordCount: 1500,
-        preview: 'Ella Roehl examines how ISIS used religious racialization to frame the Yazidi people as an illegitimate target, analyzing the ideological foundations, historical marginalization, and lasting consequences of the 2014 genocide in Sinjar.',
+        preview: 'Ella Roehl argues that ISIS targeted the Yazidi people not merely for religious difference but through a process of religious racialization that framed them as existentially illegitimate. Tracing the ideological foundations, historical marginalization, and lasting consequences of the 2014 genocide in Sinjar, Roehl shows how racialized religious identity enabled mass atrocity.',
         link: 'articles/religious-racialization-yazidi-genocide-isis-campaign-persecution.html'
     },
     {
@@ -282,7 +282,7 @@ var ARTICLES = [
         tags: ['Human Rights', 'International Development', 'Labor', 'Migration'],
         date: 'July 2026',
         readingWordCount: 1500,
-        preview: 'Ella Roehl examines how rising global demand for shrimp has contributed to labor exploitation in Thailand\u2019s seafood industry, exploring the relationship between international consumer demand, migrant labor from Myanmar, and workplace conditions that have raised concerns about child labor and forced labor within portions of the supply chain.',
+        preview: 'Ella Roehl argues that rising global demand for shrimp has made labor exploitation structurally inevitable in Thailand\u2019s seafood industry. Examining the relationship between international consumer demand, migrant labor from Myanmar, and regulatory failures, Roehl shows how supply chain pressures create conditions that enable child labor and forced labor to persist largely out of sight.',
         link: 'articles/hidden-costs-global-seafood-child-migrant-labor-thailand-shrimp-industry.html'
     },
     {
@@ -296,7 +296,7 @@ var ARTICLES = [
         tags: ['Gender', 'Race', 'Social Inequality'],
         date: 'July 2026',
         readingWordCount: 1496,
-        preview: 'Ella Roehl examines how gender, race, and economic class shape social inequality, showing how institutions, historical patterns, and intersectionality influence opportunity, mobility, and everyday experience.',
+        preview: 'Ella Roehl argues that gender, race, and economic class do not operate as separate variables but interact through intersectionality to compound social disadvantage. Examining how institutions, historical patterns, and structural arrangements shape opportunity and mobility, Roehl shows that inequality is not a set of parallel problems but a single interlocking system requiring integrated analysis.',
         link: 'articles/navigating-labyrinth-gender-race-economic-inequality-sociological-perspective.html'
     },
     {
@@ -308,7 +308,7 @@ var ARTICLES = [
         displayCategory: 'Public Policy',
         date: 'July 2026',
         readingWordCount: 1954,
-        preview: 'Ella Roehl and Christine Byrne examine how three sources\u2014the Inventiv Foundation, The New York Times, and Liberties\u2014use contrasting rhetorical strategies to frame artificial intelligence as an engine of innovation, a policy challenge requiring regulation, or a societal threat demanding immediate attention.',
+        preview: 'Ella Roehl and Christine Byrne examine how three sources\u2014the Inventiv Foundation, The New York Times, and Liberties\u2014use contrasting rhetorical strategies to frame AI as an engine of innovation, a policy challenge requiring oversight, or a societal threat demanding immediate action. Their analysis shows how rhetorical choices, not just evidence, determine whether readers see AI as promise or peril.',
         link: 'articles/artificial-intelligence-public-perception-rhetorical-analysis.html'
     },
     {
@@ -322,7 +322,7 @@ var ARTICLES = [
         tags: ['Anthropology'],
         date: 'July 2026',
         readingWordCount: 1643,
-        preview: 'This anthropology article examines dementia-related grief through anticipatory grief, disenfranchised grief, the work of mourning, intersubjectivity, and grievability, arguing that dementia transforms mourning into a prolonged and socially unrecognized process that begins long before physical death.',
+        preview: 'Alexandra Quist argues that dementia transforms mourning into a prolonged and socially unrecognized process that begins long before physical death. Drawing on anticipatory grief, disenfranchised grief, the work of mourning, and intersubjectivity, Quist shows how caregivers grieve an absent presence that medicine cannot acknowledge, leaving their loss invisible to the institutions meant to support them.',
         link: 'articles/grieving-before-goodbye-dementia-anthropology-of-mourning.html'
     },
     {
@@ -336,7 +336,7 @@ var ARTICLES = [
         tags: ['Anthropology'],
         date: 'July 2026',
         readingWordCount: 1733,
-        preview: 'This anthropology article examines Canada\'s residential school graves through necropower, necroviolence, dehumanization, and disrupted grief, arguing that the burial sites remain enduring symbols of colonial erasure and structural violence.',
+        preview: 'Alexandra Quist argues that Canada\u2019s residential school graves are not merely historical artifacts but enduring symbols of colonial necropower\u2014a form of structural violence that extends beyond death. Through necropower, necroviolence, and disrupted grief, Quist shows how the burial sites continue to deny Indigenous communities the right to mourn, remember, and reclaim their dead.',
         link: 'articles/necropower-colonialism-unmarked-graves-indigenous-children-canada.html'
     },
     {
@@ -348,7 +348,7 @@ var ARTICLES = [
         displayCategory: 'Public Policy',
         date: 'July 2026',
         readingWordCount: 2222,
-        preview: 'This qualitative study examines how insurance limitations, medical costs, and healthcare system policies shape clinical judgment, patient decision-making, and access to medically appropriate care within the United States healthcare system.',
+        preview: 'Alexandra Quist examines how insurance limitations, medical costs, and systemic policy constraints shape both clinical judgment and patient decision-making in the United States. Drawing on qualitative data, Quist argues that financial barriers are not peripheral to healthcare delivery but are embedded in the clinical encounter itself, distorting the relationship between medically appropriate care and the care patients actually receive.',
         link: 'articles/financial-barriers-clinical-judgment-us-healthcare.html'
     },
     {
@@ -361,7 +361,7 @@ var ARTICLES = [
         displayCategory: 'Behavioral Science',
         date: 'July 2026',
         readingTime: '8 min read',
-        preview: 'Christopher McCandless is often dismissed as reckless or na\u00efve, yet his story reveals a deliberate effort to live according to carefully examined convictions. Drawing on Lewis Vaughn\u2019s The Power of Critical Thinking, this article argues that McCandless exercised intellectual autonomy and philosophical reasoning\u2014not impulsive idealism\u2014in choosing his unconventional path.',
+        preview: 'Christopher McCandless is often dismissed as reckless, yet Alexandra Quist argues his story reveals a deliberate effort to live according to carefully examined convictions. Drawing on Lewis Vaughn\u2019s The Power of Critical Thinking, this article argues that McCandless exercised genuine intellectual autonomy and philosophical reasoning\u2014not impulsive idealism\u2014in choosing his unconventional path.',
         link: 'articles/reconsidering-christopher-mccandless.html'
     },
     {
@@ -375,7 +375,7 @@ var ARTICLES = [
         tags: ['Finance', 'Leadership'],
         date: '2026',
         readingTime: '10 min read',
-        preview: 'The Oakland Athletics transformed professional baseball by using statistical analysis to identify market inefficiencies and make evidence-based personnel decisions. This article examines Moneyball as a business case study in analytics, organizational strategy, and competitive advantage.',
+        preview: 'The Oakland Athletics transformed professional baseball not by spending more but by thinking differently. This article examines how Billy Beane\u2019s adoption of sabermetrics allowed Oakland to identify undervalued players, exploit market inefficiencies, and remain competitive on a limited budget\u2014offering enduring lessons about data-driven decision-making, organizational strategy, and competitive advantage.',
         link: 'articles/moneyball-market-inefficiency.html'
     },
     {
@@ -388,7 +388,7 @@ var ARTICLES = [
         displayCategory: 'Psychology',
         date: 'July 2026',
         readingTime: '14 min read',
-        preview: 'Leo Tolstoy\'s War and Peace offers a literary framework for examining implicit personality theory\u2014the cognitive tendency to infer stable character traits from minimal evidence. Through the moral development of Pierre Bezukhov and Natasha Rostova, Tolstoy systematically dismantles the superficial judgments of aristocratic society, demonstrating that authentic character emerges through sacrifice, compassion, and sustained moral growth.',
+        preview: 'Alan Ta argues that War and Peace is more than a historical epic\u2014it is a sustained critique of implicit personality theory, the cognitive tendency to judge character from minimal evidence. Through the moral development of Pierre Bezukhov and Natasha Rostova, Tolstoy dismantles the superficial judgments of aristocratic society and shows that authentic character emerges through sacrifice and sustained moral growth.',
         link: 'articles/implicit-personality-theory-war-and-peace.html'
     },
     {
@@ -402,7 +402,7 @@ var ARTICLES = [
         tags: ['Organizational Behavior'],
         date: 'June 2026',
         readingTime: '10 min read',
-        preview: 'As the Bouldering Project expands nationally, leadership faces a familiar challenge: preserving mission-driven workplace culture while scaling operations. Drawing on interviews with Seattle-area employees, this article examines organizational behavior dynamics and offers practical recommendations for sustaining engagement, trust, and community identity.',
+        preview: 'David Kim argues that the Bouldering Project\u2019s national expansion puts its defining workplace culture at risk. Drawing on interviews with Seattle-area employees, Kim examines the organizational behavior dynamics that sustain mission-driven culture at scale and offers concrete recommendations for preserving engagement, trust, and community identity as the company grows beyond its founding locations.',
         link: 'articles/growing-without-losing-your-culture.html'
     },
     {
@@ -416,7 +416,7 @@ var ARTICLES = [
         tags: ['Law and Society'],
         date: 'June 2026',
         readingTime: '9 min read',
-        preview: 'For decades, the NCAA defended amateurism as the foundation of college athletics. In NCAA v. Alston (2021), the Supreme Court unanimously held that the NCAA\'s restrictions on education-related benefits violated the Sherman Antitrust Act, applying the Rule of Reason to redefine the legal and financial landscape of collegiate sports.',
+        preview: 'Carson Wais argues that NCAA v. Alston (2021) fundamentally reordered the legal relationship between the NCAA, universities, and student-athletes. The Supreme Court\u2019s unanimous application of the Rule of Reason to education-related benefits struck at the ideological core of amateurism and created the legal foundation for the ongoing transformation of collegiate sports economics.',
         link: 'articles/rule-of-reason-ncaa-alston.html'
     },
     {
@@ -430,7 +430,7 @@ var ARTICLES = [
         tags: ['Finance'],
         date: 'June 2026',
         readingTime: '9 min read',
-        preview: 'Financial innovation can drive growth, but history shows that long-term prosperity depends on stable banking institutions, prudent risk management, and sustained consumer trust. This article examines the Great Recession, behavioral incentives, and why conservative banking remains essential to economic resilience.',
+        preview: 'Kelden Littell argues that financial innovation, unconstrained by institutional conservatism, produced the conditions for the Great Recession. Examining behavioral incentives, risk mismanagement, and the erosion of consumer trust, Littell makes the case that long-term economic resilience depends not on financial creativity but on stable, prudent banking institutions willing to forgo short-term gains.',
         link: 'articles/value-of-boring-banking.html'
     },
     {
@@ -444,7 +444,7 @@ var ARTICLES = [
         tags: ['Finance'],
         date: 'June 2026',
         readingTime: '9 min read',
-        preview: 'Bozeman\'s housing crisis reflects more than construction costs; it reflects the rising cost and scarcity of developable land. This article proposes a mandatory land-dedication framework to build a long-term affordable housing land bank while preserving market-based development incentives.',
+        preview: 'Radek Janout argues that Bozeman\u2019s housing crisis is fundamentally a land problem, not just a construction cost problem. Proposing a mandatory land-dedication framework, Janout shows how requiring developers to set aside parcels for affordable housing could build a long-term municipal land bank without eliminating the market incentives that make new development financially viable.',
         link: 'articles/rethinking-affordable-housing-bozeman.html'
     },
     {
@@ -458,7 +458,7 @@ var ARTICLES = [
         tags: ['Finance'],
         date: 'June 2026',
         readingTime: '12 min read',
-        preview: 'Despite decades of scientific consensus on climate change, global greenhouse gas emissions continue to rise. This article examines whether the modern capitalist system encourages environmental progress or unintentionally prevents it, exploring corporate incentives, lobbying, corporate social responsibility, and the unequal global impacts of climate change.',
+        preview: 'Miller Smith argues that capitalism does not simply fail to address climate change\u2014it actively creates structural incentives against it. Examining corporate profit motives, lobbying power, and corporate social responsibility as a substitute for regulation, Smith shows how global greenhouse gas emissions continue to rise despite scientific consensus, and considers who bears the unequal costs.',
         link: 'articles/profit-power-and-the-climate-crisis.html'
     },
     {
@@ -472,7 +472,7 @@ var ARTICLES = [
         tags: ['Law and Society'],
         date: 'June 2026',
         readingTime: '10 min read',
-        preview: 'For decades, college athletics operated under a model unlike almost any other industry in the United States. NCAA v. Alston (2021) examined whether NCAA rules restricting education-related benefits to student-athletes violated federal antitrust law, ultimately reshaping the legal relationship between universities, athletic organizations, and the athletes who drive collegiate sports.',
+        preview: 'David Morgan argues that NCAA v. Alston (2021) exposed a fundamental contradiction at the heart of the college sports model: that the amateurism framework used to restrict athlete compensation could not survive antitrust scrutiny. Morgan examines the legal reasoning behind the Supreme Court\u2019s unanimous ruling and traces its implications for how universities, athletic organizations, and athletes relate to one another.',
         link: 'articles/ncaa-v-alston.html'
     },
     {
@@ -486,7 +486,7 @@ var ARTICLES = [
         tags: ['Law and Society'],
         date: 'July 2026',
         readingTime: '9\u201310 min read',
-        preview: 'The debate over plastic and paper drinking straws has become a public symbol of the broader challenge of reducing single-use plastics. This editorial examines consumer behavior, environmental policy, corporate responsibility, and why incremental changes can still matter in long-term sustainability efforts.',
+        preview: 'Miller Smith argues that the debate over plastic straws has become a misleading symbol: it creates the appearance of environmental action while distracting from the systemic reforms that would actually reduce single-use plastic waste. Examining consumer behavior, corporate responsibility, and the politics of incremental change, Smith asks whether small gestures help or hinder meaningful environmental progress.',
         link: 'articles/beyond-the-straw.html'
     },
     {
@@ -500,7 +500,7 @@ var ARTICLES = [
         tags: ['Finance'],
         date: 'July 2026',
         readingTime: '15 min read',
-        preview: 'The post-COVID era has placed renewed pressure on the international monetary system, particularly the relationship between the U.S. dollar and the euro. This article examines how fiscal policy, monetary divergence, geopolitical shocks, and de-dollarization efforts have shaped the EUR/USD relationship and the broader reserve currency hierarchy.',
+        preview: 'Miller Smith argues that the post-COVID era has strained the EUR/USD relationship in ways that reveal deeper structural pressures in the international monetary system. Examining fiscal divergence, monetary policy gaps, geopolitical shocks, and growing de-dollarization efforts, Smith shows how these forces are reshaping the reserve currency hierarchy and what that means for global financial stability.',
         link: 'articles/forex-exchange-markets.html'
     }
 ];

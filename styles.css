@@ -1462,7 +1462,6 @@ img {
     gap: 0.65rem 1rem;
     font-size: 0.9rem;
     color: var(--text-light);
-    margin-bottom: 1rem;
 }
 
 .publication-card p {
@@ -3598,7 +3597,8 @@ button {
 
 .publication-card__header {
     display: grid;
-    gap: 0.65rem;
+    gap: 0.5rem;
+    margin-bottom: 0.85rem;
 }
 
 .publication-card h3 {
@@ -3614,6 +3614,7 @@ button {
     gap: 0.35rem 0.85rem;
     margin: 0;
     font-size: 0.88rem;
+    color: var(--text-light);
 }
 
 .publication-card__preview,
