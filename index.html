@@ -41,7 +41,7 @@
     </nav>
 
     <header class="hero-section hero-section--minimal">
-        <div class="container">
+        <div class="container hero-two-col">
             <div class="hero-left">
                 <h1 class="hero-headline">The Behavioral Review</h1>
                 <p class="hero-description">Student-led publication for behavioral and social science research.</p>
@@ -51,6 +51,50 @@
                     <a href="for-authors.html" class="btn btn-secondary">Submit Your Work</a>
                 </div>
                 <p class="hero-tagline"><a href="archive.html" class="hero-archive-link">Explore the Archive →</a></p>
+            </div>
+            <div class="hero-bulletin-archive" aria-label="TBR Bulletin Archive">
+                <p class="bulletin-archive__eyebrow">The TBR Bulletin</p>
+                <p class="bulletin-archive__subtitle">Browse recent publication bulletins.</p>
+                <div class="bulletin-covers">
+                    <a href="bulletins/volume-003.html" class="bulletin-cover-link" aria-label="TBR Bulletin Volume 003">
+                        <img src="slide1_cover.jpeg" alt="TBR Bulletin Volume 003 cover" class="bulletin-cover-img" loading="lazy" width="230">
+                        <span class="bulletin-cover-label">Volume 003</span>
+                    </a>
+                    <a href="bulletins/volume-002.html" class="bulletin-cover-link" aria-label="TBR Bulletin Volume 002">
+                        <img src="IMG_5912.png" alt="TBR Bulletin Volume 002 cover" class="bulletin-cover-img" loading="lazy" width="230">
+                        <span class="bulletin-cover-label">Volume 002</span>
+                    </a>
+                    <a href="bulletins/volume-001.html" class="bulletin-cover-link" aria-label="TBR Bulletin Volume 001">
+                        <img src="IMG_5898.png" alt="TBR Bulletin Volume 001 cover" class="bulletin-cover-img" loading="lazy" width="230">
+                        <span class="bulletin-cover-label">Volume 001</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile bulletin carousel (shown only on small screens) -->
+        <div class="hero-bulletin-mobile" aria-label="TBR Bulletin Archive">
+            <p class="bulletin-archive__eyebrow">The TBR Bulletin</p>
+            <p class="bulletin-archive__subtitle">Browse recent publication bulletins.</p>
+            <div class="bulletin-carousel" role="region" aria-label="Bulletin carousel">
+                <div class="bulletin-carousel__track" id="bulletinTrack">
+                    <a href="bulletins/volume-003.html" class="bulletin-cover-link" aria-label="TBR Bulletin Volume 003">
+                        <img src="slide1_cover.jpeg" alt="TBR Bulletin Volume 003 cover" class="bulletin-cover-img" loading="lazy" width="220">
+                        <span class="bulletin-cover-label">Volume 003</span>
+                    </a>
+                    <a href="bulletins/volume-002.html" class="bulletin-cover-link" aria-label="TBR Bulletin Volume 002">
+                        <img src="IMG_5912.png" alt="TBR Bulletin Volume 002 cover" class="bulletin-cover-img" loading="lazy" width="220">
+                        <span class="bulletin-cover-label">Volume 002</span>
+                    </a>
+                    <a href="bulletins/volume-001.html" class="bulletin-cover-link" aria-label="TBR Bulletin Volume 001">
+                        <img src="IMG_5898.png" alt="TBR Bulletin Volume 001 cover" class="bulletin-cover-img" loading="lazy" width="220">
+                        <span class="bulletin-cover-label">Volume 001</span>
+                    </a>
+                </div>
+            </div>
+            <div class="bulletin-carousel__dots" id="bulletinDots" aria-label="Carousel pagination">
+                <button class="bulletin-dot bulletin-dot--active" data-index="0" aria-label="Go to bulletin 1" aria-current="true"></button>
+                <button class="bulletin-dot" data-index="1" aria-label="Go to bulletin 2"></button>
+                <button class="bulletin-dot" data-index="2" aria-label="Go to bulletin 3"></button>
             </div>
         </div>
     </header>

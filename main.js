@@ -1720,4 +1720,52 @@ document.addEventListener('DOMContentLoaded', function () {
     initHomepageStats();
     initHomepageFeaturedEditors();
     initEditorialTeamPage();
+    initBulletinCarousel();
 });
+
+function initBulletinCarousel() {
+    const track = document.getElementById('bulletinTrack');
+    const dotsContainer = document.getElementById('bulletinDots');
+    if (!track || !dotsContainer) return;
+
+    const slides = Array.from(track.children);
+    const dots = Array.from(dotsContainer.querySelectorAll('.bulletin-dot'));
+    let current = 0;
+    let startX = 0;
+    let isDragging = false;
+
+    function goTo(index) {
+        current = Math.max(0, Math.min(index, slides.length - 1));
+        const slideWidth = slides[0].offsetWidth + parseInt(getComputedStyle(track).gap || '16', 10);
+        track.style.transform = `translateX(-${current * slideWidth}px)`;
+        dots.forEach((d, i) => {
+            d.classList.toggle('bulletin-dot--active', i === current);
+            d.setAttribute('aria-current', i === current ? 'true' : 'false');
+        });
+    }
+
+    dots.forEach((dot) => {
+        dot.addEventListener('click', () => goTo(parseInt(dot.dataset.index, 10)));
+    });
+
+    // Touch/swipe support
+    track.addEventListener('touchstart', (e) => {
+        startX = e.touches[0].clientX;
+        isDragging = true;
+    }, { passive: true });
+
+    track.addEventListener('touchend', (e) => {
+        if (!isDragging) return;
+        const diff = startX - e.changedTouches[0].clientX;
+        if (Math.abs(diff) > 40) {
+            goTo(diff > 0 ? current + 1 : current - 1);
+        }
+        isDragging = false;
+    }, { passive: true });
+
+    // Keyboard navigation
+    dotsContainer.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowLeft') goTo(current - 1);
+        if (e.key === 'ArrowRight') goTo(current + 1);
+    });
+}
