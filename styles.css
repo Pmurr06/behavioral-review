@@ -864,29 +864,40 @@ img {
     margin-bottom: 1.35rem;
 }
 
-.standards-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 1.25rem;
+.standards-intro {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--text-muted, #555);
+    margin-bottom: 1.5rem;
 }
 
-.standard-card {
-    background-color: var(--light-blue);
-    border-left: 4px solid var(--navy);
-    border-radius: 4px;
-    padding: 1.35rem;
+.standards-list {
+    display: flex;
+    flex-direction: column;
 }
 
-.standard-card h4 {
+.standard-item {
+    padding: 1.5rem 0;
+    border-top: 1px solid var(--border-light, #dce3ec);
+}
+
+.standard-item:last-child {
+    border-bottom: 1px solid var(--border-light, #dce3ec);
+}
+
+.standard-item h4 {
     color: var(--navy);
-    margin-bottom: 0.6rem;
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin-bottom: 0.45rem;
     border: none;
     padding: 0;
 }
 
-.standard-card p {
+.standard-item p {
     font-size: 0.95rem;
-    line-height: 1.6;
+    line-height: 1.65;
+    margin: 0;
 }
 
 .contact-intro {
@@ -2981,7 +2992,6 @@ img {
         line-height: 1.4;
     }
 
-    .standards-grid,
     .help-grid,
     .steps-container,
     .social-cards-grid,
@@ -2998,8 +3008,7 @@ img {
     .help-card,
     .faq-item,
     .contact-step,
-    .social-card,
-    .standard-card {
+    .social-card {
         padding: 0.95rem;
     }
 
@@ -3369,7 +3378,6 @@ button {
 .help-card,
 .contact-box,
 .contact-step,
-.standard-card,
 .process-step,
 .editor-card,
 .featured-award-card,
@@ -3405,7 +3413,6 @@ button {
 .help-card,
 .contact-box,
 .contact-step,
-.standard-card,
 .process-step,
 .editor-card,
 .future-award-card {
@@ -3420,7 +3427,6 @@ button {
 .help-card,
 .contact-box,
 .contact-step,
-.standard-card,
 .value-card,
 .board-member,
 .team-member-card,
@@ -3579,7 +3585,6 @@ button {
 .checklist-grid,
 .help-grid--compact,
 .social-follow-grid,
-.standards-grid,
 .values-grid,
 .criteria-cards-grid,
 .past-recipients-grid,
@@ -3994,7 +3999,6 @@ button {
     .browse-grid,
     .contributor-grid,
     .compact-publication-grid,
-    .standards-grid,
     .values-grid,
     .criteria-cards-grid,
     .past-recipients-grid,
