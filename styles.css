@@ -5699,7 +5699,7 @@ button.bulletin-cover-link {
     }
 
     .editor-title {
-        font-size: 0.63rem;
+        font-size: 0.65rem;
         margin-bottom: 0.15rem;
     }
 
@@ -5770,7 +5770,7 @@ button.bulletin-cover-link {
         max-width: 100%;
     }
 
-    /* ── Awards page: How Recipients section  */
+    /* ── Awards page: How Recipients section ─ */
     .awards-page .content-section p {
         line-height: 1.6;
     }
