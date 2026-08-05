@@ -1972,6 +1972,142 @@ img {
 }
 
 /* ============================================
+   Archive — Active Filter Pills
+   ============================================ */
+
+.archive-active-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-bottom: 0.75rem;
+}
+
+.archive-active-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.3rem 0.65rem;
+    background: rgba(26, 58, 82, 0.08);
+    border: 1px solid rgba(26, 58, 82, 0.18);
+    border-radius: 999px;
+    font: inherit;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--navy);
+    cursor: pointer;
+    white-space: nowrap;
+    transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.archive-active-pill:hover {
+    background: rgba(26, 58, 82, 0.15);
+}
+
+.archive-active-pill__x {
+    font-size: 1rem;
+    line-height: 1;
+    font-weight: 400;
+    opacity: 0.7;
+}
+
+.archive-active-pill--clear {
+    background: transparent;
+    border-color: var(--navy);
+    color: var(--navy);
+    font-weight: 700;
+}
+
+.archive-active-pill--clear:hover {
+    background: var(--navy);
+    color: var(--primary-white);
+}
+
+/* ============================================
+   Archive — Accordion (mobile only, hidden on desktop)
+   ============================================ */
+
+.archive-accordion {
+    display: none; /* shown only on mobile via media query */
+}
+
+.archive-accordion-item {
+    border-bottom: 1px solid rgba(26, 58, 82, 0.1);
+}
+
+.archive-accordion-item:first-child {
+    border-top: 1px solid rgba(26, 58, 82, 0.1);
+}
+
+.archive-accordion-trigger {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0.75rem 0;
+    background: none;
+    border: none;
+    font: inherit;
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--navy);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    cursor: pointer;
+    text-align: left;
+}
+
+.archive-accordion-icon {
+    transition: transform 0.2s ease;
+    flex-shrink: 0;
+}
+
+.archive-accordion-trigger[aria-expanded="true"] .archive-accordion-icon {
+    transform: rotate(180deg);
+}
+
+.archive-accordion-panel {
+    padding-bottom: 0.85rem;
+}
+
+/* ============================================
+   Archive — Sticky Toolbar (mobile only)
+   ============================================ */
+
+.archive-sticky-bar {
+    display: none; /* shown only on mobile */
+}
+
+/* ============================================
+   Archive — Desktop-only elements (hidden on mobile)
+   ============================================ */
+
+.archive-filter-row--desktop,
+.archive-secondary-filters--desktop {
+    /* Visible on desktop by default */
+}
+
+.archive-mobile-actions {
+    display: none; /* shown only on mobile */
+}
+
+/* ============================================
+   Archive — Page Header (compact on mobile)
+   ============================================ */
+
+.page-header--compact {
+    padding: 2rem 0 1.5rem;
+}
+
+.page-header--compact h1 {
+    margin-bottom: 0.5rem;
+}
+
+.page-header--compact .page-header__intro {
+    max-width: 58ch;
+    margin: 0 auto;
+}
+
+/* ============================================
    Utility: Screen-reader only
    ============================================ */
 
@@ -3216,6 +3352,208 @@ img {
     .contact-compact-layout {
         grid-template-columns: 1fr;
         gap: 2rem;
+    }
+
+    /* ============================================
+       Archive — Mobile Redesign (≤768px)
+       ============================================ */
+
+    /* Page header: less vertical whitespace */
+    .archive-page .page-header--compact {
+        padding: 1rem 0 0.85rem;
+    }
+
+    .archive-page .page-header--compact h1 {
+        font-size: 1.8rem;
+        margin-bottom: 0.35rem;
+    }
+
+    .archive-page .page-header--compact .page-header__intro {
+        font-size: 0.92rem;
+        line-height: 1.45;
+    }
+
+    /* Stats: reduce size */
+    .archive-stats-bar {
+        gap: 0.6rem;
+        padding: 0.75rem;
+        margin-bottom: 0.9rem;
+    }
+
+    .archive-stat-value {
+        font-size: 1.45rem;
+    }
+
+    .archive-stat-label {
+        font-size: 0.68rem;
+    }
+
+    /* Toolbar */
+    .archive-toolbar {
+        padding: 0.85rem;
+        margin-bottom: 0.7rem;
+    }
+
+    /* Search bar: prominent, tall, full-width */
+    .archive-search {
+        min-height: 50px;
+        font-size: 1rem;
+        padding: 0.75rem 1rem 0.75rem 2.8rem;
+        border: 1.5px solid rgba(26, 58, 82, 0.25);
+        box-shadow: 0 2px 8px rgba(26, 58, 82, 0.1);
+    }
+
+    .archive-search:focus {
+        border-color: var(--navy);
+        box-shadow: 0 0 0 3px rgba(26, 58, 82, 0.14), 0 2px 8px rgba(26, 58, 82, 0.08);
+    }
+
+    /* Hide desktop-only filter rows */
+    .archive-filter-row--desktop,
+    .archive-secondary-filters--desktop {
+        display: none;
+    }
+
+    /* Show mobile accordion */
+    .archive-accordion {
+        display: block;
+        margin-top: 0.5rem;
+    }
+
+    /* Category chips inside accordion: horizontal scroll, snap, compact */
+    .archive-filters--mobile {
+        display: flex;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        gap: 0.4rem;
+        padding-bottom: 0.25rem;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+    }
+
+    .archive-filters--mobile::-webkit-scrollbar {
+        display: none;
+    }
+
+    .archive-filters--mobile .filter-btn {
+        flex: 0 0 auto;
+        scroll-snap-align: start;
+        min-height: 34px;
+        padding: 0.35rem 0.7rem;
+        font-size: 0.8rem;
+    }
+
+    .archive-filters--mobile .filter-btn--active {
+        background-color: var(--navy);
+        color: var(--primary-white);
+        box-shadow: 0 2px 6px rgba(26, 58, 82, 0.25);
+    }
+
+    /* Show mobile clear all button */
+    .archive-mobile-actions {
+        display: block;
+        margin-top: 0.75rem;
+    }
+
+    .archive-clear-btn--mobile {
+        width: 100%;
+    }
+
+    /* Sticky toolbar */
+    .archive-sticky-bar {
+        display: block;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 200;
+        background: rgba(255, 255, 255, 0.97);
+        border-bottom: 1px solid rgba(26, 58, 82, 0.12);
+        box-shadow: 0 2px 12px rgba(26, 58, 82, 0.1);
+        padding: 0.55rem 0;
+        transform: translateY(-110%);
+        transition: transform 0.25s ease;
+        pointer-events: none;
+    }
+
+    .archive-sticky-bar--visible {
+        transform: translateY(0);
+        pointer-events: auto;
+    }
+
+    .archive-sticky-bar__inner {
+        display: flex;
+        gap: 0.6rem;
+        align-items: center;
+    }
+
+    .archive-sticky-search {
+        flex: 1;
+        min-height: 40px;
+        font-size: 0.9rem;
+        padding: 0.5rem 0.85rem 0.5rem 2.5rem;
+        border: 1px solid rgba(26, 58, 82, 0.2);
+        box-shadow: none;
+    }
+
+    .archive-sticky-filters-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.35rem;
+        padding: 0.5rem 0.85rem;
+        min-height: 40px;
+        background: var(--navy);
+        color: #fff;
+        border: none;
+        border-radius: 8px;
+        font: inherit;
+        font-size: 0.85rem;
+        font-weight: 700;
+        cursor: pointer;
+        white-space: nowrap;
+        flex-shrink: 0;
+    }
+
+    /* Article cards: more spacing, better touch targets */
+    .publication-feed {
+        gap: 1.25rem;
+    }
+
+    .publication-card {
+        padding: 1.25rem;
+    }
+
+    .publication-card h3 {
+        font-size: 1.1rem;
+        line-height: 1.3;
+        margin-bottom: 0.55rem;
+        word-break: break-word;
+        overflow-wrap: break-word;
+    }
+
+    .publication-card-meta {
+        gap: 0.4rem 0.75rem;
+        font-size: 0.85rem;
+        margin-bottom: 0.55rem;
+    }
+
+    .publication-card p {
+        font-size: 0.92rem;
+        line-height: 1.6;
+        margin-top: 0.55rem;
+    }
+
+    .archive-tag-btn {
+        min-height: 32px;
+        padding: 0.3rem 0.6rem;
+        font-size: 0.78rem;
+    }
+
+    /* Results count */
+    .archive-results-count {
+        font-size: 0.85rem;
+        margin-bottom: 0.6rem;
     }
 }
 
