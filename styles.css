@@ -15,6 +15,7 @@
     --text-light: #5a6c7d;
     --border-color: #d4e0eb;
     --success-color: #4a9b6f;
+    --gold: #b8982a;
 }
 
 /* ============================================
@@ -900,7 +901,7 @@ img {
 }
 
 .standard-mark {
-    color: #b8982a;
+    color: var(--gold);
     font-size: 0.85rem;
     font-weight: 700;
     flex-shrink: 0;
@@ -1754,7 +1755,7 @@ img {
     font-weight: 700;
     letter-spacing: 0.14em;
     text-transform: uppercase;
-    color: #b8982a;
+    color: var(--gold);
     margin-bottom: 0.55rem;
 }
 
@@ -1782,7 +1783,7 @@ img {
     top: 10%;
     height: 80%;
     width: 1px;
-    background-color: #b8982a;
+    background-color: var(--gold);
     opacity: 0.35;
 }
 
@@ -3092,7 +3093,7 @@ img {
         left: 15%;
         width: 70%;
         height: 1px;
-        background-color: #b8982a;
+        background-color: var(--gold);
         opacity: 0.35;
     }
 
