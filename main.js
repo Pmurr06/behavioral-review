@@ -1382,7 +1382,23 @@ function initArchivePage() {
     if (clearButton)    clearButton.addEventListener('click', doClearFilters);
     if (clearButtonMob) clearButtonMob.addEventListener('click', doClearFilters);
 
-    /* ── Mobile accordion ── */
+    /* ── Mobile single "Filters" toggle ── */
+    (function initMobileFiltersToggle() {
+        var btn   = document.getElementById('archive-mobile-filters-btn');
+        var panel = document.getElementById('archive-mobile-filters-panel');
+        if (!btn || !panel) return;
+        btn.addEventListener('click', function () {
+            var isOpen = btn.getAttribute('aria-expanded') === 'true';
+            btn.setAttribute('aria-expanded', isOpen ? 'false' : 'true');
+            if (isOpen) {
+                panel.setAttribute('hidden', '');
+            } else {
+                panel.removeAttribute('hidden');
+            }
+        });
+    }());
+
+    /* ── Mobile accordion (legacy — hidden items kept for JS compatibility) ── */
     (function initAccordion() {
         var accordion = document.getElementById('archive-accordion');
         if (!accordion) return;
@@ -1595,7 +1611,10 @@ function initArchivePage() {
         }
 
         if (clearButton)    clearButton.disabled    = !hasActiveFilters;
-        if (clearButtonMob) clearButtonMob.disabled = !hasActiveFilters;
+        if (clearButtonMob) {
+            clearButtonMob.disabled = !hasActiveFilters;
+            clearButtonMob.classList.toggle('archive-clear-btn--visible', hasActiveFilters);
+        }
 
         updateActivePills();
 
