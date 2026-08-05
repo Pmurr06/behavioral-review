@@ -5663,3 +5663,115 @@ button.bulletin-cover-link {
         padding: 0.55rem 16px;
     }
 }
+
+/* ============================================
+   Mobile-Only Improvements (max-width: 768px)
+   About page – editor cards
+   Awards page – recipients grid & criteria
+   ============================================ */
+@media (max-width: 768px) {
+
+    /* ── About page: Editor cards ─────────── */
+    .editor-card {
+        flex-direction: row;
+        align-items: flex-start;
+        padding: 12px 14px;
+        gap: 0.65rem;
+    }
+
+    .editor-headshot {
+        width: 64px;
+        height: 64px;
+        flex-shrink: 0;
+        border-radius: 8px;
+    }
+
+    .editor-info {
+        flex: 1;
+        min-width: 0;
+        gap: 0;
+    }
+
+    .editor-info h3 {
+        font-size: 1rem;
+        margin-bottom: 0.1rem;
+        line-height: 1.2;
+    }
+
+    .editor-title {
+        font-size: 0.65rem;
+        margin-bottom: 0.15rem;
+    }
+
+    .editor-credentials {
+        font-size: 0.75rem;
+        margin-bottom: 0.3rem;
+    }
+
+    .editor-bio {
+        font-size: 0.77rem;
+        line-height: 1.4;
+        margin: 0;
+    }
+
+    .editors-grid {
+        gap: 0.75rem;
+    }
+
+    .featured-editors {
+        margin-bottom: 1rem;
+    }
+
+    .featured-editors h2 {
+        margin-bottom: 0.85rem;
+    }
+
+    /* ── Awards page: Past recipients ─────── */
+    .past-recipients-grid,
+    .future-awards-grid {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+
+    .past-recipient-entry {
+        padding: 1.4rem 0 1.2rem;
+        border-top: 1px solid #d6c9a8;
+    }
+
+    .past-recipient-entry h3 {
+        font-size: 1.45rem;
+        margin-bottom: 0.3rem;
+    }
+
+    .past-recipient-entry .award-label {
+        margin-bottom: 0.5rem;
+    }
+
+    .past-recipient-entry .award-institution {
+        margin-bottom: 0.45rem;
+    }
+
+    .past-recipient-entry .award-title {
+        margin-bottom: 0.65rem;
+    }
+
+    /* ── Awards page: Criteria list ───────── */
+    .criteria-list {
+        grid-template-columns: 1fr;
+        column-gap: 0;
+        margin-top: 1.5rem;
+    }
+
+    .criteria-item {
+        padding: 1.2rem 0 1.1rem;
+    }
+
+    .criteria-description {
+        max-width: 100%;
+    }
+
+    /* ── Awards page: How Recipients section ─ */
+    .awards-page .content-section p {
+        line-height: 1.6;
+    }
+}
