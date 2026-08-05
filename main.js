@@ -1188,12 +1188,10 @@ function initArchivePage() {
         var elArticles     = document.getElementById('archive-stat-articles');
         var elAuthors      = document.getElementById('archive-stat-authors');
         var elUniversities = document.getElementById('archive-stat-universities');
-        var elDisciplines  = document.getElementById('archive-stat-disciplines');
 
         if (elArticles)     elArticles.textContent     = PUBLISHED_ARTICLES.length;
         if (elAuthors)      elAuthors.textContent      = Object.keys(uniqueAuthors).length;
         if (elUniversities) elUniversities.textContent = Object.keys(uniqueInstitutions).length;
-        if (elDisciplines)  elDisciplines.textContent  = Object.keys(uniqueDisciplines).length;
     }());
 
     /* ── Editor's Picks ── */

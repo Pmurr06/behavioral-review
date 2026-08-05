@@ -1743,40 +1743,66 @@ img {
    Archive — Statistics Bar
    ============================================ */
 
+.archive-community-section {
+    margin-bottom: 1.25rem;
+    text-align: center;
+}
+
+.archive-community-eyebrow {
+    display: inline-block;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #b8982a;
+    margin-bottom: 0.55rem;
+}
+
 .archive-stats-bar {
-    display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 0.85rem;
-    margin-bottom: 1.5rem;
-    padding: 0.75rem 1.25rem;
-    background-color: var(--light-blue);
-    border: 1px solid var(--border-color);
-    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    gap: 0;
+    margin-bottom: 0;
 }
 
 .archive-stat {
+    flex: 1;
+    max-width: 220px;
     min-width: 0;
     text-align: center;
+    padding: 0.25rem 1.5rem;
+    position: relative;
+}
+
+.archive-stat + .archive-stat::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 10%;
+    height: 80%;
+    width: 1px;
+    background-color: #b8982a;
+    opacity: 0.35;
 }
 
 .archive-stat-value {
     display: block;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     font-weight: 600;
     color: var(--navy);
-    opacity: 0.82;
     font-family: 'Georgia', serif;
-    line-height: 1.1;
+    line-height: 1.15;
 }
 
 .archive-stat-label {
     display: block;
-    font-size: 0.78rem;
+    font-size: 0.72rem;
     color: var(--text-light);
-    font-weight: 700;
-    letter-spacing: 0.06em;
+    font-weight: 600;
+    letter-spacing: 0.05em;
     text-transform: uppercase;
-    margin-top: 0.1rem;
+    margin-top: 0.2rem;
 }
 
 /* ============================================
@@ -3049,17 +3075,33 @@ img {
     }
 
     .archive-stats-bar {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 0.7rem;
-        padding: 0.65rem;
+        flex-direction: column;
+        align-items: center;
+        gap: 0;
+    }
+
+    .archive-stat {
+        max-width: 100%;
+        width: 100%;
+        padding: 0.55rem 1rem;
+        position: relative;
+    }
+
+    .archive-stat + .archive-stat::before {
+        top: 0;
+        left: 15%;
+        width: 70%;
+        height: 1px;
+        background-color: #b8982a;
+        opacity: 0.35;
     }
 
     .archive-stat-value {
-        font-size: 1.3rem;
+        font-size: 1.1rem;
     }
 
     .archive-stat-label {
-        font-size: 0.72rem;
+        font-size: 0.7rem;
     }
 
     .archive-secondary-filters {
@@ -3376,18 +3418,16 @@ img {
 
     /* Stats: further reduced prominence */
     .archive-stats-bar {
-        gap: 0.45rem;
-        padding: 0.4rem 0.6rem;
-        margin-bottom: 0.75rem;
-        opacity: 0.82;
+        gap: 0;
+        margin-bottom: 0.5rem;
     }
 
     .archive-stat-value {
-        font-size: 0.95rem;
+        font-size: 1rem;
     }
 
     .archive-stat-label {
-        font-size: 0.63rem;
+        font-size: 0.65rem;
     }
 
     /* "See what is new" link — hidden on mobile */
@@ -3666,8 +3706,8 @@ img {
     }
 
     .archive-stats-bar {
-        grid-template-columns: 1fr;
-        padding: 0.9rem;
+        flex-direction: column;
+        align-items: center;
     }
 
     .archive-search {
@@ -3938,7 +3978,6 @@ button {
 .accordion-item,
 .social-follow-card,
 .archive-toolbar,
-.archive-stats-bar,
 .publication-card,
 .author-profile-card,
 .coming-soon-box,
@@ -4037,7 +4076,6 @@ button {
 
 .glance-label,
 .glance-footer,
-.archive-stat-label,
 .archive-filter-label,
 .compact-publication-card__meta,
 .contributor-card__institution {
@@ -4045,8 +4083,7 @@ button {
     color: var(--text-light);
 }
 
-.glance-value,
-.archive-stat-value {
+.glance-value {
     font-size: clamp(1.2rem, 4vw, 1.75rem);
 }
 
@@ -4381,14 +4418,13 @@ button {
 }
 
 .archive-stats-bar {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 0.75rem;
-    padding: 0.65rem;
-    margin-bottom: var(--space-4);
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
 }
 
 .archive-stat {
-    padding: 0.1rem;
+    padding: 0.5rem 1rem;
 }
 
 .archive-toolbar {
@@ -4577,7 +4613,15 @@ button {
     }
 
     .archive-stats-bar {
-        grid-template-columns: repeat(4, minmax(0, 1fr));
+        flex-direction: row;
+        align-items: stretch;
+    }
+
+    .archive-stat + .archive-stat::before {
+        top: 10%;
+        left: 0;
+        width: 1px;
+        height: 80%;
     }
 
     .archive-secondary-filters {
