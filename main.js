@@ -1295,21 +1295,21 @@ function initArchivePage() {
     if (sortSelect) {
         sortSelect.addEventListener('change', function () {
             state.sort = sortSelect.value;
-            if (sortSelectDt) sortSelectDt.value = sortSelect.value;
+            syncSelects(sortSelect, sortSelectDt, sortSelect.value);
             renderFeed();
         });
     }
     if (uniSelect) {
         uniSelect.addEventListener('change', function () {
             state.university = uniSelect.value;
-            if (uniSelectDt) uniSelectDt.value = uniSelect.value;
+            syncSelects(uniSelect, uniSelectDt, uniSelect.value);
             renderFeed();
         });
     }
     if (authorSelect) {
         authorSelect.addEventListener('change', function () {
             state.author = authorSelect.value;
-            if (authorSelectDt) authorSelectDt.value = authorSelect.value;
+            syncSelects(authorSelect, authorSelectDt, authorSelect.value);
             renderFeed();
         });
     }
@@ -1318,21 +1318,21 @@ function initArchivePage() {
     if (sortSelectDt) {
         sortSelectDt.addEventListener('change', function () {
             state.sort = sortSelectDt.value;
-            if (sortSelect) sortSelect.value = sortSelectDt.value;
+            syncSelects(sortSelect, sortSelectDt, sortSelectDt.value);
             renderFeed();
         });
     }
     if (uniSelectDt) {
         uniSelectDt.addEventListener('change', function () {
             state.university = uniSelectDt.value;
-            if (uniSelect) uniSelect.value = uniSelectDt.value;
+            syncSelects(uniSelect, uniSelectDt, uniSelectDt.value);
             renderFeed();
         });
     }
     if (authorSelectDt) {
         authorSelectDt.addEventListener('change', function () {
             state.author = authorSelectDt.value;
-            if (authorSelect) authorSelect.value = authorSelectDt.value;
+            syncSelects(authorSelect, authorSelectDt, authorSelectDt.value);
             renderFeed();
         });
     }
@@ -1436,6 +1436,16 @@ function initArchivePage() {
             stickyBar.setAttribute('aria-hidden', visible ? 'true' : 'false');
         }, { rootMargin: '-1px 0px 0px 0px', threshold: 0 });
         observer.observe(statsBar);
+
+        /* Filters button: scroll to main search/filter toolbar */
+        var stickyFiltersBtn = document.getElementById('archive-sticky-filters-btn');
+        var toolbarEl = document.querySelector('.archive-toolbar');
+        if (stickyFiltersBtn && toolbarEl) {
+            stickyFiltersBtn.addEventListener('click', function () {
+                toolbarEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                if (searchInput) searchInput.focus();
+            });
+        }
     }());
 
     /* ── Tag filter (called when a tag badge is clicked) ── */
@@ -1470,7 +1480,14 @@ function initArchivePage() {
             var pill = document.createElement('button');
             pill.type = 'button';
             pill.className = 'archive-active-pill';
-            pill.innerHTML = '<span>' + p.label + '</span><span class="archive-active-pill__x" aria-hidden="true">\u00D7</span>';
+            var labelSpan = document.createElement('span');
+            labelSpan.textContent = p.label;
+            var xSpan = document.createElement('span');
+            xSpan.className = 'archive-active-pill__x';
+            xSpan.setAttribute('aria-hidden', 'true');
+            xSpan.textContent = '\u00D7';
+            pill.appendChild(labelSpan);
+            pill.appendChild(xSpan);
             pill.setAttribute('aria-label', 'Remove filter: ' + p.label);
             pill.addEventListener('click', function () {
                 state[p.key] = p.reset;
