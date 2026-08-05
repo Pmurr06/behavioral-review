@@ -1110,17 +1110,28 @@ function renderBrowseCards(selector, categories) {
 /* Archive page — search, filter, sort, and stats */
 function initArchivePage() {
     var filtersEl = document.getElementById('archive-filters');
+    var filtersMobileEl = document.getElementById('archive-filters-mobile');
     var feedEl = document.getElementById('archive-feed');
     if (!filtersEl || !feedEl) return;
 
     var searchInput    = document.getElementById('archive-search');
+    var stickySearch   = document.getElementById('archive-sticky-search');
+    /* Mobile accordion selects */
     var sortSelect     = document.getElementById('archive-sort');
     var uniSelect      = document.getElementById('archive-university');
     var authorSelect   = document.getElementById('archive-author');
+    /* Desktop selects (mirrored) */
+    var sortSelectDt   = document.getElementById('archive-sort-desktop');
+    var uniSelectDt    = document.getElementById('archive-university-desktop');
+    var authorSelectDt = document.getElementById('archive-author-desktop');
     var clearButton    = document.getElementById('archive-clear-filters');
+    var clearButtonMob = document.getElementById('archive-clear-filters-mobile');
     var resultsCountEl = document.getElementById('archive-results-count');
     var featuredSection = document.getElementById('archive-featured');
     var featuredFeed   = document.getElementById('archive-featured-feed');
+    var activePillsEl  = document.getElementById('archive-active-pills');
+    var stickyBar      = document.getElementById('archive-sticky-bar');
+    var statsBar       = document.querySelector('.archive-stats-bar');
 
     /* Filter / search state */
     var defaultState = {
@@ -1235,6 +1246,7 @@ function initArchivePage() {
             opt.value = uni;
             opt.textContent = uni;
             if (uniSelect) uniSelect.appendChild(opt);
+            if (uniSelectDt) uniSelectDt.appendChild(opt.cloneNode(true));
         });
 
         authors.sort().forEach(function (name) {
@@ -1242,44 +1254,85 @@ function initArchivePage() {
             opt.value = name;
             opt.textContent = name;
             if (authorSelect) authorSelect.appendChild(opt);
+            if (authorSelectDt) authorSelectDt.appendChild(opt.cloneNode(true));
         });
     }());
 
-    /* ── Category filter pills ── */
+    /* ── Category filter pills (desktop and mobile) ── */
     var categories = ['All', 'Behavioral Science', 'Philosophy', 'Psychology', 'Sociology & Anthropology', 'Law & Criminal Justice', 'Economics & Business', 'Global & International Affairs', 'Public Policy', 'Public Health'];
     categories.forEach(function (cat) {
-        var btn = document.createElement('button');
-        btn.type = 'button';
-        btn.className = 'filter-btn' + (cat === 'All' ? ' filter-btn--active' : '');
-        btn.textContent = cat;
-        btn.setAttribute('data-filter', cat);
-        btn.addEventListener('click', function () {
-            state.category = cat;
-            state.tag = '';
-            filtersEl.querySelectorAll('.filter-btn').forEach(function (b) {
-                b.classList.toggle('filter-btn--active', b.getAttribute('data-filter') === cat);
+        function makeFilterBtn() {
+            var btn = document.createElement('button');
+            btn.type = 'button';
+            btn.className = 'filter-btn' + (cat === 'All' ? ' filter-btn--active' : '');
+            btn.textContent = cat;
+            btn.setAttribute('data-filter', cat);
+            btn.addEventListener('click', function () {
+                state.category = cat;
+                state.tag = '';
+                /* Sync active state across both filter containers */
+                [filtersEl, filtersMobileEl].forEach(function (el) {
+                    if (!el) return;
+                    el.querySelectorAll('.filter-btn').forEach(function (b) {
+                        b.classList.toggle('filter-btn--active', b.getAttribute('data-filter') === cat);
+                    });
+                });
+                renderFeed();
             });
-            renderFeed();
-        });
-        filtersEl.appendChild(btn);
+            return btn;
+        }
+        filtersEl.appendChild(makeFilterBtn());
+        if (filtersMobileEl) filtersMobileEl.appendChild(makeFilterBtn());
     });
 
-    /* ── Sort / university / author selects ── */
+    /* Helper: sync a pair of selects (mobile + desktop mirror) */
+    function syncSelects(primary, mirror, value) {
+        if (primary) primary.value = value;
+        if (mirror)  mirror.value  = value;
+    }
+
+    /* ── Sort / university / author selects (mobile accordion) ── */
     if (sortSelect) {
         sortSelect.addEventListener('change', function () {
             state.sort = sortSelect.value;
+            if (sortSelectDt) sortSelectDt.value = sortSelect.value;
             renderFeed();
         });
     }
     if (uniSelect) {
         uniSelect.addEventListener('change', function () {
             state.university = uniSelect.value;
+            if (uniSelectDt) uniSelectDt.value = uniSelect.value;
             renderFeed();
         });
     }
     if (authorSelect) {
         authorSelect.addEventListener('change', function () {
             state.author = authorSelect.value;
+            if (authorSelectDt) authorSelectDt.value = authorSelect.value;
+            renderFeed();
+        });
+    }
+
+    /* ── Sort / university / author selects (desktop mirrors) ── */
+    if (sortSelectDt) {
+        sortSelectDt.addEventListener('change', function () {
+            state.sort = sortSelectDt.value;
+            if (sortSelect) sortSelect.value = sortSelectDt.value;
+            renderFeed();
+        });
+    }
+    if (uniSelectDt) {
+        uniSelectDt.addEventListener('change', function () {
+            state.university = uniSelectDt.value;
+            if (uniSelect) uniSelect.value = uniSelectDt.value;
+            renderFeed();
+        });
+    }
+    if (authorSelectDt) {
+        authorSelectDt.addEventListener('change', function () {
+            state.author = authorSelectDt.value;
+            if (authorSelect) authorSelect.value = authorSelectDt.value;
             renderFeed();
         });
     }
@@ -1289,38 +1342,161 @@ function initArchivePage() {
         searchInput.addEventListener('input', function () {
             state.query = searchInput.value;
             state.tag = '';
+            if (stickySearch) stickySearch.value = searchInput.value;
+            renderFeed();
+        });
+    }
+    if (stickySearch) {
+        stickySearch.addEventListener('input', function () {
+            state.query = stickySearch.value;
+            state.tag = '';
+            if (searchInput) searchInput.value = stickySearch.value;
             renderFeed();
         });
     }
 
-    if (clearButton) {
-        clearButton.addEventListener('click', function () {
-            state.query = defaultState.query;
-            state.tag = defaultState.tag;
-            state.category = defaultState.category;
-            state.sort = defaultState.sort;
-            state.university = defaultState.university;
-            state.author = defaultState.author;
+    /* ── Clear filters ── */
+    function doClearFilters() {
+        state.query = defaultState.query;
+        state.tag = defaultState.tag;
+        state.category = defaultState.category;
+        state.sort = defaultState.sort;
+        state.university = defaultState.university;
+        state.author = defaultState.author;
 
-            if (searchInput) searchInput.value = '';
-            if (sortSelect) sortSelect.value = defaultState.sort;
-            if (uniSelect) uniSelect.value = defaultState.university;
-            if (authorSelect) authorSelect.value = defaultState.author;
+        if (searchInput) searchInput.value = '';
+        if (stickySearch) stickySearch.value = '';
+        syncSelects(sortSelect, sortSelectDt, defaultState.sort);
+        syncSelects(uniSelect, uniSelectDt, defaultState.university);
+        syncSelects(authorSelect, authorSelectDt, defaultState.author);
 
-            filtersEl.querySelectorAll('.filter-btn').forEach(function (button) {
+        [filtersEl, filtersMobileEl].forEach(function (el) {
+            if (!el) return;
+            el.querySelectorAll('.filter-btn').forEach(function (button) {
                 button.classList.toggle('filter-btn--active', button.getAttribute('data-filter') === defaultState.category);
             });
-
-            renderFeed();
         });
+
+        renderFeed();
     }
+    if (clearButton)    clearButton.addEventListener('click', doClearFilters);
+    if (clearButtonMob) clearButtonMob.addEventListener('click', doClearFilters);
+
+    /* ── Mobile accordion ── */
+    (function initAccordion() {
+        var accordion = document.getElementById('archive-accordion');
+        if (!accordion) return;
+        var STORAGE_KEY = 'tbr-archive-accordion';
+        var openSection = null;
+        try { openSection = sessionStorage.getItem(STORAGE_KEY); } catch (e) {}
+
+        accordion.querySelectorAll('.archive-accordion-item').forEach(function (item) {
+            var trigger = item.querySelector('.archive-accordion-trigger');
+            var panel   = item.querySelector('.archive-accordion-panel');
+            if (!trigger || !panel) return;
+            var key = item.getAttribute('data-accordion');
+
+            function setOpen(open) {
+                trigger.setAttribute('aria-expanded', open ? 'true' : 'false');
+                if (open) {
+                    panel.removeAttribute('hidden');
+                } else {
+                    panel.setAttribute('hidden', '');
+                }
+            }
+
+            /* Restore session state */
+            if (openSection === key) setOpen(true);
+
+            trigger.addEventListener('click', function () {
+                var isOpen = trigger.getAttribute('aria-expanded') === 'true';
+                /* Close all */
+                accordion.querySelectorAll('.archive-accordion-item').forEach(function (it) {
+                    var tr = it.querySelector('.archive-accordion-trigger');
+                    var pn = it.querySelector('.archive-accordion-panel');
+                    if (tr) tr.setAttribute('aria-expanded', 'false');
+                    if (pn) pn.setAttribute('hidden', '');
+                });
+                if (!isOpen) {
+                    setOpen(true);
+                    try { sessionStorage.setItem(STORAGE_KEY, key); } catch (e) {}
+                } else {
+                    try { sessionStorage.removeItem(STORAGE_KEY); } catch (e) {}
+                }
+            });
+        });
+    }());
+
+    /* ── Sticky toolbar ── */
+    (function initStickyBar() {
+        if (!stickyBar || !statsBar) return;
+        var observer = new IntersectionObserver(function (entries) {
+            var visible = entries[0].isIntersecting;
+            stickyBar.classList.toggle('archive-sticky-bar--visible', !visible);
+            stickyBar.setAttribute('aria-hidden', visible ? 'true' : 'false');
+        }, { rootMargin: '-1px 0px 0px 0px', threshold: 0 });
+        observer.observe(statsBar);
+    }());
 
     /* ── Tag filter (called when a tag badge is clicked) ── */
     function setTagFilter(tag) {
         state.tag   = tag;
         state.query = '';
         if (searchInput) searchInput.value = '';
+        if (stickySearch) stickySearch.value = '';
         renderFeed();
+    }
+
+    /* ── Active filter pills ── */
+    function updateActivePills() {
+        if (!activePillsEl) return;
+        var pills = [];
+        var sortLabels = { newest: 'Newest First', oldest: 'Oldest First', az: 'A–Z', za: 'Z–A' };
+
+        if (state.category !== defaultState.category) pills.push({ label: state.category, key: 'category', reset: defaultState.category });
+        if (state.university !== defaultState.university) pills.push({ label: state.university, key: 'university', reset: defaultState.university });
+        if (state.author !== defaultState.author) pills.push({ label: state.author, key: 'author', reset: defaultState.author });
+        if (state.sort !== defaultState.sort) pills.push({ label: sortLabels[state.sort] || state.sort, key: 'sort', reset: defaultState.sort });
+        if (state.query) pills.push({ label: '\u201C' + state.query + '\u201D', key: 'query', reset: '' });
+        if (state.tag) pills.push({ label: state.tag, key: 'tag', reset: '' });
+
+        activePillsEl.innerHTML = '';
+        if (pills.length === 0) {
+            activePillsEl.setAttribute('hidden', '');
+            return;
+        }
+        activePillsEl.removeAttribute('hidden');
+        pills.forEach(function (p) {
+            var pill = document.createElement('button');
+            pill.type = 'button';
+            pill.className = 'archive-active-pill';
+            pill.innerHTML = '<span>' + p.label + '</span><span class="archive-active-pill__x" aria-hidden="true">\u00D7</span>';
+            pill.setAttribute('aria-label', 'Remove filter: ' + p.label);
+            pill.addEventListener('click', function () {
+                state[p.key] = p.reset;
+                if (p.key === 'query' && searchInput) searchInput.value = '';
+                if (p.key === 'query' && stickySearch) stickySearch.value = '';
+                if (p.key === 'sort') syncSelects(sortSelect, sortSelectDt, p.reset);
+                if (p.key === 'university') syncSelects(uniSelect, uniSelectDt, p.reset);
+                if (p.key === 'author') syncSelects(authorSelect, authorSelectDt, p.reset);
+                if (p.key === 'category') {
+                    [filtersEl, filtersMobileEl].forEach(function (el) {
+                        if (!el) return;
+                        el.querySelectorAll('.filter-btn').forEach(function (b) {
+                            b.classList.toggle('filter-btn--active', b.getAttribute('data-filter') === p.reset);
+                        });
+                    });
+                }
+                renderFeed();
+            });
+            activePillsEl.appendChild(pill);
+        });
+        var clearAll = document.createElement('button');
+        clearAll.type = 'button';
+        clearAll.className = 'archive-active-pill archive-active-pill--clear';
+        clearAll.textContent = 'Clear All';
+        clearAll.addEventListener('click', doClearFilters);
+        activePillsEl.appendChild(clearAll);
     }
 
     /* ── Main render function ── */
@@ -1392,14 +1568,19 @@ function initArchivePage() {
             return indexMap[a.link] - indexMap[b.link]; /* newest (default) */
         });
 
-        /* Results count */
+        /* Results count — concise format */
         if (resultsCountEl) {
-            resultsCountEl.textContent = 'Showing ' + filtered.length + ' of ' + PUBLISHED_ARTICLES.length + ' articles';
+            if (hasActiveFilters) {
+                resultsCountEl.textContent = filtered.length + ' Article' + (filtered.length !== 1 ? 's' : '') + ' Found';
+            } else {
+                resultsCountEl.textContent = filtered.length + ' Article' + (filtered.length !== 1 ? 's' : '');
+            }
         }
 
-        if (clearButton) {
-            clearButton.disabled = !hasActiveFilters;
-        }
+        if (clearButton)    clearButton.disabled    = !hasActiveFilters;
+        if (clearButtonMob) clearButtonMob.disabled = !hasActiveFilters;
+
+        updateActivePills();
 
         /* Render cards */
         feedEl.innerHTML = '';
