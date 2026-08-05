@@ -80,7 +80,7 @@
                         <span class="section-eyebrow">Find articles faster</span>
                         <h2>Published Articles</h2>
                     </div>
-                    <a href="recent-articles.html" class="section-link">See what is new</a>
+                    <a href="recent-articles.html" class="section-link archive-see-new-link">See what is new</a>
                 </div>
 
                 <!-- Sticky toolbar shown after scrolling past stats (mobile only) -->
@@ -97,7 +97,7 @@
                 <div class="archive-toolbar">
                     <div class="archive-search-row">
                         <label for="archive-search" class="sr-only">Search articles by title, author, university, category, or tag</label>
-                        <input type="search" id="archive-search" class="archive-search" placeholder="Search by title, author, university, category, or tag…">
+                        <input type="search" id="archive-search" class="archive-search" placeholder="Search articles, authors, or universities...">
                     </div>
 
                     <!-- Active filter pills (mobile) -->
@@ -111,53 +111,58 @@
 
                         <!-- Mobile accordion filters -->
                         <div class="archive-accordion" id="archive-accordion">
-                            <div class="archive-accordion-item" data-accordion="categories">
-                                <button type="button" class="archive-accordion-trigger" aria-expanded="false" aria-controls="accordion-panel-categories">
-                                    <span>Categories</span>
+                            <!-- Single "Filters" toggle (mobile only) -->
+                            <div class="archive-mobile-filters-toggle">
+                                <button type="button" class="archive-mobile-filters-btn" id="archive-mobile-filters-btn" aria-expanded="false" aria-controls="archive-mobile-filters-panel">
+                                    <svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3 5a1 1 0 011-1h6a1 1 0 110 2H7a1 1 0 01-1-1zm2 5a1 1 0 011-1h2a1 1 0 110 2h-2a1 1 0 01-1-1z" clip-rule="evenodd"/></svg>
+                                    Filters
                                     <svg class="archive-accordion-icon" width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
                                 </button>
-                                <div class="archive-accordion-panel" id="accordion-panel-categories" hidden>
-                                    <div id="archive-filters-mobile" class="archive-filters archive-filters--mobile" role="group" aria-label="Filter by category"></div>
+                            </div>
+                            <div class="archive-mobile-filters-panel" id="archive-mobile-filters-panel" hidden>
+                                <div class="archive-mobile-filters-inner">
+                                    <div class="archive-mobile-filter-group">
+                                        <label class="archive-filter-label" for="archive-filters-mobile-wrap">Category</label>
+                                        <div id="archive-filters-mobile" class="archive-filters archive-filters--mobile" role="group" aria-label="Filter by category"></div>
+                                    </div>
+                                    <div class="archive-mobile-filter-group">
+                                        <label class="archive-filter-label" for="archive-sort">Sort</label>
+                                        <select id="archive-sort" class="archive-select">
+                                            <option value="newest">Newest First</option>
+                                            <option value="oldest">Oldest First</option>
+                                            <option value="az">A–Z</option>
+                                            <option value="za">Z–A</option>
+                                        </select>
+                                    </div>
+                                    <div class="archive-mobile-filter-group">
+                                        <label class="archive-filter-label" for="archive-university">University</label>
+                                        <select id="archive-university" class="archive-select">
+                                            <option value="all">All Universities</option>
+                                        </select>
+                                    </div>
+                                    <div class="archive-mobile-filter-group">
+                                        <label class="archive-filter-label" for="archive-author">Author</label>
+                                        <select id="archive-author" class="archive-select">
+                                            <option value="all">All Authors</option>
+                                        </select>
+                                    </div>
+                                    <div class="archive-mobile-filter-group archive-mobile-filter-group--clear">
+                                        <button id="archive-clear-filters-mobile" class="archive-clear-btn archive-clear-btn--mobile" type="button" disabled>Clear Filters</button>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="archive-accordion-item" data-accordion="sort">
-                                <button type="button" class="archive-accordion-trigger" aria-expanded="false" aria-controls="accordion-panel-sort">
-                                    <span>Sort</span>
-                                    <svg class="archive-accordion-icon" width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
-                                </button>
-                                <div class="archive-accordion-panel" id="accordion-panel-sort" hidden>
-                                    <label class="archive-filter-label sr-only" for="archive-sort">Sort By</label>
-                                    <select id="archive-sort" class="archive-select">
-                                        <option value="newest">Newest First</option>
-                                        <option value="oldest">Oldest First</option>
-                                        <option value="az">A–Z</option>
-                                        <option value="za">Z–A</option>
-                                    </select>
-                                </div>
+                            <!-- hidden accordion items kept for desktop JS compatibility (IDs preserved) -->
+                            <div class="archive-accordion-item archive-accordion-item--hidden" data-accordion="categories" aria-hidden="true">
+                                <div class="archive-accordion-panel" id="accordion-panel-categories" hidden></div>
                             </div>
-                            <div class="archive-accordion-item" data-accordion="university">
-                                <button type="button" class="archive-accordion-trigger" aria-expanded="false" aria-controls="accordion-panel-university">
-                                    <span>University</span>
-                                    <svg class="archive-accordion-icon" width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
-                                </button>
-                                <div class="archive-accordion-panel" id="accordion-panel-university" hidden>
-                                    <label class="archive-filter-label sr-only" for="archive-university">University</label>
-                                    <select id="archive-university" class="archive-select">
-                                        <option value="all">All Universities</option>
-                                    </select>
-                                </div>
+                            <div class="archive-accordion-item archive-accordion-item--hidden" data-accordion="sort" aria-hidden="true">
+                                <div class="archive-accordion-panel" id="accordion-panel-sort" hidden></div>
                             </div>
-                            <div class="archive-accordion-item" data-accordion="author">
-                                <button type="button" class="archive-accordion-trigger" aria-expanded="false" aria-controls="accordion-panel-author">
-                                    <span>Author</span>
-                                    <svg class="archive-accordion-icon" width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
-                                </button>
-                                <div class="archive-accordion-panel" id="accordion-panel-author" hidden>
-                                    <label class="archive-filter-label sr-only" for="archive-author">Author</label>
-                                    <select id="archive-author" class="archive-select">
-                                        <option value="all">All Authors</option>
-                                    </select>
-                                </div>
+                            <div class="archive-accordion-item archive-accordion-item--hidden" data-accordion="university" aria-hidden="true">
+                                <div class="archive-accordion-panel" id="accordion-panel-university" hidden></div>
+                            </div>
+                            <div class="archive-accordion-item archive-accordion-item--hidden" data-accordion="author" aria-hidden="true">
+                                <div class="archive-accordion-panel" id="accordion-panel-author" hidden></div>
                             </div>
                         </div>
 
@@ -190,10 +195,6 @@
                         </div>
                     </div>
 
-                    <!-- Mobile clear filters row -->
-                    <div class="archive-mobile-actions">
-                        <button id="archive-clear-filters-mobile" class="archive-clear-btn archive-clear-btn--mobile" type="button" disabled>Clear All Filters</button>
-                    </div>
                 </div>
 
                 <p id="archive-results-count" class="archive-results-count" aria-live="polite" aria-atomic="true"></p>
