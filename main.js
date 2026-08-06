@@ -5,7 +5,7 @@
    ============================================ */
 var ARTICLES = [
     {
-        title: 'Seismic Warning Indicators and the 2011 Japan Earthquake',
+        title: 'Can Major Earthquakes Be Predicted? Lessons from the 2011 Japan Earthquake',
         authorId: 'karthikeya-r-nandi',
         author: 'Karthikeya Nandi',
         major: 'Biomedical Sciences',
