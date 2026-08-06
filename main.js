@@ -5,6 +5,20 @@
    ============================================ */
 var ARTICLES = [
     {
+        title: 'Seismic Warning Indicators and the 2011 Japan Earthquake',
+        authorId: 'karthikeya-r-nandi',
+        author: 'Karthikeya Nandi',
+        major: 'Biomedical Sciences',
+        institution: 'University of South Florida',
+        categories: ['Natural Science'],
+        displayCategory: 'Natural Science',
+        tags: ['Earthquake Prediction', 'Seismology', '2011 Japan Earthquake', 'Foreshocks', 'Seismic Velocity', 'Seismic Gaps', 'Surface Deformation', 'Artificial Intelligence', 'Machine Learning', 'Natural Disaster'],
+        date: 'August 2026',
+        readingWordCount: 1410,
+        preview: 'Karthikeya Nandi evaluates the reliability of foreshocks, changes in seismic velocity, seismic gaps, and surface deformation as predictive indicators of major earthquakes, using the 2011 Japan earthquake\u2014one of the largest and costliest natural disasters in recorded history\u2014as a case study.',
+        link: 'articles/earthquake-prediction-2011-japan.html'
+    },
+    {
         title: 'Balancing Climate Policy with Economic Interests',
         authorId: 'braydon-perko',
         author: 'Braydon Perko',
@@ -589,10 +603,11 @@ var CATEGORY_PAGE_MAP = {
     'Economics & Business': 'economics-business.html',
     'Global & International Affairs': 'global-affairs.html',
     'Public Policy': 'public-policy.html',
-    'Public Health': 'public-health.html'
+    'Public Health': 'public-health.html',
+    'Natural Science': 'natural-science.html'
 };
 
-var BROWSE_CATEGORIES = ['Behavioral Science', 'Philosophy', 'Psychology', 'Sociology & Anthropology', 'Law & Criminal Justice', 'Economics & Business', 'Global & International Affairs', 'Public Policy', 'Public Health'];
+var BROWSE_CATEGORIES = ['Behavioral Science', 'Philosophy', 'Psychology', 'Sociology & Anthropology', 'Law & Criminal Justice', 'Economics & Business', 'Global & International Affairs', 'Public Policy', 'Public Health', 'Natural Science'];
 
 function normalizeUniversityName(institution) {
     var cleaned = (institution || '').trim().replace(/\s+/g, ' ');
@@ -1257,7 +1272,7 @@ function initArchivePage() {
     }());
 
     /* ── Category filter pills (desktop and mobile) ── */
-    var categories = ['All', 'Behavioral Science', 'Philosophy', 'Psychology', 'Sociology & Anthropology', 'Law & Criminal Justice', 'Economics & Business', 'Global & International Affairs', 'Public Policy', 'Public Health'];
+    var categories = ['All', 'Behavioral Science', 'Philosophy', 'Psychology', 'Sociology & Anthropology', 'Law & Criminal Justice', 'Economics & Business', 'Global & International Affairs', 'Public Policy', 'Public Health', 'Natural Science'];
     categories.forEach(function (cat) {
         function makeFilterBtn() {
             var btn = document.createElement('button');
