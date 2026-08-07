@@ -1025,11 +1025,6 @@ function buildContributorHighlight(entry) {
     var card = document.createElement('article');
     card.className = 'contributor-card';
 
-    var eyebrow = document.createElement('span');
-    eyebrow.className = 'contributor-card__eyebrow';
-    eyebrow.textContent = 'Contributor highlight';
-    card.appendChild(eyebrow);
-
     var name = document.createElement(entry.profileHref ? 'a' : 'h3');
     name.className = 'contributor-card__name';
     if (entry.profileHref) {
@@ -1043,12 +1038,10 @@ function buildContributorHighlight(entry) {
     institution.textContent = entry.university || entry.institution;
     card.appendChild(institution);
 
-    if (entry.descriptor) {
-        var descriptor = document.createElement('p');
-        descriptor.className = 'contributor-card__descriptor';
-        descriptor.textContent = entry.descriptor;
-        card.appendChild(descriptor);
-    }
+    var descriptor = document.createElement('p');
+    descriptor.className = 'contributor-card__descriptor';
+    descriptor.textContent = entry.descriptor || 'Undergraduate researcher';
+    card.appendChild(descriptor);
 
     var latest = document.createElement('p');
     latest.className = 'contributor-card__summary';
@@ -1070,14 +1063,14 @@ function buildContributorHighlight(entry) {
         var profileLink = document.createElement('a');
         profileLink.href = entry.profileHref;
         profileLink.className = 'card-link';
-        profileLink.textContent = 'View profile →';
+        profileLink.textContent = 'View Profile →';
         footer.appendChild(profileLink);
     }
 
     var articleLink = document.createElement('a');
     articleLink.href = getArticleHref(entry.article.link);
     articleLink.className = 'card-link';
-    articleLink.textContent = 'Read latest article →';
+    articleLink.textContent = 'Read Latest Article →';
     footer.appendChild(articleLink);
 
     card.appendChild(footer);
@@ -1116,13 +1109,45 @@ function getContributorHighlights(limit) {
             name: authorData.name,
             institution: authorData.institution,
             university: authorData.normalizedUniversity,
-            descriptor: authorData.major ? authorData.major + ' student' : '',
+            descriptor: authorData.major ? authorData.major + ' student researcher' : 'Undergraduate researcher',
             profileHref: authorData.profileHref,
             article: article
         });
     });
 
     return highlights.slice(0, limit || 3);
+}
+
+function updateRecentCollectionStats() {
+    var articlesEl = document.querySelector('[data-recent-stat-articles]');
+    var disciplinesEl = document.querySelector('[data-recent-stat-disciplines]');
+    var universitiesEl = document.querySelector('[data-recent-stat-universities]');
+    var authorsEl = document.querySelector('[data-recent-stat-authors]');
+
+    if (!articlesEl || !disciplinesEl || !universitiesEl || !authorsEl) return;
+
+    var disciplines = {};
+    var universities = {};
+    var authors = {};
+
+    PUBLISHED_ARTICLES.forEach(function (article) {
+        getArticleCategories(article).forEach(function (category) {
+            if (category) disciplines[category] = true;
+        });
+
+        var authorData = getArticleAuthorData(article);
+        var university = authorData.normalizedUniversity;
+        if (university) universities[university] = true;
+
+        var hasAuthorId = article.authorId !== undefined && article.authorId !== null && article.authorId !== '';
+        var authorKey = hasAuthorId ? String(article.authorId) : [authorData.name, authorData.normalizedUniversity].filter(Boolean).join('|');
+        if (authorKey) authors[authorKey] = true;
+    });
+
+    articlesEl.textContent = String(PUBLISHED_ARTICLES.length);
+    disciplinesEl.textContent = String(Object.keys(disciplines).length);
+    universitiesEl.textContent = String(Object.keys(universities).length);
+    authorsEl.textContent = String(Object.keys(authors).length);
 }
 
 function renderCompactPublicationCollection(selector, articles) {
@@ -1688,6 +1713,7 @@ function initRecentArticlesPage() {
         feedEl.appendChild(buildPublicationCard(PUBLISHED_ARTICLES[0], { featured: true, maxTags: 3 }));
     }
 
+    updateRecentCollectionStats();
     renderCompactPublicationCollection('[data-recent-secondary-feed]', PUBLISHED_ARTICLES.slice(1, 7));
     renderContributorHighlights('[data-recent-contributor-highlights]', 3);
 }
