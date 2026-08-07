@@ -17,6 +17,7 @@
         'kelden-littell': 'https://www.linkedin.com/in/kelden-littell-534a21282/',
         'radek-janout': 'https://www.linkedin.com/in/radek-janout-b0b44b338/',
         'karthikeya-r-nandi': 'https://www.linkedin.com/in/karthik-nandi-a4720831a/',
+        'sanya-khan': 'https://www.linkedin.com/in/sanyakhan/',
     };
 
 
@@ -166,6 +167,14 @@
             institution: 'School of the Art Institute of Chicago',
             bio: 'Georgia Lewis is an undergraduate Art History student at the School of the Art Institute of Chicago. Her academic interests include photography, visual culture, race, cultural history, and the role of art in shaping historical narratives. Georgia explores how visual media can reinterpret history, identity, and culture while examining the intersection of art, storytelling, and social change.',
             profilePath: 'authors/georgia-lewis.html'
+        },
+        'sanya-khan': {
+            id: 'sanya-khan',
+            name: 'Sanya Khan',
+            major: null,
+            institution: 'University of California, Los Angeles',
+            bio: 'Sanya Khan is a graduate of the University of California, Los Angeles, where she studied psychology and dance. Her writing explores the intersections of behavioral science, culture, identity, fashion, performance, and society through an interdisciplinary lens.',
+            profilePath: 'authors/sanya-khan.html'
         }
     };
 
