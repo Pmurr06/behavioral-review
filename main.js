@@ -5,6 +5,20 @@
    ============================================ */
 var ARTICLES = [
     {
+        title: 'The Ballerina Effect',
+        authorId: 'sanya-khan',
+        author: 'Sanya Khan',
+        major: 'Psychology & Dance Graduate',
+        institution: 'University of California, Los Angeles',
+        categories: ['Behavioral Science'],
+        displayCategory: 'Behavioral Science',
+        tags: ['Ballet', 'Ballerina', 'Balletcore', 'Fashion', 'Dance', 'Cultural Studies', 'Race', 'Gender', 'Misty Copeland', 'Pointe Shoes', 'Behavioral Science', 'Identity'],
+        date: 'August 2026',
+        readingWordCount: 3800,
+        preview: 'Sanya Khan traces the ballerina from European court culture through balletcore, examining how fashion, biomechanics, racial exclusion, and the aestheticization of discipline converge in the enduring image of the ballerina.',
+        link: 'articles/ballerina-effect.html'
+    },
+    {
         title: 'Can Major Earthquakes Be Predicted? Lessons from the 2011 Japan Earthquake',
         authorId: 'karthikeya-r-nandi',
         author: 'Karthikeya Nandi',
