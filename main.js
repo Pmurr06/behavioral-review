@@ -1026,38 +1026,37 @@ function buildContributorHighlight(entry) {
     card.className = 'contributor-card';
 
     var eyebrow = document.createElement('span');
-    eyebrow.className = 'feature-panel__eyebrow';
+    eyebrow.className = 'contributor-card__eyebrow';
     eyebrow.textContent = 'Contributor highlight';
     card.appendChild(eyebrow);
 
     var name = document.createElement(entry.profileHref ? 'a' : 'h3');
+    name.className = 'contributor-card__name';
     if (entry.profileHref) {
         name.href = entry.profileHref;
-        name.className = 'contributor-card__name';
-        name.textContent = entry.name;
-    } else {
-        name.textContent = entry.name;
     }
+    name.textContent = entry.name;
     card.appendChild(name);
 
     var institution = document.createElement('p');
     institution.className = 'contributor-card__institution';
-    institution.textContent = entry.institution;
+    institution.textContent = entry.university || entry.institution;
     card.appendChild(institution);
+
+    if (entry.descriptor) {
+        var descriptor = document.createElement('p');
+        descriptor.className = 'contributor-card__descriptor';
+        descriptor.textContent = entry.descriptor;
+        card.appendChild(descriptor);
+    }
 
     var latest = document.createElement('p');
     latest.className = 'contributor-card__summary';
-    latest.textContent = 'Latest publication: ' + entry.article.title;
+    latest.textContent = entry.article.title;
     card.appendChild(latest);
 
     var footer = document.createElement('div');
     footer.className = 'contributor-card__footer';
-
-    var articleLink = document.createElement('a');
-    articleLink.href = getArticleHref(entry.article.link);
-    articleLink.className = 'card-link';
-    articleLink.textContent = 'Read latest article →';
-    footer.appendChild(articleLink);
 
     if (entry.profileHref) {
         var profileLink = document.createElement('a');
@@ -1066,6 +1065,12 @@ function buildContributorHighlight(entry) {
         profileLink.textContent = 'View profile →';
         footer.appendChild(profileLink);
     }
+
+    var articleLink = document.createElement('a');
+    articleLink.href = getArticleHref(entry.article.link);
+    articleLink.className = 'card-link';
+    articleLink.textContent = 'Read latest article →';
+    footer.appendChild(articleLink);
 
     card.appendChild(footer);
     return card;
@@ -1102,6 +1107,8 @@ function getContributorHighlights(limit) {
         highlights.push({
             name: authorData.name,
             institution: authorData.institution,
+            university: authorData.normalizedUniversity,
+            descriptor: authorData.major ? authorData.major + ' student' : '',
             profileHref: authorData.profileHref,
             article: article
         });
