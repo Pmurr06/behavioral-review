@@ -6433,6 +6433,6 @@ button.bulletin-cover-link {
     }
 
     .recent-articles-page #recent-feed .publication-card--featured {
-        padding: var(--space-4) var(--space-4);
+        padding: var(--space-4);
     }
 }
