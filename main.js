@@ -1052,7 +1052,15 @@ function buildContributorHighlight(entry) {
 
     var latest = document.createElement('p');
     latest.className = 'contributor-card__summary';
-    latest.textContent = entry.article.title;
+    var latestLabel = document.createElement('span');
+    latestLabel.className = 'contributor-card__summary-label';
+    latestLabel.textContent = 'Latest publication';
+    latest.appendChild(latestLabel);
+
+    var latestTitle = document.createElement('span');
+    latestTitle.className = 'contributor-card__summary-title';
+    latestTitle.textContent = entry.article.title;
+    latest.appendChild(latestTitle);
     card.appendChild(latest);
 
     var footer = document.createElement('div');
