@@ -1038,12 +1038,10 @@ function buildContributorHighlight(entry) {
     institution.textContent = entry.university || entry.institution;
     card.appendChild(institution);
 
-    if (entry.descriptor) {
-        var descriptor = document.createElement('p');
-        descriptor.className = 'contributor-card__descriptor';
-        descriptor.textContent = entry.descriptor;
-        card.appendChild(descriptor);
-    }
+    var descriptor = document.createElement('p');
+    descriptor.className = 'contributor-card__descriptor';
+    descriptor.textContent = entry.descriptor || 'Undergraduate researcher';
+    card.appendChild(descriptor);
 
     var latest = document.createElement('p');
     latest.className = 'contributor-card__summary';
@@ -1112,7 +1110,7 @@ function getContributorHighlights(limit) {
             institution: authorData.institution,
             university: authorData.normalizedUniversity,
             descriptor: authorData.major ? authorData.major + ' student researcher' : 'Undergraduate researcher',
-            profileHref: authorData.profileHref || 'authors.html',
+            profileHref: authorData.profileHref,
             article: article
         });
     });
@@ -1138,10 +1136,11 @@ function updateRecentCollectionStats() {
         });
 
         var authorData = getArticleAuthorData(article);
-        var university = authorData.normalizedUniversity || normalizeUniversityName(authorData.institution);
+        var university = authorData.normalizedUniversity;
         if (university) universities[university] = true;
 
-        var authorKey = article.authorId || authorData.name;
+        var hasAuthorId = article.authorId !== undefined && article.authorId !== null && article.authorId !== '';
+        var authorKey = hasAuthorId ? String(article.authorId) : [authorData.name, authorData.normalizedUniversity].filter(Boolean).join('|');
         if (authorKey) authors[authorKey] = true;
     });
 
