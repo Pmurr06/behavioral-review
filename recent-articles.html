@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" type="image/png" href="TBR.png">
 </head>
-<body>
+<body class="recent-articles-page">
     <nav class="navbar">
         <div class="container navbar-content">
             <div class="navbar-left">
@@ -44,35 +44,21 @@
         <div class="container page-header__content">
             <span class="page-header__eyebrow">Freshly published</span>
             <h1>Recent Articles</h1>
-            <p class="page-header__intro">Start with the newest publication, continue with the latest additions, and jump into a discipline that matches your interests.</p>
+            <p class="page-header__intro">The newest additions to our collection, presented in the order they were published.</p>
         </div>
     </header>
 
     <main class="main-content main-content--dense">
         <div class="container">
-            <section class="content-section homepage-primary-layout">
-                <div>
-                    <div class="section-heading section-heading--inline">
-                        <div>
-                            <span class="section-eyebrow">Most recent</span>
-                            <h2>Latest Publication</h2>
-                        </div>
-                        <a href="archive.html" class="section-link">Browse full archive</a>
+            <section class="content-section recent-featured-section">
+                <div class="section-heading section-heading--inline">
+                    <div>
+                        <span class="section-eyebrow">Most recent</span>
+                        <h2>Latest Publication</h2>
                     </div>
-                    <div id="recent-feed" class="publication-feed publication-feed--featured"></div>
+                    <a href="archive.html" class="section-link">Browse full archive</a>
                 </div>
-                <aside class="homepage-sidebar-stack" aria-label="Recent article actions">
-                    <article class="feature-panel">
-                        <span class="feature-panel__eyebrow">Why follow recent work?</span>
-                        <p>Use this page to discover the newest additions first, then move into the archive for deeper filtering and topic browsing.</p>
-                    </article>
-                    <article class="feature-panel feature-panel--accent">
-                        <span class="feature-panel__eyebrow">Ready to contribute?</span>
-                        <h3>Join the inaugural cohort.</h3>
-                        <p>Submit original research, applied analysis, literature reviews, or commentary for editorial review.</p>
-                        <a href="for-authors.html" class="btn btn-primary">Submission Guidelines</a>
-                    </article>
-                </aside>
+                <div id="recent-feed" class="publication-feed publication-feed--featured"></div>
             </section>
 
             <section class="content-section">
@@ -82,15 +68,16 @@
                         <h2>Recently Published</h2>
                     </div>
                 </div>
-                <div class="compact-publication-grid" data-recent-secondary-feed></div>
+                <div class="compact-publication-grid recent-articles-grid" data-recent-secondary-feed></div>
             </section>
 
             <section class="content-section">
                 <div class="section-heading">
-                    <span class="section-eyebrow">Explore by category</span>
-                    <h2>Browse a Discipline</h2>
+                    <span class="section-eyebrow">Meet our contributors</span>
+                    <h2>Featured Authors</h2>
+                    <p class="section-intro">Researchers and writers whose work continues to define our collection.</p>
                 </div>
-                <div class="browse-grid browse-grid--topics" data-recent-category-grid></div>
+                <div class="contributor-grid" data-recent-contributor-highlights></div>
             </section>
 
             <section class="cta-final cta-final--compact">

@@ -943,7 +943,8 @@ function buildPublicationCard(article, options) {
     if (!settings.hideTags && Array.isArray(article.tags) && article.tags.length > 0) {
         var tagsEl = document.createElement('div');
         tagsEl.className = 'article-tags';
-        article.tags.forEach(function (tag) {
+        var displayTags = (settings.maxTags != null) ? article.tags.slice(0, settings.maxTags) : article.tags;
+        displayTags.forEach(function (tag) {
             var tagNode = settings.clickableTags ? document.createElement('button') : document.createElement('span');
             if (settings.clickableTags) {
                 tagNode.type = 'button';
@@ -1669,11 +1670,11 @@ function initRecentArticlesPage() {
     var feedEl = document.getElementById('recent-feed');
     if (feedEl && PUBLISHED_ARTICLES.length > 0) {
         feedEl.innerHTML = '';
-        feedEl.appendChild(buildPublicationCard(PUBLISHED_ARTICLES[0], { featured: true }));
+        feedEl.appendChild(buildPublicationCard(PUBLISHED_ARTICLES[0], { featured: true, maxTags: 3 }));
     }
 
-    renderCompactPublicationCollection('[data-recent-secondary-feed]', PUBLISHED_ARTICLES.slice(1, 5));
-    renderBrowseCards('[data-recent-category-grid]');
+    renderCompactPublicationCollection('[data-recent-secondary-feed]', PUBLISHED_ARTICLES.slice(1, 7));
+    renderContributorHighlights('[data-recent-contributor-highlights]', 3);
 }
 
 function initHomepageLatestArticle() {
