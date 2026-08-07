@@ -6666,7 +6666,6 @@ button.bulletin-cover-link {
     .recent-articles-grid .compact-publication-card {
         height: auto;
         min-height: 0;
-        grid-template-rows: auto auto auto auto;
     }
 
     .recent-articles-grid .compact-publication-card h3 {
