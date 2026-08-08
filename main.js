@@ -5,6 +5,20 @@
    ============================================ */
 var ARTICLES = [
     {
+        title: 'Georgia O’Keeffe: Beauty and Symbolism of the Interwar Period',
+        authorId: 'georgia-lewis',
+        author: 'Georgia Lewis',
+        major: 'Art History',
+        institution: 'School of the Art Institute of Chicago',
+        categories: ['Arts & Humanities'],
+        displayCategory: 'Arts & Humanities',
+        tags: ['Georgia O’Keeffe', 'Art History', 'Modernism', 'Visual Culture', 'Interwar Period', 'American Art', 'Symbolism', 'Painting', 'Commentary'],
+        date: 'August 2026',
+        readingWordCount: 2900,
+        preview: 'Georgia Lewis examines Georgia O’Keeffe’s floral, urban, and landscape works as expressions of beauty, symbolism, and artistic independence across and beyond the interwar period.',
+        link: 'articles/georgia-okeeffe-beauty-symbolism-interwar-period.html'
+    },
+    {
         title: 'The Uniform Effect',
         authorId: 'sanya-khan',
         author: 'Sanya Khan',
