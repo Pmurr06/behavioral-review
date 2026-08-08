@@ -5,6 +5,20 @@
    ============================================ */
 var ARTICLES = [
     {
+        title: 'The Uniform Effect',
+        authorId: 'sanya-khan',
+        author: 'Sanya Khan',
+        major: 'Psychology & Dance Graduate',
+        institution: 'University of California, Los Angeles',
+        categories: ['Behavioral Science'],
+        displayCategory: 'Behavioral Science',
+        tags: ['Uniforms', 'Fashion', 'Identity', 'Behavioral Science', 'Cultural Studies', 'Psychology', 'History', 'Social Architecture', 'Military', 'Enclothed Cognition', 'Commentary'],
+        date: 'August 2026',
+        readingWordCount: 3500,
+        preview: 'Sanya Khan traces the paradox of uniforms through psychology, culture, and fashion, asking what uniforms grant us, what they cost us, and why we keep choosing them anyway.',
+        link: 'articles/the-uniform-effect.html'
+    },
+    {
         title: 'The Ballerina Effect',
         authorId: 'sanya-khan',
         author: 'Sanya Khan',
