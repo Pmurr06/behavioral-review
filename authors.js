@@ -18,6 +18,7 @@
         'radek-janout': 'https://www.linkedin.com/in/radek-janout-b0b44b338/',
         'karthikeya-r-nandi': 'https://www.linkedin.com/in/karthik-nandi-a4720831a/',
         'sanya-khan': 'https://www.linkedin.com/in/sanyakhan/',
+        'jacob-gannon': 'https://www.linkedin.com/in/jacob-gannon-73a086316/',
     };
 
 
@@ -175,6 +176,14 @@
             institution: 'University of California, Los Angeles',
             bio: 'Sanya Khan is a graduate of the University of California, Los Angeles, where she studied psychology and dance. Her writing explores the intersections of behavioral science, culture, identity, fashion, performance, and society through an interdisciplinary lens.',
             profilePath: 'authors/sanya-khan.html'
+        },
+        'jacob-gannon': {
+            id: 'jacob-gannon',
+            name: 'Jacob Gannon',
+            major: 'Business Finance',
+            institution: 'Washington State University',
+            bio: 'Business Finance major at Washington State University.',
+            profilePath: 'authors/jacob-gannon.html'
         }
     };
 

@@ -5,6 +5,20 @@
    ============================================ */
 var ARTICLES = [
     {
+        title: 'Stress and Student Performance in Higher Education',
+        authorId: 'jacob-gannon',
+        author: 'Jacob Gannon',
+        major: 'Business Finance',
+        institution: 'Washington State University',
+        categories: ['Psychology'],
+        displayCategory: 'Psychology',
+        tags: ['Student Stress', 'Academic Performance', 'Higher Education', 'Psychology', 'Mental Health', 'Assessment Design', 'Coping', 'Cortisol', 'College Students', 'Education'],
+        date: 'August 2026',
+        readingWordCount: 3000,
+        preview: 'Jacob Gannon reviews evidence on how persistent and acute stress affect academic performance in higher education, examining assessment design, coping resources, and the structural conditions that shape student stress.',
+        link: 'articles/stress-and-student-performance-in-higher-education.html'
+    },
+    {
         title: 'Georgia O’Keeffe: Beauty and Symbolism of the Interwar Period',
         authorId: 'georgia-lewis',
         author: 'Georgia Lewis',
