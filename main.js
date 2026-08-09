@@ -2104,6 +2104,14 @@ function initBulletinCarousel() {
 
 (function initBulletinViewer() {
     const BULLETINS = {
+        '004': {
+            title: 'Volume 004',
+            pages: [
+                { src: 'TBR_Bulletin_Vol004_slide1.png', alt: 'Volume 004 — Cover' },
+                { src: 'TBR_Bulletin_Vol004_slide2.png', alt: 'Volume 004 — Page 2' },
+                { src: 'TBR_Bulletin_Vol004_slide3.png', alt: 'Volume 004 — Page 3' }
+            ]
+        },
         '001': {
             title: 'Volume 001',
             pages: [
