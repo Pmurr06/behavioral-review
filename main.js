@@ -2104,12 +2104,20 @@ function initBulletinCarousel() {
 
 (function initBulletinViewer() {
     const BULLETINS = {
-        '001': {
-            title: 'Volume 001',
+        '004': {
+            title: 'Volume 004',
             pages: [
-                { src: 'IMG_5898.png',       alt: 'Volume 001 — Cover' },
-                { src: 'IMG_5904.png',       alt: 'Volume 001 — Page 2' },
-                { src: 'IMG_5905.png',       alt: 'Volume 001 — Page 3' }
+                { src: 'TBR_Bulletin_Vol004_slide1.png', alt: 'Volume 004 — Cover' },
+                { src: 'TBR_Bulletin_Vol004_slide2.png', alt: 'Volume 004 — Page 2' },
+                { src: 'TBR_Bulletin_Vol004_slide3.png', alt: 'Volume 004 — Page 3' }
+            ]
+        },
+        '003': {
+            title: 'Volume 003',
+            pages: [
+                { src: 'slide1_cover.jpeg',              alt: 'Volume 003 — Cover' },
+                { src: 'slide2_articles1-5.jpeg',        alt: 'Volume 003 — Page 2' },
+                { src: 'slide3_articles6-10.jpeg',       alt: 'Volume 003 — Page 3' }
             ]
         },
         '002': {
@@ -2120,12 +2128,12 @@ function initBulletinCarousel() {
                 { src: 'IMG_5914.png',       alt: 'Volume 002 — Page 3' }
             ]
         },
-        '003': {
-            title: 'Volume 003',
+        '001': {
+            title: 'Volume 001',
             pages: [
-                { src: 'slide1_cover.jpeg',              alt: 'Volume 003 — Cover' },
-                { src: 'slide2_articles1-5.jpeg',        alt: 'Volume 003 — Page 2' },
-                { src: 'slide3_articles6-10.jpeg',       alt: 'Volume 003 — Page 3' }
+                { src: 'IMG_5898.png',       alt: 'Volume 001 — Cover' },
+                { src: 'IMG_5904.png',       alt: 'Volume 001 — Page 2' },
+                { src: 'IMG_5905.png',       alt: 'Volume 001 — Page 3' }
             ]
         }
     };
