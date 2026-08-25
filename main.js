@@ -5,6 +5,20 @@
    ============================================ */
 var ARTICLES = [
     {
+        title: 'Emotions as a Teacher: Remembering Rhymes for Young Ghouls',
+        authorId: 'james-machado',
+        author: 'James Machado',
+        major: 'Philosophy',
+        institution: 'University of Oregon',
+        categories: ['Philosophy'],
+        displayCategory: 'Philosophy',
+        tags: ['Philosophy', 'Film Studies', 'Cultural Analysis', 'Rhymes for Young Ghouls', 'Indigenous Studies', 'Oppression', 'Emotion', 'Film Analysis', 'Identity', 'Colonialism'],
+        date: 'August 2026',
+        readingWordCount: 1521,
+        preview: "James Machado examines how Jeff Barnaby's Rhymes for Young Ghouls uses color, sound, perspective, pacing, and visual technique to make viewers experience the emotional weight of oppression.",
+        link: 'articles/emotions-as-a-teacher-remembering-rhymes-for-young-ghouls.html'
+    },
+    {
         title: 'The Irrevocability of Culture',
         authorId: 'james-machado',
         author: 'James Machado',
