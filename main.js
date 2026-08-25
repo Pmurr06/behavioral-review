@@ -5,6 +5,20 @@
    ============================================ */
 var ARTICLES = [
     {
+        title: 'The Irrevocability of Culture',
+        authorId: 'james-machado',
+        author: 'James Machado',
+        major: 'Philosophy',
+        institution: 'University of Oregon',
+        categories: ['Philosophy'],
+        displayCategory: 'Philosophy',
+        tags: ['Philosophy', 'Film Studies', 'Cultural Analysis', 'Rez Ball', 'Sydney Freeland', 'Navajo Culture', 'Sports & Society', 'Culture', 'Identity', 'Resilience'],
+        date: 'August 2026',
+        readingWordCount: 1768,
+        preview: 'James Machado examines how Sydney Freeland's Rez Ball portrays Navajo culture, basketball, resilience, grief, and community as inseparable from the meaning of winning.',
+        link: 'articles/the-irrevocability-of-culture.html'
+    },
+    {
         title: 'Stress and Student Performance in Higher Education',
         authorId: 'jacob-gannon',
         author: 'Jacob Gannon',
