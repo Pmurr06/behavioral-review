@@ -19,6 +19,7 @@
         'karthikeya-r-nandi': 'https://www.linkedin.com/in/karthik-nandi-a4720831a/',
         'sanya-khan': 'https://www.linkedin.com/in/sanyakhan/',
         'jacob-gannon': 'https://www.linkedin.com/in/jacob-gannon-73a086316/',
+        'james-machado': 'https://www.linkedin.com/in/jamesmachadosbl/',
     };
 
 
@@ -184,7 +185,15 @@
             institution: 'Washington State University',
             bio: 'Business Finance major at Washington State University.',
             profilePath: 'authors/jacob-gannon.html'
-        }
+        },
+        'james-machado': {
+            id: 'james-machado',
+            name: 'James Machado',
+            major: 'Philosophy',
+            institution: 'University of Oregon',
+            bio: 'James Machado is a philosophy student at the University of Oregon. His work examines questions of culture, identity, community, and meaning through film and philosophical analysis.',
+            profilePath: 'authors/james-machado.html'
+        },
     };
 
     function getDisplayInstitutionName(institution, options) {
