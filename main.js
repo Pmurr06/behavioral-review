@@ -1888,10 +1888,24 @@ function initAuthorProfilePage() {
     if (!feedEl) return;
 
     var authorId = feedEl.getAttribute('data-author-articles');
-    var authorProfile = (typeof window !== 'undefined' && typeof window.getAuthorProfile === 'function')
-        ? window.getAuthorProfile(authorId)
-        : null;
-    var authorName = authorProfile ? authorProfile.name : '';
+    var authorDirectory = (typeof window !== 'undefined' && window.AUTHOR_DIRECTORY) || {};
+    var authorProfile = authorDirectory[authorId] || (
+        (typeof window !== 'undefined' && typeof window.getAuthorProfile === 'function')
+            ? window.getAuthorProfile(authorId)
+            : null
+    );
+    var authorName = authorProfile && authorProfile.name ? authorProfile.name.trim() : '';
+    if (!authorName) {
+        var heading = document.querySelector('[data-author-name]');
+        if (heading) {
+            var headingAuthorId = heading.getAttribute('data-author-name');
+            if (headingAuthorId && authorDirectory[headingAuthorId] && authorDirectory[headingAuthorId].name) {
+                authorName = authorDirectory[headingAuthorId].name.trim();
+            } else if (heading.textContent) {
+                authorName = heading.textContent.trim();
+            }
+        }
+    }
     var authoredArticles = PUBLISHED_ARTICLES.filter(function (article) {
         if (article.authorId === authorId) return true;
         if (Array.isArray(article.authorNames) && authorName) {
