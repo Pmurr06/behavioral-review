@@ -5,6 +5,22 @@
    ============================================ */
 var ARTICLES = [
     {
+        title: 'Bridging the Gap: Addressing Health Disparities in Punjabi Communities Through Culturally Responsive Health Education',
+        authorId: 'jasmine-kaur',
+        author: 'Jasmine Kaur, Mansa Kaur, and Japji Kaur',
+        authorNames: ['Jasmine Kaur', 'Mansa Kaur', 'Japji Kaur'],
+        major: 'Biology',
+        institution: 'Villanova University',
+        universities: ['Villanova University', 'UMass Amherst'],
+        categories: ['Public Health'],
+        displayCategory: 'Public Health',
+        tags: ['Public Health', 'Health Literacy', 'Health Disparities', 'Punjabi Communities', 'South Asian Health', 'Community Health', 'Preventive Care', 'Health Equity', 'Sehat e Punjab'],
+        date: 'August 2026',
+        readingWordCount: 4700,
+        preview: 'Jasmine Kaur, Mansa Kaur, and Japji Kaur of Sehat e Punjab examine health disparities in Punjabi communities and how culturally responsive health education, health literacy, and community outreach can improve preventive care and health equity.',
+        link: 'articles/bridging-the-gap-health-disparities-punjabi-communities.html'
+    },
+    {
         title: 'Emotions as a Teacher: Remembering Rhymes for Young Ghouls',
         authorId: 'james-machado',
         author: 'James Machado',
@@ -747,6 +763,16 @@ function getArticleCategories(article) {
         : (article && article.category ? [article.category] : []);
 }
 
+function getArticleUniversities(article) {
+    if (Array.isArray(article && article.universities) && article.universities.length) {
+        return article.universities.filter(function (name) { return !!(name || '').trim(); }).map(function (name) {
+            return normalizeUniversityName(name);
+        });
+    }
+    var normalized = getArticleAuthorData(article).normalizedUniversity;
+    return normalized ? [normalized] : [];
+}
+
 function normalizeKey(value) {
     return (value || '').trim().replace(/\s+/g, ' ').toLowerCase();
 }
@@ -789,7 +815,7 @@ function computeHomepageStats() {
 
     PUBLISHED_ARTICLES.forEach(function (article) {
         var authorData = getArticleAuthorData(article);
-        var institutionKey = getInstitutionStatsKey(authorData.institutionRaw);
+        var institutionKeys = getArticleUniversities(article).map(getInstitutionStatsKey);
 
         if (Array.isArray(article.authorNames)) {
             article.authorNames.forEach(function (name) {
@@ -801,7 +827,9 @@ function computeHomepageStats() {
             var authorKey = article.authorId || normalizeKey(authorData.name);
             if (authorKey) uniqueAuthors[authorKey] = true;
         }
-        if (institutionKey) uniqueInstitutions[institutionKey] = true;
+        institutionKeys.forEach(function (institutionKey) {
+            if (institutionKey) uniqueInstitutions[institutionKey] = true;
+        });
     });
 
     EDITORIAL_TEAM.forEach(function (editor) {
@@ -1303,8 +1331,7 @@ function initArchivePage() {
         });
 
         PUBLISHED_ARTICLES.forEach(function (a) {
-            var authorData       = getArticleAuthorData(a);
-            var institutionKey   = getInstitutionStatsKey(authorData.institutionRaw);
+            var institutionKeys  = getArticleUniversities(a).map(getInstitutionStatsKey);
 
             if (Array.isArray(a.authorNames)) {
                 a.authorNames.forEach(function (name) {
@@ -1317,7 +1344,9 @@ function initArchivePage() {
                 if (authorKey) uniqueAuthors[authorKey] = true;
             }
 
-            if (institutionKey) uniqueInstitutions[institutionKey] = true;
+            institutionKeys.forEach(function (institutionKey) {
+                if (institutionKey) uniqueInstitutions[institutionKey] = true;
+            });
 
             getArticleCategories(a).forEach(function (cat) {
                 var key = normalizeKey(cat);
@@ -1353,12 +1382,13 @@ function initArchivePage() {
         var authorSeen   = {};
 
         PUBLISHED_ARTICLES.forEach(function (a) {
-            var normalizedUniversity = getArticleAuthorData(a).normalizedUniversity;
-            var universityKey = normalizeKey(normalizedUniversity);
-            if (normalizedUniversity && !uniSeen[universityKey]) {
-                uniSeen[universityKey] = true;
-                universities.push(normalizedUniversity);
-            }
+            getArticleUniversities(a).forEach(function (normalizedUniversity) {
+                var universityKey = normalizeKey(normalizedUniversity);
+                if (normalizedUniversity && !uniSeen[universityKey]) {
+                    uniSeen[universityKey] = true;
+                    universities.push(normalizedUniversity);
+                }
+            });
 
             if (Array.isArray(a.authorNames)) {
                 a.authorNames.forEach(function (name) {
@@ -1686,7 +1716,10 @@ function initArchivePage() {
 
             /* University */
             if (state.university !== 'all') {
-                if (authorData.normalizedUniversity !== state.university) return false;
+                var universityMatch = getArticleUniversities(a).some(function (name) {
+                    return name === state.university;
+                });
+                if (!universityMatch) return false;
             }
 
             /* Author */
@@ -1718,6 +1751,7 @@ function initArchivePage() {
                     authorData.name || '',
                     authorData.institutionRaw || '',
                     authorData.normalizedUniversity || '',
+                    getArticleUniversities(a).join(' '),
                     a.institution || '',
                     articleCategories.join(' '),
                     tags.join(' ')
@@ -1830,8 +1864,7 @@ function initUniversityPage() {
 
         var normalizedTarget = normalizeUniversityName(university);
         var filtered = PUBLISHED_ARTICLES.filter(function (article) {
-            var authorData = getArticleAuthorData(article);
-            return authorData.normalizedUniversity === normalizedTarget;
+            return getArticleUniversities(article).indexOf(normalizedTarget) !== -1;
         });
 
         feedEl.innerHTML = '';
@@ -1855,8 +1888,18 @@ function initAuthorProfilePage() {
     if (!feedEl) return;
 
     var authorId = feedEl.getAttribute('data-author-articles');
+    var authorProfile = (typeof window !== 'undefined' && typeof window.getAuthorProfile === 'function')
+        ? window.getAuthorProfile(authorId)
+        : null;
+    var authorName = authorProfile ? authorProfile.name : '';
     var authoredArticles = PUBLISHED_ARTICLES.filter(function (article) {
-        return article.authorId === authorId;
+        if (article.authorId === authorId) return true;
+        if (Array.isArray(article.authorNames) && authorName) {
+            return article.authorNames.some(function (name) {
+                return name.trim() === authorName;
+            });
+        }
+        return false;
     });
 
     if (authoredArticles.length === 0) {

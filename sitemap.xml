@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='utf-8'?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://thebehavioralreview.com/</loc>
@@ -98,5 +98,17 @@
   </url>
   <url>
     <loc>https://thebehavioralreview.com/authors/braydon-perko.html</loc>
+  </url>
+  <url>
+    <loc>https://thebehavioralreview.com/articles/bridging-the-gap-health-disparities-punjabi-communities.html</loc>
+  </url>
+  <url>
+    <loc>https://thebehavioralreview.com/authors/jasmine-kaur.html</loc>
+  </url>
+  <url>
+    <loc>https://thebehavioralreview.com/authors/mansa-kaur.html</loc>
+  </url>
+  <url>
+    <loc>https://thebehavioralreview.com/authors/japji-kaur.html</loc>
   </url>
 </urlset>
