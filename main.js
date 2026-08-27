@@ -993,17 +993,17 @@ function getCategoryHref(category) {
 function appendPublicationMeta(meta, authorData, article) {
     var authorSpan = document.createElement('span');
     if (article.organization) {
-        /* Show org name as primary credit, then individual authors in sub-text */
-        var orgLine = document.createElement('span');
-        orgLine.className = 'publication-card-org';
-        orgLine.textContent = article.organization;
-        authorSpan.appendChild(orgLine);
+        /* Show individual authors as primary credit, then org name as secondary */
         if (Array.isArray(article.authorNames) && article.authorNames.length) {
             var authorsLine = document.createElement('span');
             authorsLine.className = 'publication-card-org-authors';
             authorsLine.textContent = article.authorNames.join(' · ');
             authorSpan.appendChild(authorsLine);
         }
+        var orgLine = document.createElement('span');
+        orgLine.className = 'publication-card-org';
+        orgLine.textContent = article.organization;
+        authorSpan.appendChild(orgLine);
     } else if (authorData.profileHref) {
         var authorLink = document.createElement('a');
         authorLink.href = authorData.profileHref;
@@ -1015,7 +1015,8 @@ function appendPublicationMeta(meta, authorData, article) {
     }
     meta.appendChild(authorSpan);
 
-    [authorData.archiveInstitution, article.date, getArticleReadingTime(article)].forEach(function (text) {
+    var institutionText = article.organization ? null : authorData.archiveInstitution;
+    [institutionText, article.date, getArticleReadingTime(article)].forEach(function (text) {
         if (!text) return;
         var span = document.createElement('span');
         span.textContent = text;
