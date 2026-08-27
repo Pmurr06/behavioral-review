@@ -194,6 +194,30 @@
             bio: 'James Machado is a philosophy student at the University of Oregon. His work examines questions of culture, identity, community, and meaning through film and philosophical analysis.',
             profilePath: 'authors/james-machado.html'
         },
+        'jasmine-kaur': {
+            id: 'jasmine-kaur',
+            name: 'Jasmine Kaur',
+            major: 'Biology',
+            institution: 'Villanova University',
+            bio: 'Jasmine Kaur is a biology student at Villanova University.',
+            profilePath: 'authors/jasmine-kaur.html'
+        },
+        'mansa-kaur': {
+            id: 'mansa-kaur',
+            name: 'Mansa Kaur',
+            major: 'Biochemistry',
+            institution: 'UMass Amherst',
+            bio: 'Mansa Kaur is a biochemistry student at UMass Amherst.',
+            profilePath: 'authors/mansa-kaur.html'
+        },
+        'japji-kaur': {
+            id: 'japji-kaur',
+            name: 'Japji Kaur',
+            major: 'Junior',
+            institution: 'South River Evening High School',
+            bio: 'Japji Kaur is a junior at South River Evening High School.',
+            profilePath: 'authors/japji-kaur.html'
+        },
     };
 
     function getDisplayInstitutionName(institution, options) {
