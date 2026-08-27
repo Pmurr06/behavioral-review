@@ -9,6 +9,7 @@ var ARTICLES = [
         authorId: 'jasmine-kaur',
         author: 'Jasmine Kaur, Mansa Kaur, and Japji Kaur',
         authorNames: ['Jasmine Kaur', 'Mansa Kaur', 'Japji Kaur'],
+        organization: 'Sehat e Punjab',
         major: 'Biology',
         institution: 'Villanova University',
         universities: ['Villanova University', 'UMass Amherst'],
@@ -991,7 +992,19 @@ function getCategoryHref(category) {
 
 function appendPublicationMeta(meta, authorData, article) {
     var authorSpan = document.createElement('span');
-    if (authorData.profileHref) {
+    if (article.organization) {
+        /* Show org name as primary credit, then individual authors in sub-text */
+        var orgLine = document.createElement('span');
+        orgLine.className = 'publication-card-org';
+        orgLine.textContent = article.organization;
+        authorSpan.appendChild(orgLine);
+        if (Array.isArray(article.authorNames) && article.authorNames.length) {
+            var authorsLine = document.createElement('span');
+            authorsLine.className = 'publication-card-org-authors';
+            authorsLine.textContent = article.authorNames.join(' · ');
+            authorSpan.appendChild(authorsLine);
+        }
+    } else if (authorData.profileHref) {
         var authorLink = document.createElement('a');
         authorLink.href = authorData.profileHref;
         authorLink.className = 'author-profile-link';
@@ -1747,6 +1760,7 @@ function initArchivePage() {
                 var searchText = [
                     a.title || '',
                     a.author || '',
+                    a.organization || '',
                     Array.isArray(a.authorNames) ? a.authorNames.join(' ') : '',
                     authorData.name || '',
                     authorData.institutionRaw || '',
