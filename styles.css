@@ -1630,6 +1630,19 @@ img {
     color: var(--text-light);
 }
 
+.publication-card-org {
+    display: block;
+    font-weight: 700;
+    color: var(--text-dark, inherit);
+}
+
+.publication-card-org-authors {
+    display: block;
+    font-size: 0.8rem;
+    color: var(--text-light);
+    margin-top: 0.1rem;
+}
+
 .publication-card p {
     font-size: 0.98rem;
     line-height: 1.7;
