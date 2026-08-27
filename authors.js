@@ -213,7 +213,7 @@
         'japji-kaur': {
             id: 'japji-kaur',
             name: 'Japji Kaur',
-            major: 'Junior',
+            major: null,
             institution: 'South River Evening High School',
             bio: 'Japji Kaur is a junior at South River Evening High School.',
             profilePath: 'authors/japji-kaur.html'
