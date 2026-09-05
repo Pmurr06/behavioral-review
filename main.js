@@ -5,6 +5,20 @@
    ============================================ */
 var ARTICLES = [
     {
+        title: 'Climate Justice after Institutional Failure',
+        authorId: 'james-machado',
+        author: 'James Machado',
+        major: 'Philosophy',
+        institution: 'University of Oregon',
+        categories: ['Philosophy'],
+        displayCategory: 'Philosophy',
+        tags: ['Philosophy', 'Climate Change', 'Indigenous Studies', 'Political Theory', 'Public Policy', 'Oppression', 'Social Inequality', 'Identity', 'Culture', 'Environmental Economics'],
+        date: 'September 2026',
+        readingWordCount: 2125,
+        preview: 'An examination of climate responsibility, Indigenous collective continuance, institutional failure, and what climate justice can require when the institutions responsible for environmental harm repeatedly fail to act.',
+        link: 'articles/climate-justice-after-institutional-failure.html'
+    },
+    {
         title: 'Ecofeminism, Social Ecology, and Bioregionalism',
         authorId: 'james-machado',
         author: 'James Machado',
