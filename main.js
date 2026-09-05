@@ -5,6 +5,20 @@
    ============================================ */
 var ARTICLES = [
     {
+        title: 'Ecofeminism, Social Ecology, and Bioregionalism',
+        authorId: 'james-machado',
+        author: 'James Machado',
+        major: 'Philosophy',
+        institution: 'University of Oregon',
+        categories: ['Philosophy'],
+        displayCategory: 'Philosophy',
+        tags: ['Philosophy', 'Gender', 'Social Inequality', 'Political Theory', 'Culture', 'Identity', 'Oppression', 'Climate Change', 'Public Policy', 'Environmental Economics'],
+        date: 'September 2026',
+        readingWordCount: 1097,
+        preview: "James Machado examines ecofeminism, social ecology, and bioregionalism, arguing that ecological crises are inseparable from social hierarchies and systems of domination.",
+        link: 'articles/ecofeminism-social-ecology-bioregionalism.html'
+    },
+    {
         title: 'Bridging the Gap: Addressing Health Disparities in Punjabi Communities Through Culturally Responsive Health Education',
         authorId: 'jasmine-kaur',
         author: 'Jasmine Kaur, Mansa Kaur, and Japji Kaur',
