@@ -5664,6 +5664,11 @@ button.bulletin-cover-link {
     box-shadow: 0 8px 28px rgba(26, 58, 82, 0.12);
 }
 
+.featured-award-card--image-only {
+    grid-template-columns: 1fr;
+    justify-items: center;
+}
+
 .featured-award-image {
     width: 100%;
     max-width: 240px;
