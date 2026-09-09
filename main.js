@@ -5,19 +5,6 @@
    ============================================ */
 var ARTICLES = [
     {
-        title: 'In What Ways Has the Legacy of Agricultural Labor Shaped the Social and Cultural Identities of Teenage Migrant Workers in Homestead, Florida?',
-        author: 'Bianca Zelaya',
-        major: 'Biomedical Sciences, minor in Psychology',
-        institution: 'University of South Florida',
-        categories: ['Sociology & Anthropology'],
-        displayCategory: 'Sociology & Anthropology',
-        tags: ['Sociology', 'Anthropology', 'Migrant Labor', 'Agricultural Labor', 'Cultural Identity', 'Teen Workers', 'Education', 'Stigma', 'Social Support', 'Homestead Florida'],
-        date: 'September 2026',
-        readingWordCount: 4000,
-        preview: 'Bianca Zelaya examines how the legacy of agricultural labor shapes identity, education, stigma, support systems, and future aspirations among teenage migrant workers in Homestead, Florida.',
-        link: 'articles/legacy-agricultural-labor-teenage-migrant-workers-homestead-florida.html'
-    },
-    {
         title: 'Climate Justice after Institutional Failure',
         authorId: 'james-machado',
         author: 'James Machado',
