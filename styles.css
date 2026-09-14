@@ -4631,6 +4631,10 @@ button {
     text-align: center;
 }
 
+.cta-final--authors .cta-final__actions .btn-primary {
+    border: 1px solid transparent;
+}
+
 .cta-final--surface {
     background: linear-gradient(180deg, rgba(26, 58, 82, 0.95) 0%, rgba(15, 36, 56, 0.96) 100%);
 }
