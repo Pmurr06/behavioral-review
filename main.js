@@ -5,6 +5,19 @@
    ============================================ */
 var ARTICLES = [
     {
+        title: 'Is Sexual Violence Without Killing Sufficient to Constitute Genocide?',
+        authorId: 'adam-salim',
+        author: 'Adam Salim',
+        categories: ['Law & Criminal Justice', 'Global & International Affairs'],
+        displayCategory: 'Law & Criminal Justice',
+        tags: ['Genocide', 'International Law', 'Conflict-Related Sexual Violence', 'Foča', 'Bosnia and Herzegovina', 'Crimes Against Humanity', 'Wartime Violence', 'Group Destruction'],
+        date: 'September 2026',
+        readingWordCount: 2014,
+        preview: 'This article examines whether systematic sexual violence can constitute genocide even in the absence of mass killing. Focusing on the Foča campaign during the Bosnian War, it considers international criminal law, genocidal intent, institutional coordination, forced reproduction, and Claudia Card\'s concept of social death to explore where the conceptual and legal boundaries of genocide should be drawn.',
+        type: 'Analytical / Literature-Based Commentary',
+        link: 'articles/sexual-violence-without-killing-genocide.html'
+    },
+    {
         title: 'After Loss, the Self Relearns to Belong: A Psychological Reading of Zucchini in My Life as a Zucchini',
         authorId: 'apurba-roy',
         author: 'Apurba Roy',

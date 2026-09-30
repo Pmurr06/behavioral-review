@@ -24,6 +24,11 @@
 
 
     var AUTHOR_DIRECTORY = {
+        'adam-salim': {
+            id: 'adam-salim',
+            name: 'Adam Salim',
+            profilePath: 'authors/adam-salim.html'
+        },
         'braydon-perko': {
             id: 'braydon-perko',
             name: 'Braydon Perko',
