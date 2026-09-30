@@ -218,6 +218,23 @@
             bio: 'Japji Kaur is a junior at South River Evening High School.',
             profilePath: 'authors/japji-kaur.html'
         },
+        'apurba-roy': {
+            id: 'apurba-roy',
+            name: 'Apurba Roy',
+            major: null,
+            institution: 'Pundra University of Science & Technology',
+            bio: 'Apurba Roy is a lecturer in the Department of English at Pundra University of Science & Technology. He has a BA in English Literature from Bangladesh Army University of Science and Technology and an MA in English Literature in Cultural Studies from the University of Rajshahi. He is a researcher, writer, and poet.',
+            profilePath: 'authors/apurba-roy.html'
+        },
+        'samiur-prapon': {
+            id: 'samiur-prapon',
+            name: 'Samiur Prapon',
+            major: 'Computer Science and Engineering',
+            institution: 'North South University, Bangladesh',
+            bio: 'Samiur Prapon is studying Computer Science and Engineering at North South University, Bangladesh.',
+            email: 'samiur.prapon@northsouth.edu',
+            profilePath: 'authors/samiur-prapon.html'
+        },
     };
 
     function getDisplayInstitutionName(institution, options) {
@@ -328,6 +345,16 @@
         var linkedInLink = createLinkedInLink(author);
         if (linkedInLink) {
             content.appendChild(linkedInLink);
+        }
+
+        if (author.email) {
+            var email = document.createElement('p');
+            email.className = 'author-profile-card__email';
+            var emailLink = document.createElement('a');
+            emailLink.href = 'mailto:' + author.email;
+            emailLink.textContent = author.email;
+            email.appendChild(emailLink);
+            content.appendChild(email);
         }
 
         if (author.bio) {
