@@ -5,6 +5,21 @@
    ============================================ */
 var ARTICLES = [
     {
+        title: 'After Loss, the Self Relearns to Belong: A Psychological Reading of Zucchini in My Life as a Zucchini',
+        authorId: 'apurba-roy',
+        author: 'Apurba Roy',
+        authorNames: ['Apurba Roy', 'Samiur Prapon'],
+        institution: 'Pundra University of Science & Technology',
+        categories: ['Psychology'],
+        displayCategory: 'Psychology',
+        tags: ['Behavioral Science', 'Child Development', 'Attachment', 'Grief', 'Resilience', 'Self-Efficacy', 'Peer Relationships', 'Film Psychology'],
+        date: 'September 2026',
+        readingWordCount: 2987,
+        preview: 'The article looks at Zucchini’s psychological development in Claude Barras’s book My Life as a Zucchini (2016), concentrating on the way in which grief, disruption of attachment, the need for peer belonging, coping mechanisms, self-efficacy, and resilience interact in the process of rebuilding a child’s sense of self.',
+        type: 'Psychological Analysis / Literature-Based Analysis',
+        link: 'articles/after-loss-self-relearns-belong-zucchini.html'
+    },
+    {
         title: 'In What Ways Has the Legacy of Agricultural Labor Shaped the Social and Cultural Identities of Teenage Migrant Workers in Homestead, Florida?',
         authorId: 'bianca-zelaya',
         author: 'Bianca Zelaya',
@@ -1046,6 +1061,8 @@ function appendPublicationMeta(meta, authorData, article) {
         orgLine.className = 'publication-card-org';
         orgLine.textContent = article.organization;
         authorSpan.appendChild(orgLine);
+    } else if (Array.isArray(article.authorNames) && article.authorNames.length) {
+        authorSpan.textContent = article.authorNames.join(' · ');
     } else if (authorData.profileHref) {
         var authorLink = document.createElement('a');
         authorLink.href = authorData.profileHref;
@@ -1164,7 +1181,10 @@ function buildCompactPublicationCard(article) {
 
     var meta = document.createElement('p');
     meta.className = 'compact-publication-card__meta';
-    meta.textContent = [authorData.name, article.date, getArticleReadingTime(article)].filter(Boolean).join(' • ');
+    var authorNames = Array.isArray(article.authorNames) && article.authorNames.length
+        ? article.authorNames.join(' · ')
+        : authorData.name;
+    meta.textContent = [authorNames, article.date, getArticleReadingTime(article)].filter(Boolean).join(' • ');
     link.appendChild(meta);
 
     var summary = document.createElement('p');
