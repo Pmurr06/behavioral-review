@@ -29,6 +29,14 @@
             name: 'Adam Salim',
             profilePath: 'authors/adam-salim.html'
         },
+        'qinlei-wang': {
+            id: 'qinlei-wang',
+            name: 'Qinlei Wang',
+            major: 'Social Sciences',
+            institution: "King's College London",
+            bio: "Qinlei Wang studies Social Sciences at King's College London, focusing on employment, technological change, behavioural and institutional processes, and the conditions shaping individual economic participation.",
+            profilePath: 'authors/qinlei-wang.html'
+        },
         'braydon-perko': {
             id: 'braydon-perko',
             name: 'Braydon Perko',
