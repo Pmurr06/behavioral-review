@@ -1,5 +1,30 @@
 [
   {
+    "title": "When Quitting Is Harder Than Joining: The Behavioural Economics of Subscription Cancellation",
+    "url": "/articles/when-quitting-is-harder-than-joining.html",
+    "author": "Qinlei Wang",
+    "category": "Economics & Business",
+    "categories": [
+      "Economics & Business",
+      "Behavioral Science"
+    ],
+    "university": "King's College London",
+    "type": "Literature Review",
+    "tags": [
+      "Behavioural Economics",
+      "Subscription Markets",
+      "Consumer Behaviour",
+      "Automatic Renewal",
+      "Cognitive Bias",
+      "Switching Costs",
+      "Sludge",
+      "Dark Patterns",
+      "Consumer Choice",
+      "Retention"
+    ],
+    "abstract": "Subscription retention is often treated as evidence of consumer loyalty, but continued payment can reflect genuine preference, inattention, delayed action, switching costs, or deliberately burdensome cancellation design. This literature review examines how behavioural economics and choice architecture complicate what retention actually tells us about consumer preference."
+  },
+  {
     "title": "Is Sexual Violence Without Killing Sufficient to Constitute Genocide?",
     "url": "/articles/sexual-violence-without-killing-genocide.html",
     "author": "Adam Salim",
