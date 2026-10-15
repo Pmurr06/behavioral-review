@@ -5,6 +5,20 @@
    ============================================ */
 var ARTICLES = [
     {
+        title: 'The Desktop Clinic: Can the Therapeutic Alliance Survive the Digitalisation of Therapy?',
+        authorId: 'nya-miller-davies',
+        author: 'Nya Miller-Davies',
+        institution: 'Cardiff Metropolitan University',
+        categories: ['Psychology'],
+        displayCategory: 'Psychology',
+        tags: ['Therapeutic Alliance', 'Digital Therapy', 'Psychotherapy', 'Teletherapy', 'Videoconferencing', 'Mental Health', 'Clinical Psychology'],
+        date: 'October 2026',
+        readingWordCount: 1950,
+        preview: 'This article examines whether the therapeutic alliance can survive the digitalisation of psychological therapy, considering non-verbal communication, privacy, and evidence from videoconferencing and text-based therapy.',
+        type: 'Analytical / Literature-Based Commentary',
+        link: 'articles/desktop-clinic-therapeutic-alliance-digitalisation-of-therapy.html'
+    },
+    {
         title: 'When Quitting Is Harder Than Joining: The Behavioural Economics of Subscription Cancellation',
         authorId: 'qinlei-wang',
         author: 'Qinlei Wang',

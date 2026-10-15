@@ -29,6 +29,14 @@
             name: 'Adam Salim',
             profilePath: 'authors/adam-salim.html'
         },
+        'nya-miller-davies': {
+            id: 'nya-miller-davies',
+            name: 'Nya Miller-Davies',
+            major: 'Education, Psychology and Special Educational Needs',
+            institution: 'Cardiff Metropolitan University',
+            bio: 'Nya Miller-Davies is currently studying BSc (Hons) Education, Psychology and Special Educational Needs at Cardiff Metropolitan University.',
+            profilePath: 'authors/nya-miller-davies.html'
+        },
         'qinlei-wang': {
             id: 'qinlei-wang',
             name: 'Qinlei Wang',
